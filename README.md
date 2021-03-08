@@ -1,2 +1,7 @@
 # Web_Programming
-For the course Web Programming - Group 16
+COSC2430 - Web Programming
+
+Assignment 1 - HTML & CSS Assignment
+
+Group 16
+Vo Thanh Luan - s3822042
