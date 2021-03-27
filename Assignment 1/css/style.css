@@ -1,0 +1,236 @@
+/*------------------------------------------------------------------
+[ Global] */
+* {
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+}
+div{
+    margin: 0px;
+    padding: 0px;
+}
+ul{
+    padding: 0px;
+    margin: 0px;
+}
+li{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+a{
+    text-decoration: none;
+    padding: 0px;
+    margin: 0px;
+}
+/*------------------------------------------------------------------
+[ Navigation bar] */
+
+/*Top Menu*/
+.header-top{
+    width: 100%;
+    height: 105px;
+    background-color: #B23850;
+    position: relative;
+    z-index: 1;
+}
+
+.nav-top{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+.nav-left img{
+    width: 116px;
+    margin-top: 10px;
+    margin-left: 285px;
+}
+
+.nav-right{
+    margin-left: auto;
+}
+.pull-space{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 270px;
+    margin-top: 10px;
+}
+
+.pull-space li{
+    margin: 10px;
+}
+
+.pull-space > li > a{
+    color: #E7E3D4;
+    font-size: 0.90rem;
+    font-family: 'Barlow', sans-serif;
+}
+
+.pull-space > li > a:hover{
+    color: #c4dbF6;
+}
+
+/*------------------------------------------------------------------
+[ Footer] */
+
+.page-footer {
+  margin-top: 100px; /* Remove */
+  position: relative;
+  background-color:#1A1F24;
+  width: 100%;  
+  bottom: 0;
+}
+
+.page-footer .container {
+  max-width: 85%;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  padding-top: 20px;
+}
+
+.page-footer .container h1 {
+  font-size: 40px;
+}
+
+.page-footer .container h2 {
+  font-size: 40px;
+  float: right;
+}
+
+.page-footer .grid-container a {
+  color:#8590AA;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 16.25px;
+}
+
+.page-footer .grid-item {
+  padding: 10px;
+  color: #8590AA;
+}
+
+
+.page-footer .grid-container .inner-grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  text-align: left;
+}
+
+.page-footer .container hr { 
+  display: block; 
+  height: 1px;
+  border: 0; border-top: 1px solid #8590AA;
+  margin: 1px; 
+  padding: 0; 
+}
+
+.page-footer .container p {
+  font-size: 14px;
+  text-align: right;
+  color: #8590AA;
+  font-weight: 500;
+}
+
+.page-footer .container .logo-img {
+  width: 180px;
+  height: 140px;
+  cursor: pointer;
+}
+
+.page-footer .grid-container .grid-item .social-buttons {
+  padding-top: 20px;
+}
+
+.page-footer .grid-container .grid-item .social-buttons a {
+  display: inline-flex;
+  text-decoration: none;
+  font-size: 30px;
+  width: 60px;
+  height: 60px;
+  color: #1A1F24;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0 8px;
+}
+
+
+.page-footer .grid-container .grid-item .social-buttons a i{
+  transition: 0.3s ease-in;
+}
+
+.page-footer .grid-container .grid-item .social-buttons a:hover i {
+  background: linear-gradient(45deg,#3D3D3D,#3D3D3D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: scale(1.5);
+}
+
+.circle-icon {
+    background: #8590AA;
+    padding:12px;
+    border-radius: 50%;
+}
+
+
+
+
+
+/*------------------------------------------------------------------
+Responsive */
+
+/*------------------------------------------------------------------
+[ Screen Sizes] */
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+  .page-footer {
+    height: 620px;
+    bottom: 0; 
+  }
+
+  .page-footer .grid-container {
+    display: grid;
+    grid-template-columns: 400px;
+  }
+
+  .page-footer .grid-container .inner-grid-container {
+    display: grid;
+    grid-template-columns: auto auto ;
+    text-align: left;
+  }
+
+
+}
+
+/*========================================================*/
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+  .page-footer {
+    height: 260px;
+    bottom: 0;
+  }
+
+  .page-footer .grid-container {
+    display: grid;
+    grid-template-columns: 350px auto 350px;
+  }
+
+  .page-footer .grid-container .inner-grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    text-align: left;
+  }
+
+}
