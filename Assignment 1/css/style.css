@@ -1,11 +1,6 @@
 /*------------------------------------------------------------------
 [ Global] */
-* {
-  box-sizing: border-box;
-  top: 0;
-  left: 0;
-}
-body{
+html body{
     margin: 0px;
     padding: 0px;
 }
@@ -27,6 +22,12 @@ a{
     padding: 0px;
     margin: 0px;
 }
+header,
+footer {
+  flex-shrink: 0;
+}
+
+
 /*------------------------------------------------------------------
 [ Navigation bar] */
 
@@ -38,20 +39,20 @@ a{
     position: relative;
     z-index: 1;
 }
-
+/* Nav Top */
 .nav-top{
     width: 100%;
     margin-left: auto;
     margin-right: auto;
     display: flex;
 }
-
+/* Nav Left */
 .nav-left img{
     width: 116px;
     margin-top: 10px;
     margin-left: 285px;
 }
-
+/* Nav Right */
 .nav-right{
     margin-left: auto;
 }
@@ -69,7 +70,7 @@ a{
 .pull-space > li > a{
     color: #E7E3D4;
     font-size: 0.90rem;
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Courier New', monospace;
 }
 
 .pull-space > li > a:hover{
@@ -96,15 +97,18 @@ a{
 }
 
 .page-footer .container h1 {
+  font-family: 'Courier New', monospace;
   font-size: 40px;
 }
 
 .page-footer .container h2 {
+  font-family: 'Courier New', monospace;
   font-size: 40px;
   float: right;
 }
 
 .page-footer .grid-container a {
+  font-family: 'Courier New', monospace;
   color:#8590AA;
   text-decoration: none;
   font-size: 15px;
@@ -132,6 +136,7 @@ a{
 }
 
 .page-footer .container p {
+  font-family: 'Courier New', monospace;
   font-size: 14px;
   text-align: right;
   color: #8590AA;
@@ -215,7 +220,7 @@ Responsive */
 /*========================================================*/
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1024px) {
 
   .page-footer {
     height: 260px;
