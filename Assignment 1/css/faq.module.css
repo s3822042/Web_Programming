@@ -1,0 +1,53 @@
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid silver;
+  border-image: linear-gradient(
+      to right,
+      transparent 20%,
+      darkslategrey,
+      transparent 80%
+    )
+    30;
+}
+/*** Specific styles ***/
+details {
+  font-family: "Amazon Ember",Arial,sans-serif;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: #232F3E;
+  border-radius: 0.25rem;
+}
+summary {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+}
+summary::after {
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  position: absolute;
+  right: 0.25rem;
+  top: -0.5rem;
+  color: #232F3E;
+  
+}
+details[open] {
+  transition-duration: .5s;
+  background: whitesmoke;
+}
+details[open] summary {
+  transition-duration: .5s;
+  color: #232F3E;
+}
+/*** End specific styles ***/
+details > summary > p {
+  color: #232F3E;
+  font-weight: bold;
+  letter-spacing: 1.5;
+  text-align: justify;
+}
