@@ -49,8 +49,8 @@ footer {
 }
 /* Nav Left */
 .nav-left img{
-    width: 116px;
-    margin-top: 3%;
+    width: 185px;
+    margin-top: 6px;
     margin-left:10%;
 }
 /* Nav Right */
@@ -123,8 +123,8 @@ hr {
 .pill {
   height:0px;
   border-radius: 2px;
-  $color: teal;
-  color: $color;
+  color: teal;
+  color: currentColor;
   border: 2px solid currentColor;
   width: 80%;
 }
@@ -198,9 +198,9 @@ hr {
 
 .page-footer .container .logo-img {
   width: 180px;
-  height: 140px;
+  height: 100px;
   cursor: pointer;
-  
+  margin-top: -14px;
 }
 
 .page-footer .grid-container .grid-item .social-buttons {
