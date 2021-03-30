@@ -1,30 +1,30 @@
 /*------------------------------------------------------------------
 [ Global] */
 html body{
-    margin: 0px;
-    padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 div{
-    margin: 0px;
-    padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 ul{
-    padding: 0px;
-    margin: 0px;
+  padding: 0px;
+  margin: 0px;
 }
 li{
-    list-style: none;
-    padding: 0px;
-    margin: 0px;
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
 }
 a{
-    text-decoration: none;
-    padding: 0px;
-    margin: 0px;
+  text-decoration: none;
+  padding: 0px;
+  margin: 0px;
 }
 header,
 footer {
-  flex-shrink: 0;
+flex-shrink: 0;
 }
 
 
@@ -33,100 +33,113 @@ footer {
 
 /*Top Menu*/
 .header-top{
-    width: 100%;
-    height: 105px;
-    color: #253238;
-    background: rgb(0,0,0);
-    background: linear-gradient(90deg, rgba(0,0,0,1) 20%, rgba(37,51,170,1) 72%, rgba(0,255,229,1) 100%);    position: relative;
-    z-index: 1;
+  width: 100%;
+  height: 105px;
+  color: #253238;
+  background: rgb(0,0,0);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 20%, rgba(37,51,170,1) 72%, rgba(0,255,229,1) 100%);    position: relative;
+  z-index: 1;
 }
 /* Nav Top */
 .nav-top{
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
 }
 /* Nav Left */
 .nav-left img{
     width: 185px;
+    margin-left: 10%;
     margin-top: 6px;
-    margin-left:10%;
 }
 /* Nav Right */
 .nav-right{
-    margin-left: auto;
+  margin-left: auto;
 }
 .pull-space{
-    display: flex;
-    justify-content: space-between;
-    margin-right: 270px;
-    margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 270px;
+  margin-top: 10px;
 }
 
 .pull-space li{
-    margin: 10px;
+  margin: 10px;
 }
 
 .pull-space > li > a{
-    color: #E7E3D4;
-    font-size: 0.90rem;
-    font-family: "Amazon Ember",Arial,sans-serif;
+  color: #E7E3D4;
+  font-size: 0.90rem;
+  font-family: "Amazon Ember",Arial,sans-serif;
 }
 
 .pull-space > li > a:hover{
-    color: #c4dbF6;
+  color: #c4dbF6;
 }
 /*------------------------------------------------------------------
 [ Cart Icon] */
 .cart-icon{
-  cursor: pointer;
-  color: #fff;  
+cursor: pointer;
+color: #fff;  
 }
 /*------------------------------------------------------------------
 [ Tooltip] */
 .tooltip {
-  display: inline;
-  position: relative;
+display: inline;
+position: relative;
 }
 .tooltip:hover:after{
-  border: solid;
-  border-color: #444 transparent;
-  border-width: 12px 6px 0 6px;
-  left: 45%;
-  bottom: 30px;
-  position: absolute;
+border: solid;
+border-color: #444 transparent;
+border-width: 12px 6px 0 6px;
+left: 45%;
+bottom: 30px;
+position: absolute;
 }
 /*------------------------------------------------------------------
 [ Title] */
 #title {
-  font-family: "Amazon Ember",Arial,sans-serif;
-  position: relative;
-  font-weight: bold;
-  margin: auto;
-  text-align: center;
-  font-size: 6.5rem;
-  color:#232F3E;
-  letter-spacing: 0.06em;
-  justify-content: center;
-  align-items: center;
+font-family: "Amazon Ember",Arial,sans-serif;
+position: relative;
+font-weight: bold;
+margin: auto;
+text-align: center;
+font-size: 6.5rem;
+color:#232F3E;
+letter-spacing: 0.06em;
+justify-content: center;
+align-items: center;
 }
 /*------------------------------------------------------------------
 [ hr styling] */
 hr {
-  border: 0;
-  margin: 1.35em auto;
-  max-width: 100%;
-  background-position: 50%;
-  box-sizing: border-box;
+border: 0;
+margin: 1.35em auto;
+max-width: 100%;
+background-position: 50%;
+box-sizing: border-box;
 }
 .pill {
-  height:0px;
-  border-radius: 2px;
-  color: teal;
-  color: currentColor;
-  border: 2px solid currentColor;
-  width: 80%;
+height:0px;
+border-radius: 2px;
+color: teal;
+color: currentColor;
+border: 2px solid currentColor;
+width: 80%;
+}
+
+.centered-text {
+  color: #fff;
+  position: absolute;
+  top: 17%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  font-size: 12rem;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-left-style: hidden;
+  border-right-style: hidden;
 }
 
 /*------------------------------------------------------------------
