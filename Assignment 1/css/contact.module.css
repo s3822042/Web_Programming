@@ -1,0 +1,92 @@
+
+/*------------------------------------------------------------------
+[ Contact form] */
+body{
+  margin:0;
+  background-image: url("https://i.imgur.com/4EjYpKM.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.form {
+  width: 340px;
+  height: 440px;
+  background: #e6e6e6;
+  border-radius: 8px;
+  box-shadow: 0 0 40px -10px #000;
+  margin: 120px 80px auto auto;
+  padding: 20px 30px;
+  max-width: 1448px;
+  box-sizing: border-box;
+  font-family: "Amazon Ember",Arial,sans-serif;
+  position: relative;
+  
+}
+h2 {
+  margin: 10px 0;
+  padding-bottom: 10px;
+  width: 180px;
+  color: #78788c;
+  border-bottom: 3px solid #78788c;
+}
+input,S
+option {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  background: none;
+  outline: none;
+  resize: none;
+  border: 0;
+  font-family: "Amazon Ember",Arial,sans-serif;
+  transition: all 0.3s;
+  border-bottom: 2px solid #bebed2;
+}
+input:focus,
+option:focus {
+  border-bottom: 2px solid #78788c;
+}
+p:before {
+  content: attr(type);
+  display: block;
+  margin: 28px 0 0;
+  font-size: 14px;
+  color: #5a5a5a;
+}
+.submit {
+  float: right;
+  padding: 8px 12px;
+  margin: 8px 0 0;
+  font-family: "Amazon Ember",Arial,sans-serif;
+  border: 2px solid #78788c;
+  background: 0;
+  color: #ffffff;
+  background: rgba(0, 128, 0, 0.8);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.reset {
+  float: left;
+  padding: 8px 12px;
+  margin: 8px 0 0;
+  font-family: "Amazon Ember",Arial,sans-serif;
+  border: 2px solid #78788c;
+  background: 0;
+  color: #ffffff;
+  background: rgba(194, 30, 86, 0.8);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.submit:hover {
+  background: #008000;
+  color: #fff;
+}
+.reset:hover {
+  background: #c21e56;
+  color: #fff;
+}
+
+span {
+  margin: 0 5px 0 15px;
+}
