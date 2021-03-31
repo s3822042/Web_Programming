@@ -21,3 +21,10 @@
 .text-inline > ul > li{
     list-style-type: disc;
 }
+
+.main-title {
+  font-size: 2rem;
+  font-weight:bold;
+  font-family: "Telefon Black", Sans-Serif;
+  text-align: center;
+}
