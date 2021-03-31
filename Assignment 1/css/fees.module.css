@@ -1,0 +1,104 @@
+/*------------------------------------------------------------------
+[ Global] */
+body{
+  margin:0;
+  font-size: 100%;
+  min-height: 100%;
+  line-height: 1.5;
+  padding: 2.5em 0;
+  background:#fff;
+
+}
+/*------------------------------------------------------------------
+[ Pricing table] */
+.container-fluid {
+  font-family: "Amazon Ember",Arial,sans-serif;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/*------------------------------------------------------------------
+[ Card] */
+.card-header{
+  height: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 10px;
+  box-shadow: 1px 1px 25px 0px rgba(35, 47, 62, 0.9);
+}
+.card{
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+.sub-title{
+  font-size: 1.5em;
+  font-weight: 400;
+  text-align: center;
+  color: rgba(0,0,139,0.9);
+}
+
+.plan-price-content {
+    margin: 10px 0px;
+    color: #316bd6;
+    text-align: center;
+}
+
+.plan-price {
+    font-size: 26px;
+    font-weight: 600;
+    color: inherit;
+}
+
+.plan-price-text {
+    color: #707070;
+    margin-top: 2px;
+}
+
+.month-text {
+    font-size: 13px;
+    font-weight: 500;
+    opacity: .6;
+}
+/*------------------------------------------------------------------
+[ Features] */
+.features {
+  height: 70%;
+  text-align: left;
+  
+  padding: 1rem;
+}
+.features li {
+    color: rgba(0,0,139,0.9);
+    margin-bottom: 1rem;
+}
+/*------------------------------------------------------------------
+[ Button] */
+.button {
+  width: 90%;
+  display: inline-block;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: rgba(49, 137, 214,0.9);
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 50px; 
+}
+.button:hover{
+  background-color:#316bd6;
+}
