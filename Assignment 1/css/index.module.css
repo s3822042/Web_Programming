@@ -1,0 +1,124 @@
+/*------------------------------------------------------------------
+[ Global] */
+body{
+    background-color:#fff;
+}
+
+/*------------------------------------------------------------------
+[ New Store] */
+#stores , #products{
+	width: 100%;
+}
+
+#stores .container , #products .container {
+	display: block;
+	width: 80%;
+	margin: 0 auto;
+	font-size: 16px;
+}
+
+#stores .container .stores-header , #products .container .products-header {
+	font-size: 16px;
+	text-align: center;
+}
+
+#stores .container .stores-header h2 , #products .container .products-header h2{
+	padding: 2rem 1rem;
+	text-transform: uppercase;
+	font-family: "Amazon Ember",Arial,sans-serif;
+	color: #000000;
+	font-size: 1.875rem;
+	font-weight: 400;
+	letter-spacing: 0.2rem;
+	line-height: 1;
+	text-align: center;
+}
+#stores .container .store {
+	width: 28%;
+	display: inline-block;
+	font-size: 16px;
+	text-align: center;
+	padding: 1.8rem;
+	transform: scale(1);
+	opacity: 1;
+}
+#stores .container .store:hover {
+	transform: scale(0.9);
+	opacity: 0.8;
+	transition: opacity 800ms ease-in-out 0s;
+	transition: -webkit-transform 1s ease-in-out 0s;
+	transition: transform 1s ease-in-out 0s;
+	transition: transform 1s ease-in-out 0s, 
+	cursor: pointer;
+}
+#stores .container .store figure img {
+	width: 100%;
+	height: auto;
+}
+#stores .container .store figure figcaption {
+	font-family: "Amazon Ember",Arial,sans-serif;
+	color: rgba(89, 89, 89, 1);
+	font-size: 0.8rem;
+	font-weight: 600;
+	letter-spacing: 0.02rem;
+	text-align: center;
+	padding: 1rem 0rem 0rem;
+	text-transform: uppercase;
+}
+/*------------------------------------------------------------------
+[ Responsive] */
+
+@media only screen and (max-width: 1024px) {
+	#stores .container .store , #stores .container .store-wrap{
+		width: 50%;
+		padding: 3rem;
+	}
+}
+@media only screen and (max-width: 768px) {
+	#stores .container .store , #stores .container .store-wrap {
+		width: 50%;
+		padding: 2rem;
+	}
+}
+@media only screen and (max-width: 480px) {
+	#stores .container .store , #stores .container .store-wrap {
+		width: 100%;
+	}
+}
+/*------------------------------------------------------------------
+[ Featured store] */
+#stores .container .store-wrap{
+    position:relative;
+}
+#stores .container .store-wrap .store-banner{
+    background-image: url("https://i.imgur.com/tqmK6IP.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height:633px;
+}
+
+#stores .container .store-wrap .store-layer{
+  
+}
+#stores .container .store-wrap:hover .store-layer{
+    
+}
+#stores .container .store-wrap .store-layer .store-description{
+  
+}
+/*------------------------------------------------------------------
+[ New product] */
+
+/*------------------------------------------------------------------
+[ Featured product] */
+#products .container .product-wrap{
+    width: 100%;
+	display: block;
+	position: relative;
+}
+#products .container .product-wrap .product-banner{
+    background-image: url("https://i.imgur.com/A8XIfJ5.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+	height: 765px;
+}
