@@ -26,6 +26,8 @@
   border-right-style: hidden;
   }
 
+
+/* Header  */
 .header-top {
   background: rgb(255,255,255);
   background: linear-gradient(90deg, rgba(255,255,255,1) 28%, rgba(217,22,22,1) 78%, rgba(0,0,0,1) 100%);
@@ -34,10 +36,24 @@
   margin-top: -6px;
 }
 
-.pull-space > li > a{
-  color: #000;
+.nav-right{
+  margin-right: 100px;
 }
 
+.pull-space > li > a{
+  color: #000;
+  font-size: 16px;
+}
+
+.pull-space > li > a:hover{
+  color: #fff;
+}
+
+/* Footer */
 .page-footer {
   background-color: #fff;
+}
+
+.page-footer .grid-container a {
+  font-size: 16px;
 }
