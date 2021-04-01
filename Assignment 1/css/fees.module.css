@@ -7,98 +7,94 @@ body{
   line-height: 1.5;
   padding: 2.5em 0;
   background:#fff;
-
+  font-family: "Amazon Ember",Arial,sans-serif;
 }
 /*------------------------------------------------------------------
 [ Pricing table] */
-.container-fluid {
-  font-family: "Amazon Ember",Arial,sans-serif;
-  margin: 0 auto;
-  width: 90%;
-  max-width: 1200px;
+
+.pricing-table{
+
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
+  justify-content: space-around;
+  width: min(1600px, 100%);
+  margin: auto;
 }
 
-.group:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-/*------------------------------------------------------------------
-[ Card] */
-.card-header{
-  height: 100%;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  border-radius: 10px;
-  box-shadow: 1px 1px 25px 0px rgba(35, 47, 62, 0.9);
-}
-.card{
-  height: 30%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  margin-bottom: 2rem;
-}
-.sub-title{
-  font-size: 1.5em;
-  font-weight: 400;
+.pricing-card{
+  flex: 1;
+  max-width: 360px;
+  background-color: #2d2d2d;
+  margin: 20px 10px;
+  cursor: pointer;
+  overflow: hidden;
   text-align: center;
-  color: rgba(0,0,139,0.9);
+  color: #fff;
+  transition: .3s linear;
 }
 
-.plan-price-content {
-    margin: 10px 0px;
-    color: #316bd6;
-    text-align: center;
+.card-header{
+  background-color: #0fbcf9;
+  display: inline-block;
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 0 0 20px 20px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: .4s linear;
 }
 
-.plan-price {
-    font-size: 26px;
-    font-weight: 600;
-    color: inherit;
+.pricing-card:hover .card-header{
+  box-shadow: 0 0 0 26em #0fbcf9;
 }
 
-.plan-price-text {
-    color: #707070;
-    margin-top: 2px;
+.plan-price-content{
+  font-size: 70px;
+  color: #0fbcf9;
+  margin: 40px 0;
+  transition: .2s linear;
 }
 
-.month-text {
-    font-size: 13px;
-    font-weight: 500;
-    opacity: .6;
+.plan-price-content sup, .plan-price-content span{
+  font-size: 22px;
+  font-weight: 700;
 }
-/*------------------------------------------------------------------
-[ Features] */
-.features {
-  height: 70%;
+
+.pricing-card:hover, .card-header:hover ,.pricing-card:hover .plan-price-content{
+  color: #fff ;
+}
+
+.pricing-card li{
+  font-size: 16px;
+  padding: 10px 0;
+  text-transform: uppercase;
   text-align: left;
-  
-  padding: 1rem;
+  padding-left:20px;
 }
-.features li {
-    color: rgba(0,0,139,0.9);
-    margin-bottom: 1rem;
-}
+
 /*------------------------------------------------------------------
 [ Button] */
-.button {
-  width: 90%;
+
+.button{
   display: inline-block;
-  margin: 0 auto;
-  padding: 1rem;
-  background-color: rgba(49, 137, 214,0.9);
-  color: #fff;
-  text-decoration: none;
-  text-align: center;
-  border-radius: 50px; 
+  margin-bottom: 40px;
+  margin-top: 80px;
+  border: 2px solid #0fbcf9;
+  color: #0fbcf9;
+  padding: 18px 40px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: .3s linear;
 }
 .button:hover{
-  background-color:#316bd6;
+  background-color: #0fbcf9;
+  color: #fff;
+}
+
+@media screen and (max-width:1100px){
+  .pricing-card{
+    flex: 50%;
+  }
 }
