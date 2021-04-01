@@ -26,15 +26,30 @@
   border-right-style: hidden;
   }
 
-  .header-top {
-    background: rgb(0,0,0);
-    background: linear-gradient(90deg, rgba(0,0,0,1) 8%, rgba(195,27,65,1) 50%, rgba(255,239,103,1) 100%);
-  }
+
+/* Header */
+.header-top {
+  background: rgb(0,0,0);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 8%, rgba(195,27,65,1) 50%, rgba(255,239,103,1) 100%);
+}
 
 .nav-left {
   margin-top: -6px;
 }
 
+.nav-right{
+  margin-right: 100px;
+}
+
+.pull-space > li > a {
+  font-size: 16px;
+}
+
+.pull-space > li > a:hover {
+  color: #000;
+}
+
+/* Footer */
 .page-footer {
   background-color: #000;
 }
@@ -45,6 +60,7 @@
 
 .page-footer .grid-container a {
   color:#fff;
+  font-size: 16px;
 }
 
 .page-footer .container hr { 
