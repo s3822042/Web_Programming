@@ -25,3 +25,43 @@
   border-left-style: hidden;
   border-right-style: hidden;
   }
+
+  .header-top {
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 8%, rgba(195,27,65,1) 50%, rgba(255,239,103,1) 100%);
+  }
+
+.nav-left {
+  margin-top: -6px;
+}
+
+.page-footer {
+  background-color: #000;
+}
+
+.circle-icon {
+  background: #fff;
+}
+
+.page-footer .grid-container a {
+  color:#fff;
+}
+
+.page-footer .container hr { 
+  border-top: 1px solid #fff;
+}
+
+.page-footer .container p {
+  color: #fff;
+}
+
+.page-footer .grid-container .grid-item .social-buttons a {
+  color: #000;
+}
+
+.page-footer .grid-container .grid-item .social-buttons a:hover i {
+  background: linear-gradient(45deg,#fff, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: scale(1.5);
+}
