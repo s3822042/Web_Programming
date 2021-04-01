@@ -25,3 +25,19 @@
   border-left-style: hidden;
   border-right-style: hidden;
   }
+
+.header-top {
+  background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 28%, rgba(217,22,22,1) 78%, rgba(0,0,0,1) 100%);
+}
+.nav-left {
+  margin-top: -6px;
+}
+
+.pull-space > li > a{
+  color: #000;
+}
+
+.page-footer {
+  background-color: #fff;
+}
