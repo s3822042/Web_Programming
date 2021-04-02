@@ -48,7 +48,7 @@ body{
 	transition: opacity 800ms ease-in-out 0s;
 	transition: -webkit-transform 1s ease-in-out 0s;
 	transition: transform 1s ease-in-out 0s;
-	transition: transform 1s ease-in-out 0s, 
+	transition: transform 1s ease-in-out 0s; 
 	cursor: pointer;
 }
 #stores .container .store figure img {
@@ -102,7 +102,7 @@ body{
 	transition: opacity 800ms ease-in-out 0s;
 	transition: -webkit-transform 1s ease-in-out 0s;
 	transition: transform 1s ease-in-out 0s;
-	transition: transform 1s ease-in-out 0s, 
+	transition: transform 1s ease-in-out 0s; 
 	cursor: pointer;
 }
 #stores .container .store-wrap .store-content , #products .container .product-wrap .product-content{
