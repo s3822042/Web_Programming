@@ -27,7 +27,7 @@
     background-color: red;
 }
 
-.body_container .account_body .account_nav .account_nav_item_choosen {
+.body_container .account_body .account_nav .account_nav_current_state {
     background-color: red;
 }
 
@@ -48,7 +48,7 @@
     box-shadow: 1px black;
 }
 
-.body_container .account_body .account_main_content .seperator {
+.body_container .account_body .account_main_content .separator {
     width: 80%;
     height: 1px;
     background-color: gray;
@@ -92,7 +92,7 @@
     margin-top: 10px;
 }
 
-.body_container .account_body .account_main_content .personal_detail .information_box .radiobox {
+.body_container .account_body .account_main_content .personal_detail .information_box .radio-box {
     margin-top: 15px
 }
 
