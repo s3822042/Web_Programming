@@ -1,0 +1,136 @@
+/* main container */
+
+.body_container {
+    background: rgb(3, 5, 80);
+    background: linear-gradient(90deg, rgba(3, 5, 80, 1) 0%, rgba(59, 81, 230, 1) 35%, rgba(0, 255, 199, 1) 100%);
+    padding-left: 50px;
+    padding-right: 25px;
+}
+
+
+/* content */
+
+.body_container .account_body {
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+
+/* navbar */
+
+.body_container .account_body .account_nav {
+    border: 5px solid black;
+    margin: 5px;
+}
+
+.body_container .account_body .account_nav .account_nav_item:hover {
+    background-color: red;
+}
+
+.body_container .account_body .account_nav .account_nav_current_state {
+    background-color: red;
+}
+
+.body_container .account_body .account_nav .account_nav_item {
+    background-color: lightblue;
+    transition: 0.1s;
+}
+
+
+/* content of that page */
+
+.body_container .account_body .account_main_content {
+    border: 5px solid black;
+    margin: 5px;
+    background-color: aliceblue;
+    padding-top: 10px;
+    padding-left: 10px;
+    box-shadow: 1px black;
+}
+
+.body_container .account_body .account_main_content .separator {
+    width: 80%;
+    height: 1px;
+    background-color: gray;
+    margin: auto;
+    margin-bottom: 5px;
+}
+
+
+/* form - account */
+
+.body_container .account_body .account_main_content .personal_detail {
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+.body_container .account_body .account_main_content .submit_button {
+    background-color: green;
+    margin-left: 70%;
+    transition: 0.3s;
+}
+
+.body_container .account_body .account_main_content .submit_button:hover {
+    background-color: red
+}
+
+.body_container .account_body .account_main_content .personal_detail .information_box {
+    display: grid;
+    grid-template-columns: 15% 85%;
+    padding: auto
+}
+
+.body_container .account_body .account_main_content .personal_detail .information_box .information_text {
+    width: 80%;
+    margin: 5px
+}
+
+.body_container .account_body .account_main_content .personal_detail .avatar {
+    width: 145px;
+    height: 145px;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+.body_container .account_body .account_main_content .personal_detail .information_box .radio-box {
+    margin-top: 15px
+}
+
+
+/* past transaction */
+
+.body_container .account_body .account_main_content .past_transaction {
+    display: grid;
+    grid-template-columns: 15% 85%;
+}
+
+
+/* product picture */
+
+.body_container .account_body .account_main_content .past_transaction .avatar {
+    width: 145px;
+    height: 145px;
+    border-radius: 50%;
+    margin-top: 25px;
+}
+
+
+/* content of the  past product*/
+
+.body_container .account_body .account_main_content .past_transaction h4 {
+    text-align: center
+}
+
+.body_container .account_body .account_main_content .past_transaction .product_description .product {
+    border: 2px solid black;
+    padding-left: 20px
+}
+
+.body_container .account_body .account_main_content .past_transaction .product_description .product .confirmation {
+    text-align: right;
+    padding-right: 10%;
+}
+
+.body_container .account_body .account_main_content .past_transaction .product_description .product .confirmation .tick {
+    color: green
+}

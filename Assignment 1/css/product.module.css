@@ -1,0 +1,218 @@
+    /* body starter */
+    
+    .product_description {
+        background: rgb(3, 5, 80);
+        background: linear-gradient(90deg, rgba(3, 5, 80, 1) 0%, rgba(59, 81, 230, 1) 35%, rgba(0, 255, 199, 1) 100%);
+        padding-left: 50px;
+        padding-right: 25px;
+    }
+    
+    .product_description .product_content {
+        border: 5px solid black;
+        margin: 5px;
+        background-color: aliceblue;
+        padding-top: 10px;
+        padding-left: 10px;
+        box-shadow: 1px black;
+    }
+    /* seperator */
+    
+    .seperator {
+        width: 80%;
+        height: 1px;
+        opacity: 50%;
+        background-color: gray;
+        margin-top: 10px;
+        margin-bottom: 10px
+    }
+    /* rating */
+    
+    .checked {
+        color: orange;
+    }
+    /* product main img  */
+    
+    .
+    /* creating the base for the product */
+    
+    .product_description .product_content h1 {
+        text-align: center
+    }
+    
+    .product_description .product_content .product_detail {
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+    /* production picture */
+    
+    .product_description .product_content .product_detail .general_picture {
+        max-width: 100%;
+        height: auto
+    }
+    /* product description */
+    
+    .product_description .product_content .product_detail .product_general_description {
+        box-shadow: 1px black;
+        padding: 10px
+    }
+    /* general description */
+    
+    .product_description .product_content .product_detail .product_general_description .same_product_another_design {
+        max-width: 20%;
+        height: auto;
+    }
+    
+    .product_description .product_content .product_detail .product_general_description .buying {
+        text-align: right;
+        padding-right: 25px
+    }
+    
+    .product_description .product_content .product_detail .product_general_description .buying .addtocart {
+        background-color: orange;
+        transition: 0.3s;
+    }
+    
+    .product_description .product_content .product_detail .product_general_description .buying .addtocart:hover {
+        background-color: lightblue
+    }
+    
+    .product_description .product_content .product_detail .product_general_description .detail-list {
+        padding-left: 20px
+    }
+    /* detail description */
+    
+    .product_description .product_content .detail_description {
+        box-shadow: 1px black;
+    }
+    
+    .product_description .product_content .detail_description ul li {
+        list-style-type: disc;
+        margin-left: 15px
+    }
+    /* comment */
+    
+    .product_description .product_content .review_part {
+        display: grid;
+        grid-template-columns: 10% 90%;
+        margin-left: 10px
+    }
+    
+    .product_description .product_content .review_part {
+        display: grid;
+        grid-template-columns: 30% 70%;
+    }
+    /* star rating */
+    
+    .product_description .product_content .review_part .star_summary {
+        border-right: 1px solid #4B5358
+    }
+    
+    .product_description .product_content .review_part .star_summary h3 {
+        text-align: center
+    }
+    /* review bar */
+    
+    .product_description .product_content .review_part .star_summary .review_bar {
+        display: grid;
+        grid-template-columns: 20% 60% 20%;
+    }
+    
+    .product_description .product_content .review_part .star_summary .review_bar .gray_bar {
+        width: 100%;
+        height: 15px;
+        background-color: white;
+        margin: auto
+    }
+    
+    .product_description .product_content .review_part .star_summary .review_bar .gray_bar .amount_bar {
+        background-color: orange;
+        height: 15px;
+    }
+    /* Star review */
+    
+    .rating {
+        unicode-bidi: bidi-override;
+        direction: rtl;
+        text-align: left;
+    }
+    
+    .rating>span {
+        display: inline-block;
+        position: relative;
+        width: 1.1em;
+    }
+    
+    .rating>span:hover:before,
+    .rating>span:hover~span:before {
+        content: "\2605";
+        position: absolute;
+        color: orange;
+    }
+    
+    .product_description .product_content .review_part .star_summary .review .text-area {
+        width: 90%;
+        height: 50%
+    }
+    
+    .product_description .product_content .review_part .star_summary .review .submit-button {
+        background-color: green;
+        margin-left: 70%;
+        transition: 0.3s;
+    }
+    
+    .product_description .product_content .review_part .star_summary .review .submit-button:hover {
+        background-color: red
+    }
+    /* other review */
+    
+    .product_description .product_content .review_part .other-review {
+        padding: 10px
+    }
+    
+    .product_description .product_content .review_part .other-review h1 {
+        text-align: center
+    }
+    
+    .product_description .product_content .review_part .other-review .review {
+        display: grid;
+        grid-template-columns: 20% 80%;
+    }
+    
+    .product_description .product_content .review_part .other-review .review .avatar {
+        padding: auto;
+        padding-top: 20%;
+    }
+    
+    .product_description .product_content .review_part .other-review .review .review-content .review_reason {
+        margin-left: 20px
+    }
+    
+    .product_description .product_content .review_part .other-review .review .review-content .text-area {
+        border: 1px black solid;
+        padding: 10px;
+    }
+    /* other recommended product */
+    
+    .product_description .product_content .similar-product {
+        width: 100%;
+        border: 1px black solid;
+        height: fit-content;
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+    }
+    
+    .product_description .product_content .similar-product .product_list {
+        padding: 5px;
+    }
+    /* each recommended product */
+    
+    .product_description .product_content .similar-product .product_list .product {
+        max-height: 100%;
+    }
+    
+    .product_description .product_content .similar-product .product_list .product .product-img {
+        max-width: 200px;
+        padding-top: 0px;
+    }
+    
+    .product_description .product_content .similar-product .product_list .product .product-link {}
