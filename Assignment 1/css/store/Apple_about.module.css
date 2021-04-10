@@ -21,7 +21,8 @@
 }
 
 .hero > h1 {
-    padding: 20px;
+    padding-top: 25px;
+    padding-bottom: 10px;
     margin-top: -20%;
     position: relative;
     color: #ffffff;  
@@ -31,7 +32,7 @@
     border-bottom-style: double;
     border-top-style: double;
     text-shadow: 3px 3px 10px rgb(161, 12, 12);
-    left: 37%;
+    left: 38%;
 }
 
 .description {
