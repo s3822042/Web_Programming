@@ -24,7 +24,7 @@
 .hero > h1 {
     padding-top: 25px;
     padding-bottom: 10px;
-    margin-top: -20%;
+    margin-top: -26%;
     position: relative;
     color: rgba(217,180,3,255);  
     font-size: 6rem;
@@ -42,7 +42,7 @@
     font-size: 1.5rem;
     line-height: 0.9;
     text-align: center;
-    left: -13%;
+    left: -12%;
     top: 8%;
     line-height: 2;
 }
