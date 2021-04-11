@@ -1,0 +1,35 @@
+body {
+    background-color: #e0e0e0;
+}
+
+/* Header  */
+.header-top {
+    background: rgb(255,255,255);
+    background: linear-gradient(117deg, rgba(255,255,255,1) 47%, rgba(255,11,38,1) 100%);
+  }
+  .nav-left {
+    margin-top: -6px;
+  }
+  
+  .nav-right{
+    margin-right: 100px;
+  }
+  
+  .pull-space > li > a{
+    color: #000;
+    font-size: 16px;
+  }
+  
+  .pull-space > li > a:hover{
+    color: #fff;
+  }
+  
+  /* Footer */
+  .page-footer {
+    background-color: #fff;
+    margin-top: 30px;
+  }
+  
+  .page-footer .grid-container a {
+    font-size: 16px;
+  }

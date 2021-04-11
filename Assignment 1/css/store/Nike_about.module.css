@@ -22,7 +22,8 @@
 }
 
 .hero > h1 {
-    padding: 20px;
+    padding-top: 25px;
+    padding-bottom: 10px;
     margin-top: -20%;
     position: relative;
     color: #ffffff;  
@@ -32,7 +33,7 @@
     border-bottom-style: double;
     border-top-style: double;
     text-shadow: 3px 3px 10px #e81313;
-    left: 39%;
+    left: 41%;
 }
 
 .description {
@@ -41,7 +42,7 @@
     font-size: 1.5rem;
     line-height: 0.9;
     text-align: center;
-    left: -10%;
+    left: -9%;
     top: 6%;
     line-height: 2;
 }
