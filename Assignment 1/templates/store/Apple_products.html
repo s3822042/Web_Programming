@@ -19,51 +19,52 @@
 
   <body>
     <!-- Navigation bar -->
-    <header class="header-top">
-      <div class="nav-top">
-        <!-- Navbar logo-->
-        <div class="nav-left">
-          <a href="../store/store_Apple.html"
-            ><img
-              src="https://i.imgur.com/pFWAXrC.jpg"
-              alt="logo"
-              class="logo-img"
-            />
-          </a>
-        </div>
-        <!-- Navbar items -->
-        <div class="nav-right">
-          <ul class="pull-space">
-            <li>
-              <a href="../../index.html"><strong>Mall Express</strong></a>
-            </li>
-            <li><a href="../store/Apple_about.html">About us</a></li>
-            <li><a href="../store/Apple_products.html">Products</a></li>
-            <li><a href="../contact.html">Contact</a></li>
-            <!-- Cart Icon -->
-            <li class="cart-icon">
-              <a href="#" title="You do not have any products" class="tooltip"
-                ><i class="fas fa-cart-plus fa-2x"></i
-              ></a>
-            </li>
-          </ul>
-        </div>
-        <!-- End Navbar items -->
+    <header>
+      <!-- Logo -->
+      <div class="brand">
+        <a href="../store/store_Apple.html"
+          ><img
+            src="https://i.imgur.com/pFWAXrC.jpg"
+            alt="logo"
+            class="logo-img"
+          />
+        </a>
       </div>
-      <!-- End Navbar top -->
+      <!-- Right menu -->
+      <nav class="menu">
+        <input type="checkbox" id="menuToggle" />
+        <label for="menuToggle" class="menu-icon"
+          ><i class="fa fa-bars"></i
+        ></label>
+        <ul>
+          <a href="../../index.html"
+            ><li><strong>Mall Express</strong></li></a
+          >
+          <a href="../store/Apple_about.html"><li>About us</li></a>
+          <a href="../store/Apple_products.html"><li>Product</li></a>
+          <a href="../contact.html"><li>Contact</li></a>
+        </ul>
+      </nav>
     </header>
     <!-- End header -->
-   
     <!-- Banner -->
     <div class="banner">
       <div class="banner-content">
         <div class="vertical-center-1">
-          <button class="button"><a href="Apple_prod_browse_Cate.html">Browse Products by Categories</a></button>
-      </div>
+          <button class="button">
+            <a href="Apple_prod_browse_Cate.html"
+              >Browse Products by Categories</a
+            >
+          </button>
+        </div>
 
-      <div class="vertical-center-2">
-          <button class="button"><a href="Apple_prod_browse_Time.html">Browse Products by Created Time</a></button>
-      </div>
+        <div class="vertical-center-2">
+          <button class="button">
+            <a href="Apple_prod_browse_Time.html"
+              >Browse Products by Created Time</a
+            >
+          </button>
+        </div>
       </div>
     </div>
     <!-- End banner -->
