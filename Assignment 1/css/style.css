@@ -3,6 +3,8 @@
 html body{
     margin: 0px;
     padding: 0px;
+    width: 100%;
+    height:100%;
 }
 div{
     margin: 0px;
@@ -30,72 +32,99 @@ footer {
 
 /*------------------------------------------------------------------
 [ Navigation bar] */
+header {
+	width: 100%;
+	height: 100px;
+	line-height: 50px;
+	text-align: center;
 
-/*Top Menu*/
-.header-top{
-    width: 100%;
-    height: 105px;
-    color: #253238;
-    background: rgb(0,0,0);
-    background: linear-gradient(90deg, rgba(0,0,0,1) 20%, rgba(37,51,170,1) 72%, rgba(0,255,229,1) 100%);    position: relative;
-    z-index: 1;
-}
-/* Nav Top */
-.nav-top{
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-}
-/* Nav Left */
-.nav-left img{
-    width: 185px;
-    margin-top: 6px;
-    margin-left:10%;
-}
-/* Nav Right */
-.nav-right{
-    margin-left: auto;
-}
-.pull-space{
-    display: flex;
-    justify-content: space-between;
-    margin-right: 270px;
-    margin-top: 10px;
-}
-
-.pull-space li{
-    margin: 10px;
-}
-
-.pull-space > li > a{
-    color: #E7E3D4;
-    font-size: 0.90rem;
-    font-family: "Amazon Ember",Arial,sans-serif;
-}
-
-.pull-space > li > a:hover{
-    color: #c4dbF6;
-}
-/*------------------------------------------------------------------
-[ Cart Icon] */
-.cart-icon{
-  cursor: pointer;
-  color: #fff;  
-}
-/*------------------------------------------------------------------
-[ Tooltip] */
-.tooltip {
-  display: inline;
+	font-family: "Amazon Ember",Arial,sans-serif;
+	background: rgb(0,0,0);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 20%, rgba(37,51,170,1) 72%, rgba(0,255,229,1) 100%);    
   position: relative;
 }
-.tooltip:hover:after{
-  border: solid;
-  border-color: #444 transparent;
-  border-width: 12px 6px 0 6px;
-  left: 45%;
-  bottom: 30px;
-  position: absolute;
+ .brand img {
+	width: 185px;
+  float:left;
+
+    margin-top: 6px;
+    margin-left:10%;
+   
+    
+}
+ .menu {
+	width: 60%;
+	height: 100%;
+	float: right;
+  
+}
+ .menu ul {
+	width: 100%;
+	height: inherit;
+	margin: 0;
+	padding: 0;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+  justify-content: center;  
+}
+ .menu ul a {
+	width: 20%;
+	height: inherit;
+	color: #E7E3D4;
+  padding:20px;
+  text-align: center;
+	display: inline-block;
+
+}
+ #menuToggle {
+	 display: none;
+}
+ .menu-icon {
+	 display: none;
+}
+
+ @media screen and (max-width: 768px) {
+	 .menu {
+		 width: 100%;
+		 height: auto;
+	}
+	 .menu ul {
+		display: block;
+		max-height: 0;
+		overflow: hidden;
+		-webkit-transition: max-height 0.3s;
+		-moz-transition: max-height 0.3s;
+		-ms-transition: max-height 0.3s;
+		-o-transition: max-height 0.3s;
+		transition: max-height 0.3s;
+	}
+	 .menu ul a {
+		text-align: left;
+		width: 100%;
+		height: 50px;
+		background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 20%, rgba(37,51,170,1) 72%, rgba(0,255,229,1) 100%);  
+		padding: 10px 0px 10px 5%;
+	}
+	 .menu-icon {
+		width: 100px;
+		height: inherit;
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		line-height: 60px;
+	}
+	 #menuToggle:checked ~ ul {
+		max-height: 350px;
+		
+	}
+	 .menu-icon i {
+		 font-size: 1.7em;
+	}
 }
 /*------------------------------------------------------------------
 [ Title] */
@@ -132,7 +161,6 @@ hr {
 [ Footer] */
 
 .page-footer {
-  margin-top: 100px; /* Remove */
   position: relative;
   background-color:#131A22;
   width: 100%;  
@@ -243,11 +271,11 @@ Responsive */
 [ Screen Sizes] */
 
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+/* Extra small devices (phones, 767px and down) */
+@media only screen and (max-width: 767px) {
 
   .page-footer {
-    height: 620px;
+    height: 450px;
     bottom: 0; 
   }
 
@@ -265,10 +293,29 @@ Responsive */
 
 }
 
+/* Medium devices (tablet, 768px and up) */
+@media only screen and(min-width:768px) and (max-width:1023px){
+  .page-footer {
+    height: 260px;
+    bottom: 0;
+  }
+
+  .page-footer .grid-container {
+    display: grid;
+    grid-template-columns: 350px auto 350px;
+  }
+
+  .page-footer .grid-container .inner-grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    text-align: left;
+  }
+}
+
 /*========================================================*/
 
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 1024px) {
+/* Large devices (laptops/desktops, 1024px and up) */
+@media only screen and (min-width: 1024px){
 
   .page-footer {
     height: 260px;
