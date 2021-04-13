@@ -1,0 +1,118 @@
+#wrapper {
+    color: white;
+    text-align: auto;
+    background:#131A22;
+    font-size: 21px;
+    font-weight: bold;
+    height: auto;
+    max-width: 650px;
+    margin: 40px auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px 4px lightgray ;
+    box-sizing: border-box;
+}
+.form {
+    padding: 40px;
+}
+h1 {
+  text-align:center;
+  color:white;
+  font-weight:thin;
+  padding-top:40px; 
+}
+.field-wrap {
+    position:relative;
+    margin-bottom:40px;
+    margin-left: 30px;
+}
+.top-row{
+    height: auto;
+    width: 95%;
+}
+#input-name{
+    height: 25px;
+    width: 25%;
+
+}
+input, textarea {
+    height: 25px;
+    width: 93%;
+}
+button {
+    margin-left: 30px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-size: 2rem;
+    font-weight: bold;
+    height: 70px;
+    width: 89.5%;
+}
+option, select {
+    height: 30px;
+    width: 95%;
+}
+
+fieldset {
+overflow: hidden
+}
+  
+
+.field-wrap .content{
+    float:left;
+    margin-right:20px;
+   
+}
+/* Account type */
+.account-type{
+    float:center;
+    padding-top:20px;
+
+}
+.account-type input[type="radio"] {
+	display: none;
+}
+.account-type label {
+	position: relative;
+	display: inline-block;
+	padding: 3px 3px 3px 20px;
+	cursor: pointer;
+}
+.account-type label::before,
+.account-type label::after {
+	position: absolute;
+	content: '';
+	top: 50%;
+	border-radius: 100%;
+	-webkit-transition: all .2s;
+	transition: all .2s;
+}
+.account-type label::before {
+	left: 0;
+	width: 14px;
+	height: 14px;
+	margin-top: -8px;
+	background: #f3f3f3;
+	border: 1px solid #ccc;
+}
+.account-type label:hover::before {
+	background: #fff;
+}
+.account-type label::after {
+	opacity: 0;
+	left: 4px;
+	width: 8px;
+	height: 8px;
+	margin-top: -4px;
+	background: #3498db;
+	-webkit-transform: scale(2);
+	transform: scale(2);
+}
+.account-type input[type="radio"]:checked + label::before {
+	background: #fff;
+	border: 1px solid #3498db;
+}
+.account-type input[type="radio"]:checked + label::after {
+	opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
