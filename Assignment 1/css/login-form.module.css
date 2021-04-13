@@ -53,8 +53,7 @@ button {
     padding-bottom: 10px;
 }
 
-.register {
-    
+.register { 
     margin-top: 5px;
     background:grey;
     text-align: center;
@@ -71,4 +70,3 @@ button {
 a {
     color:#E7E3D4;
 }
-
