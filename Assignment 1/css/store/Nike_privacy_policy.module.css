@@ -3,9 +3,19 @@ body {
 }
 
 /* Header  */
-.header-top {
+header{
     background: rgb(255,255,255);
     background: linear-gradient(117deg, rgba(255,255,255,1) 47%, rgba(255,11,38,1) 100%);
+  }
+
+  .menu ul a {
+    color: #000;
+  
+  }
+  
+  .menu ul a:hover {
+    color: rgb(204, 204, 204);
+  
   }
   .nav-left {
     margin-top: -6px;

@@ -46,3 +46,21 @@
     top: 8%;
     line-height: 2;
 }
+
+.menu {
+	height: 101.5px;
+}
+
+
+.brand img {
+	width: 170px;
+    height: 110px;
+  float:left;
+  margin-top: -6px;
+  margin-left:2%;
+}
+
+.menu ul a {
+	font-size: 14.5px;
+    margin-top: -6px;
+}
