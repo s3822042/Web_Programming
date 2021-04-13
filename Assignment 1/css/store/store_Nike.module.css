@@ -14,14 +14,25 @@
 
 body {
   background: rgb(255,11,38);
-background: linear-gradient(180deg, rgba(255,11,38,0.8561799719887955) 61%, rgba(0,0,0,0.8673844537815126) 90%);
+  background: linear-gradient(180deg, rgba(255,11,38,0.8561799719887955) 61%, rgba(0,0,0,0.8673844537815126) 90%);
 }
 
 /* Header  */
-.header-top {
+header {
   background: rgb(255,255,255);
   background: linear-gradient(117deg, rgba(255,255,255,1) 47%, rgba(255,11,38,1) 100%);
 }
+
+.menu ul a {
+	color: #000;
+
+}
+
+.menu ul a:hover {
+	color: rgb(204, 204, 204);
+
+}
+
 .nav-left {
   margin-top: -6px;
 }
@@ -146,6 +157,15 @@ background: linear-gradient(180deg, rgba(255,11,38,0.8561799719887955) 61%, rgba
 		width: 50%;
 		padding: 2rem;
 	}
+  .menu ul a {
+    color: #fff;
+  
+  }
+  
+  .menu ul a:hover {
+    color: rgb(246, 63, 63);
+  
+  }
 }
 @media only screen and (max-width: 480px) {
 #products .container .product-wrap{
