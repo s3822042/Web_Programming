@@ -1,0 +1,34 @@
+#form{
+    color:white;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 10px 5px;
+    box-shadow:0 4px 10px 4px #131A22;
+    background: #131A22;
+}
+#form-h1{
+    text-align: center;
+    font-size: 32px;
+    color:white
+}
+.field-wrap{
+    position: relative;
+    margin-bottom: 30px;
+}
+.top-row{
+    height: auto;
+    width: auto;
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 30px;
+}
+input, textarea {
+    width: 100%;
+    height: 100%;
+    background: none;
+}
+.name{
+    height: 30px;
+    width: 80%;
+}
+
