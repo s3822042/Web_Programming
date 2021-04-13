@@ -157,6 +157,15 @@ header {
 		width: 50%;
 		padding: 2rem;
 	}
+  .menu ul a {
+    color: #fff;
+  
+  }
+  
+  .menu ul a:hover {
+    color: rgb(246, 63, 63);
+  
+  }
 }
 @media only screen and (max-width: 480px) {
 #products .container .product-wrap{
