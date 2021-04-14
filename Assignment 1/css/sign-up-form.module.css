@@ -15,23 +15,25 @@
     padding: 40px;
 }
 h1 {
-  text-align:center;
-  color:white;
-  font-weight:thin;
-  padding-top:40px; 
+    font-size: 50px;
+    text-transform: uppercase;
+    text-align:center;
+    color:red;
+    font-weight:bold;
+    padding-top: 30px;
+    padding-left: 20px;
+    
 }
 .field-wrap {
+    color: #E7E3D4;
     position:relative;
     margin-bottom:40px;
     margin-left: 30px;
 }
-.top-row{
-    height: auto;
-    width: 95%;
-}
+
 #input-name{
     height: 25px;
-    width: 25%;
+    width: 93%;
 
 }
 input, textarea {
@@ -39,6 +41,8 @@ input, textarea {
     width: 93%;
 }
 button {
+    color: #E7E3D4;
+    background-color: red;
     margin-left: 30px;
     text-transform: uppercase;
     letter-spacing: .1em;
