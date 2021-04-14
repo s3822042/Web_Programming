@@ -1,0 +1,47 @@
+.banner > .banner-content{
+    height: 1200px;
+}
+
+.page-footer {
+    margin-top: -40px;
+}
+
+.vertical-center-1 {
+    margin: 0;
+    position: absolute;
+    top: 74%;
+    left: 32.5%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+.vertical-center-1 > .button, .vertical-center-2 > .button {
+    font-size: 30px;
+    letter-spacing: 3px;
+    border-radius: 10px;
+    background-color: #215a09;
+    color: rgba(217,180,3,200);
+}
+
+.vertical-center-1 > .button > a, .vertical-center-2 > .button > a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.vertical-center-1 > .button:hover, .vertical-center-2 > .button:hover {
+    font-size: 30px;
+    letter-spacing: 3px;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #215a09;
+}
+
+.vertical-center-2 {
+    margin: 0;
+    position: absolute;
+    top: 85%;
+    left: 31%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+

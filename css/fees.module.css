@@ -13,19 +13,19 @@ body{
 [ Pricing table] */
 
 .pricing-table{
-
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   width: min(1600px, 100%);
-  margin: auto;
+  margin:auto;
+ 
 }
 
 .pricing-card{
   flex: 1;
   max-width: 360px;
   background-color: #2d2d2d;
-  margin: 20px 10px;
+  margin-top: -20px;
   cursor: pointer;
   overflow: hidden;
   text-align: center;
@@ -34,7 +34,7 @@ body{
 }
 
 .card-header{
-  background-color: #0fbcf9;
+  background-color: #748dff;
   display: inline-block;
   color: #fff;
   padding: 12px 30px;
@@ -46,12 +46,13 @@ body{
 }
 
 .pricing-card:hover .card-header{
-  box-shadow: 0 0 0 26em #0fbcf9;
+  box-shadow: 0 0 0 26em #748dff;
+  
 }
 
 .plan-price-content{
   font-size: 70px;
-  color: #0fbcf9;
+  color: #748dff;
   margin: 40px 0;
   transition: .2s linear;
 }
@@ -80,8 +81,8 @@ body{
   display: inline-block;
   margin-bottom: 40px;
   margin-top: 80px;
-  border: 2px solid #0fbcf9;
-  color: #0fbcf9;
+  border: 2px solid #748dff;
+  color: #748dff;
   padding: 18px 40px;
   border-radius: 8px;
   text-transform: uppercase;
@@ -89,7 +90,7 @@ body{
   transition: .3s linear;
 }
 .button:hover{
-  background-color: #0fbcf9;
+  background-color: #748dff;
   color: #fff;
 }
 

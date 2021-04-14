@@ -14,38 +14,36 @@
       crossorigin="anonymous"
     />
   </head>
-
   <body>
     <!-- Navigation bar -->
-    <header class="header-top">
-      <div class="nav-top">
-        <!-- Navbar logo-->
-        <div class="nav-left">
-          <a href="../index.html"
-            ><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" />
-          </a>
-        </div>
-        <!-- Navbar items -->
-        <div class="nav-right">
-          <ul class="pull-space">
-            <li><a href="about.html">About us</a></li>
-            <li><a href="fees.html">Fees</a></li>
-            <li><a href="account.html">Account</a></li>
-            <li><a href="browse.html">Browse</a></li>
-            <li><a href="faq.html">FAQs</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="">Sign in / Sign up</a></li>
-            <!-- Cart Icon -->
-            <li class="cart-icon">
-              <a href="#" title="You do not have any products" class="tooltip"
-                ><i class="fas fa-cart-plus fa-2x"></i
-              ></a>
-            </li>
-          </ul>
-        </div>
-        <!-- End Navbar items -->
+    <header>
+      <!-- Logo -->
+      <div class="brand">
+        <a href="../index.html"
+          ><img
+            src="https://i.imgur.com/mE6aWmB.png"
+            alt="logo"
+            class="logo-img"
+          />
+        </a>
       </div>
-      <!-- End Navbar top -->
+      <!-- Right menu -->
+      <nav class="menu">
+        <input type="checkbox" id="menuToggle" />
+        <label for="menuToggle" class="menu-icon"
+          ><i class="fa fa-bars"></i
+        ></label>
+        <ul>
+          <a href="about.html"><li>About us</li></a>
+          <a href="fees.html"><li>Fees</li></a>
+          <a href="account/account.html"><li>Account</li></a>
+          <a href="browse.html"><li>Browse</li></a>
+          <a href="faqs.html"><li>FAQs</li></a>
+          <a href="contact.html"><li>Contact</li></a>
+          <a href="#"><li>Sign in</li></a>
+          <a href="#"><li>Sign up</li></a>
+        </ul>
+      </nav>
     </header>
     <!-- End header -->
     <div class="banner-container">
@@ -53,21 +51,21 @@
         <h1 class="centered-text">FAQs</h1>
       </div>
     </div>
-
     <details>
       <summary>What is The Mall Express's username?</summary>
-      <p> 
-        Your username is the name of your account when you sign up for a Mall Express
-        account. Every account has its own unique username and it cannot be duplicated.
-        When you see <strong>"Username already exists. Please enter another one!"</strong>,
+      <p>
+        Your username is the name of your account when you sign up for a Mall
+        Express account. Every account has its own unique username and it cannot
+        be duplicated. When you see
+        <strong>"Username already exists. Please enter another one!"</strong>,
         please choose a different username.
       </p>
     </details>
     <details>
       <summary>Which method of transaction that we offer?</summary>
       <p>
-        The Mall Express allows you to exchange in over 80 currencies. Currency of
-        Preference is a display-only feature and allows you to see prices
+        The Mall Express allows you to exchange in over 80 currencies. Currency
+        of Preference is a display-only feature and allows you to see prices
         displayed in your preferred currency. You can update your Currency of
         Preference by changing from USD (default currency) to your preferred
         currency in the currency settings page. The available currencies for
@@ -95,12 +93,12 @@
     <details>
       <summary>What are Regular Membership and Premium Membership?</summary>
       <p>
-        Regular Membership are basic accounts you can register for free. As
-        a Standard user, you can do just about anything in our platform, such as
+        Regular Membership are basic accounts you can register for free. As a
+        Standard user, you can do just about anything in our platform, such as
         browsing or purchasing product.
       </p>
       <p>
-        Premium Membership, it is only 10$ a month which provides you a 5%
+        Premium Membership, it is only 20$ a month which provides you a 8%
         discount for each transaction and free delivery within 5 km.
       </p>
       <p>Furthermore, feel free to explore more as a guest!</p>
@@ -112,7 +110,6 @@
         to earn reward.
       </p>
     </details>
-
     <!-- Footer -->
     <footer class="page-footer">
       <div class="container">
@@ -120,7 +117,10 @@
           <!-- Footer Logo -->
           <div class="grid-item">
             <a href="../index.html"
-              ><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img"
+              ><img
+                src="https://i.imgur.com/mE6aWmB.png"
+                alt="logo"
+                class="logo-img"
             /></a>
           </div>
           <!-- Quick Link -->
@@ -131,7 +131,7 @@
             <div class="grid-item">
               <a href="fees.html">Fees</a>
             </div>
-            <div class="grid-item"><a href="">Account</a></div>
+            <div class="grid-item"><a href="account/account.html">Account</a></div>
             <div class="grid-item">
               <a href="term_of_services.html">Term of Service</a>
             </div>

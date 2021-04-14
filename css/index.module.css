@@ -26,10 +26,10 @@ body{
 	padding: 2rem 1rem;
 	text-transform: uppercase;
 	font-family: "Amazon Ember",Arial,sans-serif;
-	color: #000000;
-	font-size: 1.875rem;
-	font-weight: 400;
-	letter-spacing: 0.2rem;
+	color: #232F3E;
+	font-size: 3rem;
+	font-weight: bold;
+	letter-spacing: 8px;
 	line-height: 1;
 	text-align: center;
 }
@@ -53,12 +53,12 @@ body{
 }
 #stores .container .store figure img {
 	width: 100%;
-	height: auto;
+	height: 150px;
 }
 #stores .container .store figure figcaption {
 	font-family: "Amazon Ember",Arial,sans-serif;
 	color: rgba(89, 89, 89, 1);
-	font-size: 0.8rem;
+	font-size: 1.5rem;
 	font-weight: 600;
 	letter-spacing: 0.02rem;
 	text-align: center;
@@ -72,6 +72,7 @@ body{
 	#stores .container .store , #stores .container .store-wrap , #products .container .product-wrap{
 		width: 50%;
 		padding: 3rem;
+   
 	}
 }
 @media only screen and (max-width: 768px) {
@@ -94,7 +95,7 @@ body{
     background-image: url("https://i.imgur.com/tqmK6IP.jpg");
     background-repeat: no-repeat;
     background-size: contain;
-    height:633px;
+    height:500px;
 }
 #stores .container .store-wrap .store-banner:hover , #products .container .product-wrap .product-banner:hover{
   transform: scale(0.9);
@@ -158,7 +159,7 @@ body{
 }
 
 .product-icon {
-  height: 200px;
+  height: 300px;
   width: 220px;
   object-fit: cover;
 }
@@ -188,7 +189,8 @@ body{
     width: 100%;
 }
 .ribbon .store-nike img , .ribbon .store-apple img , .ribbon .store-rolex img{
-    width:100%; 
+    width:80%; 
+    height:100px;
 }
 .ribbon:before,
 .ribbon:after {
@@ -248,12 +250,13 @@ body{
 [ Featured product] */
 #products .container .product-wrap{ 
 	position: relative;
+  padding-left: 60px;
 }
 #products .container .product-wrap .product-banner{
   background-image: url("https://i.imgur.com/A8XIfJ5.jpg");
   background-repeat: no-repeat;
   background-size: contain;
-	height: 765px;
+	height: 650px;
 }
 #products .container .product-wrap .product-content .product-price{
   color:#c45500;

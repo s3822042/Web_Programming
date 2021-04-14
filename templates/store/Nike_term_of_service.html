@@ -18,33 +18,32 @@
   </head>
 
   <body style="background-color: #e0e0e0;">
-    <!-- Navigation bar -->
-    <header class="header-top">
-      <div class="nav-top">
-        <!-- Navbar logo-->
-        <div class="nav-left">
-          <a href="../store/store_Nike.html"
-            ><img src="https://i.imgur.com/SPU418r.jpg" alt="logo" class="logo-img" />
-          </a>
-        </div>
-        <!-- Navbar items -->
-        <div class="nav-right">
-          <ul class="pull-space">
-            <li><a href="../../index.html"><strong>Visit The Mall Express</strong></a></li>
-            <li><a href="../store/Nike_about.html">About us</a></li>
-            <li><a href="../store/Nike_product.html">Products</a></li>
-            <li><a href="../contact.html">Contact</a></li>
-            <!-- Cart Icon -->
-            <li class="cart-icon">
-              <a href="#" title="You do not have any products" class="tooltip"
-                ><i class="fas fa-cart-plus fa-2x"></i
-              ></a>
-            </li>
-          </ul>
-        </div>
-        <!-- End Navbar items -->
+    <header>
+      <!-- Logo -->
+      <div class="brand">
+        <a href="../store/store_Nike.html"
+          ><img
+            src="https://i.imgur.com/SPU418r.jpg"
+            alt="logo"
+            class="logo-img"
+          />
+        </a>
       </div>
-      <!-- End Navbar top -->
+      <!-- Right menu -->
+      <nav class="menu">
+        <input type="checkbox" id="menuToggle" />
+        <label for="menuToggle" class="menu-icon"
+          ><i class="fa fa-bars"></i
+        ></label>
+        <ul>
+          <a href="../../index.html"
+            ><li><strong>Mall Express</strong></li></a
+          >
+          <a href="../store/Nike_about.html"><li>About us</li></a>
+          <a href="../store/Nike_products.html"><li>Product</li></a>
+          <a href="../contact.html"><li>Contact</li></a>
+        </ul>
+      </nav>
     </header>
     <!-- End header -->
    
@@ -151,7 +150,7 @@
 
 
     <!-- Footer -->
-    <footer class="page-footer">
+    <footer class="page-footer" style="margin-top: -0.5%;">
       <div class="container">
         <div class="grid-container">
           <!-- Footer Logo -->

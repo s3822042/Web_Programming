@@ -18,47 +18,151 @@
 
   <body>
     <!-- Navigation bar -->
-    <header class="header-top">
-      <div class="nav-top">
-        <!-- Navbar logo-->
-        <div class="nav-left">
-          <a href="../store/store_Rolex.html"
-            ><img
-              src="https://i.imgur.com/bpOtMwr.png"
-              alt="logo"
-              class="logo-img"
-            />
-          </a>
-        </div>
-        <!-- Navbar items -->
-        <div class="nav-right">
-          <ul class="pull-space">
-            <li>
-              <a href="../../index.html"><strong>Mall Express</strong></a>
-            </li>
-            <li><a href="../store/Rolex_about.html">About us</a></li>
-            <li><a href="../store/Rolex_product.html">Products</a></li>
-            <li><a href="../contact.html">Contact</a></li>
-            <!-- Cart Icon -->
-            <li class="cart-icon">
-              <a href="#" title="You do not have any products" class="tooltip"
-                ><i class="fas fa-cart-plus fa-2x"></i
-              ></a>
-            </li>
-          </ul>
-        </div>
-        <!-- End Navbar items -->
+    <header>
+      <!-- Logo -->
+      <div class="brand">
+        <a href="../store/store_Rolex.html"
+          ><img
+            src="https://i.imgur.com/bpOtMwr.png"
+            alt="logo"
+            class="logo-img"
+          />
+        </a>
       </div>
-      <!-- End Navbar top -->
+      <!-- Right menu -->
+      <nav class="menu">
+        <input type="checkbox" id="menuToggle" />
+        <label for="menuToggle" class="menu-icon"
+          ><i class="fa fa-bars"></i
+        ></label>
+        <ul>
+          <a href="../../index.html"
+            ><li><strong>Mall Express</strong></li></a
+          >
+          <a href="../store/Rolex_about.html"><li>About us</li></a>
+          <a href="../store/Rolex_products.html"><li>Product</li></a>
+          <a href="../contact.html"><li>Contact</li></a>
+        </ul>
+      </nav>
     </header>
     <!-- End header -->
     <!-- Banner -->
     <div class="banner">
       <div class="banner-content">
-        <h1 class="centered-text">ROLEX</h1>
+        <img src="https://i.imgur.com/G7dLB9k.jpg" alt="rolex-ad" />
       </div>
     </div>
     <!-- End banner -->
+
+    <div class="paral1">
+      <div class="paral1-title">
+        <span class="title-content">FEATURED</span>
+      </div>
+    </div>
+
+    <!-- Featured product -->
+    <section id="products">
+      <div class="container">
+        <!-- Product card row-->
+        <div class="product-container">
+          <div class="product-card">
+            <img
+              src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/r/o/rolex-submariner-blue-dial-stainless-steel-and-18k-yellow-gold-bracelet-automatic-mens-watch-126613lbblso.jpg?width=350&height=350"
+              alt="product1"
+              class="product-icon"
+              style="width: 300px; height: 300px"
+            />
+            <div class="product-name">Submariner Blue Dial</div>
+            <div class="product-description" style="text-align: center">
+              From $14,459 Stainless Steel, 18k Yellow Gold
+            </div>
+            <a href="" class="button">Buy now</a>
+          </div>
+          <div class="product-card">
+            <img
+              src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/r/o/rolex-day-date-champagne-jubilee-automatic-18kt-yellow-gold-ladies-president-watch118348cjdp.jpg?width=350&height=350"
+              alt="product2"
+              class="product-icon"
+              style="width: 300px; height: 300px"
+              ;
+            />
+            <div class="product-name">Day-Date Champagne</div>
+            <div class="product-description">
+              From $37,550 Julibee Automatic, 18k Yellow Gold
+            </div>
+            <a href="" class="button">Buy now</a>
+          </div>
+          <div class="product-card">
+            <img
+              src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/r/o/rolex-datejust-36-pink-jubilee-diamond-dial-ladies-watch-126234pjdj--.jpg?width=350&height=350"
+              alt="product3"
+              class="product-icon"
+            />
+            <div class="product-name">Datejust 36 Ladies</div>
+            <div class="product-description" style="text-align: center">
+              From $9,975 Diamond Pink, Jubilee Dial
+            </div>
+            <a href="" class="button">Buy now</a>
+          </div>
+        </div>
+        <!-- End product card row-->
+      </div>
+    </section>
+    <!-- End featured product -->
+
+    <div class="paral2">
+      <div class="paral2-title">
+        <span class="title-content-2"><strong>NEW PRODUCTS</strong></span>
+      </div>
+    </div>
+
+    <!-- Newproduct -->
+    <section id="products">
+      <div class="container" style="padding-top: 30px">
+        <!-- Product card-->
+        <div class="product-container">
+          <div class="product-card">
+            <img
+              src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/r/o/rolex-submariner-blue-dial-stainless-steel-and-18k-yellow-gold-bracelet-automatic-mens-watch-126613lnbkso_1.jpg?width=350&height=350"
+              alt="product2"
+              class="product-icon"
+            />
+            <div class="product-name">Submariner Black Dial</div>
+            <div class="product-description">
+              From $17,495 Stainless Steel, 18k Yellow Gold
+            </div>
+            <a href="" class="button">Buy now</a>
+          </div>
+          <div class="product-card">
+            <img
+              src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/r/o/rolex-ladydatejust-automatic-diamond-green-dial-ladies-watch-279175gndp.jpg?width=350&height=350"
+              alt="product1"
+              class="product-icon"
+            />
+            <div class="product-name">Lady Date-just Automatic</div>
+            <div class="product-description">
+              From $24,495 Diamond Green Dial
+            </div>
+            <a href="" class="button">Buy now</a>
+          </div>
+          <div class="product-card">
+            <img
+              src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/r/o/rolex-cosmograph-daytona-green-dial-18k-yellow-gold-oyster-men_s-watch-116508grso.jpg?width=350&height=350"
+              alt="product3"
+              class="product-icon"
+              style="height: 300px"
+            />
+            <div class="product-name">Cosmograph Daytona Green</div>
+            <div class="product-description">
+              From $97,650 Men, Yellow Gold Oyster
+            </div>
+            <a href="" class="button">Buy now</a>
+          </div>
+        </div>
+        <!-- End product card row-->
+      </div>
+    </section>
+    <!-- End New product -->
 
     <!-- Footer -->
     <footer class="page-footer">

@@ -1,37 +1,45 @@
-
-  /*------------------------------------------------------------------
+body {
+  background-color: rgba(217,180,3,200);
+}
+ 
+ 
+ /*------------------------------------------------------------------
   [ Banner] */
   .banner{
     width: 100%; 
     text-align: center; 
-    position: relative
+    position: relative;
   }
   .banner > .banner-content{
     background-color: #050608;
-    background-image: url('https://i.imgur.com/NEqV4nA.png');
-    background-size: contain;
     background-repeat: no-repeat;
     width: 100%;
-    height: 400px;
-  }
-  .banner > .banner-content > .centered-text {
-   color: #fff;
-    position: absolute;
-    top: 17%;
-    left: 65%;
-    transform: translate(-50%, -50%);
-    font-size: 12rem;
-    border-top-style: solid;
-    border-bottom-style: solid;
-    border-left-style: hidden;
-    border-right-style: hidden;
+    height: 700px;
+    left: 50%;
+    text-align: center;
   }
 
-  .header-top {
+  .banner > .banner-content > img {
+    height: 700px;
+    width: 100%;
+  }
+
+
+  header {
     background: rgb(255,255,255);
-background: linear-gradient(-45deg, rgba(247,247,247,255) 82%, rgba(217,180,3,255) 98%);
+    background: linear-gradient(-45deg, rgba(247,247,247,255) 82%, rgba(217,180,3,255) 98%);
+    height: 160px;
   }
 
+  .menu ul a {
+    color: #215a09;
+  }
+  
+  .menu ul a:hover {
+    color: rgba(217,180,3,255);
+  
+  }
+  
   .nav-left > a > img{
     margin-top: -6px;
     width: 220px;
@@ -53,6 +61,7 @@ background: linear-gradient(-45deg, rgba(247,247,247,255) 82%, rgba(217,180,3,25
   
   .page-footer {
     background-color: #f7f7f7;
+    margin-top: 30px;
   }
 
   .page-footer .grid-container a {
@@ -82,4 +91,258 @@ background: linear-gradient(-45deg, rgba(247,247,247,255) 82%, rgba(217,180,3,25
     transform: scale(1.5);
   }
 
+  .paral1 {
+    /* The image used */
+    background-image: url("https://k8q7r7a2.stackpathcdn.com/wp-content/uploads/2017/02/Rolex-Superlative-Chronometer-detail.jpg");
   
+    /* Set a specific height */
+    min-height: 425px; 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .paral2 {
+    background-image: url("https://cms.luxurysociety.com/media/images/1910_baselworld_2019_e-brochures_0.2e16d0ba.fill-960x540_ZCONlU1.jpg");
+  
+    /* Set a specific height */
+    min-height: 400px; 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .paral1 .paral1-title {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 119.5%;
+    width: 100%;
+  }
+  
+  
+  .paral1 .paral1-title .title-content {
+    color:  rgba(217,180,3,200);
+    text-shadow: 2px 2px 0px #215a09;
+    left: 50%;
+    font-size: 6rem;
+    font-weight: 600;
+    border: double;
+    border-radius: 3px;
+    padding-top: 160px;
+    padding-right: 375px;
+    padding-left: 375px;
+    padding-bottom: 120px;
+    text-align: center;
+    letter-spacing: 10px;
+  }
+
+  .paral2 .paral2-title .title-content-2 {
+    color:  rgba(217,180,3,255);
+    text-shadow: 2px 2px 0px #215a09;
+    left: 50%;
+    font-size: 5rem;
+    font-weight: 700;
+    border: double;
+    border-radius: 3px;
+    padding-top: 145px;
+    padding-right: 300px;
+    padding-left: 310px;
+    padding-bottom: 120px;
+    text-align: center;
+    letter-spacing: 10px;
+  }
+  
+  .paral2 .paral2-title {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 229%;
+    width: 100%;
+  }
+  
+  
+  /*------------------------------------------------------------------
+  [ New Store] */
+  #products{
+    width: 100%;
+  }
+  
+  #products .container {
+    display: block;
+    width: 100%;
+    margin: 0 0;
+    font-size: 16px;
+  }
+  
+  #products .container .products-header {
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  #products .container .products-header h2{
+    padding: 2rem 1rem;
+    text-transform: uppercase;
+    font-family: "Amazon Ember",Arial,sans-serif;
+    color: #232F3E;
+    font-size: 1.875rem;
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+    line-height: 1;
+    text-align: center;
+  }
+  
+  /*------------------------------------------------------------------
+  [ Responsive] */
+  
+  @media only screen and (max-width: 1024px) {
+  #products .container .product-wrap{
+      width: 50%;
+      padding: 3rem;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+  #products .container .product-wrap{
+      width: 50%;
+      padding: 2rem;
+    }
+  }
+  @media only screen and (max-width: 480px) {
+  #products .container .product-wrap{
+      width: 100%;
+    }
+  }
+  /*------------------------------------------------------------------*/
+  #products .container .product-wrap .product-banner:hover{
+    transform: scale(0.9);
+    opacity: 0.8;
+    transition: opacity 800ms ease-in-out 0s;
+    transition: -webkit-transform 1s ease-in-out 0s;
+    transition: transform 1s ease-in-out 0s;
+    transition: transform 1s ease-in-out 0s; 
+    cursor: pointer;
+  }
+  #products .container .product-wrap .product-content{
+    font-family: "Amazon Ember",Arial,sans-serif;
+  }
+  #products .container .product-wrap .product-content .product-title p{
+    text-transform: uppercase;
+    font-size: 1.5em;
+    font-weight: 1000;
+  }
+  #products .container .product-wrap .product-content{
+    content: "";
+    width: 70%;
+    border-top:1px solid gray;
+  }
+  #products .container .product-wrap .product-content .product-desc p.head{
+    font-size: 20px;
+    font-weight: bold;
+  }
+  #products .container .product-wrap .product-content .product-desc div.desc {
+    text-align: justify;
+  }
+  
+  /*------------------------------------------------------------------
+  [ New product] */
+  
+  /*------------------------------------------------------------------
+  [ Product card] */
+  .product-container {
+    font-family: "Amazon Ember",Arial,sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 30px;
+  }
+  
+  .product-card {
+    flex: 1 1 30%;
+    max-width: 605px;
+    background: #fff;
+    padding: 20px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 2px 0 #ccc;
+    transition: 0.3s;
+  }
+  
+  .product-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px -5px #ccc;
+  }
+  
+  .product-icon {
+    height: 300px;
+    width: 250px;
+    object-fit: cover;
+  }
+  
+  .product-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 25px 0 10px 0;
+    text-align: center;
+  }
+  
+  .product-description {
+    font-size: 14px;
+    color: #777;
+    text-align: center;
+  }
+  
+  /*------------------------------------------------------------------
+  [ Button] */
+  .button {
+    margin: 30px 0 0 0;
+    padding: 10px 30px;
+    color:#215a09;
+    text-decoration: none;
+    border: 1px solid #215a09;
+    border-radius: 4px;
+  }
+  
+  .button:hover {
+    color: rgba(217,180,3,200);
+    background:  #215a09;
+    border: 1px solid  #215a09;
+  }
+  /*------------------------------------------------------------------
+  [ Responsive] */
+  
+  @media screen and (max-width: 1000px) {
+    .product-name {
+      font-size: 18px;
+    }
+  }
+  
+  @media screen and (max-width: 800px) {
+    .product-card {
+      padding: 20px 15px;
+    }
+  
+    .product-name {
+      font-size: 16px;
+    }
+  }
+  /*------------------------------------------------------------------
+  [ Featured product] */
+  #products .container .product-wrap{ 
+    position: relative;
+  }
+  #products .container .product-wrap .product-banner{
+    background-image: url("https://i.imgur.com/A8XIfJ5.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 765px;
+  }
+  #products .container .product-wrap .product-content .product-price{
+    color:#c45500;
+  }

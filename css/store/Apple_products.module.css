@@ -1,0 +1,49 @@
+.banner > .banner-content{
+    height: 1000px;
+    margin: 0;
+    background-image: url("https://i.imgur.com/eTwpwFw.jpg");
+}
+
+.page-footer {
+    margin-top: -100px;
+}
+
+.vertical-center-1 {
+    margin: 0;
+    position: absolute;
+    top: 44%;
+    left: 32%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+.vertical-center-1 > .button, .vertical-center-2 > .button {
+    font-size: 30px;
+    letter-spacing: 3px;
+    border-radius: 10px;
+    border-color: #000;
+    background-color: #000;
+    color: #fff;
+}
+
+.vertical-center-1 > .button > a, .vertical-center-2 > .button > a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.vertical-center-1 > .button:hover, .vertical-center-2 > .button:hover {
+    font-size: 30px;
+    letter-spacing: 3px;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #000;
+}
+
+.vertical-center-2 {
+    margin: 0;
+    position: absolute;
+    top: 52%;
+    left: 30.5%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
