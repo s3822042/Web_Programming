@@ -292,7 +292,7 @@ Responsive */
 }
 
 /* Medium devices (tablet, 768px and up) */
-@media only screen and(min-width:768px) and (max-width:1023px){
+@media only screen and(min-width:768px) and (max-width:1024px){
   .page-footer {
     height: 260px;
     bottom: 0;
