@@ -8,35 +8,49 @@
     <!-- Link CSS -->
     <link rel="stylesheet" href="../../css/style.css" />
     <link rel="stylesheet" href="../../css/account/account.module.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <!-- Navigation bar -->
-    <header class="header-top">
-      <div class="nav-top">
-        <!-- Navbar logo-->
-        <div class="nav-left">
-          <img src="" alt="" />
-        </div>
-        <!-- Navbar items -->
-        <div class="nav-right">
-          <ul class="pull-space">
-            <li><a href="">About us</a></li>
-            <li><a href="">Fees</a></li>
-            <li><a href="">Account</li>
-            <li><a href="">Browse</li>
-            <li><a href="">FAQs</li>
-            <li><a href="">Contact</li>
-            <li><a href="">Sign in / Sign up</a></li>
-          </ul>
-        </div>
-        <!-- End Navbar items -->
+    <header>
+      <!-- Logo -->
+      <div class="brand">
+        <a href="../../index.html"
+          ><img
+            src="https://i.imgur.com/mE6aWmB.png"
+            alt="logo"
+            class="logo-img"
+          />
+        </a>
       </div>
-      <!-- End Navbar top -->
+      <!-- Right menu -->
+      <nav class="menu">
+        <input type="checkbox" id="menuToggle" />
+        <label for="menuToggle" class="menu-icon"
+          ><i class="fa fa-bars"></i
+        ></label>
+        <ul>
+          <a href="../about.html"><li>About us</li></a>
+          <a href="../fees.html"><li>Fees</li></a>
+          <a href="../account/account.html"><li>Account</li></a>
+          <a href="../browse.html"><li>Browse</li></a>
+          <a href="../faq.html"><li>FAQs</li></a>
+          <a href="../contact.html"><li>Contact</li></a>
+          <a href="#"><li>Sign in</li></a>
+          <a href="#"><li>Sign up</li></a>
+        </ul>
+      </nav>
     </header>
+    <!-- End header -->
     <!--body part-->
     <div class = "body_container">
         <div>
-            <p>Homepage/<a href = "">My account</a></p>
+            <p>Homepage/<a href = "account.html">My account</a></p>
             <br>
             <h1>My account</h1>
             <div class = "account_body">
@@ -58,7 +72,7 @@
                     <!--my details-->
                         <div class = "personal_detail">
                           <div>
-                            <img src="../../images/account/watame04.jpg" class="avatar" />
+                            <img src="https://i.imgur.com/dnHWRnW.png" class="avatar" />
                           </div>
                           <div class = "information_box">
                             <p>Name:</p>
@@ -78,7 +92,6 @@
                             </span>
                           </div>
                         </div>
-                        <input type = "submit" value = "Submit" class = "submit_button">
                         <!--the email address-->
                     </form>
                     <br>
@@ -94,7 +107,6 @@
                             <input class = "information_text" type = "email" name = "email" id = "email" value = "abc@rmit.edu.vn" >
                         </div>
                       </div>
-                      <input type = "submit" value = "Submit" class = "submit_button">
                     </form>
                     <!--Password-->
                     <p>Password</p>
@@ -105,10 +117,10 @@
                         </div>
                         <div class = "information_box">
                             <p>Password:</p>
-                            <input class = "information_text" type = "password" name = "password" id = "password" value = "quanminh" >
+                            <input class = "information_text" type = "password" name = "old_password" id = "old_password" value = "quanminh" >
                         </div>
                       </div>
-                      <input type = "submit" value = "Submit" class = "submit_button">
+                      <input type = "submit" value = "Save" class = "submit_button">
                     </form>
                 </div>
             </div>
@@ -120,18 +132,33 @@
         <div class="grid-container">
           <!-- Footer Logo -->
           <div class="grid-item">
-            <img src=" " class="logo-img" />
+            <a href="../../index.html"
+              ><img
+                src="https://i.imgur.com/mE6aWmB.png"
+                alt="logo"
+                class="logo-img"
+            /></a>
           </div>
           <!-- Quick Link -->
           <div class="grid-item inner-grid-container">
-            <div class="grid-item"><a href="">About Us</a></div>
-            <div class="grid-item"><a href="">Fees</a></div>
+            <div class="grid-item">
+              <a href="../about.html">About Us</a>
+            </div>
+            <div class="grid-item">
+              <a href="../fees.html">Fees</a>
+            </div>
             <div class="grid-item"><a href="">Stores</a></div>
-            <div class="grid-item"><a href="">Term of Service</a></div>
-            <div class="grid-item"><a href="">Account</a></div>
-            <div class="grid-item"><a href="">FAQs</a></div>
-            <div class="grid-item"><a href="">Contact</a></div>
-            <div class="grid-item"><a href="">Privacy Policy</a></div>
+            <div class="grid-item">
+              <a href="../term_of_services.html">Term of Service</a>
+            </div>
+            <div class="grid-item"><a href="../account/account.html">Account</a></div>
+            <div class="grid-item"><a href="../faq.html">FAQs</a></div>
+            <div class="grid-item">
+              <a href="../contact.html">Contact</a>
+            </div>
+            <div class="grid-item">
+              <a href="../privacy_policies.html">Privacy Policy</a>
+            </div>
           </div>
           <!-- Social Link -->
           <div class="grid-item">
