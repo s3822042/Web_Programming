@@ -1,8 +1,9 @@
 /* main container */
 
 .body_container {
-    padding-left: 50px;
-    padding-right: 25px;
+    padding-left: 21px;
+    padding-right: 21px;
+    margin-bottom: 30px;
 }
 
 
@@ -89,10 +90,10 @@
 }
 
 .body_container .account_body .account_main_content .personal_detail .avatar {
-    width: 145px;
-    height: 145px;
+    width: 90%;
+    height: auto;
     border-radius: 50%;
-    margin-top: 10px;
+    margin-top: 10px
 }
 
 .body_container .account_body .account_main_content .personal_detail .information_box .radio-box {
@@ -111,10 +112,10 @@
 /* product picture */
 
 .body_container .account_body .account_main_content .past_transaction .avatar {
-    width: 145px;
-    height: 145px;
+    width: 90%;
+    height: auto;
     border-radius: 50%;
-    margin-top: 25px;
+    margin-top: 50%;
 }
 
 
@@ -136,4 +137,92 @@
 
 .body_container .account_body .account_main_content .past_transaction .product_description .product .confirmation .tick {
     color: green
+}
+
+
+/* responsive */
+
+
+/* max 480px */
+
+@media only screen and (max-width: 480px) {
+    p,
+    li,
+    b,
+    span,
+    label,
+    input {
+        font-size: 10px
+    }
+    .separator {
+        width: 95%
+    }
+    .body_container .account_body {
+        display: block;
+    }
+    .body_container {
+        padding-left: 7px;
+        padding-right: 7px;
+        margin-bottom: 10px
+    }
+    .body_container .account_body .account_main_content .past_transaction .avatar {
+        margin-top: 75px
+    }
+}
+
+
+/* max 768 px */
+
+@media only screen and (min-width: 480px) and (max-width:768px) {
+    p,
+    li,
+    b,
+    span,
+    label,
+    input {
+        font-size: 12px
+    }
+    .separator {
+        width: 90%
+    }
+    .body_container .account_body {
+        display: block;
+    }
+    .body_container {
+        padding-left: 12px;
+        padding-right: 12px;
+        margin-bottom: 20px
+    }
+    .body_container .account_body .account_main_content .past_transaction .avatar {
+        margin-top: 60px
+    }
+}
+
+
+/* max 1024 px */
+
+@media only screen and (min-width: 768px) and (max-width:1024px) {
+    p,
+    li,
+    b,
+    span,
+    label,
+    input {
+        font-size: 14px;
+    }
+    .separator {
+        width: 85%;
+    }
+    .body_container .account_body {
+        display: grid;
+        grid-template-columns: 20% 80%;
+    }
+    .body_container {
+        padding-left: 14px;
+        padding-right: 14px;
+        margin-bottom: 25px;
+    }
+    .body_container .account_body .account_main_content .past_transaction .avatar {
+        margin-top: 65px
+    }
 }
