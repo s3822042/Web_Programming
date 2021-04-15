@@ -1,10 +1,19 @@
 /* main container */
 
 .body_container {
-    background: rgb(3, 5, 80);
-    background: linear-gradient(90deg, rgba(3, 5, 80, 1) 0%, rgba(59, 81, 230, 1) 35%, rgba(0, 255, 199, 1) 100%);
     padding-left: 50px;
     padding-right: 25px;
+}
+
+
+/* separator */
+
+.separator {
+    width: 80%;
+    height: 1px;
+    background-color: gray;
+    margin: auto;
+    margin-bottom: 5px;
 }
 
 
@@ -13,47 +22,39 @@
 .body_container .account_body {
     display: grid;
     grid-template-columns: 20% 80%;
+    background-color: #E1ECF5;
 }
 
 
 /* navbar */
 
 .body_container .account_body .account_nav {
-    border: 5px solid black;
-    margin: 5px;
+    padding: 5px
 }
 
 .body_container .account_body .account_nav .account_nav_item:hover {
-    background-color: red;
+    background-color: #748dff;
+    color: white
 }
 
 .body_container .account_body .account_nav .account_nav_current_state {
-    background-color: red;
+    background-color: #748dff;
+    margin: 5px;
 }
 
 .body_container .account_body .account_nav .account_nav_item {
-    background-color: lightblue;
+    color: #748dff;
     transition: 0.1s;
+    margin: 5px;
 }
 
 
 /* content of that page */
 
 .body_container .account_body .account_main_content {
-    border: 5px solid black;
     margin: 5px;
-    background-color: aliceblue;
     padding-top: 10px;
     padding-left: 10px;
-    box-shadow: 1px black;
-}
-
-.body_container .account_body .account_main_content .separator {
-    width: 80%;
-    height: 1px;
-    background-color: gray;
-    margin: auto;
-    margin-bottom: 5px;
 }
 
 
@@ -65,13 +66,15 @@
 }
 
 .body_container .account_body .account_main_content .submit_button {
-    background-color: green;
-    margin-left: 70%;
+    color: black;
+    margin-left: 80%;
     transition: 0.3s;
+    margin-top: 10px;
 }
 
-.body_container .account_body .account_main_content .submit_button:hover {
-    background-color: red
+.body_container ._body .account_main_content .submit_button:hover {
+    background-color: #748dff;
+    color: white
 }
 
 .body_container .account_body .account_main_content .personal_detail .information_box {
@@ -122,8 +125,8 @@
 }
 
 .body_container .account_body .account_main_content .past_transaction .product_description .product {
-    border: 2px solid black;
-    padding-left: 20px
+    padding-left: 20px;
+    border-bottom: 1px solid black;
 }
 
 .body_container .account_body .account_main_content .past_transaction .product_description .product .confirmation {
