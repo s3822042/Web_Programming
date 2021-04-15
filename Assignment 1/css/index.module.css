@@ -72,6 +72,7 @@ body{
 	#stores .container .store , #stores .container .store-wrap , #products .container .product-wrap{
 		width: 50%;
 		padding: 3rem;
+   
 	}
 }
 @media only screen and (max-width: 768px) {
@@ -260,4 +261,3 @@ body{
 #products .container .product-wrap .product-content .product-price{
   color:#c45500;
 }
-
