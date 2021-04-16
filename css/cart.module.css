@@ -12,7 +12,7 @@
     font-size: 18px;
     padding-bottom: 20px;
     font-weight: bold;
-    border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 3px solid #ff523b;;
     margin-bottom: 10px
 }
 
@@ -52,10 +52,25 @@
     text-align: center
 }
 
-.note {
-    display: flex;
-    justify-content: flex-start;
-    margin-left: 10%;
+.total-price {
+  display: flex;
+  justify-content: flex-end;
+  margin-right:220px;
+  font-family: "Amazon Ember", Arial, sans-serif;
+}
+
+.total-price table {
+  border-top: 3px solid #ff523b;
+  width: 100%;
+  max-width: 400px;
+}
+
+td:last-child {
+  text-align: right;
+}
+
+th:last-child {
+  text-align: right;
 }
 .clearfix::after {
   content: "";
@@ -94,8 +109,7 @@
 .button-cont .submit-button {
     width: 200px;
     height: 30px;
-    margin-left: 30px;
-    margin-bottom: 30px;
+    margin:30px;
     text-transform: uppercase;
     font-family: "Amazon Ember", Arial, sans-serif;
     font-size: 12px;
@@ -109,4 +123,20 @@
     background-color: #748dff;
     cursor: pointer;
     color: #fff
+}
+@media only screen and (max-width:767px){
+    .order-placement-table .heading{
+        font-size:10px;
+    }
+    .button-cont{
+        padding:2rem;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+    .order-placement-table .heading{
+        font-size:10px;
+    }
+    .button-cont{
+        padding:2rem;
+    }
 }
