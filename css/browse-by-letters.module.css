@@ -1,8 +1,17 @@
 #browse {
+    font-family: "Amazon Ember",Arial,sans-serif;
     font-size: 40px;
     font-weight: bold;
 }
+#stores .container .store-container .store-card{
+  width:28%;
+  display: inline-block;
+  padding: 1.8rem;
+  opacity: 1;
+  text-align: center;
+}
 .wrapper {
+    font-family: "Amazon Ember",Arial,sans-serif;
     padding-top: 25px;
     width: 1270px;
     padding-left: 15px;
@@ -12,6 +21,7 @@
 }
 
 .horizontal-line-1 {
+    display: inline-block;
     font-size: 25px;
 }
 .horizontal-line-1 > a {
@@ -24,6 +34,8 @@
     align-items: center;
     justify-content: center;
     margin: 0 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
   
 .store-card {
@@ -46,8 +58,8 @@
   
 .store-icon {
     height: 300px;
-    width: 250px;
-    object-fit: cover;
+    width: 100%;
+    object-fit: contain;
   }
   
 .store-name {
@@ -62,3 +74,42 @@
     color: #777;
     text-align: center;
   }
+
+@media only screen and (max-width: 1024px) {
+	#stores .container .store-container .store-card {
+		width: 50%;
+	}
+  .wrapper .drop-down-bar select{
+    height:35px;
+    width: 40%;
+  }
+}
+@media only screen and (max-width: 768px) {
+	#stores .container .store-container .store-card {
+		width: 50%;
+	}
+  .wrapper .drop-down-bar select{
+    height:35px;
+    width: 30%;
+  }
+  #browse{
+    font-size: 30px;
+    font-weight: bold;
+  }
+}
+@media only screen and (max-width: 480px) {
+	#stores .container .store-container .store-card {
+		width: 100%;
+	}
+  .wrapper .horizontal-line-1{
+    height:35px;
+    width: 15%;
+  }
+  #browse{
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .wrapper .horizontal-line-1 a{
+    font-size: 12px;
+  }
+}

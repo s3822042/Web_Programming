@@ -1,4 +1,5 @@
 #wrapper {
+    font-family: "Amazon Ember",Arial,sans-serif;
     color: white;
     text-align: auto;
     background:#131A22;
@@ -12,6 +13,7 @@
     box-sizing: border-box;
 }
 .form {
+    font-family: inherit;
     padding: 40px;
 }
 h1 {

@@ -72,3 +72,9 @@ details > p {
   text-align: justify;
   font-size: 18px;
 }
+
+@media only screen and (max-width:480px){
+  .banner-container > .banner-content > .centered-text {
+    top:40%;
+  }
+}
