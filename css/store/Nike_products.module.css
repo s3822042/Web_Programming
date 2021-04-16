@@ -3,40 +3,40 @@
     margin-top: -20px;
 }
 
-.vertical-center-1 {
-    margin: 0;
-    position: absolute; 
-    top: 82%;
-    left: 38.5%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-  }
-
-.vertical-center-1 > .button, .vertical-center-2 > .button {
+.vertical-center-1 > .button {
     font-size: 18px;
     border-radius: 10px;
     background-color: #000;
     color: #fff;
 }
 
-.vertical-center-1 > .button > a, .vertical-center-2 > .button > a {
+.vertical-center-1 > .button > a {
     text-decoration: none;
     color: inherit;
 }
 
-.vertical-center-1 > .button:hover, .vertical-center-2 > .button:hover {
+.vertical-center-1 > .button:hover {
     font-size: 18px;
     border-radius: 10px;
     background-color: rgb(247, 60, 60);
     color: #fff;
 }
 
-.vertical-center-2 {
+  .banner {
+      height: 500px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: relative;
+  }
+
+
+  .banner .vertical-center-1 {
     margin: 0;
     position: absolute;
-    top: 93%;
-    left: 37.8%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    top: 42%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
   }
 

@@ -18,7 +18,36 @@
     font-size: 1.5rem;
     line-height: 0.9;
     text-align: center;
-    left: -9%;
-    top: 6%;
     line-height: 2;
+}
+
+@media screen and (max-width: 767px) {
+    .hero .description {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero { 
+        height: 60vh;
+        background-image: none;
+        background-color: rgb(7, 10, 79);
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    .hero { 
+        height: 80vh;
+        background-image: none;
+        background-color: rgb(7, 10, 79);
+    }
+}
+
+@media screen and (min-width: 1025px){
+    .hero { 
+        height: 100vh;
+        background-image: none;
+        background-color: rgb(7, 10, 79);
+    }
 }
