@@ -1,0 +1,228 @@
+/* main container */
+
+.body_container {
+    padding-left: 21px;
+    padding-right: 21px;
+    margin-bottom: 30px;
+}
+
+
+/* separator */
+
+.separator {
+    width: 80%;
+    height: 1px;
+    background-color: gray;
+    margin: auto;
+    margin-bottom: 5px;
+}
+
+
+/* content */
+
+.body_container .account_body {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    background-color: #E1ECF5;
+}
+
+
+/* navbar */
+
+.body_container .account_body .account_nav {
+    padding: 5px
+}
+
+.body_container .account_body .account_nav .account_nav_item:hover {
+    background-color: #748dff;
+    color: white
+}
+
+.body_container .account_body .account_nav .account_nav_current_state {
+    background-color: #748dff;
+    margin: 5px;
+}
+
+.body_container .account_body .account_nav .account_nav_item {
+    color: #748dff;
+    transition: 0.1s;
+    margin: 5px;
+}
+
+
+/* content of that page */
+
+.body_container .account_body .account_main_content {
+    margin: 5px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+
+/* form - account */
+
+.body_container .account_body .account_main_content .personal_detail {
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+.body_container .account_body .account_main_content .submit_button {
+    color: black;
+    margin-left: 80%;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.body_container ._body .account_main_content .submit_button:hover {
+    background-color: #748dff;
+    color: white
+}
+
+.body_container .account_body .account_main_content .personal_detail .information_box {
+    display: grid;
+    grid-template-columns: 15% 85%;
+    padding: auto
+}
+
+.body_container .account_body .account_main_content .personal_detail .information_box .information_text {
+    width: 80%;
+    margin: 5px
+}
+
+.body_container .account_body .account_main_content .personal_detail .avatar {
+    width: 90%;
+    height: auto;
+    border-radius: 50%;
+    margin-top: 10px
+}
+
+.body_container .account_body .account_main_content .personal_detail .information_box .radio-box {
+    margin-top: 15px
+}
+
+
+/* past transaction */
+
+.body_container .account_body .account_main_content .past_transaction {
+    display: grid;
+    grid-template-columns: 15% 85%;
+}
+
+
+/* product picture */
+
+.body_container .account_body .account_main_content .past_transaction .avatar {
+    width: 90%;
+    height: auto;
+    border-radius: 50%;
+    margin-top: 50%;
+}
+
+
+/* content of the  past product*/
+
+.body_container .account_body .account_main_content .past_transaction h4 {
+    text-align: center
+}
+
+.body_container .account_body .account_main_content .past_transaction .product_description .product {
+    padding-left: 20px;
+    border-bottom: 1px solid black;
+}
+
+.body_container .account_body .account_main_content .past_transaction .product_description .product .confirmation {
+    text-align: right;
+    padding-right: 10%;
+}
+
+.body_container .account_body .account_main_content .past_transaction .product_description .product .confirmation .tick {
+    color: green
+}
+
+
+/* responsive */
+
+
+/* max 480px */
+
+@media only screen and (max-width: 480px) {
+    p,
+    li,
+    b,
+    span,
+    label,
+    input {
+        font-size: 10px
+    }
+    .separator {
+        width: 95%
+    }
+    .body_container .account_body {
+        display: block;
+    }
+    .body_container {
+        padding-left: 7px;
+        padding-right: 7px;
+        margin-bottom: 10px
+    }
+    .body_container .account_body .account_main_content .past_transaction .avatar {
+        margin-top: 75px
+    }
+}
+
+
+/* max 768 px */
+
+@media only screen and (min-width: 480px) and (max-width:768px) {
+    p,
+    li,
+    b,
+    span,
+    label,
+    input {
+        font-size: 12px
+    }
+    .separator {
+        width: 90%
+    }
+    .body_container .account_body {
+        display: block;
+    }
+    .body_container {
+        padding-left: 12px;
+        padding-right: 12px;
+        margin-bottom: 20px
+    }
+    .body_container .account_body .account_main_content .past_transaction .avatar {
+        margin-top: 60px
+    }
+}
+
+
+/* max 1024 px */
+
+@media only screen and (min-width: 768px) and (max-width:1024px) {
+    p,
+    li,
+    b,
+    span,
+    label,
+    input {
+        font-size: 14px;
+    }
+    .separator {
+        width: 85%;
+    }
+    .body_container .account_body {
+        display: grid;
+        grid-template-columns: 20% 80%;
+    }
+    .body_container {
+        padding-left: 14px;
+        padding-right: 14px;
+        margin-bottom: 25px;
+    }
+    .body_container .account_body .account_main_content .past_transaction .avatar {
+        margin-top: 65px
+    }
+}
