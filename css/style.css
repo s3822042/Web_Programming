@@ -88,6 +88,12 @@ header {
 	 .menu {
 		 width: 100%;
 		 height: auto;
+     position: absolute;
+      top: 125px;
+      left: 0;
+      right: 0;
+      z-index:999;
+      opacity: 0.7;
 	}
 	 .menu ul {
 		display: block;
@@ -112,12 +118,12 @@ header {
 		height: inherit;
 		display: block;
 		position: absolute;
-		top: 0;
+		top: -120px;
 		right: 0;
 		line-height: 60px;
 	}
 	 #menuToggle:checked ~ ul {
-		max-height: 350px;
+		max-height: 700px;
 		
 	}
 	 .menu-icon i {
