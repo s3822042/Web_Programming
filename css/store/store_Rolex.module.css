@@ -39,26 +39,6 @@ body {
     color: rgba(217,180,3,255);
   
   }
-  
-  .nav-left > a > img{
-    margin-top: -6px;
-    width: 220px;
-    height: 110px;
-  }
-
-  .nav-right {
-    margin-right: 100px;
-  }
-
-  .pull-space > li > a{
-    color: #1f5b01;
-    font-size: 16px;
-  }
-
-  .pull-space > li > a:hover {
-    color: rgba(217,180,3,255);
-  }
-  
   .page-footer {
     background-color: #f7f7f7;
     margin-top: 30px;

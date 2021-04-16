@@ -17,23 +17,6 @@ header{
     color: rgb(204, 204, 204);
   
   }
-  .nav-left {
-    margin-top: -6px;
-  }
-  
-  .nav-right{
-    margin-right: 100px;
-  }
-  
-  .pull-space > li > a{
-    color: #000;
-    font-size: 16px;
-  }
-  
-  .pull-space > li > a:hover{
-    color: #fff;
-  }
-  
   /* Footer */
   .page-footer {
     background-color: #fff;

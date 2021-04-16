@@ -26,22 +26,6 @@ header {
   background: linear-gradient(90deg, rgba(0,0,0,1) 15%, rgba(195,27,65,1) 50%, rgba(255,239,103,1) 100%);
 }
 
-.nav-left {
-  margin-top: -6px;
-}
-
-.nav-right{
-  margin-right: 100px;
-}
-
-.pull-space > li > a {
-  font-size: 16px;
-}
-
-.pull-space > li > a:hover {
-  color: #000;
-}
-
 /* Footer */
 .page-footer {
   background-color: #000;
