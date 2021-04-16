@@ -4,36 +4,9 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
     background-image: url('https://i.imgur.com/qVot8hB.jpg');
     background-size: cover;
-    margin-bottom: -7%;
-    margin-top: -20px;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    background-color: rgba(0,0,0,0.7);
-}
-
-.hero > h1 {
-    padding-top: 25px;
-    padding-bottom: 10px;
-    margin-top: -26%;
-    position: relative;
-    color: rgba(217,180,3,255);  
-    font-size: 6rem;
-    line-height: 0.9;
     text-align: center;
-    border-bottom-style: double;
-    border-top-style: double;
-    text-shadow: 3px 3px 10px #215a09;
-    left: 36%;
 }
 
 .description {
@@ -42,15 +15,8 @@
     font-size: 1.5rem;
     line-height: 0.9;
     text-align: center;
-    left: -12%;
-    top: 8%;
     line-height: 2;
 }
-
-.menu {
-	height: 101.5px;
-}
-
 
 .brand img {
 	width: 170px;
@@ -63,4 +29,27 @@
 .menu ul a {
 	font-size: 14.5px;
     margin-top: -6px;
+}
+
+
+@media screen and (max-width: 767px) {
+    .menu {
+        height: 500px;
+    }
+
+    .hero { 
+        height: 80vh;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    .hero { 
+        height: 80vh;
+    }
+}
+
+@media screen and (min-width: 1025px){
+    .hero { 
+        height: 80vh;
+    }
 }
