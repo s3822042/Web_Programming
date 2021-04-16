@@ -8,9 +8,6 @@
     background-size: cover;
     margin-bottom: -30px;
 }
-
-
-
 .description {
     position: relative;
     color: #ffffff;  
@@ -27,19 +24,18 @@
         background-image: none;
         background-color: rgb(7, 10, 79);
     }
+    .description {
+    color: #ffffff;  
+    font-size: 1.5rem;
+    line-height: 0.9;
+    text-align: center;
+    padding:3.5rem
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px){
     .hero { 
         height: 60vh;
-        background-image: none;
-        background-color: rgb(7, 10, 79);
-    }
-}
-
-@media screen and (min-width: 1025px){
-    .hero { 
-        height: 70vh;
         background-image: none;
         background-color: rgb(7, 10, 79);
     }
