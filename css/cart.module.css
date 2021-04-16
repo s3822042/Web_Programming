@@ -48,18 +48,34 @@
 .note {
     display: flex;
     justify-content: flex-start;
-    margin-left: 10%
+    margin-left: 10%;
 }
-
-.note .note-heading {
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.note .note-checkout{
     font-family: "Amazon Ember", Arial, sans-serif;
     font-weight: bold;
+    margin-top:15px;
+}
+.note .note-checkout label{
+    margin-bottom: 5px;
+    max-width: 100%;
+    display: block;
 }
 
-.note .text-area {
+.note .note-checkout textarea {
+    font-family:inherit;
     resize: none;
-    width: 100px;
-    height: 100px;
+    border-radius: 4px;
+    height: 70px;
+    border-color: #DDD7D7;
+    margin-top: 3px;
+    max-width: 100%;
+    padding: 5px;
+    overflow: auto;
 }
 
 .button-cont {
