@@ -1,0 +1,89 @@
+.order-placement-table {
+    display: grid;
+    grid-template-columns: 15% 40% 20% 25%;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-family: "Amazon Ember", Arial, sans-serif;
+    align-items: center;
+}
+
+.order-placement-table .heading {
+    text-align: center;
+    font-size: 18px;
+    padding-bottom: 20px;
+    font-weight: bold;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px
+}
+
+.order-placement-table .product-img-cont {
+    width: 100%;
+    display: flex;
+}
+
+.order-placement-table .product-img-cont .product-img {
+    max-width: 80%;
+    margin: auto
+}
+
+.order-placement-table .product-name {
+    text-align: center;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.order-placement-table .amount {
+    text-align: center;
+}
+
+.order-placement-table .amount .amount-buying {
+    border: 0.5px solid rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.order-placement-table .price {
+    text-align: center
+}
+
+.note {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 10%
+}
+
+.note .note-heading {
+    font-family: "Amazon Ember", Arial, sans-serif;
+    font-weight: bold;
+}
+
+.note .text-area {
+    resize: none;
+    width: 100px;
+    height: 100px;
+}
+
+.button-cont {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10%
+}
+
+.button-cont .submit-button {
+    width: 120px;
+    height: 30px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-family: "Amazon Ember", Arial, sans-serif;
+    font-size: 12px;
+    line-height: 30px;
+    padding: 0 14px;
+    background-color: #fff;
+    color: #000
+}
+
+.button-cont .submit-button:hover {
+    background-color: #748dff;
+    cursor: pointer;
+    color: #fff
+}
