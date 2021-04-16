@@ -1,0 +1,126 @@
+ .container {
+	 max-width: 1200px;
+	 margin: 0 auto;
+	 padding: 0 10px;
+}
+ header nav {
+	 display: flex;
+	 justify-content: space-between;
+	 align-items: center;
+}
+ header nav ul {
+	 list-style: none;
+}
+ header nav ul li {
+	 display: inline-block;
+}
+ header nav ul li:first-child {
+	 margin-left: 0;
+}
+ header nav ul li:last-child {
+	 margin-right: 0;
+}
+ header nav ul li a {
+	 color: #91919a;
+	 font-size: 11px;
+	 text-transform: uppercase;
+	 text-decoration: none;
+	 display: block;
+	 padding: 10px 20px;
+}
+ header nav ul li a .fa {
+	 font-size: 18px;
+	 font-weight: 300;
+}
+ main {
+	 padding: 60px 0;
+}
+ main .thankyou {
+	 margin-bottom: 35px;
+	 text-align: center;
+}
+ main .thankyou h1 {
+	 font: 700 40px;
+     font-family: "Amazon Ember",Arial,sans-serif;
+	 margin-bottom: 20px;
+}
+ main .thankyou p {
+	 font-size: 15px;
+}
+ main .row {
+	 display: flex;
+	 justify-content: space-between;
+}
+ main .row .details {
+	 max-width: 55%;
+}
+ main h3 {
+	 font-size: 24px;
+	 margin-bottom: 8px;
+}
+ main p {
+	 line-height: 1.7;
+	 margin: 15px 0;
+	 font-size: 15px;
+}
+ main .content-box {
+	 border: 1px solid #cdcdd2;
+	 padding: 20px;
+	 font-size: 15px;
+	 border-radius: 4px;
+	 margin: 25px 0;
+     width: 1200px;
+     align-items: center;
+     overflow-x:auto;
+}
+main .content-box .product-table{
+    font-family: "Amazon Ember",Arial,sans-serif;
+    width:100%;
+    
+}
+main .content-box .product-table .heading{
+    text-align: left;
+    font-size: 18px;
+    padding-bottom: 30px;
+    font-weight: bold;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px
+}
+th, td {
+  text-align: left;
+  padding: 8px;
+}s
+
+ main .content-box .content-box-title {
+	 font-weight: 600;
+	 font-family: "Amazon Ember",Arial,sans-serif;
+	 font-size: 16px;
+	 margin-bottom: 4px;
+}
+ main .content-box address {
+	 font-style: normal;
+     font-family: "Amazon Ember",Arial,sans-serif;
+}
+main .content-box .payment-method{
+    font-family: "Amazon Ember",Arial,sans-serif;
+}
+ main dl {
+	 font-size: 15px;
+     width:100%;
+     font-family: "Amazon Ember",Arial,sans-serif;
+}
+
+ main dl dt {
+	 float: left;
+}
+ main dl dt {
+	 clear: both;
+}
+ main dl dd {
+	 float: right;
+	 margin-bottom: 6px;
+}
+ main dl dt.big, main dl dd.big {
+	 font-size: 19px;
+	 font-weight: 600;
+}

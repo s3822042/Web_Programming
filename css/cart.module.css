@@ -32,13 +32,20 @@
     font-size: 16px;
 }
 
-.order-placement-table .amount {
+.order-placement-table .quantity {
     text-align: center;
 }
 
-.order-placement-table .amount .amount-buying {
-    border: 0.5px solid rgba(0, 0, 0, 0.2);
+.order-placement-table .quantity .quantity-buying {
+    height: 30px;
+    border-radius: 3px;
+    font-size: 14px;
+    color: #333333;
+    border: 1px solid #ccc;
+    outline: none;
+    padding-left: 15px;
     text-align: center;
+    width: 50px;
 }
 
 .order-placement-table .price {
@@ -85,7 +92,7 @@
 }
 
 .button-cont .submit-button {
-    width: 120px;
+    width: 200px;
     height: 30px;
     margin-left: 30px;
     margin-bottom: 30px;
@@ -95,7 +102,7 @@
     line-height: 30px;
     padding: 0 14px;
     background-color: #fff;
-    color: #000
+    color: #000;
 }
 
 .button-cont .submit-button:hover {

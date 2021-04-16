@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Order Placement</title>
+    <title>Thank you</title>
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/cart.module.css" />
+    <link rel="stylesheet" href="../css/thank_you.module.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -56,90 +56,96 @@
           <a href="login.html">
             <li>Sign in</li>
           </a>
-          <a href="cart.html"><li>Cart</li></a>
+          <a href="sign-up-form.html">
+            <li>Sign up</li>
+          </a>
         </ul>
       </nav>
     </header>
     <!-- End header -->
-    <!--body-->
-    <div id="title">
-      <p>Cart</p>
-    </div>
-    <div class="order-placement-table">
-      <!--first row-->
-      <div class="heading">Product image</div>
-      <div class="heading">Product name</div>
-      <div class="heading">Quantity</div>
-      <div class="heading">Price</div>
-      <!--second row (content)-->
-      <div class="product-img-cont">
-        <img
-          src="https://i.imgur.com/icnhKJD.jpg"
-          alt="product1"
-          class="product-img"
-        />
+    <main>
+      <div class="container">
+        <section class="thankyou">
+          <h1>Thank you for your purchase</h1>
+
+          <p>
+            We've sent a confirmation email to
+            <strong>gerhard_ter@gmail.com</strong>
+          </p>
+        </section>
+
+        <div class="row">
+          <div class="details">
+            <h3>Details</h3>
+
+            <div class="content-box">
+              <table class="product-table">
+                <tr>
+                  <td class="heading">Product</td>
+                  <td class="heading">Name</td>
+                  <td class="heading">Quantity</td>
+                  <td class="heading">Price</td>
+                </tr>
+                <tr>
+                  <td>
+                    <img
+                      src="https://i.imgur.com/icnhKJD.jpg"
+                      alt="product1"
+                      height="100"
+                      width="100"
+                    />
+                  </td>
+                  <td>Mercurial vapor 14 elite FG</td>
+                  <td>1</td>
+                  <td>$249</td>
+                </tr>
+                <tr>
+                  <td>
+                    <img
+                      src="https://i.imgur.com/EVvlj0R.jpg"
+                      alt="product2"
+                      height="100"
+                      width="100"
+                    />
+                  </td>
+                  <td>Homepod Mini</td>
+                  <td>1</td>
+                  <td>$99</td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="content-box">
+              <h4 class="content-box-title">Primary Contact</h4>
+              <address>
+                Leticia A Bryant<br />
+                12/24/1989 <br />
+                1089 Emeral Dreams Drive<br />
+                Chicago, Illinois(IL), 60631<br />
+                815-295-5766
+              </address>
+            </div>
+
+            <div class="content-box">
+              <h4 class="content-box-title">Payment Method</h4>
+              <div class="payment-method">Cash on Delivery</div>
+            </div>
+
+            <dl class="cf">
+              <dt>Subtotal</dt>
+              <dd>$348</dd>
+
+              <dt>Shipping fee</dt>
+              <dd>$0.00</dd>
+
+              <dt class="big">Total</dt>
+              <dd class="big">$348</dd>
+            </dl>
+          </div>
+        </div>
       </div>
-      <div class="product-name">
-        <p>Mercurial vapor 14 elite FG</p>
-      </div>
-      <div class="quantity">
-        <input
-          type="number"
-          class="quantity-buying"
-          name="quantity"
-          min="1"
-          max="196"
-          value="1"
-          size="4"
-        />
-      </div>
-      <div class="price">
-        <p>$249</p>
-      </div>
-      <!--third row (content)-->
-      <div class="product-img-cont">
-        <img
-          src="https://i.imgur.com/EVvlj0R.jpg"
-          alt="product2"
-          class="product-img"
-        />
-      </div>
-      <div class="product-name">
-        <p>Homepod mini</p>
-      </div>
-      <div class="quantity">
-        <input
-          type="number"
-          class="quantity-buying"
-          name="quantity"
-          min="1"
-          max="50"
-          value="1"
-          size="4"
-        />
-      </div>
-      <div class="price">
-        <p>$99</p>
-      </div>
-    </div>
-    <!--end table-->
-    <!-- note -->
-    <div class="note">
-      <div class="note-checkout clearfix">
-        <label for="note">Note</label>
-        <textarea id="note" name="note" rows="8" cols="50"></textarea>
-      </div>
-    </div>
-    <!-- button -->
-    <div class="button-cont">
-      <button type="submit" class="submit-button">
-        <a href="product/Jordan-onetake-2-PF.html">Continue shopping</a>
-      </button>
-      <button type="submit" class="submit-button">
-        <a href="thank_yo u.html">Order</a>
-      </button>
-    </div>
-    <!--end body-->
+    </main>
+
     <!-- Footer -->
     <footer class="page-footer">
       <div class="container">
