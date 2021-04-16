@@ -20,10 +20,6 @@
 │ ├── account / - CSS files related to account
 │ ├── product / - CSS files related to product
 │ ├── store / - CSS files related to store
-│ ├──├── store_Apple.module.css / - CSS styles for Apple store page
-│ ├──├── store_Gucci.module.css / - CSS styles for Gucci page
-│ ├──├── store_Nike.module.css / - CSS styles for Nike page
-│ ├──├── store_Rolex.module.css / - CSS styles for Rolex page
 │ ├── about.module.css / - CSS styles for About page
 │ ├── contact.module.css / - CSS styles for Contact page 
 │ ├── faq.module.css / - CSS styles for FAQ page
@@ -37,10 +33,6 @@
 │ ├── account / - HTML files related to account
 │ ├── product / - HTML files related to product
 │ ├── store / - HTML files related to store
-│ ├──├── store_Apple.html / - Apple store page
-│ ├──├── store_Gucci.html / - Gucci page
-│ ├──├── store_Nike.html / - Nike page
-│ ├──├── store_Rolex.html / - Rolex page
 │ ├── about.html / - About page
 │ ├── contact.html / - Contact page 
 │ ├── faq.html / - FAQ page
