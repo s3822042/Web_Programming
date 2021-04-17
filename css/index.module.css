@@ -82,6 +82,10 @@ body {
 [ Responsive] */
 
 @media only screen and (max-width: 1024px) {
+    #stores .container .store{
+        display: table;
+        margin: 0 auto;
+    }
     #stores .container , 
     #products .container .product-container{
     display: table;
@@ -96,6 +100,10 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
+    #stores .container .store{
+        display: table;
+        margin: 0 auto;
+    }
     #stores .container , 
     #products .container .product-container{
         display: table;
@@ -110,6 +118,7 @@ body {
 }
 
 @media only screen and (max-width: 480px) {
+    
     #stores .container , 
     #products .container .product-container{
         display: table;
