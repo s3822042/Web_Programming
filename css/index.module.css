@@ -112,13 +112,20 @@ body {
 @media only screen and (max-width: 480px) {
     #stores .container , 
     #products .container .product-container{
-    display: table;
-    margin: 0 auto;
+        display: table;
+        margin: 0 auto;
     }
     #stores .container .store,
     #stores .container .store-wrap,
     #products .container .product-wrap {
         width: 100%;
+    }
+    #stores .container .store-wrap .store-banner{
+       
+    }
+
+    #products .container .product-wrap .product-banner{
+
     }
 }
 
@@ -130,7 +137,7 @@ body {
     position: relative;
 }
 
-#stores .container .store-wrap .store-banner {
+#stores .container .store-wrap {
     background-image: url("https://i.imgur.com/tqmK6IP.jpg");
     background-repeat: no-repeat;
     background-size: contain;
@@ -138,8 +145,8 @@ body {
     height:500px;
 }
 
-#stores .container .store-wrap .store-banner:hover,
-#products .container .product-wrap .product-banner:hover {
+#stores .container .store-wrap:hover,
+#products .container .product-wrap:hover {
     transform: scale(0.9);
     opacity: 0.8;
     transition: opacity 800ms ease-in-out 0s;
@@ -319,14 +326,13 @@ body {
 
 #products .container .product-wrap {
     position: relative;
-    padding-left: 60px;
 }
 
-#products .container .product-wrap .product-banner {
+#products .container .product-wrap {
     background-image: url("https://i.imgur.com/ikQcHqw.jpg");
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: cover;
+    background-size: contain;
     width: 100%;
     height:650px;
 }
