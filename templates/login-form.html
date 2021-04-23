@@ -66,20 +66,20 @@
     <section id="wrapper">
       <h1>Login</h1>
       <div class="form">
-        <form action="" method="GET">
+        <form method="post" name="loginForm" onSubmit="validateLogin()" action="account/account.html">
           <div class="field-wrapper">
             <label for="username"></label>
             <input
               type="text"
-              name="username"
+              name="usr"
               placeholder="Email address or phone number"
             />
           </div>
           <div class="field-wrapper">
             <label for="password"></label>
-            <input type="password" name="password" placeholder="Password" />
+            <input type="password" name="pwd" placeholder="Password" />
           </div>
-        </form>
+        
         <div class="button">
           <button type="submit">Log in</button>
         </div>
@@ -90,6 +90,7 @@
           <a href="forgot-password.html">Forgot your password?</a>
         </div>
       </div>
+      </form>
     </section>
 
     <!-- Footer -->
@@ -141,5 +142,8 @@
         <p>&copy 2021 | RMIT University | Group 16</p>
       </div>
     </footer>
+
+  <!-- JavaScript-->
+    <script src="../js/index.js"></script>
   </body>
 </html>
