@@ -46,50 +46,74 @@
       </nav>
     </header>
     <!-- End header -->
-        <form class="form">
-            <h2>CONTACT US</h2>
-            <!-- Contact purpose -->
-            <p type="Choose purpose">
-                <select id="choices">
-                    <option value="1">Report a bug</option>
-                    <option value="2">Request new features</option>
-                </select>
-            </p>
-            <!-- Name -->
-            <p type="Name:"><input placeholder="Enter your name" /></p>
-            <!-- Email -->
-            <p type="Email:">
-                <input placeholder="Enter your email" />
-            </p>
-            <!-- Contact method -->
-            <p type="Preferred contact method">
-            <div class="contact-method">
-                <input type="radio" id="email" name="contact-type" />
-                <label for="email">Email</label>
-                <input type="radio" id="phone" name="contact-type" />
-                <label for="phone">Phone</label>
-            </div>
-            </p>
-            <p type="Contact Days">
-            <div class="contact-day">
-                <input type="checkbox" id="monday"><label for="monday">&nbsp;MON</label>
-                <input type="checkbox" id="tuesday"><label for="tuesday">&nbsp;TUE</label>
-                <input type="checkbox" id="wednesday"><label for="wednesday">&nbsp;WED</label>
-                <input type="checkbox" id="thursday"><label for="thursday">&nbsp;THU</label>
-                <input type="checkbox" id="friday"><label for="friday">&nbsp;FRI</label>
-                <input type="checkbox" id="saturday"><label for="saturday">&nbsp;SAT</label>
-                <input type="checkbox" id="sunday"><label for="sunday">&nbsp;SAT</label> 
-            </div>
-            </p>
-            <!-- Message -->
-            <p type="Message:">
-                <input placeholder="What would you like to tell us ?" />
-            </p>
-            <!-- Button -->
-            <button type="reset" class="reset">Clear All</button>
-            <button type="submit" class="submit">Send Message</button>
-        </form>
-        <!-- Footer -->
+
+
+
+    <form class="form">
+        <h2>CONTACT US</h2>
+        <!-- Contact purpose -->
+        <p id="choices-label" for="choices">Contact Purpose:</p><br>
+        <select name="purpose-list" id="choices">
+            <option value='' selected>Please Select</option>
+            <option value="report-bug">Report Bug</option>
+            <option value="suggest-feature">Suggest Feature</option> 
+            <option value="other-feedback">Other Feedback</option>
+        </select><br><br>
+
+        <!-- Name -->
+        <label id="name-label" for="name">Name:</label><br>
+        <input type="text" id="name" placeholder="Enter your name"/></p>
+
+        <!-- Email -->
+        <label id="email-label" for="email">Email:</label><br>
+        <input type="text" id="email" placeholder="Enter your email"/></p>
+
+        <!-- Phone -->
+        <label id="phone-label" for="phone">Phone:</label><br>
+        <input type="text" id="phone" placeholder="Enter your phone"/></p>
+
+        <!-- Contact method -->
+        <p id="prefer-label">Prefer:</p><br>
+        <input type="radio" id="prefer-email" name="prefer-method" value="email">
+        <label for="prefer-email">Email</label>
+        <input type="radio" id="prefer-phone" name="prefer-method" value="phone">
+        <label for="prefer-phone">Phone</label><br>
+
+        <!-- Contact days-->
+        <p id="contact-days">Contact Days:</p><br>
+        <input type="checkbox" id="monday" name="prefer-days" value="monday">
+        <label for="monday">&nbsp;Mon</label>
+
+        <input type="checkbox" id="tuesday" name="prefer-days" value="tuesday">
+        <label for="tuesday">&nbsp;Tue</label>
+
+        <input type="checkbox" id="wednesday" name="prefer-days" value="wednesday">
+        <label for="wednesday">&nbsp;Wed</label>
+
+        <input type="checkbox" id="thursday" name="prefer-days" value="thursday">
+        <label for="thursday">&nbsp;Thu</label><br>
+
+        <input type="checkbox" id="friday" name="prefer-method" value="friday">
+        <label for="friday">&nbsp;Fri&nbsp;&nbsp;&nbsp;</label>
+
+        <input type="checkbox" id="saturday" name="prefer-days" value="saturday">
+        <label for="saturday">&nbsp;Sat&nbsp;</label>
+
+        <input type="checkbox" id="sunday" name="prefer-days" value="sunday">
+        <label for="sunday">&nbsp;Sun</label><br><br>
+
+        <!-- Message -->
+        <label id="msg-label" for="msg">Message:</label><br><br>
+        <textarea id="msg" name="msg-content" rows='6' placeholder="What would you like to tell us?"/></textarea><br><br>
+
+        <!-- Button -->
+        <button type="reset" class="reset">Clear All</button>
+        <button type="submit" class="submit">Submit Information</button>
+    </form>
+        
+
+
+
         <!-- Footer -->
         <footer class="page-footer">
             <div class="container">
