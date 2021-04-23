@@ -16,7 +16,7 @@
     />
   </head>
 
-  <body>
+  <body >
     <!-- Navigation bar -->
     <header>
       <!-- Logo -->
@@ -83,13 +83,13 @@
     <!-- End new stores -->
     <!-- New product -->
     <section id="products">
-      <div class="container">
+      <div class="container" >
         <div class="products-header">
           <h2>New Products</h2>
         </div>
         <!-- Product card row 1 -->
-        <div class="product-container">
-          <div class="product-card">
+        <div class="product-container" id="product-slider" >
+          <div class="product-card" onmouseover="pauseSlides()" onmouseout="startSlides()">
             <!-- Store name -->
             <section class="ribbon">
               <div class="store-nike">
@@ -112,7 +112,7 @@
               >Buy now</a
             >
           </div>
-          <div class="product-card">
+          <div class="product-card" onmouseover="pauseSlides()" onmouseout="startSlides()">
             <!-- Store name -->
             <section class="ribbon">
               <div class="store-apple">
@@ -138,7 +138,7 @@
               >Buy now</a
             >
           </div>
-          <div class="product-card">
+          <div class="product-card" onmouseover="pauseSlides()" onmouseout="startSlides()">
             <!-- Store name -->
             <section class="ribbon">
               <div class="store-nike">
@@ -163,7 +163,7 @@
               >Buy now</a
             >
           </div>
-          <div class="product-card">
+          <div class="product-card" onmouseover="pauseSlides()" onmouseout="startSlides()">
             <!-- Store name -->
             <!-- Store name -->
             <section class="ribbon">
@@ -188,107 +188,6 @@
           </div>
         </div>
         <!-- End product card row 1-->
-        <!-- Product card row 2 -->
-        <div class="product-container">
-          <div class="product-card">
-            <!-- Store name -->
-            <section class="ribbon">
-              <div class="store-apple">
-                <a href="templates/store/store_Apple.html">
-                  <img src="https://i.imgur.com/euQFiTp.jpg" alt="logo-apple"
-                /></a>
-              </div>
-            </section>
-            <!-- End store name -->
-            <img
-              src="https://i.imgur.com/Fu2PGiM.jpg"
-              alt="product5"
-              class="product-icon"
-            />
-            <div class="product-name">
-              HomePod<br />
-              Mini
-            </div>
-            <div class="product-description" style="text-align: center">
-              From $99 for S5 Core, Siri Touch Interface, 360 Audio
-            </div>
-            <a href="templates\product\homepod-mini.html" class="button"
-              >Buy now</a
-            >
-          </div>
-          <div class="product-card">
-            <!-- Store name -->
-            <section class="ribbon">
-              <div class="store-nike">
-                <a href="templates/store/store_Nike.html">
-                  <img src="https://i.imgur.com/ljKPWN6.jpg" alt="logo-nike"
-                /></a>
-              </div>
-            </section>
-            <!-- End store name -->
-            <img
-              src="https://i.imgur.com/6e9VFK6.jpg"
-              alt="product6"
-              class="product-icon"
-            />
-            <div class="product-name">Jordan One Take II PF</div>
-            <div class="product-description" style="text-align: center">
-              From $144 Lightweight, Padded Collar, Top-Loaded Zoom
-            </div>
-            <a href="templates\product\Jordan-onetake-2-PF.html" class="button"
-              >Buy now</a
-            >
-          </div>
-          <div class="product-card">
-            <!-- Store name -->
-            <section class="ribbon">
-              <div class="store-rolex">
-                <a href="templates/store/store_Rolex.html">
-                  <img src="https://i.imgur.com/IyW42DX.png" alt="logo-rolex"
-                /></a>
-              </div>
-            </section>
-            <!-- End store name -->
-            <img
-              src="https://i.imgur.com/fUs9RJq.jpg"
-              alt="product7"
-              class="product-icon"
-            />
-            <div class="product-name">Submariner Black Dial</div>
-            <div class="product-description" style="text-align: center">
-              From $17,495 Stainless Steel, 18k Yellow Gold
-            </div>
-            <a
-              href="templates\product\submariner-black-dial.html"
-              class="button"
-              >Buy now</a
-            >
-          </div>
-          <div class="product-card">
-            <!-- Store name -->
-            <section class="ribbon">
-              <div class="store-nike">
-                <a href="templates/store/store_Nike.html">
-                  <img src="https://i.imgur.com/ljKPWN6.jpg" alt="logo-nike"
-                /></a>
-              </div>
-            </section>
-            <!-- End store name -->
-            <img
-              src="https://i.imgur.com/iwOydxV.jpg"
-              alt="product8"
-              class="product-icon"
-            />
-            <div class="product-name">Night Crater Impact</div>
-            <div class="product-description" style="text-align: center">
-              From $342 Crater Foam, Grey-Fog Threaded Logo, White
-            </div>
-            <a href="templates\product\night-crater-impact.html" class="button"
-              >Buy now</a
-            >
-          </div>
-        </div>
-        <!-- End product card row 2-->
       </div>
     </section>
     <!-- End new product -->
@@ -369,5 +268,6 @@
         <p>&copy 2021 | RMIT University | Group 16</p>
       </div>
     </footer>
+    <script src="js/index.js"></script>
   </body>
 </html>

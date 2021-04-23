@@ -1,15 +1,39 @@
-// 2. Automatically slider
-const flavoursContainer = document.getElementById("flavoursContainer");
-const flavoursScrollWidth = flavoursContainer.scrollWidth;
+// 2. Automatically Slider
+const productSlider = document.getElementById("product-slider");
 
-window.addEventListener("load", () => {
-  self.setInterval(() => {
-    if (flavoursContainer.scrollLeft !== flavoursScrollWidth) {
-      flavoursContainer.scrollTo(flavoursContainer.scrollLeft + 1, 0);
-    }
-  }, 15);
-});
+function appendProductSlider() {
+  const productCard = document.querySelector(".product-card");
+  productSlider.appendChild(productCard);
+}
 
+function getProducts() {
+  // Prior to getting products.
+  shouldScroll =
+    productSlider.scrollLeft + productSlider.clientWidth ===
+    productSlider.scrollWidth;
+
+  appendProductSlider();
+  // After getting products.
+  if (!shouldScroll) {
+    scrollToRight();
+  }
+}
+
+function scrollToRight() {
+  productSlider.scrollLeft = productSlider.scrollWidth;
+}
+
+scrollToRight();
+
+var theInterval = setInterval(getProducts, 500);
+
+function startSlides(event) {
+  theInterval = setInterval(getProducts, 500);
+}
+
+function pauseSlides(event) {
+  clearInterval(theInterval); // Clear the interval we set earlier
+}
 // 5. Login validation
 function storeData(storageKey, myValueToStore) {
   localStorage.setItem(storageKey, myValueToStore);
@@ -19,23 +43,23 @@ function getData(storageKey) {
   localStorage.getItem(storageKey);
 }
 
-var previouslyEnteredUserName = getData("validatedUserName");
-if (previouslyEnteredUserName !== null) {
-  alert("Hello " + previouslyEnteredUserName + ", welcome back!");
+var previouslyEnteredEmail = getData("validatedEmailAddress");
+if (previouslyEnteredEmail !== null) {
+  alert("Hello " + previouslyEnteredEmail + ", welcome back!");
 } else {
-  alert("Incorrect Username and/or Password. Please try again!");
+  alert("Incorrect Email and/or Password. Please try again!");
 }
 
 function validateLogin() {
-  var user = document.loginForm.usr.value;
+  var email = document.loginForm.email.value;
   var pass = document.loginForm.pwd.value;
-  var username = "username";
+  var emailAddress = "email";
   var password = "password";
-  if (user == username && pass == password) {
-    storeData("validatedUserName", user); // Store the user with key "validatedUserName"
+  if (email == emailAddress && pass == password) {
+    storeData("validatedEmailAddress", email);
     return true;
   } else {
-    alert("Login was unsuccessful, please check your username and password");
+    alert("Login was unsuccessful, please check your email and password");
     return false;
   }
 }
@@ -46,11 +70,6 @@ var last_name = document.forms["regForm"]["last-name"];
 var email = document.forms["regForm"]["email"];
 var password = document.forms["regForm"]["password"];
 var password_confirmation = document.forms["regForm"]["confirm-password"];
-var profile = document.forms["regForm"]["profile"];
-var address = document.forms["regForm"]["address"];
-var city = document.forms["regForm"]["city"];
-var zip_code = document.forms["regForm"]["zip-code"];
-var country = document.forms["regForm"]["country"];
 
 username.addEventListener("blur", nameVerify, true);
 email.addEventListener("blur", emailVerify, true);
