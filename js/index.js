@@ -35,34 +35,34 @@ function pauseSlides(event) {
   clearInterval(theInterval); // Clear the interval we set earlier
 }
 // 5. Login validation
-function storeData(storageKey, myValueToStore) {
-  localStorage.setItem(storageKey, myValueToStore);
-}
+// function storeData(storageKey, myValueToStore) {
+//   localStorage.setItem(storageKey, myValueToStore);
+// }
 
-function getData(storageKey) {
-  localStorage.getItem(storageKey);
-}
-
-var previouslyEnteredEmail = getData("validatedEmailAddress");
-if (previouslyEnteredEmail !== null) {
-  alert("Hello " + previouslyEnteredEmail + ", welcome back!");
-} else {
-  alert("Incorrect Email and/or Password. Please try again!");
-}
+// function getData(storageKey) {
+//   localStorage.getItem(storageKey);
+// }
 
 function validateLogin() {
+  "use strict";
+
   var email = document.loginForm.email.value;
   var pass = document.loginForm.pwd.value;
+
   var emailAddress = "email";
   var password = "password";
   if (email == emailAddress && pass == password) {
-    storeData("validatedEmailAddress", email);
+    localStorage.setItem("validatedEmailAddress", emailAddress);
     return true;
   } else {
     alert("Login was unsuccessful, please check your email and password");
     return false;
   }
 }
+
+document.getElementById("sed").innerText = localStorage.getItem(
+  "validatedEmailAddress"
+);
 
 // Registration Data
 var first_name = document.forms["regForm"]["first-name"];
@@ -112,3 +112,10 @@ const emailIsValid = (email) => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 };
 submitBtn.addEventListener("click", validate);
+
+var previouslyEnteredEmail = getData("validatedEmailAddress");
+if (previouslyEnteredEmail !== null) {
+  alert("Hello " + previouslyEnteredEmail + ", welcome back!");
+} else {
+  alert("Incorrect Email and/or Password. Please try again!");
+}
