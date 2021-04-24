@@ -1,4 +1,5 @@
 // 2. Automatically Slider
+let email1 = "";
 const productSlider = document.getElementById("product-slider");
 
 function appendProductSlider() {
@@ -52,6 +53,7 @@ function validateLogin() {
   var emailAddress = "email";
   var password = "password";
   if (email == emailAddress && pass == password) {
+    email1 = email;
     localStorage.setItem("validatedEmailAddress", emailAddress);
     return true;
   } else {
@@ -59,10 +61,9 @@ function validateLogin() {
     return false;
   }
 }
-
-document.getElementById("sed").innerText = localStorage.getItem(
-  "validatedEmailAddress"
-);
+let dataLocalStorage = document.getElementById("email");
+dataLocalStorage.value = localStorage.getItem("validatedEmailAddress");
+dataLocalStorage.disabled = true;
 
 // Registration Data
 var first_name = document.forms["regForm"]["first-name"];

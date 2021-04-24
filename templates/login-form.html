@@ -14,7 +14,6 @@
       integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
       crossorigin="anonymous"
     />
-    
   </head>
 
   <body>
@@ -67,12 +66,17 @@
     <section id="wrapper">
       <h1>Login</h1>
       <div class="form">
-        <form method="post" name="loginForm" onsubmit="return validateLogin()" action="account/account.html">
+        <form
+          name="loginForm"
+          onsubmit="return validateLogin()"
+          action="account/account.html"
+        >
           <div class="field-wrapper">
             <label for="email"></label>
             <input
               type="text"
-              name="email" id="email"
+              name="email"
+              id="email"
               placeholder="Email address"
             />
           </div>
@@ -80,18 +84,18 @@
             <label for="password"></label>
             <input type="password" name="pwd" id="pwd" placeholder="Password" />
           </div>
-        
-        <div class="button">
-          <button type="submit" value="submit">Log in</button>
-        </div>
-        <div class="register">
-          <a href="sign-up-form.html">Register</a>
-        </div>
-        <div class="password-reset">
-          <a href="forgot-password.html">Forgot your password?</a>
-        </div>
+
+          <div class="button">
+            <button type="submit" value="submit">Log in</button>
+          </div>
+          <div class="register">
+            <a href="sign-up-form.html">Register</a>
+          </div>
+          <div class="password-reset">
+            <a href="forgot-password.html">Forgot your password?</a>
+          </div>
+        </form>
       </div>
-      </form>
     </section>
 
     <!-- Footer -->
@@ -119,7 +123,9 @@
             <div class="grid-item">
               <a href="term_of_services.html">Term of Service</a>
             </div>
-            <div class="grid-item"><a href="account/account.html">Account</a></div>
+            <div class="grid-item">
+              <a href="account/account.html">Account</a>
+            </div>
             <div class="grid-item"><a href="faq.html">FAQs</a></div>
             <div class="grid-item">
               <a href="contact.html">Contact</a>
@@ -144,7 +150,7 @@
       </div>
     </footer>
 
-  <!-- JavaScript-->
+    <!-- JavaScript-->
     <script src="../js/index.js"></script>
   </body>
 </html>
