@@ -9,7 +9,7 @@ body{
   -o-background-size: cover;
   background-size: cover;
 }
-.form {
+#form {
   width: 340px;
   height: 850px;
   background: #e6e6e6;
@@ -30,8 +30,7 @@ h2 {
   color:#232F3E;
   border-bottom: 3px solid #253238;
 }
-input,S
-option {
+input, option {
   padding: 10px;
   box-sizing: border-box;
   background: none;
@@ -41,6 +40,7 @@ option {
   font-family: "Amazon Ember",Arial,sans-serif;
   transition: all 0.3s;
   border-bottom: 2px solid #bebed2;
+  font-size: 14px;
 }
 input:focus,
 option:focus {
@@ -82,6 +82,9 @@ input {
 #choices{
   color: #5a5a5a;
   cursor: pointer;
+  font-size: 14px;
+  width: 100%;
+  text-align: center;
 }
 
 
