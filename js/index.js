@@ -1,5 +1,20 @@
+// 1. Cookie consent
+
+const consentPropertyName = "mallexpress_consent";
+
+const shouldShowPopup = () => !localStorage.getItem(consentPropertyName);
+const savetoStorage = () => localStorage.setItem(consentPropertyName, true);
+
+window.onload = () => {
+  if (shouldShowPopup()) {
+    const consent = confirm("Agree to allow Mall Express collect cookies");
+    if (consent) {
+      savetoStorage();
+    }
+  }
+};
+
 // 2. Automatically Slider
-let email1 = "";
 const productSlider = document.getElementById("product-slider");
 
 function appendProductSlider() {
