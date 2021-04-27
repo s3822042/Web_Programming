@@ -66,29 +66,35 @@
     <section id="wrapper">
       <h1>Login</h1>
       <div class="form">
-        <form action="" method="GET">
+        <form
+          name="loginForm"
+          onsubmit="return validateLogin()"
+          action="account/account.html"
+        >
           <div class="field-wrapper">
-            <label for="username"></label>
+            <label for="email"></label>
             <input
               type="text"
-              name="username"
-              placeholder="Email address or phone number"
+              name="email"
+              id="email"
+              placeholder="Email address"
             />
           </div>
           <div class="field-wrapper">
             <label for="password"></label>
-            <input type="password" name="password" placeholder="Password" />
+            <input type="password" name="pwd" id="pwd" placeholder="Password" />
+          </div>
+
+          <div class="button">
+            <button type="submit" value="submit">Log in</button>
+          </div>
+          <div class="register">
+            <a href="sign-up-form.html">Register</a>
+          </div>
+          <div class="password-reset">
+            <a href="forgot-password.html">Forgot your password?</a>
           </div>
         </form>
-        <div class="button">
-          <button type="submit">Log in</button>
-        </div>
-        <div class="register">
-          <a href="sign-up-form.html">Register</a>
-        </div>
-        <div class="password-reset">
-          <a href="forgot-password.html">Forgot your password?</a>
-        </div>
       </div>
     </section>
 
@@ -113,7 +119,11 @@
             <div class="grid-item">
               <a href="fees.html">Fees</a>
             </div>
+<<<<<<< HEAD
             <div class="grid-item"><a href="browse-menu.html">Browse</a></div>
+=======
+            <div class="grid-item"><a href="browse-menu.html">Stores</a></div>
+>>>>>>> d35fb457e4a18d824116a867f4bb81b575f87d7f
             <div class="grid-item">
               <a href="term_of_services.html">Term of Service</a>
             </div>
@@ -143,5 +153,8 @@
         <p>&copy 2021 | RMIT University | Group 16</p>
       </div>
     </footer>
+
+    <!-- JavaScript-->
+    <script src="../js/index.js"></script>
   </body>
 </html>

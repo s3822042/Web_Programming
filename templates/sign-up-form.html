@@ -57,39 +57,43 @@
   <!-- End header -->
   <section id="wrapper">
     <h1>Sign Up</h1>
-    <form action="" method="post" enctype=multipart/form-data>
+    <form action="account/account.html" method="post" enctype=multipart/form-data onsubmit="return storeRegistration()" name="regForm">
       <div class="form">
         <div class="field-wrap">
           <div>
             <label for="first-name">First Name:</label>
-            <input id="input-name" type="text" placeholder="Enter your first name" />
+            <input id="firstName" type="text" name="first-name" placeholder="Enter your first name" />
+            
           </div>
           <div>
             <label for="last-name">Last Name :</label>
-            <input id="input-name" type="text" placeholder="Enter your last name" />
+            <input id="lastName" type="text" name="last-name" placeholder="Enter your last name" />
+           
           </div>
         </div>
-
         <div class="field-wrap">
           <div>
             <label for="email-address">Email:</label>
-            <input type="email" id="email-address" name="email-address" placeholder="abcdxyz@gmail.com" required />
+            <input type="text" id="email-address" name="email" placeholder="abcdxyz@gmail.com" required/>
+            
           </div>
         </div>
         <div class="field-wrap">
           <div>
             <label for="password">Password</label>
             <input type="password" id="password" name="password" placeholder="Enter password" required />
+            
           </div>
           <div>
             <label for="password">Confirm password</label>
-            <input type="password" id="password" name="password" placeholder="Enter password" required />
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Enter password" required />
+        
           </div>
         </div>
         <div class="field-wrap">
           <div>
             <label for="profile-picture">Upload your picture</label>
-            <input type="file" id="profile-picture" name="profile-picture" />
+            <input type="file" id="profile-picture" name="profile" />
           </div>
         </div>
         <div class="field-wrap">
@@ -391,17 +395,37 @@
           </div>
         </div>
         <div class="button">
-          <button type="submit">Get Started</button>
+          <button type="submit" value=submit id="submit-btn">Get Started</button>
         </div>
       </div>
     </form>
   </section>
 
+<<<<<<< HEAD
     <!-- Footer -->
     <footer class="page-footer">
       <div class="container">
         <div class="grid-container">
           <!-- Footer Logo -->
+=======
+  <!-- Footer -->
+  <footer class="page-footer">
+    <div class="container">
+      <div class="grid-container">
+        <!-- Footer Logo -->
+        <div class="grid-item">
+          <a href="../index.html"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" /></a>
+        </div>
+        <!-- Quick Link -->
+        <div class="grid-item inner-grid-container">
+          <div class="grid-item">
+            <a href="about.html">About Us</a>
+          </div>
+          <div class="grid-item">
+            <a href="fees.html">Fees</a>
+          </div>
+          <div class="grid-item"><a href="browse-menu.html">Stores</a></div>
+>>>>>>> d35fb457e4a18d824116a867f4bb81b575f87d7f
           <div class="grid-item">
             <a href="../index.html"
               ><img
@@ -410,6 +434,7 @@
                 class="logo-img"
             /></a>
           </div>
+<<<<<<< HEAD
           <!-- Quick Link -->
           <div class="grid-item inner-grid-container">
             <div class="grid-item">
@@ -432,6 +457,12 @@
             <div class="grid-item">
               <a href="privacy_policies.html">Privacy Policy</a>
             </div>
+=======
+          <div class="grid-item"><a href="account/account.html">Account</a></div>
+          <div class="grid-item"><a href="faq.html">FAQs</a></div>
+          <div class="grid-item">
+            <a href="contact.html">Contact</a>
+>>>>>>> d35fb457e4a18d824116a867f4bb81b575f87d7f
           </div>
           <!-- Social Link -->
           <div class="grid-item">
@@ -447,6 +478,19 @@
         <!-- Copyright -->
         <p>&copy 2021 | RMIT University | Group 16</p>
       </div>
+<<<<<<< HEAD
     </footer>
   </body>
+=======
+      <hr />
+      <!-- Copyright -->
+      <p>&copy 2021 | RMIT University | Group 16</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript-->
+    <script src="../js/index.js"></script>
+</body>
+
+>>>>>>> d35fb457e4a18d824116a867f4bb81b575f87d7f
 </html>
