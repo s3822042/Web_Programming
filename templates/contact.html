@@ -249,6 +249,12 @@
 					return;
 				}
 				
+				var domArrTemp = arrTemp[1].split(".");
+				if (domArrTemp[domArrTemp.length - 1].length < 2 || domArrTemp[domArrTemp.length - 1] > 5)
+				{
+					document.getElementById("error-for-email").innerHTML = "Domain part after the last dot must be min 2 to max 5 characters!";
+					return;
+				}
 			}
 
 			// check text area 
