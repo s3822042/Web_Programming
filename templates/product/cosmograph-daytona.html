@@ -24,24 +24,40 @@
             <input type="checkbox" id="menuToggle" />
             <label for="menuToggle" class="menu-icon"><i class="fa fa-bars"></i
         ></label>
-        <ul>
-          <a href="../about.html"><li>About us</li></a>
-          <a href="../fees.html"><li>Fees</li></a>
-          <a href="../account/account.html"><li>Account</li></a>
-          <a href="../browse-menu.html"><li>Browse</li></a>
-          <a href="../faq.html"><li>FAQs</li></a>
-          <a href="../contact.html"><li>Contact</li></a>
-          <a href="../login.html"><li>Sign in</li></a>
-          <a href="../cart.html"><li>Cart</li></a>
-        </ul>
-      </nav>
+            <ul>
+                <a href="../about.html">
+                    <li>About us</li>
+                </a>
+                <a href="../fees.html">
+                    <li>Fees</li>
+                </a>
+                <a href="../account/account.html">
+                    <li>Account</li>
+                </a>
+                <a href="../browse-menu.html">
+                    <li>Browse</li>
+                </a>
+                <a href="../faq.html">
+                    <li>FAQs</li>
+                </a>
+                <a href="../contact.html">
+                    <li>Contact</li>
+                </a>
+                <a href="../login.html">
+                    <li>Sign in</li>
+                </a>
+                <a href="../cart.html">
+                    <li>Cart(<span id="amount">0</span>)</li>
+                </a>
+            </ul>
+        </nav>
     </header>
     <!-- End header -->
     <!--body part-->
     <div class="product_description">
         <div class="product_content">
             <!--product content-->
-            <h1> Cosmograph daytona</h1>
+            <h1 id="product_name"> Cosmograph daytona</h1>
             <h3> General description </h3>
             <div class="product_detail">
                 <!--product image different angle-->
@@ -55,7 +71,7 @@
                 </div>
                 <!--product picture-->
                 <div class="product_picture">
-                    <img src="https://i.imgur.com/IzeTT5m.jpg" class="general_picture" alt="product general picture">
+                    <img src="https://i.imgur.com/IzeTT5m.jpg" class="general_picture" alt="product general picture" id="product_image">
                 </div>
                 <!--general description-->
                 <div class="product_general_description">
@@ -67,7 +83,7 @@
                     <span class="fas fa-star-half-alt checked"></span>
                     <!--half star-->
                     <span> 4.3/5 196 reviews </span>
-                    <p> Price: $97,650 </p>
+                    <p> Price: $<span id="product_price">97,650</span> </p>
                     <!--size selection-->
                     <p> Diameter: 41mm</p>
                     <p> Color available: Yellow / Gold / Green </p>
@@ -92,7 +108,7 @@
                         <form>
                             <label for="quantity"> Add to cart </label>
                             <input type="number" id="quantity" name="quantity" min="1" max="196" value="1">
-                            <input type="submit" value="Add to cart" class="addtocart">
+                            <input type="submit" value="Add to cart" class="addtocart" id="addtocart_button">
                         </form>
                     </div>
                 </div>
@@ -467,6 +483,8 @@
             <p>&copy 2021 | RMIT University | Group 16</p>
         </div>
     </footer>
+    <script src="../../js/shoppingcart.js "></script>
+
 </body>
 
 </html>

@@ -1,205 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Order Placement</title>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/cart.module.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-      crossorigin="anonymous"
-    />
-  </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+</head>
 
-  <body>
+<body>
     <!-- Navigation bar -->
     <header>
-      <!-- Logo -->
-      <div class="brand">
-        <a href="../index.html"
-          ><img
-            src="https://i.imgur.com/mE6aWmB.png"
-            alt="logo"
-            class="logo-img"
-          />
-        </a>
-      </div>
-      <!-- Right menu -->
-      <nav class="menu">
-        <input type="checkbox" id="menuToggle" />
-        <label for="menuToggle" class="menu-icon"
-          ><i class="fa fa-bars"></i
+        <!-- Logo -->
+        <div class="brand">
+            <a href="../index.html"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" />
+            </a>
+        </div>
+        <!-- Right menu -->
+        <nav class="menu">
+            <input type="checkbox" id="menuToggle" />
+            <label for="menuToggle" class="menu-icon"><i class="fa fa-bars"></i
         ></label>
-        <ul>
-          <a href="about.html">
-            <li>About us</li>
-          </a>
-          <a href="fees.html">
-            <li>Fees</li>
-          </a>
-          <a href="account/account.html">
-            <li>Account</li>
-          </a>
-          <a href="browse-menu.html">
-            <li>Browse</li>
-          </a>
-          <a href="faq.html">
-            <li>FAQs</li>
-          </a>
-          <a href="contact.html">
-            <li>Contact</li>
-          </a>
-          <a href="login.html">
-            <li>Sign in</li>
-          </a>
-          <a href="cart.html"><li>Cart</li></a>
-        </ul>
-      </nav>
+            <ul>
+                <a href="about.html">
+                    <li>About us</li>
+                </a>
+                <a href="fees.html">
+                    <li>Fees</li>
+                </a>
+                <a href="account/account.html">
+                    <li>Account</li>
+                </a>
+                <a href="browse-menu.html">
+                    <li>Browse</li>
+                </a>
+                <a href="faq.html">
+                    <li>FAQs</li>
+                </a>
+                <a href="contact.html">
+                    <li>Contact</li>
+                </a>
+                <a href="login.html">
+                    <li>Sign in</li>
+                </a>
+                <a href="cart.html">
+                    <li>Cart(<span id="amount">0</span>)</li>
+                </a>
+            </ul>
+        </nav>
     </header>
     <!-- End header -->
     <!--body-->
     <div id="title">
-      <p>Cart</p>
+        <p>Cart</p>
     </div>
     <div class="order-placement-table">
-      <!--first row-->
-      <div class="heading">Product</div>
-      <div class="heading">Name</div>
-      <div class="heading">Quantity</div>
-      <div class="heading">Price</div>
-      <!--second row (content)-->
-      <div class="product-img-cont">
-        <img
-          src="https://i.imgur.com/icnhKJD.jpg"
-          alt="product1"
-          class="product-img"
-        />
-      </div>
-      <div class="product-name">
-        <p>Mercurial vapor 14 elite FG</p>
-      </div>
-      <div class="quantity">
-        <input
-          type="number"
-          class="quantity-buying"
-          name="quantity"
-          min="1"
-          max="196"
-          value="1"
-          size="4"
-        />
-      </div>
-      <div class="price">
-        <p>$249</p>
-      </div>
-      <!--third row (content)-->
-      <div class="product-img-cont">
-        <img
-          src="https://i.imgur.com/EVvlj0R.jpg"
-          alt="product2"
-          class="product-img"
-        />
-      </div>
-      <div class="product-name">
-        <p>Homepod mini</p>
-      </div>
-      <div class="quantity">
-        <input
-          type="number"
-          class="quantity-buying"
-          name="quantity"
-          min="1"
-          max="50"
-          value="1"
-          size="4"
-        />
-      </div>
-      <div class="price">
-        <p>$99</p>
-      </div>
+        <!--first row-->
+        <div class="heading">Product</div>
+        <div class="heading">Name</div>
+        <div class="heading">Quantity</div>
+        <div class="heading">Price</div>
+        <!--second row (content)-->
+        <div class="product-img-cont" id="product-img-cont">
+            <img src="https://i.imgur.com/icnhKJD.jpg" alt="product1" class="product-img" id="product_img_cart" />
+        </div>
+        <div class="product-name">
+            <p id="product_name_cart">Mercurial vapor 14 elite FG</p>
+        </div>
+        <div class="quantity">
+            <input type="number" class="quantity-buying" name="quantity" min="1" max="196" value="1" size="4" id="quantity_cart" />
+        </div>
+        <div class="price">
+            <p>$
+                <span id="product_price_cart">249</span>
+            </p>
+        </div>
+        <!--third row (content)-->
+        <div class="product-img-cont">
+            <img src="https://i.imgur.com/EVvlj0R.jpg" alt="product2" class="product-img" id="product_img_cart" />
+        </div>
+        <div class="product-name">
+            <p id="product_name_cart">Homepod mini</p>
+        </div>
+        <div class="quantity">
+            <input type="number" class="quantity-buying" name="quantity" min="1" max="50" value="1" size="4" id="quantity_cart" />
+        </div>
+        <div class="price">
+            <p>$
+                <span id="product_price_cart">99</span>
+            </p>
+        </div>
     </div>
     <!--end table-->
     <!-- total price -->
     <div class="total-price">
-      <table>
-        <tr>
-          <td>Subtotal</td>
-          <td>$348</td>
-        </tr>
-        <tr>
-          <td>Shipping fee</td>
-          <td>$0</td>
-        </tr>
-        <tr>
-          <td><strong>Total</strong></td>
-          <td><strong>$348</strong></td>
-        </tr>
-      </table>
+        <table>
+            <tr>
+                <td>Subtotal</td>
+                <td>$348</td>
+            </tr>
+            <tr>
+                <td>Shipping fee</td>
+                <td>$0</td>
+            </tr>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td><strong>$348</strong></td>
+            </tr>
+        </table>
     </div>
     <!-- button -->
     <div class="button-cont">
-      <button type="submit" class="submit-button">
+        <button type="submit" class="submit-button">
         <a href="product/Jordan-onetake-2-PF.html">Continue shopping</a>
       </button>
-      <button type="submit" class="submit-button">
+        <button type="submit" class="submit-button">
         <a href="thank_you.html">Order</a>
       </button>
     </div>
     <!--end body-->
     <!-- Footer -->
     <footer class="page-footer">
-      <div class="container">
-        <div class="grid-container">
-          <!-- Footer Logo -->
-          <div class="grid-item">
-            <a href="../index.html"
-              ><img
-                src="https://i.imgur.com/mE6aWmB.png"
-                alt="logo"
-                class="logo-img"
-            /></a>
-          </div>
-          <!-- Quick Link -->
-          <div class="grid-item inner-grid-container">
-            <div class="grid-item">
-              <a href="about.html">About Us</a>
+        <div class="container">
+            <div class="grid-container">
+                <!-- Footer Logo -->
+                <div class="grid-item">
+                    <a href="../index.html"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" /></a>
+                </div>
+                <!-- Quick Link -->
+                <div class="grid-item inner-grid-container">
+                    <div class="grid-item">
+                        <a href="about.html">About Us</a>
+                    </div>
+                    <div class="grid-item">
+                        <a href="fees.html">Fees</a>
+                    </div>
+                    <div class="grid-item"><a href="browse-menu.html">Browse</a></div>
+                    <div class="grid-item">
+                        <a href="../term_of_services.html">Term of Service</a>
+                    </div>
+                    <div class="grid-item">
+                        <a href="account/account.html">Account</a>
+                    </div>
+                    <div class="grid-item"><a href="faq.html">FAQs</a></div>
+                    <div class="grid-item">
+                        <a href="contact.html">Contact</a>
+                    </div>
+                    <div class="grid-item">
+                        <a href="privacy_policies.html">Privacy Policy</a>
+                    </div>
+                </div>
+                <!-- Social Link -->
+                <div class="grid-item">
+                    <div class="social-buttons">
+                        <a href=""><i class="fab fa-instagram circle-icon"></i></a>
+                        <a href=""><i class="fab fa-facebook circle-icon"></i></a>
+                        <a href=""><i class="fab fa-linkedin-in circle-icon"></i></a>
+                        <a href=""><i class="fab fa-twitter circle-icon"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class="grid-item">
-              <a href="fees.html">Fees</a>
-            </div>
-            <div class="grid-item"><a href="browse-menu.html">Browse</a></div>
-            <div class="grid-item">
-              <a href="../term_of_services.html">Term of Service</a>
-            </div>
-            <div class="grid-item">
-              <a href="account/account.html">Account</a>
-            </div>
-            <div class="grid-item"><a href="faq.html">FAQs</a></div>
-            <div class="grid-item">
-              <a href="contact.html">Contact</a>
-            </div>
-            <div class="grid-item">
-              <a href="privacy_policies.html">Privacy Policy</a>
-            </div>
-          </div>
-          <!-- Social Link -->
-          <div class="grid-item">
-            <div class="social-buttons">
-              <a href=""><i class="fab fa-instagram circle-icon"></i></a>
-              <a href=""><i class="fab fa-facebook circle-icon"></i></a>
-              <a href=""><i class="fab fa-linkedin-in circle-icon"></i></a>
-              <a href=""><i class="fab fa-twitter circle-icon"></i></a>
-            </div>
-          </div>
+            <hr />
+            <!-- Copyright -->
+            <p>&copy 2021 | RMIT University | Group 16</p>
         </div>
-        <hr />
-        <!-- Copyright -->
-        <p>&copy 2021 | RMIT University | Group 16</p>
-      </div>
     </footer>
-  </body>
+    <script src="..\js\cartonly.js"></script>
+</body>
+
 </html>
