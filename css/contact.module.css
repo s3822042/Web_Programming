@@ -9,13 +9,13 @@ body{
   -o-background-size: cover;
   background-size: cover;
 }
-.form {
+#form {
   width: 340px;
-  height: 700px;
+  height: 950px;
   background: #e6e6e6;
   border-radius: 8px;
   box-shadow: 0 0 40px -10px #000;
-  margin: 120px 80px auto auto;
+  margin: 80px 80px 80px auto;
   padding: 20px 30px;
   max-width: 1448px;
   box-sizing: border-box;
@@ -30,9 +30,7 @@ h2 {
   color:#232F3E;
   border-bottom: 3px solid #253238;
 }
-input,S
-option {
-  width: 100%;
+input, option {
   padding: 10px;
   box-sizing: border-box;
   background: none;
@@ -42,80 +40,54 @@ option {
   font-family: "Amazon Ember",Arial,sans-serif;
   transition: all 0.3s;
   border-bottom: 2px solid #bebed2;
+  font-size: 14px;
 }
 input:focus,
 option:focus {
   border-bottom: 2px solid #78788c;
 }
-p:before{
-  content: attr(type);
-  display: block;
-  margin: 28px 0 0;
-  font-size: 14px;
-  color: #5a5a5a;
-}
 
-}
-/* Contact method */
-.contact-method , .contact-day{
-    float:center;
-    padding-top:20px;
 
-}
 .contact-method input[type="radio"] , .contact-day input[type="checkbox"] {
 	display: none;
 }
-.contact-method label , .contact-day label {
+#choices-label, #name-label, #email-label, #phone-label, #prefer-label, #contact-days, #msg-label {
 	position: relative;
 	display: inline-block;
-	padding: 3px 3px 3px 20px;
-	cursor: pointer;
+	padding: 3px 3px 3px 0px;
   color: #5a5a5a;
+  font-size: 16px;
+  font-weight: bold;
 }
-.contact-method label::before,
-.contact-method label::after , .contact-day label::before , .contact-day label::after {
-	position: absolute;
-	content: '';
-	top: 50%;
-	border-radius: 100%;
-	-webkit-transition: all .2s;
-	transition: all .2s;
 
+#name, #email, #phone, #msg {
+  width: 100%;
 }
-.contact-method label::before , .contact-day label::before {
-	left: 0;
-	width: 14px;
-	height: 14px;
-	margin-top: -8px;
-	background: #f3f3f3;
-	border: 1px solid #ccc;
+
+#prefer-email, #prefer-phone {
+  width: 5%;
+  font-size: 12px;
 }
-.contact-method label:hover::before , .contact-day label:hover::before{
-	background: #fff;
+
+label {
+  color: #5a5a5a;
+  font-size: 14px;
 }
-.contact-method label::after , .contact-day label::after{
-	opacity: 0;
-	left: 4px;
-	width: 8px;
-	height: 8px;
-	margin-top: -4px;
-	background: #3498db;
-	-webkit-transform: scale(2);
-	transform: scale(2);
+
+input {
+	cursor: pointer;
 }
-.contact-method input[type="radio"]:checked + label::before , .contact-day input[type="checkbox"]:checked + label::before{
-	background: #fff;
-	border: 1px solid #3498db;
-}
-.contact-method input[type="radio"]:checked + label::after  , .contact-day input[type="checkbox"]:checked + label::after{
-	opacity: 1;
-	-webkit-transform: scale(1);
-	transform: scale(1);
-}
+
 /* Option menu */
 #choices{
   color: #5a5a5a;
+  cursor: pointer;
+  font-size: 14px;
+  width: 100%;
+  text-align: center;
 }
+
+
  /* Button */
 .submit {
   float: right;
@@ -150,6 +122,17 @@ p:before{
   color: #fff;
 }
 
-span {
-  margin: 0 5px 0 15px;
+::placeholder {
+  font-size: 14px;
+  font-family: "Amazon Ember",Arial,sans-serif;
+}
+
+textarea {
+  resize: none;
+}
+
+@media screen and (max-width: 768px) {
+  .form {
+    margin: 80px auto 80px auto;
+  }
 }

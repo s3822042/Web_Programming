@@ -129,13 +129,7 @@ body {
     #products .container .product-wrap {
         width: 100%;
     }
-    #stores .container .store-wrap .store-banner{
-       
-    }
 
-    #products .container .product-wrap .product-banner{
-
-    }
 }
 
 
@@ -241,8 +235,6 @@ body {
     margin: 25px 0 10px 0;
     text-align: center;
 }
-
-.product-store-name {}
 
 .product-description {
     font-size: 14px;
