@@ -1,142 +1,155 @@
-.order-placement-table {
-    display: grid;
-    grid-template-columns: 15% 40% 20% 25%;
-    margin-left: 10%;
-    margin-right: 10%;
-    font-family: "Amazon Ember", Arial, sans-serif;
+.product-container {
+    max-width: 1000px;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.product-container i {
+    font-size: 20px;
+    color: rgba(241, 16, 16, 0.8);
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.product-container .products {
+    /* border: 1px solid rgba(241, 16, 16, 0.8);
+    border-bottom: hidden; */
+}
+
+.product-container .products .product {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.product-header {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 4px solid rgba(241, 16, 16, 0.8);
+    border-top: 4px solid rgba(241, 16, 16, 0.8);
+    margin: 0 auto;
+}
+
+.product-header h5 {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.product {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(241, 16, 16, 0.8);
+}
+
+.product-title {
+    width: 38%;
+    padding-left: 45px;
+}
+
+.product .product-title {
+    width: 39%;
+    padding-left: 0px;
+}
+
+.price {
+    width: 24%;
+    display: flex;
     align-items: center;
 }
 
-.order-placement-table .heading {
-    text-align: center;
-    font-size: 18px;
-    padding-bottom: 20px;
-    font-weight: bold;
-    border-bottom: 3px solid #ff523b;;
-    margin-bottom: 10px
-}
-
-.order-placement-table .product-img-cont {
-    width: 100%;
+.product .price {
+    width: 28%;
     display: flex;
+    align-items: center;
 }
 
-.order-placement-table .product-img-cont .product-img {
-    max-width: 80%;
-    margin: auto
+.quantity {
+    width: 24%;
+    display: flex;
+    align-items: center;
 }
 
-.order-placement-table .product-name {
-    text-align: center;
-    font-family: inherit;
-    font-size: 16px;
+.product .quantity {
+    width: 21%;
+    display: flex;
+    align-items: center;
 }
 
-.order-placement-table .quantity {
-    text-align: center;
+.total {
+    width: 12%;
+    display: flex;
+    align-items: center;
+    text-align: right;
 }
 
-.order-placement-table .quantity .quantity-buying {
-    height: 30px;
-    border-radius: 3px;
-    font-size: 14px;
-    color: #333333;
-    border: 1px solid #ccc;
-    outline: none;
-    padding-left: 15px;
-    text-align: center;
-    width: 50px;
+footer {
+    margin-top: 25px;
 }
 
-.order-placement-table .price {
-    text-align: center
-}
-
-.total-price {
-  display: flex;
-  justify-content: flex-end;
-  margin-right:220px;
-  font-family: "Amazon Ember", Arial, sans-serif;
-}
-
-.total-price table {
-  border-top: 3px solid #ff523b;
-  width: 100%;
-  max-width: 400px;
-}
-
-td:last-child {
-  text-align: right;
-}
-
-th:last-child {
-  text-align: right;
-}
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-.note .note-checkout{
-    font-family: "Amazon Ember", Arial, sans-serif;
-    font-weight: bold;
-    margin-top:15px;
-}
-.note .note-checkout label{
-    margin-bottom: 5px;
-    max-width: 100%;
-    display: block;
-}
-
-.note .note-checkout textarea {
-    font-family:inherit;
-    resize: none;
-    border-radius: 4px;
-    height: 70px;
-    border-color: #DDD7D7;
-    margin-top: 3px;
-    max-width: 100%;
-    padding: 5px;
-    overflow: auto;
-}
-
-.button-cont {
+.basketTotalContainer {
     display: flex;
     justify-content: flex-end;
-    margin-right: 10%
+    width: 100%;
+    padding: 10px 0;
+    border: 4px solid rgba(241, 16, 16, 0.8);
+    border-right: hidden;
+    border-left: hidden;
+    margin-top: -2px;
 }
 
-.button-cont .submit-button {
-    width: 200px;
-    height: 30px;
-    margin:30px;
-    text-transform: uppercase;
-    font-family: "Amazon Ember", Arial, sans-serif;
-    font-size: 12px;
-    line-height: 30px;
-    padding: 0 14px;
-    background-color: #fff;
-    color: #000;
+.basketTotalTitle {
+    width: 10%;
 }
 
-.button-cont .submit-button:hover {
-    background-color: #748dff;
-    cursor: pointer;
-    color: #fff
+.basketTotal {
+    width: 11.5%;
 }
-@media only screen and (max-width:767px){
-    .order-placement-table .heading{
-        font-size:10px;
-    }
-    .button-cont{
-        padding:2rem;
-    }
+
+.button-container {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 auto;
+    margin-top: 20px;
 }
-@media only screen and (min-width: 768px) and (max-width: 1024px){
-    .order-placement-table .heading{
-        font-size:10px;
-    }
-    .button-cont{
-        padding:2rem;
-    }
+
+.button-container .continue-button {
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 auto;
+}
+
+.button-container .order-button {
+    width: 40%;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 auto;
+}
+
+.button-container .continue-button a, .button-container .order-button a {
+    border-radius: 4px; 
+    padding: 10px; 
+    cursor: pointer; 
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+}
+
+.button-container .order-button a {
+    border-radius: 4px; 
+    padding: 10px 55px 10px 55px; 
+    cursor: pointer; 
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+}
+
+.button-container .continue-button a:hover, .button-container .order-button a:hover {
+    background-color: rgba(241, 16, 16, 0.8);
+    color: #fff;
 }
