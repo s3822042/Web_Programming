@@ -20,7 +20,6 @@ function addProduct() {
       "size": size,
       "quantity": quantity
     };
-    
     cartItems.push(product);
     localStorage.setItem('cart', JSON.stringify(cartItems));
 }
