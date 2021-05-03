@@ -162,22 +162,22 @@ if (previouslyEnteredEmail !== null) {
 //6. Check validation for password
 
 function validateOthers() {
-  var errors = [];
+  let errors = [];
   let firstname = document.getElementById("firstname").value;
   let lastname = document.getElementById("lastname").value;
-  let address = document.getElementById("email").value;
+  let address = document.getElementById("address").value;
   let city = document.getElementById("city").value;
-  if (firstname.length <= 3) {
+  if (firstname.length < 3) {
     errors.push("Your first name must have at least 3 character");
   }
-  if (lastname.length <= 3) {
-    errors.push("Your first name must have at least 3 character");
+  if (lastname.length < 3) {
+    errors.push("Your last name must have at least 3 character");
   }
-  if (address.length <= 3) {
-    errors.push("Your first name must have at least 3 character");
+  if (address.length < 3) {
+    errors.push("Your address name must have at least 3 character");
   }
-  if (city.length <= 3) {
-    errors.push("Your first name must have at least 3 character");
+  if (city.length < 3) {
+    errors.push("Your city name must have at least 3 character");
   }
   if(errors.length > 0) {
     alert(errors.join("\n"));
