@@ -158,3 +158,94 @@ if (previouslyEnteredEmail !== null) {
 } else {
   alert("Incorrect Email and/or Password. Please try again!");
 }
+
+//6. Check validation for password
+
+function validateOthers() {
+  var errors = [];
+  let firstname = document.getElementById("firstname").value;
+  let lastname = document.getElementById("lastname").value;
+  let address = document.getElementById("email").value;
+  let city = document.getElementById("city").value;
+  if (firstname.length <= 3) {
+    errors.push("Your first name must have at least 3 character");
+  }
+  if (lastname.length <= 3) {
+    errors.push("Your first name must have at least 3 character");
+  }
+  if (address.length <= 3) {
+    errors.push("Your first name must have at least 3 character");
+  }
+  if (city.length <= 3) {
+    errors.push("Your first name must have at least 3 character");
+  }
+  if(errors.length > 0) {
+    alert(errors.join("\n"));
+    return false;
+  }
+  else {
+    return true;
+  }
+}
+
+function validateRetypePassword() {
+  let password = document.getElementById("password").value;
+  let confirm = document.getElementById("confirm-password").value;
+  if (password != confirm) {
+    alert("Confirmed password is not matched");
+    return false;
+  }
+  else {
+    return true;
+  }
+}
+
+function validatePassword() {
+  let password = document.getElementById("password").value;
+  var errors = [];
+  if (password.length < 8) {
+    errors.push("Your password must be at least 8 characters"); 
+  }
+  if (password.length > 20) {
+    errors.push("Your password exceed maximum length");
+  }
+  if (password.search(/[a-z]/i) < 0) {
+    errors.push("Your password must contain at least one lowercase letter.");
+  }
+  if (password.search(/[0-9]/) < 0) {
+    errors.push("Your password must contain at least one digit."); 
+  }
+  if (password.search(/\s/) > 0) {
+    errors.push("Your password must not have whitespace");
+  }
+  if (password.search(/[A-Z]/) < 0) {
+    errors.push("Your password must contain at least one uppercase letter");
+  }
+  if (password.search(/[!@#$%^&*]/) < 0) {
+    errors.push("Your password must contain at least one special character");
+  }
+  if (errors.length > 0) {
+    alert(errors.join("\n"));
+    return false;
+  }
+  return true;
+}
+
+function checkValidation() {
+  var check;
+  if((check = validatePassword()) == true) {
+    if((check = validateRetypePassword()) == true) {
+      if((check = validateOthers()) == true) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+    else {
+      return false;
+    }
+  } else {
+    return false;
+  }
+}
