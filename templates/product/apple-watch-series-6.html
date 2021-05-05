@@ -43,17 +43,19 @@
                 <a href="../contact.html">
                     <li>Contact</li>
                 </a>
-                <a href="../login.html">
+                <a href="../login-form.html">
                     <li>Sign in</li>
                 </a>
                 <a href="../cart.html">
-                    <li>Cart (<span id="amount">0</span></li>
+                    <li>Cart (<span id="amount">0</span>)</li>
                 </a>
             </ul>
         </nav>
     </header>
     <!-- End header -->
     <!--body part-->
+    <div class="toast" id="toast">
+    </div>
     <div class="product_description">
         <div class="product_content">
             <!--product content-->
@@ -82,7 +84,7 @@
                     <span class="fas fa-star-half-alt checked"></span>
                     <!--half star-->
                     <span> 4.7/5 80 reviews </span>
-                    <p> Price: $<span id="product_image">399</span> </p>
+                    <p> Price: $<span id="product_price">399</span> </p>
                     <p> Color avaiable: Blue </p>
                     <div>
                         <span> <img src = "https://i.imgur.com/6KqDWVE.jpg" class ="same_product_another_design" alt = "product with another design"> </span>
@@ -113,7 +115,7 @@
                             <form>
                                 <label for="quantity"> Add to cart </label>
                                 <input type="number" id="quantity" name="quantity" min="1" max="196" value="1">
-                                <input type="submit" value="Add to cart" class="addtocart" id="addtocart_button">
+                                <button type="button" class="addtocart" id="addtocart_button"> Add to cart</button>
                             </form>
                         </div>
                 </div>

@@ -43,7 +43,7 @@
                 <a href="../contact.html">
                     <li>Contact</li>
                 </a>
-                <a href="../login.html">
+                <a href="../login-form.html">
                     <li>Sign in</li>
                 </a>
                 <a href="../cart.html">
@@ -54,6 +54,8 @@
     </header>
     <!-- End header -->
     <!--body part-->
+    <div class="toast" id="toast">
+    </div>
     <div class="product_description">
         <div class="product_content">
             <!--product content-->
@@ -117,15 +119,15 @@
                         <form>
                             <label for="quantity"> Add to cart </label>
                             <input type="number" id="quantity" name="quantity" min="1" max="196" value="1">
-                            <input type="submit" value="Add to cart" class="addtocart" id="addtocart_button">
+                            <button type="button" class="addtocart" id="addtocart_button">Add to cart</button>
                         </form>
                     </div>
                 </div>
             </div>
             <!--end general description-->
-            <div class="separator"></div>
+            <div class="separator "></div>
             <!--detail description-->
-            <div class="detail_description">
+            <div class="detail_description ">
                 <h3> Detail Description </h3>
                 <b>FOR THE PLAYER WHO'S GOT NEXT.</b>
                 <p>Inspired by the design of the latest Air Jordan game shoe, the Jordan Jumpman 2021 helps up-and-coming players level up their game. The shoe features responsive Zoom Air cushioning in the forefoot. Curved Flightwire cables are stitched
@@ -138,110 +140,110 @@
                 <p>A moulded TPU piece set into the midsole provides side-to-side stability when you're moving in multiple directions.</p>
                 <b>More Benefits</b>
                 <ul>
-                    <li style="list-style-type: disc">Lightweight material through the toe and sides provides a close, comfortable fit.</li>
-                    <li style="list-style-type: disc">Extra-durable rubber outsole with herringbone traction helps you grip the outdoor court.</li>
+                    <li style="list-style-type: disc ">Lightweight material through the toe and sides provides a close, comfortable fit.</li>
+                    <li style="list-style-type: disc ">Extra-durable rubber outsole with herringbone traction helps you grip the outdoor court.</li>
                 </ul>
             </div>
             <!--end detail description-->
             <!--review section-->
-            <div class="separator"> </div>
-            <div class="review_part">
+            <div class="separator "> </div>
+            <div class="review_part ">
                 <!-- review part-->
                 <!--star rating (132-5 stars, 20-4stars, 23-3stars, 12-2stars,9-1stars)-->
-                <div class="star_summary">
+                <div class="star_summary ">
                     <div>
                         <h3> Customer review </h3>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fas fa-star-half-alt checked"></span>
+                        <span class="fa fa-star checked "></span>
+                        <span class="fa fa-star checked "></span>
+                        <span class="fa fa-star checked "></span>
+                        <span class="fa fa-star checked "></span>
+                        <span class="fas fa-star-half-alt checked "></span>
                         <span> 4.5/5 32 reviews </span>
                     </div>
                     <!--review bar-->
-                    <div class="review_bar" id="review_bar_5_star">
+                    <div class="review_bar " id="review_bar_5_star ">
                         <!--star rating bar number-->
                         <div>
                             <p>5 star </p>
                         </div>
                         <!--bar-->
-                        <div class="gray_bar">
-                            <div class="amount_bar" style="width: calc(2500%/32);"> </div>
+                        <div class="gray_bar ">
+                            <div class="amount_bar " style="width: calc(2500%/32); "> </div>
                         </div>
                         <!--percentage -->
-                        <div class="percentage">
+                        <div class="percentage ">
                             <p> 78% </p>
                         </div>
                     </div>
-                    <div class="review_bar" id="review_bar_4_star">
+                    <div class="review_bar " id="review_bar_4_star ">
                         <!--star rating bar number-->
                         <div>
                             <p>4 star </p>
                         </div>
                         <!--bar-->
-                        <div class="gray_bar">
-                            <div class="amount_bar" style="width: calc(400%/32);"> </div>
+                        <div class="gray_bar ">
+                            <div class="amount_bar " style="width: calc(400%/32); "> </div>
                         </div>
                         <!--percentage -->
-                        <div class="percentage">
+                        <div class="percentage ">
                             <p> 12% </p>
                         </div>
                     </div>
-                    <div class="review_bar" id="review_bar_3_star">
+                    <div class="review_bar " id="review_bar_3_star ">
                         <!--star rating bar number-->
                         <div>
                             <p>3 star </p>
                         </div>
                         <!--bar-->
-                        <div class="gray_bar">
-                            <div class="amount_bar" style="width: calc(0%/32);"> </div>
+                        <div class="gray_bar ">
+                            <div class="amount_bar " style="width: calc(0%/32); "> </div>
                         </div>
                         <!--percentage -->
-                        <div class="percentage">
+                        <div class="percentage ">
                             <p> 0% </p>
                         </div>
                     </div>
-                    <div class="review_bar" id="review_bar_2_star">
+                    <div class="review_bar " id="review_bar_2_star ">
                         <!--star rating bar number-->
                         <div>
                             <p>2 star </p>
                         </div>
                         <!--bar-->
-                        <div class="gray_bar">
-                            <div class="amount_bar" style="width: calc(100%/32);"> </div>
+                        <div class="gray_bar ">
+                            <div class="amount_bar " style="width: calc(100%/32); "> </div>
                         </div>
                         <!--percentage -->
-                        <div class="percentage">
+                        <div class="percentage ">
                             <p> 3% </p>
                         </div>
                     </div>
-                    <div class="review_bar" id="review_bar_1_star">
+                    <div class="review_bar " id="review_bar_1_star ">
                         <!--star rating bar number-->
                         <div>
                             <p>1 star </p>
                         </div>
                         <!--bar-->
-                        <div class="gray_bar">
-                            <div class="amount_bar" style="width: calc(100%/32);"> </div>
+                        <div class="gray_bar ">
+                            <div class="amount_bar " style="width: calc(100%/32); "> </div>
                         </div>
                         <!--percentage -->
-                        <div class="percentage">
+                        <div class="percentage ">
                             <p> 3% </p>
                         </div>
                     </div>
                     <!--write your review here-->
-                    <div class="separator"> </div>
-                    <div class="review">
+                    <div class="separator "> </div>
+                    <div class="review ">
                         <h3> Review this product </h3>
                         <p> You can write your review here </p>
                         <form>
-                            <div class="rating">
+                            <div class="rating ">
                                 <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
                             </div>
                             <p> Your preferred name: </p>
-                            <input type="text" name="user_pref_name" class="text-area">
+                            <input type="text " name="user_pref_name " class="text-area ">
                             <p> Your reason: </p>
-                            <input type="text" name="user's_reason " class="text-area">
+                            <input type="text " name="user 's_reason " class="text-area">
                             <p> explanation: </p>
                             <textarea name="review" class="text-area"> </textarea>
                             <input type="submit" class="submit-button ">

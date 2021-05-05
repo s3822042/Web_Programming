@@ -43,7 +43,7 @@
                 <a href="../contact.html">
                     <li>Contact</li>
                 </a>
-                <a href="../login.html">
+                <a href="../login-form.html">
                     <li>Sign in</li>
                 </a>
                 <a href="../cart.html">
@@ -54,6 +54,9 @@
     </header>
     <!-- End header -->
     <!--body part-->
+    <div class="toast" id="toast">
+    </div>
+
     <div class="product_description">
         <div class="product_content">
             <!--product content-->
@@ -165,7 +168,7 @@
                         <form>
                             <label for="quantity"> Add to cart </label>
                             <input type="number" id="quantity" name="quantity" min="1" max="196" value="1" />
-                            <input type="submit" value="Add to cart" class="addtocart" id="addtocart_button" />
+                            <button type="button" class="addtocart" id="addtocart_button">Add to cart</button>
                         </form>
                     </div>
                 </div>
@@ -329,31 +332,6 @@
                             </p>
                             <i class="far fa-thumbs-up like-button"></i>
                             <span> 59 likes </span>
-                        </div>
-                    </div>
-                    <!--end comment 1-->
-                    <!--comment 2-->
-                    <div class="review">
-                        <!--avatar of the user-->
-                        <div class="avatar">
-                            <img src="https://i.imgur.com/l40m95m.png" class="users-avatar" />
-                        </div>
-                        <!--review content-->
-                        <div class="review-content">
-                            <p>Michael</p>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="far fa-star"></span>
-                            <!--no star-->
-                            <span class="review_reason"><b> This is an amazing shoe but not perfect</b>
-                </span>
-                            <p class="text-area">
-                                This shoe fit perfectly into my feet but it doesn't really fit for playing sports that I liked such as football but it is perfect for running.
-                            </p>
-                            <i class="far fa-thumbs-up like-button"></i>
-                            <span> 63 likes </span>
                         </div>
                     </div>
                     <!--end comment 1-->

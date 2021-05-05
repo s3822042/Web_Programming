@@ -246,6 +246,34 @@
             height: 125px;
             margin: auto
         }
+        /* toast */
+        
+        .toast {
+            position: fixed;
+            top: 0;
+            left: 900px;
+            right: 0;
+            margin: auto;
+            width: 30%;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #00C02B;
+            text-align: center;
+            border: 1px solid#009D23;
+            color: white;
+            border-radius: 5px;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.2, top 0.2s, visibility 0.2s;
+        }
+        
+        .toast-visible {
+            top: 20px;
+            opacity: 1;
+            visibility: visible;
+        }
         
         .product_description .product_content .similar-product .product_list .product .product-link {
             color: black
@@ -272,7 +300,7 @@
             }
             .product_description .product_content .product_detail .product_general_description .buying .addtocart {
                 font-size: 7px;
-                margin: auto
+                margin: auto;
             }
             .product_description .product_content .product_detail .product_general_description .buying .number_buying {
                 font-size: 7px;
