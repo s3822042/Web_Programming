@@ -34,12 +34,48 @@ function displayCart() {
             }
             productContainer.innerHTML += '</div>\n';
         });
-
-        productContainer.innerHTML += '<div class="basketTotalContainer">' + '<h4 class="basketTotalTitle">TOTAL: ' + '<h4 class="basketTotal">$' + total + '.00</h4>' + '</h4>' + '</div>\n';
+    
+        productContainer.innerHTML += '<div class="basketTotalContainer">' 
+        + '<h4 class="basketTotalTitle">ORDER TOTAL: ' + '<h4 class="basketTotal">$' + total + '.00</h4>' + '</h4>'
+        + '</div>\n';
     }
 }
 
+function afterCoupon () {
+    let couponValue = document.querySelector("#coupon-input-field");
+    let paymentTotal = document.querySelector("#paymentTotalValue span");
+    let total = localStorage.getItem("totalCost");
+
+    // console.log(couponValue.value);
+    // console.log(paymentTotal.textContent);
+    console.log(couponValue.value);
+    // console.log(total);
+    if (couponValue.value == "COSC2430-HD") {
+        paymentTotal.innerHTML = '$' + (parseFloat(total)*0.8).toFixed(2) + ' (-20%)';
+    } 
+    else if (couponValue.value == "COSC2430-DI") {
+        paymentTotal.innerHTML = '$' + (parseFloat(total)*0.9).toFixed(2) + ' (-10%)';
+    } 
+    else if (total == null) {
+        paymentTotal.innerHTML = 'Go buy some!';
+        document.querySelector(".order-button a").href = "#";
+    } 
+    else {
+        paymentTotal.innerHTML = '$' + total + '.00';
+   }  
+ }
+
+ function validCoupon() {
+    let couponValue = document.querySelector("#coupon-input-field");
+    let paymentTotal = document.querySelector("#paymentTotalValue span");
+    if (couponValue.value != "COSC2430-HD" && couponValue.value != "COSC2430-DI" && couponValue.value != "")
+    {
+        paymentTotal.innerHTML = "Invalid coupon code!";
+    }
+ }
+
 // function calls 
+afterCoupon();
 displayCart();
 totalCost();
 
