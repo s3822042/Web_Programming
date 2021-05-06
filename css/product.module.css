@@ -28,7 +28,6 @@
         .checked {
             color: orange;
         }
-        
         /* creating the base for the product */
         
         .product_description .product_content h1 {
@@ -304,6 +303,35 @@
             #product_5 {
                 display: none
             }
+        }
+        /* toast */
+        
+        .toast {
+            position: fixed;
+            top: 0;
+            left: 900px;
+            right: 0;
+            margin: auto;
+            width: 30%;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #00C02B;
+            text-align: center;
+            border: 1px solid#009D23;
+            color: white;
+            border-radius: 5px;
+            visibility: hidden;
+            opacity: 0;
+            z-index: 1;
+            transition: opacity 0.2, top 0.2s, visibility 0.2s;
+        }
+        
+        .toast-visible {
+            top: 20px;
+            opacity: 1;
+            visibility: visible;
         }
         /* max 768px */
         
