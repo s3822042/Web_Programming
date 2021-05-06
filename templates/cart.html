@@ -66,20 +66,29 @@
       <p style="height: 100px;">CART</p>
     </div>
     
-    <div class="product-container">
-		<div class="product-header">
-			<h5 class="product-title">PRODUCT</h5>
-			<h5 class="price">PRICE</h5>
-			<h5 class="quantity">QUANTITY</h5>
-			<h5 class="total">COST</h5>
-		</div>
-		<div class="products">
+      <div class="product-container"> 
+        <div class="product-header">
+          <h5 class="product-title">PRODUCT</h5>
+          <h5 class="price">PRICE</h5>
+          <h5 class="quantity">QUANTITY</h5>
+          <h5 class="total">COST</h5>
+        </div>
 
-		</div>
-	  	<div class="button-container">
-			<div class="continue-button"><a>Continue Shopping</a></div>
-			<div class="order-button"><a href="thank_you.html">Order</a></div>
-		</div>
+        <div class="products"></div>
+
+        <div class="coupon-input">
+          <label id="coupon-title" for="coupon-input-field"><strong>COUPON:</strong></label>
+          <input id="coupon-input-field" type="text" placeholder="(Optional)" oninput="this.value = this.value.toUpperCase()" onblur="afterCoupon(); validCoupon()">
+        </div>
+
+        <div class="payment-total">
+            <h4 id="paymentTotalValue">PAYMENT TOTAL: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>$0</span></h4>
+        </div>
+
+        <div class="button-container">
+          <div class="continue-button"><a>Continue Shopping</a></div>
+          <div class="order-button"><a href="thank_you.html" onclick="window.localStorage.removeItem('cart');window.localStorage.removeItem('totalCost')">Order</a></div>
+        </div>
     </div>
 
     <script src="../js/cart.js"></script>
