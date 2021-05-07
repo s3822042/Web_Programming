@@ -147,7 +147,7 @@ function validateLogin() {
   }
 }
 function displayUserInput() {
-  let dataLocalStorage = document.getElementById("email");
+  const dataLocalStorage = document.getElementById("email_address");
   dataLocalStorage.value = localStorage.getItem("validatedEmailAddress");
   dataLocalStorage.disabled = true;
 }
