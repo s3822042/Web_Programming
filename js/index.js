@@ -12,7 +12,7 @@ window.onload = () => {
             savetoStorage();
         }
     }
-    show_cart()
+    show_cart();
 };
 
 // 2. Automatically Slider
@@ -52,26 +52,21 @@ function pauseSlides(event) {
     clearInterval(theInterval); // Clear the interval we set earlier
 }
 // 3. Modal form
-
+const overlay = document.getElementById("overlay");
+const HuyDuong_content = document.getElementById("HuyDuong");
+const Andrew_content = document.getElementById("Andrew");
+const MinhNguyen_content = document.getElementById("Minh");
+const LuanVo_content = document.getElementById("LuanVo");
 
 function on() {
-    let overlay = document.getElementById("overlay");
-
     overlay.classList.add("overlay-active");
 }
 
 function off() {
-    let overlay = document.getElementById("overlay");
-
     overlay.classList.remove("overlay-active");
 }
 
 function openmodal(member) {
-    let overlay = document.getElementById("overlay");
-    let HuyDuong_content = document.getElementById("HuyDuong");
-    let Andrew_content = document.getElementById("Andrew");
-    let MinhNguyen_content = document.getElementById("Minh");
-    let LuanVo_content = document.getElementById("LuanVo");
     switch (member) {
         case "LuanVo":
             LuanVo_content.classList.add("modal-active");
@@ -93,11 +88,6 @@ function openmodal(member) {
 }
 
 function offmodal(member) {
-    let overlay = document.getElementById("overlay");
-    let HuyDuong_content = document.getElementById("HuyDuong");
-    let Andrew_content = document.getElementById("Andrew");
-    let MinhNguyen_content = document.getElementById("Minh");
-    let LuanVo_content = document.getElementById("LuanVo");
     switch (member) {
         case "LuanVo":
             LuanVo_content.classList.remove("modal-active");
@@ -119,11 +109,6 @@ function offmodal(member) {
 }
 
 function overlay_turnoff() {
-    let overlay = document.getElementById("overlay");
-    let HuyDuong_content = document.getElementById("HuyDuong");
-    let Andrew_content = document.getElementById("Andrew");
-    let MinhNguyen_content = document.getElementById("Minh");
-    let LuanVo_content = document.getElementById("LuanVo");
     off();
     if (MinhNguyen_content.classList.contains("modal-active")) {
         MinhNguyen_content.classList.remove("modal-active");
@@ -135,22 +120,22 @@ function overlay_turnoff() {
         HuyDuong_content.classList.remove("modal-active");
     }
 }
+overlay.addEventListener("click", overlay_turnoff);
 
 // 5. Login validation
 
 function validateLogin() {
     "use strict";
 
-    var email = document.loginForm.email.value;
-    var pass = document.loginForm.pwd.value;
+    let email = document.loginForm.email.value;
+    let pass = document.loginForm.pwd.value;
 
-    var emailAddress = "email";
-    var password = "password";
-    if (email == emailAddress && pass == password) {
-        localStorage.setItem("validatedEmailAddress", emailAddress);
+    let password = "password";
+    if (pass == password) {
+        localStorage.setItem("validatedEmailAddress", email);
         return true;
     } else {
-        alert("Login was unsuccessful, please check your email and password");
+        alert("Login was unsuccessful, please check your email and/or password");
         return false;
     }
 }
@@ -317,5 +302,4 @@ function show_cart() {
     } else {
         cart_nav.style.visibility = "hidden";
     }
-    cart_nav.style.visibility = "hidden";
 }
