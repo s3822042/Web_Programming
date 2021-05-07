@@ -122,13 +122,6 @@ function overlay_turnoff() {
 overlay.addEventListener("click", overlay_turnoff);
 
 // 5. Login validation
-// function storeData(storageKey, myValueToStore) {
-//   localStorage.setItem(storageKey, myValueToStore);
-// }
-
-// function getData(storageKey) {
-//   localStorage.getItem(storageKey);
-// }
 
 function validateLogin() {
   "use strict";
@@ -244,7 +237,7 @@ function validatePassword() {
 }
 
 function checkValidation() {
-  var check;
+  let check;
   if ((check = validatePassword()) == true) {
     if ((check = validateRetypePassword()) == true) {
       if ((check = validateOthers()) == true) {
@@ -279,8 +272,8 @@ function checkValidation() {
 
 function validateEmail() {
   const emailRegex = /(?:[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/g;
-  let email = document.getElementById("email-address").value;
-  if (emailRegex.test(email)) {
+  let emailAddress = document.getElementById("email-address").value;
+  if (emailRegex.test(emailAddress)) {
     return true;
   }
   else {
