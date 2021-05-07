@@ -52,21 +52,22 @@ function pauseSlides(event) {
     clearInterval(theInterval); // Clear the interval we set earlier
 }
 // 3. Modal form
-const overlay = document.getElementById("overlay");
-const HuyDuong_content = document.getElementById("HuyDuong");
-const Andrew_content = document.getElementById("Andrew");
-const MinhNguyen_content = document.getElementById("Minh");
-const LuanVo_content = document.getElementById("LuanVo");
 
 function on() {
+    let overlay = document.getElementById("overlay");
     overlay.classList.add("overlay-active");
 }
 
 function off() {
+    let overlay = document.getElementById("overlay");
     overlay.classList.remove("overlay-active");
 }
 
 function openmodal(member) {
+    let HuyDuong_content = document.getElementById("HuyDuong");
+    let Andrew_content = document.getElementById("Andrew");
+    let MinhNguyen_content = document.getElementById("Minh");
+    let LuanVo_content = document.getElementById("LuanVo");
     switch (member) {
         case "LuanVo":
             LuanVo_content.classList.add("modal-active");
@@ -88,6 +89,10 @@ function openmodal(member) {
 }
 
 function offmodal(member) {
+    let HuyDuong_content = document.getElementById("HuyDuong");
+    let Andrew_content = document.getElementById("Andrew");
+    let MinhNguyen_content = document.getElementById("Minh");
+    let LuanVo_content = document.getElementById("LuanVo");
     switch (member) {
         case "LuanVo":
             LuanVo_content.classList.remove("modal-active");
@@ -110,6 +115,10 @@ function offmodal(member) {
 
 function overlay_turnoff() {
     off();
+    let HuyDuong_content = document.getElementById("HuyDuong");
+    let Andrew_content = document.getElementById("Andrew");
+    let MinhNguyen_content = document.getElementById("Minh");
+    let LuanVo_content = document.getElementById("LuanVo");
     if (MinhNguyen_content.classList.contains("modal-active")) {
         MinhNguyen_content.classList.remove("modal-active");
     } else if (LuanVo_content.classList.contains("modal-active")) {
@@ -120,7 +129,6 @@ function overlay_turnoff() {
         HuyDuong_content.classList.remove("modal-active");
     }
 }
-overlay.addEventListener("click", overlay_turnoff);
 
 // 5. Login validation
 
