@@ -126,21 +126,20 @@ overlay.addEventListener("click", overlay_turnoff);
 function validateLogin() {
   "use strict";
 
-  var email = document.loginForm.email.value;
-  var pass = document.loginForm.pwd.value;
+  let email = document.loginForm.email.value;
+  let pass = document.loginForm.pwd.value;
 
-  var emailAddress = "email";
-  var password = "password";
-  if (email == emailAddress && pass == password) {
-    localStorage.setItem("validatedEmailAddress", emailAddress);
+  let password = "password";
+  if (pass == password) {
+    localStorage.setItem("validatedEmailAddress", email);
     return true;
   } else {
-    alert("Login was unsuccessful, please check your email and password");
+    alert("Login was unsuccessful, please check your email and/or password");
     return false;
   }
 }
 function displayUserInput() {
-  const dataLocalStorage = document.getElementById("email_address");
+  const dataLocalStorage = document.getElementById("email");
   dataLocalStorage.value = localStorage.getItem("validatedEmailAddress");
   dataLocalStorage.disabled = true;
 }
