@@ -12,6 +12,7 @@ window.onload = () => {
             savetoStorage();
         }
     }
+    show_cart()
 };
 
 // 2. Automatically Slider
@@ -307,4 +308,14 @@ function validateZipCode() {
         alert("Invalid zip code, please type zipcode 4~6 digits");
         return false;
     }
+}
+// cart show up when user login
+function show_cart() {
+    let cart_nav = document.getElementById("cart");
+    if (localStorage.getItem("validatedEmailAddress") !== null) {
+        cart_nav.style.visibility = "visible";
+    } else {
+        cart_nav.style.visibility = "hidden";
+    }
+    cart_nav.style.visibility = "hidden";
 }
