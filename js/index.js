@@ -250,7 +250,12 @@ function checkValidation() {
       if ((check = validateOthers()) == true) {
         if ((check = validateEmail()) == true) {
           if ((check = validatePhoneNumber()) == true) {
-            return true;
+            if((check = validateZipCode()) == true) {
+              return true;
+            }
+            else {
+              return false;
+            }
           }
           else {
             return false;
@@ -289,4 +294,18 @@ function additionalField() {
 }
 function hideAdditionalField() {
   document.getElementById("store-name").style.visibility = "hidden";
+}
+
+function validateZipCode() {
+  const regex_1 = /\b\d{4}\b/g;
+  const regex_2 = /\b\d{5}\b/g;
+  const regex_3 = /\b\d{6}\b/g;
+  let zipcode = document.getElementById("zip-code").value;
+  if((regex_1.test(zipcode)) == true || (regex_2.test(zipcode)) == true || (regex_3.test(zipcode)) == true) {
+    return true;
+  }
+  else {
+    alert("Invalid zip code, please type zipcode 4~6 digits");
+    return false;
+  }
 }
