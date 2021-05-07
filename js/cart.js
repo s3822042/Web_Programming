@@ -71,6 +71,7 @@ function afterCoupon () {
     if (couponValue.value != "COSC2430-HD" && couponValue.value != "COSC2430-DI" && couponValue.value != "")
     {
         paymentTotal.innerHTML = "Invalid coupon code!";
+        document.querySelector(".order-button a").disabled = true;
     }
  }
 
