@@ -123,5 +123,5 @@ overflow: hidden
 	transform: scale(1);
 }
 #store-name {
-    visibility: hidden;
+    display: none;
 }
