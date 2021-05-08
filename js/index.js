@@ -335,7 +335,7 @@ function validateZipCode() {
     return false;
   }
 }
-// cart show up when user login
+// 8. Hide cart when user is not logged in
 function show_cart() {
   let cart_nav = document.getElementById("cart");
   if (localStorage.getItem("validatedEmailAddress") !== null) {
