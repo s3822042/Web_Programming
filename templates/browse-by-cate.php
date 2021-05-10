@@ -1,3 +1,23 @@
+<?php
+if (isset($_POST['categories'])) {
+  $select = $_POST['categories'];
+  switch ($select) {
+    case 'all':
+      $options = 0;
+    case 'shoes':
+      $options = 1;
+      break;
+    case 'watch':
+      $options = 2;
+      break;
+    case 'smartphone':
+      $options = 3;
+      break;
+  }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -73,75 +93,35 @@
       <!-- Store card row-->
 
       <div class="store-container">
+        <div class="store-card" id="store-nike" style="display:<?php echo $options == 1 ? 'block' : 'none' ?>">
+          <figure>
+            <a href="store/store_Nike.html">
+              <img src="https://i.imgur.com/SPU418r.jpg" alt="store1" class="store-icon" />
+            </a>
+          </figure>
+          <div class="store-name">Nike</div>
+          <div class="store-description" style="text-align: center"></div>
+        </div>
+        <div class="store-card" id="store-rolex" style="display:<?php echo $options == 2 ? 'block' : 'none' ?>">
+          <figure>
+            <a href="store/store_Rolex.html">
+              <img src="https://i.imgur.com/bpOtMwr.png" alt="store2" class="store-icon" />
+            </a>
+          </figure>
+          <div class="store-name">Rolex</div>
+          <div class="store-description"></div>
+        </div>
+        <div class="store-card" id="store-apple" style="display:<?php echo $options == 3 ? 'block' : 'none' ?>">
+          <figure>
+            <a href="store/store_Apple.html">
+              <img src="https://i.imgur.com/pFWAXrC.jpg" alt="store3" class="store-icon" />
+            </a>
+          </figure>
+          <div class="store-name">Apple</div>
+          <div class="store-description" style="text-align: center"></div>
+        </div>
 
-        <?php
-        if (isset($_POST['categories'])) {
-          $select = $_POST['categories'];
-          switch ($select) {
-            case 'shoes':
-              echo '<div class="store-card">';
-              echo '<figure>';
-              echo   '<a href="store/store_Nike.html">';
-              echo    '<img src="https://i.imgur.com/SPU418r.jpg" alt="store1" class="store-icon" />';
-              echo  '</a>';
-              echo '</figure>';
-              echo '<div class="store-name">Nike</div>';
-              echo '<div class="store-description"></div>';
-              echo '</div>';
-              break;
-            case 'watch':
-              echo '<div class="store-card">';
-              echo '<figure>';
-              echo   '<a href="store/store_Rolex.html">';
-              echo    '<img src="https://i.imgur.com/bpOtMwr.png" alt="store2" class="store-icon" />';
-              echo  '</a>';
-              echo '</figure>';
-              echo '<div class="store-name">Rolex</div>';
-              echo '<div class="store-description"></div>';
-              echo '</div>';
-              break;
-            case 'smartphone':
-              echo '<div class="store-card">';
-              echo '<figure>';
-              echo   '<a href="store/store_Apple.html">';
-              echo    '<img src="https://i.imgur.com/pFWAXrC.jpg" alt="store3" class="store-icon" />';
-              echo  '</a>';
-              echo '</figure>';
-              echo '<div class="store-name">Apple</div>';
-              echo '<div class="store-description"></div>';
-              echo '</div>';
-              break;
-            case 'all':
-              echo '<div class="store-card">';
-              echo '<figure>';
-              echo   '<a href="store/store_Nike.html">';
-              echo    '<img src="https://i.imgur.com/SPU418r.jpg" alt="store1" class="store-icon" />';
-              echo  '</a>';
-              echo '</figure>';
-              echo '<div class="store-name">Nike</div>';
-              echo '<div class="store-description"></div>';
-              echo '</div>';
-              echo '<div class="store-card">';
-              echo '<figure>';
-              echo   '<a href="store/store_Rolex.html">';
-              echo    '<img src="https://i.imgur.com/bpOtMwr.png" alt="store2" class="store-icon" />';
-              echo  '</a>';
-              echo '</figure>';
-              echo '<div class="store-name">Rolex</div>';
-              echo '<div class="store-description"></div>';
-              echo '</div>';
-              echo '<div class="store-card">';
-              echo '<figure>';
-              echo   '<a href="store/store_Apple.html">';
-              echo    '<img src="https://i.imgur.com/pFWAXrC.jpg" alt="store3" class="store-icon" />';
-              echo  '</a>';
-              echo '</figure>';
-              echo '<div class="store-name">Apple</div>';
-              echo '<div class="store-description"></div>';
-              echo '</div>';
-          }
-        }
-        ?>
+
       </div>
       <!-- End store card row-->
     </div>
