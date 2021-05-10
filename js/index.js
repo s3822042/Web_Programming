@@ -344,3 +344,8 @@ function show_cart() {
     cart_nav.style.visibility = "hidden";
   }
 }
+
+// reload the page when option menu is checked
+function onChange() {
+  document.getElementById("myForm").submit();
+}
