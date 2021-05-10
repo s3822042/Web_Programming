@@ -1,11 +1,9 @@
 
 # COSC2430 - Web Programming
 
-This site is using HTML5 and CSS3
+This site is using HTML5 , CSS3, JavaScript and PHP
 
 Our website accessible at: [https://themallexpress.netlify.app/](https://themallexpress.netlify.app/)
-
-## Assignment 1 - HTML & CSS Assignment
 
 ## Group 16 member
 
