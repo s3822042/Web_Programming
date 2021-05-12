@@ -1,4 +1,5 @@
 <?php
+  error_reporting(E_ERROR | E_PARSE);
   if (fopen('../php/install.php', 'r') != null) {
     exit("'install.php' still exists! Delete it to proceed!");
   }

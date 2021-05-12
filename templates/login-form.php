@@ -1,24 +1,24 @@
 <?php
 	session_start();
+  error_reporting(E_ERROR | E_PARSE);
 
   if (fopen('../php/install.php', 'r') != null) {
     exit("'install.php' still exists! Delete it to proceed!");
   }
+  $adminUsername = "andrewlenguyen@gmail.com";
+  $adminPass = "$2y$10VJZeRekNVK8dodKsQubVcOa5PupDhGH4JYyr6lS4CxdzzTJ.7/cK6";
 
-	$adminUsername = "andrewlenguyen@gmail.com";
-	$adminPass = "$2y$10VJZeRekNVK8dodKsQubVcOa5PupDhGH4JYyr6lS4CxdzzTJ.7/cK6";
-
-	if (isset($_POST['log-in-hit'])) {
-		if (isset($_POST['email']) && $_POST['email'] == $adminUsername && isset($_POST['pwd']) && $_POST['pwd'] == $adminPass) {
-			$_SESSION['admin_username'] = $_POST['email'];
-			header('location: CMS.php');
-		} 
-		else if (isset($_POST['pwd']) && $_POST['pwd'] == "password") {
-			$_SESSION['user'] = $_POST['email'];
-			unset($_SESSION['admin_username']);
-			header('location: account/account.html');
-		}
-	}
+  if (isset($_POST['log-in-hit'])) {
+    if (isset($_POST['email']) && $_POST['email'] == $adminUsername && isset($_POST['pwd']) && $_POST['pwd'] == $adminPass) {
+      $_SESSION['admin_username'] = $_POST['email'];
+      header('location: CMS.php');
+    } 
+    else if (isset($_POST['pwd']) && $_POST['pwd'] == "password") {
+      $_SESSION['user'] = $_POST['email'];
+      unset($_SESSION['admin_username']);
+      header('location: account/account.html');
+    }
+  }
 ?>
 
 <!DOCTYPE html>
