@@ -1,3 +1,9 @@
+<?php
+  if (fopen('../php/install.php', 'r') != null) {
+    exit("'install.php' still exists! Delete it to proceed!");
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -176,7 +182,7 @@
               <a href="contact.html">Contact</a>
             </div>
             <div class="grid-item">
-              <a href="privacy_policies.html">Privacy Policy</a>
+              <a href="privacy_policies.php">Privacy Policy</a>
             </div>
           </div>
           <!-- Social Link -->
