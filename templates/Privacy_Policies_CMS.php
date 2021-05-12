@@ -99,7 +99,7 @@
     <body>
         <header>
             <div class="cms-main-title">
-                <p><strong id="welcome">PRIVACY POLICY EDITING</strong> <br> <span id="admin-name">Select desired content(s) to edit and hit "Save" to save changes<span></p>   
+                <p><strong id="welcome">PRIVACY POLICY EDITING</strong> <br> <span id="admin-name">Select desired content(s) to edit and hit "Save All" to save changes<span></p>   
             </div>
         </header>
 
@@ -112,7 +112,7 @@
                     cols=100
                     style='font-family: "Times New Roman"; font-size: 24px; text-align: justify;'
 
-            >Mall Express is committed to protecting the privacy of its users. This Privacy Policy (“Privacy Policy”) is designed to help you understand what information we gather, how we use it, what we do to protect it, and to assist you in making informed decisions when using our website. Unless otherwise indicated below, this Privacy Policy applies to any website that references this Privacy Policy, any Company website, as well as any data the Company may collect across partnered and unaffiliated sites.</textarea><br>
+            ><strong>Mall Express</strong> is committed to protecting the privacy of its users. This Privacy Policy (“Privacy Policy”) is designed to help you understand what information we gather, how we use it, what we do to protect it, and to assist you in making informed decisions when using our website. Unless otherwise indicated below, this Privacy Policy applies to any website that references this Privacy Policy, any Company website, as well as any data the Company may collect across partnered and unaffiliated sites.</textarea><br>
             <br>
 
             <!-- intro 2 -->
@@ -176,9 +176,9 @@
             <br>
 
             <!-- info collect email communication -->
-            <label class="label" for="content8" style='font-family: "Times New Roman";'>Information We Collect - Email Communications:</label><br><br>
-            <textarea id="content8" 
-                    name="content8" 
+            <label class="label" for="content9" style='font-family: "Times New Roman";'>Information We Collect - Email Communications:</label><br><br>
+            <textarea id="content9" 
+                    name="content9" 
                     rows=9
                     cols=100
                     style='font-family: "Times New Roman"; font-size: 24px; text-align: justify;'
