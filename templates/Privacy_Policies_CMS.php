@@ -45,8 +45,7 @@
                 text-align: center;
                 font-size: 3rem;
                 color: white;
-                background: white;
-                
+                background: linear-gradient(90deg, rgba(0,0,0,1) 20%, rgba(37,51,170,1) 72%, rgba(0,255,229,1) 100%);    
                 height: 200px;
                 margin-top: -50px;
                 padding-top: 35px;
