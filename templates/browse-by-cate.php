@@ -150,7 +150,7 @@ if (isset($_POST['categories'])) {
           </div>
           <div class="grid-item"><a href="browse-menu.html">Browse</a></div>
           <div class="grid-item">
-            <a href="term_of_services.html">Term of Service</a>
+          <a href="term_of_services.php">Term of Service</a>
           </div>
           <div class="grid-item">
             <a href="account/account.html">Account</a>
