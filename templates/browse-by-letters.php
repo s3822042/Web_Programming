@@ -1,3 +1,10 @@
+<?php
+  error_reporting(E_ERROR | E_PARSE);
+  if (fopen('../php/install.php', 'r') != null) {
+    exit("'install.php' still exists! Delete it to proceed!");
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -166,7 +173,7 @@
             </div>
             <div class="grid-item"><a href="browse-menu.html">Browse</a></div>
             <div class="grid-item">
-              <a href="term_of_services.html">Term of Service</a>
+            <a href="term_of_services.php">Term of Service</a>
             </div>
             <div class="grid-item">
               <a href="account/account.html">Account</a>
@@ -176,7 +183,7 @@
               <a href="contact.html">Contact</a>
             </div>
             <div class="grid-item">
-              <a href="privacy_policies.html">Privacy Policy</a>
+              <a href="privacy_policies.php">Privacy Policy</a>
             </div>
           </div>
           <!-- Social Link -->

@@ -1,3 +1,18 @@
+<?php
+    session_start();
+    error_reporting(E_ERROR | E_PARSE);
+
+    if (fopen('../php/install.php', 'r') != null) {
+        exit("'install.php' still exists! Delete it to proceed!");
+    }
+
+    // echo '<h2>$_SESSION values</h2>';
+    // echo '<pre>';
+    // print_r($_SESSION);
+    // echo '</pre>';
+    // echo '<hr>';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,6 +29,11 @@
       integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
       crossorigin="anonymous"
     />
+    <style>
+      .container_content > p {
+        text-align: justify;
+      }
+    </style>
   </head>
   <body>
     <!-- Navigation bar -->
@@ -69,7 +89,7 @@
           <h4>Privacy Policy</h4>
           <p>
             Before you continue using our website we advise you to read our
-            <a href="privacy_policies.html">privacy policy</a> regarding our
+            <a href="privacy_policies.php">privacy policy</a> regarding our
             user data collection. It will help you better understand our
             practices.
           </p>
@@ -170,7 +190,7 @@
             </div>
             <div class="grid-item"><a href="browse-menu.html">Browse</a></div>
             <div class="grid-item">
-              <a href="term_of_services.html">Term of Service</a>
+              <a href="term_of_services.php">Term of Service</a>
             </div>
             <div class="grid-item"><a href="account/account.html">Account</a></div>
             <div class="grid-item"><a href="faq.html">FAQs</a></div>
