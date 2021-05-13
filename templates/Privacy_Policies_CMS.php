@@ -306,7 +306,7 @@
             <hr>
 
             <!-- Button -->
-			<button type="submit" name="save-changes" value="submit">Save all changes</button>
+			<button type="submit" name="save-changes" value="submit">Save All</button>
             <hr style="margin-bottom: 50px;">
         </form>
     </body>
