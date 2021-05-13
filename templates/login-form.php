@@ -1,14 +1,48 @@
 <?php
 	session_start();
-  error_reporting(E_ERROR | E_PARSE);
-
+  function encrypt_decrypt($string, $action = 'encrypt')
+    {
+        $encrypt_method = "AES-256-CBC";
+        $secret_key = 'AA74CDCC2BBRT935136HH7B63C27'; // user define private key
+        $secret_iv = '5fgf5HJ5g27'; // user define secret key
+        $key = hash('sha256', $secret_key);
+        $iv = substr(hash('sha256', $secret_iv), 0, 16); // sha256 is hash_hmac_algo
+        if ($action == 'encrypt') {
+            $output = openssl_encrypt($string, $encrypt_method, $key, 0, $iv);
+            $output = base64_encode($output);
+        } else if ($action == 'decrypt') {
+            $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
+        }
+        return $output;
+    }
+  error_reporting(E_ERROR | E_PARSE);  
   if (fopen('../php/install.php', 'r') != null) {
     exit("'install.php' still exists! Delete it to proceed!");
   }
-  $adminUsername = "andrewlenguyen@gmail.com";
-  $adminPass = "$2y$10VJZeRekNVK8dodKsQubVcOa5PupDhGH4JYyr6lS4CxdzzTJ.7/cK6";
+
+  // echo '<h2>log in values</h2>';
+  // echo '<pre>';
+  // echo $adminUsername;
+  // echo $adminPass;
+  // echo '</pre>';
+
+  // echo '<h2>$_POST values</h2>';
+  // echo '<pre>';
+  // print_r($_POST);
+  // echo '</pre>';
+  // echo '<hr>';
 
   if (isset($_POST['log-in-hit'])) {
+    $adminUsername = "";
+    $adminPass = "";
+    $datafile = fopen('../php/data.txt', 'r');
+    if ($datafile) {
+      $adminUsername = trim(fgets($datafile));
+      $adminPass = trim(encrypt_decrypt(fgets($datafile), 'decrypt'));
+    } else {
+      exit("Cannot find data.txt!");
+    }
+
     if (isset($_POST['email']) && $_POST['email'] == $adminUsername && isset($_POST['pwd']) && $_POST['pwd'] == $adminPass) {
       $_SESSION['admin_username'] = $_POST['email'];
       header('location: CMS.php');
@@ -18,6 +52,7 @@
       unset($_SESSION['admin_username']);
       header('location: account/account.html');
     }
+    fclose($datafile);
   }
 ?>
 

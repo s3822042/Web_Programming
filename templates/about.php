@@ -1,3 +1,17 @@
+<?php
+    session_start();
+    error_reporting(E_ERROR | E_PARSE);
+
+    if (fopen('../php/install.php', 'r') != null) {
+        exit("'install.php' still exists! Delete it to proceed!");
+    } 
+    // echo '<h2>$_SESSION values</h2>';
+    // echo '<pre>';
+    // print_r($_SESSION);
+    // echo '</pre>';
+    // echo '<hr>';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -110,25 +124,53 @@
     <!-- Profile card -->
     <div class="profile-container">
         <div class="profile-card">
-            <img src="https://i.imgur.com/wnuKAT5.jpg" alt="image1" class="profile-icon" id="Luan-Vo-picture" onclick="openmodal('LuanVo'); " />
+            <img src=<?php
+                        if (isset($_SESSION['luan'])) {
+                            echo $_SESSION['luan'];
+                        } else {
+                            echo "https://i.imgur.com/wnuKAT5.jpg";
+                        }
+                    ?> 
+                alt="image1" class="profile-icon" id="Luan-Vo-picture" onclick="openmodal('LuanVo'); " />
             <div class="profile-name ">Luan Vo</div>
             <div class="profile-position ">Web Designer</div>
             <a href="mailto:s3822042@rmit.edu.vn " class="button ">Connect</a>
         </div>
         <div class="profile-card ">
-            <img src="https://i.imgur.com/WfzZhTt.jpg " alt="image2 " class="profile-icon " id="Andrew-picture " onclick="openmodal('Andrew'); " />
+            <img src=<?php
+                        if (isset($_SESSION['andrew'])) {
+                            echo $_SESSION['andrew'];
+                        } else {
+                            echo "https://i.imgur.com/WfzZhTt.jpg";
+                        }
+                    ?> 
+                alt="image2 " class="profile-icon " id="Andrew-picture " onclick="openmodal('Andrew'); " />
             <div class="profile-name ">An Le</div>
             <div class="profile-position ">Web Developer</div>
             <a href="mailto:s3820098@rmit.edu.vn " class="button ">Connect</a>
         </div>
         <div class="profile-card ">
-            <img src="https://i.imgur.com/cv75nwp.jpg " alt="image3 " class="profile-icon " id="Minh-Nguyen-picture " onclick="openmodal('MinhNguyen'); " />
+            <img src=<?php
+                        if (isset($_SESSION['minh'])) {
+                            echo $_SESSION['minh'];
+                        } else {
+                            echo "https://i.imgur.com/cv75nwp.jpg";
+                        }
+                    ?> 
+                alt="image3 " class="profile-icon " id="Minh-Nguyen-picture " onclick="openmodal('MinhNguyen'); " />
             <div class=" profile-name ">Minh Nguyen</div>
             <div class="profile-position ">Web Developer</div>
             <a href="mailto:s3878434@rmit.edu.vn " class="button ">Connect</a>
         </div>
         <div class="profile-card ">
-            <img src="https://i.imgur.com/HqKscdf.jpg " alt="image4 " class="profile-icon " id="Huy-Duong-picture " onclick="openmodal('HuyDuong'); " />
+            <img src=<?php
+                        if (isset($_SESSION['huy'])) {
+                            echo $_SESSION['huy'];
+                        } else {
+                            echo "https://i.imgur.com/HqKscdf.jpg";
+                        }
+                    ?> 
+                alt="image4 " class="profile-icon " id="Huy-Duong-picture " onclick="openmodal('HuyDuong'); " />
             <div class="profile-name ">Huy Duong</div>
             <div class="profile-position ">Web Developer</div>
             <a href="# " class="button ">Connect</a>
@@ -140,7 +182,14 @@
         </div>
         <div class="modal-body">
             <div>
-                <img src="https://i.imgur.com/wnuKAT5.jpg" alt="image4 " class="avatar">
+                <img src=<?php
+                        if (isset($_SESSION['luan'])) {
+                            echo $_SESSION['luan'];
+                        } else {
+                            echo "https://i.imgur.com/wnuKAT5.jpg";
+                        }
+                    ?>  
+                    alt="image4 " class="avatar">
             </div>
             <div class="basic-information">
                 <p>Age: </p>
@@ -163,7 +212,14 @@
         </div>
         <div class="modal-body">
             <div>
-                <img src="https://i.imgur.com/HqKscdf.jpg " alt="image4 " class="avatar">
+                <img src=<?php
+                        if (isset($_SESSION['huy'])) {
+                            echo $_SESSION['huy'];
+                        } else {
+                            echo "https://i.imgur.com/HqKscdf.jpg";
+                        }
+                    ?>
+                     alt="image4 " class="avatar">
             </div>
             <div class="basic-information">
                 <p>Age: </p>
@@ -185,7 +241,14 @@
         </div>
         <div class="modal-body">
             <div>
-                <img src="https://i.imgur.com/WfzZhTt.jpg " alt="image4 " class="avatar">
+                <img src=<?php
+                        if (isset($_SESSION['andrew'])) {
+                            echo $_SESSION['andrew'];
+                        } else {
+                            echo "https://i.imgur.com/WfzZhTt.jpg";
+                        }
+                    ?>
+                     alt="image4 " class="avatar">
             </div>
             <div class="basic-information">
                 <p>Age: </p>
@@ -209,7 +272,14 @@
         </div>
         <div class="modal-body">
             <div>
-                <img src="https://i.imgur.com/cv75nwp.jpg " alt="image4 " class="avatar">
+                <img src=<?php
+                        if (isset($_SESSION['minh'])) {
+                            echo $_SESSION['minh'];
+                        } else {
+                            echo "https://i.imgur.com/cv75nwp.jpg";
+                        }
+                    ?>
+                     alt="image4 " class="avatar">
             </div>
             <div class="basic-information">
                 <p>Age: </p>
