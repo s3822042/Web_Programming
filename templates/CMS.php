@@ -65,6 +65,10 @@
                 padding: 0 14px 0 14px;
             }
 
+            .vertical-center-1  #button3 {
+                padding: 0 41px 0 41px;
+            }
+
             .vertical-center-1 > button > a {
                 text-decoration: none;
                 color: inherit;
@@ -104,6 +108,10 @@
 
                 <button class="button2">
                 <a href="Privacy_Policies_CMS.php">Change Privacy Policies Content</a>
+                </button><br>
+
+                <button id="button3">
+                <a href="About_Us_CMS.php">Change About Us Content</a>
                 </button><br>
 
             </div>
