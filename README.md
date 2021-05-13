@@ -55,7 +55,7 @@ Development, especially in Web Programming and Data Science. As developers, we f
 │ ├── faq.html / - FAQ page
 │ ├── fees.html / - Fees page
 │ ├── forgot-password.html / - Forgot Password page
-│ ├── login-form.html / - Login Form page
+│ ├── login-form.php / - Login Form page
 │ ├── privacy_policies.html / - Privacy Policies page
 │ ├── sign-up-form.html / - Sign up page
 │ ├── term_of_services.html / - Terms of Service page
