@@ -1,15 +1,15 @@
 <?php
-    session_start();
-    error_reporting(E_ERROR | E_PARSE);
+session_start();
+error_reporting(E_ERROR | E_PARSE);
 
-    if (fopen('../php/install.php', 'r') != null) {
-        exit("'install.php' still exists! Delete it to proceed!");
-    } 
-    // echo '<h2>$_SESSION values</h2>';
-    // echo '<pre>';
-    // print_r($_SESSION);
-    // echo '</pre>';
-    // echo '<hr>';
+if (fopen('../php/install.php', 'r') != null) {
+    exit("'install.php' still exists! Delete it to proceed!");
+}
+// echo '<h2>$_SESSION values</h2>';
+// echo '<pre>';
+// print_r($_SESSION);
+// echo '</pre>';
+// echo '<hr>';
 ?>
 
 <!DOCTYPE html>
@@ -36,10 +36,9 @@
         <!-- Right menu -->
         <nav class="menu">
             <input type="checkbox" id="menuToggle" />
-            <label for="menuToggle" class="menu-icon"><i class="fa fa-bars"></i
-        ></label>
+            <label for="menuToggle" class="menu-icon"><i class="fa fa-bars"></i></label>
             <ul>
-                <a href="about.html">
+                <a href="about.php">
                     <li>About us</li>
                 </a>
                 <a href="fees.html">
@@ -60,7 +59,7 @@
                 <a href="login-form.php">
                     <li>Sign in</li>
                 </a>
-                <a href="cart.html"id = "cart">
+                <a href="cart.html" id="cart">
                     <li>Cart</li>
                 </a>
             </ul>
@@ -86,33 +85,22 @@
             <div class="carousel-item">
                 <img src="https://i.imgur.com/sKV54PO.jpeg" alt="banner3" />
             </div>
-            <label for="carousel-3" class="carousel-control prev control-1">‹</label
-        >
-        <label for="carousel-2" class="carousel-control next control-1"
-          >›</label
-        >
-        <label for="carousel-1" class="carousel-control prev control-2"
-          >‹</label
-        >
-        <label for="carousel-3" class="carousel-control next control-2"
-          >›</label
-        >
-        <label for="carousel-2" class="carousel-control prev control-3"
-          >‹</label
-        >
-        <label for="carousel-1" class="carousel-control next control-3"
-          >›</label
-        >
-        <ol class="carousel-indicators">
-          <li>
-            <label for="carousel-1" class="carousel-bullet">•</label>
-            </li>
-            <li>
-                <label for="carousel-2" class="carousel-bullet">•</label>
-            </li>
-            <li>
-                <label for="carousel-3" class="carousel-bullet">•</label>
-            </li>
+            <label for="carousel-3" class="carousel-control prev control-1">‹</label>
+            <label for="carousel-2" class="carousel-control next control-1">›</label>
+            <label for="carousel-1" class="carousel-control prev control-2">‹</label>
+            <label for="carousel-3" class="carousel-control next control-2">›</label>
+            <label for="carousel-2" class="carousel-control prev control-3">‹</label>
+            <label for="carousel-1" class="carousel-control next control-3">›</label>
+            <ol class="carousel-indicators">
+                <li>
+                    <label for="carousel-1" class="carousel-bullet">•</label>
+                </li>
+                <li>
+                    <label for="carousel-2" class="carousel-bullet">•</label>
+                </li>
+                <li>
+                    <label for="carousel-3" class="carousel-bullet">•</label>
+                </li>
             </ol>
         </div>
     </div>
@@ -130,8 +118,7 @@
                         } else {
                             echo "https://i.imgur.com/wnuKAT5.jpg";
                         }
-                    ?> 
-                alt="image1" class="profile-icon" id="Luan-Vo-picture" onclick="openmodal('LuanVo'); " />
+                        ?> alt="image1" class="profile-icon" id="Luan-Vo-picture" onclick="openmodal('LuanVo'); " />
             <div class="profile-name ">Luan Vo</div>
             <div class="profile-position ">Web Designer</div>
             <a href="mailto:s3822042@rmit.edu.vn " class="button ">Connect</a>
@@ -143,8 +130,7 @@
                         } else {
                             echo "https://i.imgur.com/WfzZhTt.jpg";
                         }
-                    ?> 
-                alt="image2 " class="profile-icon " id="Andrew-picture " onclick="openmodal('Andrew'); " />
+                        ?> alt="image2 " class="profile-icon " id="Andrew-picture " onclick="openmodal('Andrew'); " />
             <div class="profile-name ">An Le</div>
             <div class="profile-position ">Web Developer</div>
             <a href="mailto:s3820098@rmit.edu.vn " class="button ">Connect</a>
@@ -156,8 +142,7 @@
                         } else {
                             echo "https://i.imgur.com/cv75nwp.jpg";
                         }
-                    ?> 
-                alt="image3 " class="profile-icon " id="Minh-Nguyen-picture " onclick="openmodal('MinhNguyen'); " />
+                        ?> alt="image3 " class="profile-icon " id="Minh-Nguyen-picture " onclick="openmodal('MinhNguyen'); " />
             <div class=" profile-name ">Minh Nguyen</div>
             <div class="profile-position ">Web Developer</div>
             <a href="mailto:s3878434@rmit.edu.vn " class="button ">Connect</a>
@@ -169,8 +154,7 @@
                         } else {
                             echo "https://i.imgur.com/HqKscdf.jpg";
                         }
-                    ?> 
-                alt="image4 " class="profile-icon " id="Huy-Duong-picture " onclick="openmodal('HuyDuong'); " />
+                        ?> alt="image4 " class="profile-icon " id="Huy-Duong-picture " onclick="openmodal('HuyDuong'); " />
             <div class="profile-name ">Huy Duong</div>
             <div class="profile-position ">Web Developer</div>
             <a href="# " class="button ">Connect</a>
@@ -183,13 +167,12 @@
         <div class="modal-body">
             <div>
                 <img src=<?php
-                        if (isset($_SESSION['luan'])) {
-                            echo $_SESSION['luan'];
-                        } else {
-                            echo "https://i.imgur.com/wnuKAT5.jpg";
-                        }
-                    ?>  
-                    alt="image4 " class="avatar">
+                            if (isset($_SESSION['luan'])) {
+                                echo $_SESSION['luan'];
+                            } else {
+                                echo "https://i.imgur.com/wnuKAT5.jpg";
+                            }
+                            ?> alt="image4 " class="avatar">
             </div>
             <div class="basic-information">
                 <p>Age: </p>
@@ -213,13 +196,12 @@
         <div class="modal-body">
             <div>
                 <img src=<?php
-                        if (isset($_SESSION['huy'])) {
-                            echo $_SESSION['huy'];
-                        } else {
-                            echo "https://i.imgur.com/HqKscdf.jpg";
-                        }
-                    ?>
-                     alt="image4 " class="avatar">
+                            if (isset($_SESSION['huy'])) {
+                                echo $_SESSION['huy'];
+                            } else {
+                                echo "https://i.imgur.com/HqKscdf.jpg";
+                            }
+                            ?> alt="image4 " class="avatar">
             </div>
             <div class="basic-information">
                 <p>Age: </p>
@@ -242,13 +224,12 @@
         <div class="modal-body">
             <div>
                 <img src=<?php
-                        if (isset($_SESSION['andrew'])) {
-                            echo $_SESSION['andrew'];
-                        } else {
-                            echo "https://i.imgur.com/WfzZhTt.jpg";
-                        }
-                    ?>
-                     alt="image4 " class="avatar">
+                            if (isset($_SESSION['andrew'])) {
+                                echo $_SESSION['andrew'];
+                            } else {
+                                echo "https://i.imgur.com/WfzZhTt.jpg";
+                            }
+                            ?> alt="image4 " class="avatar">
             </div>
             <div class="basic-information">
                 <p>Age: </p>
@@ -273,13 +254,12 @@
         <div class="modal-body">
             <div>
                 <img src=<?php
-                        if (isset($_SESSION['minh'])) {
-                            echo $_SESSION['minh'];
-                        } else {
-                            echo "https://i.imgur.com/cv75nwp.jpg";
-                        }
-                    ?>
-                     alt="image4 " class="avatar">
+                            if (isset($_SESSION['minh'])) {
+                                echo $_SESSION['minh'];
+                            } else {
+                                echo "https://i.imgur.com/cv75nwp.jpg";
+                            }
+                            ?> alt="image4 " class="avatar">
             </div>
             <div class="basic-information">
                 <p>Age: </p>
@@ -296,7 +276,7 @@
             </p>
         </div>
     </div>
-    <div class="overlay " id="overlay" onclick = "overlay_turnoff()"></div>
+    <div class="overlay " id="overlay" onclick="overlay_turnoff()"></div>
     </div>
     <!-- End profile card -->
     <!-- Footer -->
@@ -310,14 +290,14 @@
                 <!-- Quick Link -->
                 <div class="grid-item inner-grid-container ">
                     <div class="grid-item ">
-                        <a href="about.html ">About Us</a>
+                        <a href="about.php ">About Us</a>
                     </div>
                     <div class="grid-item ">
                         <a href="fees.html ">Fees</a>
                     </div>
                     <div class="grid-item "><a href="browse-menu.html ">Browse</a></div>
                     <div class="grid-item ">
-                        <a href="term_of_services.html ">Term of Service</a>
+                        <a href="term_of_services.php ">Term of Service</a>
                     </div>
                     <div class="grid-item ">
                         <a href="account/account.html ">Account</a>
@@ -327,7 +307,7 @@
                         <a href="contact.html ">Contact</a>
                     </div>
                     <div class="grid-item ">
-                        <a href="privacy_policies.html ">Privacy Policy</a>
+                        <a href="privacy_policies.php ">Privacy Policy</a>
                     </div>
                 </div>
                 <!-- Social Link -->

@@ -1,8 +1,8 @@
 <?php
-  error_reporting(E_ERROR | E_PARSE);
-  if (fopen('../php/install.php', 'r') != null) {
-    exit("'install.php' still exists! Delete it to proceed!");
-  }
+error_reporting(E_ERROR | E_PARSE);
+if (fopen('../php/install.php', 'r') != null) {
+  exit("'install.php' still exists! Delete it to proceed!");
+}
 
 if (isset($_POST['categories'])) {
   $select = $_POST['categories'];
@@ -50,7 +50,7 @@ if (isset($_POST['categories'])) {
       <input type="checkbox" id="menuToggle" />
       <label for="menuToggle" class="menu-icon"><i class="fa fa-bars"></i></label>
       <ul>
-        <a href="about.html">
+        <a href="about.php">
           <li>About us</li>
         </a>
         <a href="fees.html">
@@ -143,14 +143,14 @@ if (isset($_POST['categories'])) {
         <!-- Quick Link -->
         <div class="grid-item inner-grid-container">
           <div class="grid-item">
-            <a href="about.html">About Us</a>
+            <a href="about.php">About Us</a>
           </div>
           <div class="grid-item">
             <a href="fees.html">Fees</a>
           </div>
           <div class="grid-item"><a href="browse-menu.html">Browse</a></div>
           <div class="grid-item">
-          <a href="term_of_services.php">Term of Service</a>
+            <a href="term_of_services.php">Term of Service</a>
           </div>
           <div class="grid-item">
             <a href="account/account.html">Account</a>

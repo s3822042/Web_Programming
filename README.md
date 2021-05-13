@@ -46,7 +46,7 @@ Development, especially in Web Programming and Data Science. As developers, we f
 │ ├── account / - HTML files related to account
 │ ├── product / - HTML files related to product
 │ ├── store / - HTML files related to store
-│ ├── about.html / - About page
+│ ├── about.php / - About page
 │ ├── browse-by-cate.html / - Browse By Categories page
 │ ├── browse-by-letters.html / - Browse By Alphabet Character page
 │ ├── browse-menu / - Browse Store page
@@ -56,9 +56,9 @@ Development, especially in Web Programming and Data Science. As developers, we f
 │ ├── fees.html / - Fees page
 │ ├── forgot-password.html / - Forgot Password page
 │ ├── login-form.php / - Login Form page
-│ ├── privacy_policies.html / - Privacy Policies page
+│ ├── privacy_policies.php / - Privacy Policies page
 │ ├── sign-up-form.html / - Sign up page
-│ ├── term_of_services.html / - Terms of Service page
+│ ├── term_of_services.php / - Terms of Service page
 │ ├── thank_you.html / - Thank You page after purchasing product
 ├── index.html / - Homepage
 ├── .gitignore
