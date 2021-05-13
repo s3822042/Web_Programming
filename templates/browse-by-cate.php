@@ -68,7 +68,7 @@ if (isset($_POST['categories'])) {
         <a href="contact.html">
           <li>Contact</li>
         </a>
-        <a href="login-form.html">
+        <a href="login-form.php">
           <li>Sign in</li>
         </a>
         <a href="cart.html" id="cart">
