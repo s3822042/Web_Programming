@@ -92,13 +92,16 @@ fclose($h);
       $row = 1;
 
       while (($data = fgetcsv($file)) !== FALSE) {
-        // Read the data
+        // Skip the first line
         if ($row == 1) {
           $row++;
           continue;
         }
+        // Add data to array
         $lines[] = trim($data[1]);
       }
+
+      // sort array alphabetically
       sort($lines);
 
       fclose($file);
@@ -117,8 +120,6 @@ fclose($h);
       <!-- Store card row-->
 
       <div class="store-container">
-
-
         <table>
           <tr>
             <th>Store name</th>
