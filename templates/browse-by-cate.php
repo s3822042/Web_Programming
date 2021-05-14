@@ -120,19 +120,25 @@ fclose($h);
       <!-- Store card row-->
 
       <div class="store-container">
-        <table>
-          <tr>
-            <th>Store name</th>
-          </tr>
-          <tr>
-            <?php
-            for ($i = 0; $i < count($array); $i++) {
-              echo $array[$i];
-              echo '<br>';
-            }
-            ?>
-          </tr>
-        </table>
+
+        <?php
+
+        $remove = array_pop($array);  
+        for ($i = 0; $i < count($array); $i++) {
+          
+          echo '<div class="store-card">';
+          echo '<figure>';
+          echo '<a href="">';
+          echo '<img src="https://i.imgur.com/SPU418r.jpg" alt="store1" class="store-icon" />';
+          echo '</a>';
+          echo '</figure>';
+          echo '<div class="store-name">';
+          echo $array[$i];
+          echo '</div>';
+          echo '</div>';
+        }
+
+        ?>
       </div>
       <!-- End store card row-->
     </div>

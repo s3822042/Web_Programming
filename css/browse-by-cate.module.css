@@ -34,15 +34,14 @@
 .store-container {
     font-family: "Amazon Ember",Arial,sans-serif;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
     margin: 0 30px;
     padding-top: 15px;
     padding-bottom: 15px;
   }
   
 .store-card {
-    flex: 1 1 30%;
+    flex: 1 1 21%;
     max-width: 605px;
     background: #fff;
     padding: 20px 60px;
