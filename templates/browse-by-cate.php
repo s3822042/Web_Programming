@@ -89,7 +89,18 @@ fclose($h);
       $path = "../data/categories.csv";
       $file = fopen($path, 'r');
 
-      $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+      $row = 1;
+
+      while (($data = fgetcsv($file)) !== FALSE) {
+        // Read the data
+        if ($row == 1) {
+          $row++;
+          continue;
+        }
+        $lines[] = trim($data[1]);
+      }
+      sort($lines);
+
       fclose($file);
 
       echo '<select name="file[]">';
