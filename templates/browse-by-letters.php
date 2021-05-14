@@ -78,32 +78,12 @@ fclose($h);
   <div class="wrapper">
     <div class="horizontal-line-1">
       <label id="browse-letter">Browse by letters :</label>
-      <a onclick="">a</a>
-      <a onclick="">b</a>
-      <a onclick="">c</a>
-      <a onclick="">d</a>
-      <a onclick="">e</a>
-      <a onclick="">f</a>
-      <a onclick="">g</a>
-      <a onclick="">h</a>
-      <a onclick="">i</a>
-      <a onclick="">j</a>
-      <a onclick="">k</a>
-      <a onclick="">l</a>
-      <a onclick="">m</a>
-      <a onclick="">n</a>
-      <a onclick="">o</a>
-      <a onclick="">p</a>
-      <a onclick="">q</a>
-      <a onclick="">r</a>
-      <a onclick="">s</a>
-      <a onclick="">t</a>
-      <a onclick="">u</a>
-      <a onclick="">v</a>
-      <a onclick="">w</a>
-      <a onclick="">x</a>
-      <a onclick="">y</a>
-      <a onclick="">z</a>
+      <?php
+      $a = range("a", "z");
+      // Show the character one after another
+      foreach ($a as $char)
+        echo $char . " "
+      ?>
     </div>
   </div>
   <section id="stores">
