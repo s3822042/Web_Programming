@@ -4,22 +4,22 @@ if (fopen('../php/install.php', 'r') != null) {
   exit("'install.php' still exists! Delete it to proceed!");
 }
 
-if (isset($_POST['categories'])) {
-  $select = $_POST['categories'];
-  switch ($select) {
-    case 'all':
-      $options = 0;
-    case 'shoes':
-      $options = 1;
-      break;
-    case 'watch':
-      $options = 2;
-      break;
-    case 'smartphone':
-      $options = 3;
-      break;
-  }
+
+$array = array();
+$h = fopen("../data/stores.csv", "r");
+
+
+while (($row = fgetcsv($h)) !== FALSE) {
+  // Read the data
+  $array[] = trim($row[1]);
 }
+
+sort($array);
+
+fclose($h);
+
+
+
 ?>
 
 
@@ -42,7 +42,7 @@ if (isset($_POST['categories'])) {
   <header>
     <!-- Logo -->
     <div class="brand">
-      <a href="../index.html"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" />
+      <a href="../index.php"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" />
       </a>
     </div>
     <!-- Right menu -->
@@ -83,14 +83,22 @@ if (isset($_POST['categories'])) {
   <div class="wrapper">
     <div class="drop-down-bar">
       <label id="browse">Browse by categories :</label>
-      <form method="post" action="" id="myForm" class="form-categories">
-        <select name="categories" onchange="onChange()">
-          <option name="all" value="all" id="all" <?php if ($_POST['categories'] == 'all') echo 'selected'; ?>>All categories</option>
-          <option name="shoes" value="shoes" id="shoes" <?php if ($_POST['categories'] == 'shoes') echo 'selected'; ?>>Shoes</option>
-          <option name="watch" value="watch" id="watch" <?php if ($_POST['categories'] == 'watch') echo 'selected'; ?>>Watch</option>
-          <option name="smartphone" value="smartphone" id="smartphone" <?php if ($_POST['categories'] == 'smartphone') echo 'selected'; ?>>Smart phone</option>
-        </select>
-      </form>
+
+
+      <?php
+      $path = "../data/categories.csv";
+      $file = fopen($path, 'r');
+
+      $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+      fclose($file);
+
+      echo '<select name="file[]">';
+      for ($i = 0; $i < count($lines); $i++) {
+        echo '<option value="' . urlencode($lines[$i]) . '">' . $lines[$i] . '</option>';
+      }
+      echo '</select>';
+      ?>
+
     </div>
   </div>
   <section id="stores">
@@ -98,35 +106,21 @@ if (isset($_POST['categories'])) {
       <!-- Store card row-->
 
       <div class="store-container">
-        <div class="store-card" id="store-nike" style="display:<?php echo $options == 1 ? 'block' : 'none' ?>">
-          <figure>
-            <a href="store/store_Nike.html">
-              <img src="https://i.imgur.com/SPU418r.jpg" alt="store1" class="store-icon" />
-            </a>
-          </figure>
-          <div class="store-name">Nike</div>
-          <div class="store-description" style="text-align: center"></div>
-        </div>
-        <div class="store-card" id="store-rolex" style="display:<?php echo $options == 2 ? 'block' : 'none' ?>">
-          <figure>
-            <a href="store/store_Rolex.html">
-              <img src="https://i.imgur.com/bpOtMwr.png" alt="store2" class="store-icon" />
-            </a>
-          </figure>
-          <div class="store-name">Rolex</div>
-          <div class="store-description"></div>
-        </div>
-        <div class="store-card" id="store-apple" style="display:<?php echo $options == 3 ? 'block' : 'none' ?>">
-          <figure>
-            <a href="store/store_Apple.html">
-              <img src="https://i.imgur.com/pFWAXrC.jpg" alt="store3" class="store-icon" />
-            </a>
-          </figure>
-          <div class="store-name">Apple</div>
-          <div class="store-description" style="text-align: center"></div>
-        </div>
 
 
+        <table>
+          <tr>
+            <th>Store name</th>
+          </tr>
+          <tr>
+            <?php
+            for ($i = 0; $i < count($array); $i++) {
+              echo $array[$i];
+              echo '<br>';
+            }
+            ?>
+          </tr>
+        </table>
       </div>
       <!-- End store card row-->
     </div>
@@ -138,7 +132,7 @@ if (isset($_POST['categories'])) {
       <div class="grid-container">
         <!-- Footer Logo -->
         <div class="grid-item">
-          <a href="../index.html"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" /></a>
+          <a href="../index.php"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" /></a>
         </div>
         <!-- Quick Link -->
         <div class="grid-item inner-grid-container">

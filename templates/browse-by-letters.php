@@ -3,6 +3,19 @@ error_reporting(E_ERROR | E_PARSE);
 if (fopen('../php/install.php', 'r') != null) {
   exit("'install.php' still exists! Delete it to proceed!");
 }
+
+$array = array();
+$h = fopen("../data/stores.csv", "r");
+
+
+while (($row = fgetcsv($h)) !== FALSE) {
+  // Read the data
+  $array[] = trim($row[1]);
+}
+
+sort($array);
+
+fclose($h);
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +37,7 @@ if (fopen('../php/install.php', 'r') != null) {
   <header>
     <!-- Logo -->
     <div class="brand">
-      <a href="../index.html"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" />
+      <a href="../index.php"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" />
       </a>
     </div>
     <!-- Right menu -->
@@ -65,65 +78,53 @@ if (fopen('../php/install.php', 'r') != null) {
   <div class="wrapper">
     <div class="horizontal-line-1">
       <label id="browse-letter">Browse by letters :</label>
-      <a href="browse-by-letters.html">a</a>
-      <a href="browse-by-letters.html">b</a>
-      <a href="browse-by-letters.html">c</a>
-      <a href="browse-by-letters.html">d</a>
-      <a href="browse-by-letters.html">e</a>
-      <a href="browse-by-letters.html">f</a>
-      <a href="browse-by-letters.html">g</a>
-      <a href="browse-by-letters.html">h</a>
-      <a href="browse-by-letters.html">i</a>
-      <a href="browse-by-letters.html">j</a>
-      <a href="browse-by-letters.html">k</a>
-      <a href="browse-by-letters.html">l</a>
-      <a href="browse-by-letters.html">m</a>
-      <a href="browse-by-letters.html">n</a>
-      <a href="browse-by-letters.html">o</a>
-      <a href="browse-by-letters.html">p</a>
-      <a href="browse-by-letters.html">q</a>
-      <a href="browse-by-letters.html">r</a>
-      <a href="browse-by-letters.html">s</a>
-      <a href="browse-by-letters.html">t</a>
-      <a href="browse-by-letters.html">u</a>
-      <a href="browse-by-letters.html">v</a>
-      <a href="browse-by-letters.html">w</a>
-      <a href="browse-by-letters.html">x</a>
-      <a href="browse-by-letters.html">y</a>
-      <a href="browse-by-letters.html">z</a>
+      <a onclick="">a</a>
+      <a onclick="">b</a>
+      <a onclick="">c</a>
+      <a onclick="">d</a>
+      <a onclick="">e</a>
+      <a onclick="">f</a>
+      <a onclick="">g</a>
+      <a onclick="">h</a>
+      <a onclick="">i</a>
+      <a onclick="">j</a>
+      <a onclick="">k</a>
+      <a onclick="">l</a>
+      <a onclick="">m</a>
+      <a onclick="">n</a>
+      <a onclick="">o</a>
+      <a onclick="">p</a>
+      <a onclick="">q</a>
+      <a onclick="">r</a>
+      <a onclick="">s</a>
+      <a onclick="">t</a>
+      <a onclick="">u</a>
+      <a onclick="">v</a>
+      <a onclick="">w</a>
+      <a onclick="">x</a>
+      <a onclick="">y</a>
+      <a onclick="">z</a>
     </div>
   </div>
   <section id="stores">
     <div class="container">
       <!-- Store card row-->
       <div class="store-container">
-        <div class="store-card">
-          <figure>
-            <a href="store/store_Rolex.html">
-              <img src="https://i.imgur.com/bpOtMwr.png" alt="store1" class="store-icon" />
-            </a>
-          </figure>
-          <div class="store-name">Rolex</div>
-          <div class="store-description" style="text-align: center"></div>
-        </div>
-        <div class="store-card">
-          <figure>
-            <a href="store/store_Nike.html">
-              <img src="https://i.imgur.com/SPU418r.jpg" alt="store2" class="store-icon" />
-            </a>
-          </figure>
-          <div class="store-name">Nike</div>
-          <div class="store-description"></div>
-        </div>
-        <div class="store-card">
-          <figure>
-            <a href="store/store_Apple.html">
-              <img src="https://i.imgur.com/pFWAXrC.jpg" alt="store3" class="store-icon" />
-            </a>
-          </figure>
-          <div class="store-name">Apple</div>
-          <div class="store-description" style="text-align: center"></div>
-        </div>
+
+        <table>
+          <tr>
+            <th>Store name</th>
+          </tr>
+          <tr>
+            <?php
+            for ($i = 0; $i < count($array); $i++) {
+              echo $array[$i];
+              echo '<br>';
+            }
+            ?>
+          </tr>
+        </table>
+
       </div>
       <!-- End store card row-->
     </div>
@@ -135,7 +136,7 @@ if (fopen('../php/install.php', 'r') != null) {
       <div class="grid-container">
         <!-- Footer Logo -->
         <div class="grid-item">
-          <a href="../index.html"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" /></a>
+          <a href="../index.php"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" /></a>
         </div>
         <!-- Quick Link -->
         <div class="grid-item inner-grid-container">
