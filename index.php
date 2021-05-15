@@ -1,45 +1,3 @@
-<?php
-$file = fopen("./data/stores.csv", "r");
-
-$storeName = array();
-$storeCreatedDate = array();
-$isFeatured = array();
-
-while (($row = fgetcsv($file)) !== FALSE) {
-  // Read the data
-  $storeName[] = trim($row[1]);
-  $storeCreatedDate[] = trim($row[3]);
-  $isFeatured[] = trim($row[4]);
-}
-
-function compareByTimeStamp($time1, $time2)
-{
-  if (strtotime($time1) < strtotime($time2))
-    return 1;
-  else if (strtotime($time1) > strtotime($time2))
-    return -1;
-  else
-    return 0;
-}
-// remove the first element in array
-$removed = array_shift($isFeatured);
-
-array_filter($isFeatured, function ($x) {
-  return !($x === "TRUE");
-});
-
-print_r($isFeatured);
-
-
-sort($storeName);
-usort($storeCreatedDate, "compareByTimeStamp");
-$newArray = array_slice($storeCreatedDate, 0, 5, true);
-// print_r($newArray);
-fclose($file);
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,7 +17,7 @@ fclose($file);
   <header>
     <!-- Logo -->
     <div class="brand">
-      <a href="index.php"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" />
+      <a href="index.html"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" />
       </a>
     </div>
     <!-- Right menu -->
@@ -101,20 +59,26 @@ fclose($file);
       <div class="stores-header">
         <h2>New Stores</h2>
       </div>
-
-      <?php
-      for ($i = 0; $i < count($newArray); $i++) {
-        echo ' <div class="store">';
-        echo '<figure>';
-        echo '<a href="">';
-        echo '<img src="https://i.imgur.com/jIB3Op5.jpg" alt="store-image" /></a>';
-        echo '<figcaption>';
-        echo $newArray[$i];
-        echo '</figcaption>';
-        echo '</div>';
-      }
-      ?>
-
+      <div class="store store-1">
+        <figure>
+          <a href="templates/store/store_Apple.html">
+            <img src="https://i.imgur.com/jIB3Op5.jpg" alt="store-image" /></a>
+          <figcaption>Apple</figcaption>
+        </figure>
+      </div>
+      <div class="store store-2">
+        <figure>
+          <a href="templates/store/store_Nike.html"><img src="https://i.imgur.com/51qACw4.jpg" alt="store-image" /></a>
+          <figcaption>Nike</figcaption>
+        </figure>
+      </div>
+      <div class="store store-3">
+        <figure>
+          <a href="templates/store/store_Rolex.html">
+            <img src="https://i.imgur.com/bpOtMwr.png" alt="store-image" /></a>
+          <figcaption>Rolex</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
   <!-- End new stores -->
@@ -126,23 +90,73 @@ fclose($file);
       </div>
       <!-- Product card row 1 -->
       <div class="product-container" id="product-slider">
-
-        <?php
-        echo '<div class="product-card" onmouseover="pauseSlides()" onmouseout="startSlides()">';
-        echo '<section class="ribbon">';
-        echo '<div class="store-nike">';
-        echo '<a href="">';
-        echo '<img src="https://i.imgur.com/ljKPWN6.jpg" alt="logo-nike" /></a>';
-        echo '</div>';
-        echo '</section>';
-        echo '<img src="https://i.imgur.com/gBfzpkA.jpg" alt="product1" class="product-icon" />';
-        echo '<div class="product-name">Air Zoom Tempo Next%</div>';
-        echo '<div class="product-description" style="text-align: center">';
-        echo '  From $270 Lightweight Neutral, 230g, 10mm Drop';
-        echo '</div>';
-        echo '<a href="templates\product\air-zoom-tempo.html" class="button">Buy now</a>';
-
-        ?>
+        <div class="product-card" onmouseover="pauseSlides()" onmouseout="startSlides()">
+          <!-- Store name -->
+          <section class="ribbon">
+            <div class="store-nike">
+              <a href="templates/store/store_Nike.html">
+                <img src="https://i.imgur.com/ljKPWN6.jpg" alt="logo-nike" /></a>
+            </div>
+          </section>
+          <!-- End store name -->
+          <img src="https://i.imgur.com/gBfzpkA.jpg" alt="product1" class="product-icon" />
+          <div class="product-name">Air Zoom Tempo Next%</div>
+          <div class="product-description" style="text-align: center">
+            From $270 Lightweight Neutral, 230g, 10mm Drop
+          </div>
+          <a href="templates\product\air-zoom-tempo.html" class="button">Buy now</a>
+        </div>
+        <div class="product-card" onmouseover="pauseSlides()" onmouseout="startSlides()">
+          <!-- Store name -->
+          <section class="ribbon">
+            <div class="store-apple">
+              <a href="templates/store/store_Apple.html">
+                <img src="https://i.imgur.com/euQFiTp.jpg" alt="logo-apple" /></a>
+            </div>
+          </section>
+          <!-- End store name -->
+          <img src="https://i.imgur.com/RWeXaod.jpg" alt="product2" class="product-icon" />
+          <div class="product-name">
+            Airpods<br />
+            PRO
+          </div>
+          <div class="product-description" style="text-align: center">
+            From $249 for Noise Cancelling, 5 hours single charge
+          </div>
+          <a href="templates\product\airpod-pro.html" class="button">Buy now</a>
+        </div>
+        <div class="product-card" onmouseover="pauseSlides()" onmouseout="startSlides()">
+          <!-- Store name -->
+          <section class="ribbon">
+            <div class="store-nike">
+              <a href="templates/store/store_Nike.html">
+                <img src="https://i.imgur.com/ljKPWN6.jpg" alt="logo-nike" /></a>
+            </div>
+          </section>
+          <!-- End store name -->
+          <img src="https://i.imgur.com/po8lRdK.jpg" alt="product3" class="product-icon" />
+          <div class="product-name">Mercurial Vapor 14 Elite FG</div>
+          <div class="product-description" style="text-align: center">
+            From $249 Avail Q Lining Material, Titan Synthetic
+          </div>
+          <a href="templates\product\mercurial-vapor-14-elite-FG.html" class="button">Buy now</a>
+        </div>
+        <div class="product-card" onmouseover="pauseSlides()" onmouseout="startSlides()">
+          <!-- Store name -->
+          <!-- Store name -->
+          <section class="ribbon">
+            <div class="store-rolex">
+              <a href="templates/store/store_Rolex.html">
+                <img src="https://i.imgur.com/IyW42DX.png" alt="logo-rolex" /></a>
+            </div>
+          </section>
+          <img src="https://i.imgur.com/9fM3nCA.jpg" alt="product4" class="product-icon" />
+          <div class="product-name">Submariner Blue Dial</div>
+          <div class="product-description" style="text-align: center">
+            From $14,459 Stainless Steel, 18k Yellow Gold
+          </div>
+          <a href="templates\product\submariner-blue-dial.html" class="button">Buy now</a>
+        </div>
       </div>
       <!-- End product card row 1-->
     </div>
@@ -154,17 +168,9 @@ fclose($file);
       <div class="stores-header">
         <h2>Featured Store</h2>
       </div>
-      <?php
-      echo ' <div class="store">';
-      echo '<figure>';
-      echo '<a href="">';
-      echo '<img src="https://i.imgur.com/jIB3Op5.jpg" alt="store-image" /></a>';
-      echo '<figcaption>';
-      echo $store_name_array[0];
-      echo '</figcaption>';
-      echo '</div>'
-
-      ?>
+      <a href="templates/store/store_Nike.html">
+        <div class="store-wrap"></div>
+      </a>
     </div>
   </section>
   <!-- End featured store -->
@@ -174,23 +180,9 @@ fclose($file);
       <div class="products-header">
         <h2>Featured Products</h2>
       </div>
-      <?php
-      echo '<div class="product-card" onmouseover="pauseSlides()" onmouseout="startSlides()">';
-      echo '<section class="ribbon">';
-      echo '<div class="store-nike">';
-      echo '<a href="templates/store/store_Nike.html">';
-      echo '<img src="https://i.imgur.com/ljKPWN6.jpg" alt="logo-nike" /></a>';
-      echo '</div>';
-      echo '</section>';
-      echo '<img src="https://i.imgur.com/gBfzpkA.jpg" alt="product1" class="product-icon" />';
-      echo '<div class="product-name">Air Zoom Tempo Next%</div>';
-      echo '<div class="product-description" style="text-align: center">';
-      echo '  From $270 Lightweight Neutral, 230g, 10mm Drop';
-      echo '</div>';
-      echo '<a href="templates\product\air-zoom-tempo.html" class="button">Buy now</a>';
-
-      ?>
-    </div>
+      <a href="templates\product\Jordan-jumpman-2021-PF.html">
+        <div class="product-wrap"></div>
+      </a>
     </div>
   </section>
   <!-- End featured products -->
@@ -200,7 +192,7 @@ fclose($file);
       <div class="grid-container">
         <!-- Footer Logo -->
         <div class="grid-item">
-          <a href="index.php"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" /></a>
+          <a href="index.html"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" /></a>
         </div>
         <!-- Quick Link -->
         <div class="grid-item inner-grid-container">
