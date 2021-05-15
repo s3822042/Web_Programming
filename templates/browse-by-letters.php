@@ -22,13 +22,19 @@ $remove = array_pop($array);
 
 fclose($file);
 
+
 $chosen_letter = $_POST["chosen-letter"];
 $matched_store = [];
+$matched_number = [];
 
 foreach ($array as $v) {
   $first_letter = strtolower(substr($v, 0, 1));
+  $first_number = substr($v, 0, 1);
   if ($first_letter == $chosen_letter) {
     $matched_store[] = $v;
+  }
+  if (is_numeric($first_number))  {
+    $matched_number[] = $v;
   }
 }
 ?>
@@ -94,6 +100,7 @@ foreach ($array as $v) {
     <div class="horizontal-line-1">
       <div class="browse-letter">Browse by letters :</div>
       <form id="letters" method="post" action="browse-by-letters.php" name="letters">
+        <input class="letters-list" type="submit" name="chosen-number" value="#" />
         <input class="letters-list" type="submit" name="chosen-letter" value="a" />
         <input class="letters-list" type="submit" name="chosen-letter" value="b" />
         <input class="letters-list" type="submit" name="chosen-letter" value="c" />
@@ -129,6 +136,24 @@ foreach ($array as $v) {
 
         <?php
 
+        if($chosen_number = $_POST["chosen-number"]){
+          for ($i = 0; $i < count($matched_number); $i++) {
+
+            echo '<div class="store-card">';
+            echo '<figure>';
+            echo '<a href="">';
+            echo '<img src="https://i.imgur.com/SPU418r.jpg" alt="store1" class="store-icon" />';
+            echo '</a>';
+            echo '</figure>';
+            echo '<div class="store-name">';
+            echo $matched_number[$i];
+            echo '</div>';
+            echo '</div>';
+          }
+        }
+
+        
+        
 
         for ($i = 0; $i < count($matched_store); $i++) {
 
@@ -144,7 +169,11 @@ foreach ($array as $v) {
           echo '</div>';
         }
         ?>
+
+
       </div>
+
+      
 
     </div>
     <!-- End store card row-->
