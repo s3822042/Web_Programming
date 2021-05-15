@@ -25,7 +25,7 @@ if (fopen('../php/install.php', 'r') != null) {
     <header>
         <!-- Logo -->
         <div class="brand">
-            <a href="../index.html"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" />
+            <a href="../index.php"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" />
             </a>
         </div>
         <!-- Right menu -->
@@ -384,7 +384,7 @@ if (fopen('../php/install.php', 'r') != null) {
             <div class="grid-container">
                 <!-- Footer Logo -->
                 <div class="grid-item">
-                    <a href="../index.html"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" /></a>
+                    <a href="../index.php"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" /></a>
                 </div>
                 <!-- Quick Link -->
                 <div class="grid-item inner-grid-container">
