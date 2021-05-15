@@ -1,21 +1,36 @@
 <?php
+session_start();
 error_reporting(E_ERROR | E_PARSE);
 if (fopen('../php/install.php', 'r') != null) {
   exit("'install.php' still exists! Delete it to proceed!");
 }
 
+
 $array = array();
-$h = fopen("../data/stores.csv", "r");
+$file = fopen("../data/stores.csv", "r");
 
 
-while (($row = fgetcsv($h)) !== FALSE) {
+while (($row = fgetcsv($file)) !== FALSE) {
   // Read the data
   $array[] = trim($row[1]);
 }
-
+// sort alphabetically
 sort($array);
+// remove last element of array
+$remove = array_pop($array);
 
-fclose($h);
+
+fclose($file);
+
+$chosen_letter = $_POST["chosen-letter"];
+$matched_store = [];
+
+foreach ($array as $v) {
+  $first_letter = strtolower(substr($v, 0, 1));
+  if ($first_letter == $chosen_letter) {
+    $matched_store[] = $v;
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -77,24 +92,45 @@ fclose($h);
 
   <div class="wrapper">
     <div class="horizontal-line-1">
-      <label id="browse-letter">Browse by letters :</label>
-      <?php
-      $a = range("a", "z");
-      // Show the character one after another
-      foreach ($a as $char)
-        echo $char . " "
-      ?>
+      <div class="browse-letter">Browse by letters :</div>
+      <form id="letters" method="post" action="browse-by-letters.php" name="letters">
+        <input class="letters-list" type="submit" name="chosen-letter" value="a" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="b" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="c" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="d" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="e" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="f" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="g" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="h" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="i" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="j" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="k" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="l" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="m" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="n" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="o" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="p" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="q" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="r" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="s" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="t" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="u" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="v" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="x" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="y" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="z" />
+      </form>
     </div>
   </div>
-  <section id="stores">
+  <section id=" stores">
     <div class="container">
       <!-- Store card row-->
       <div class="store-container">
 
         <?php
 
-        $remove = array_pop($array);
-        for ($i = 0; $i < count($array); $i++) {
+
+        for ($i = 0; $i < count($matched_store); $i++) {
 
           echo '<div class="store-card">';
           echo '<figure>';
@@ -103,11 +139,10 @@ fclose($h);
           echo '</a>';
           echo '</figure>';
           echo '<div class="store-name">';
-          echo $array[$i];
+          echo $matched_store[$i];
           echo '</div>';
           echo '</div>';
         }
-
         ?>
       </div>
 
@@ -163,7 +198,8 @@ fclose($h);
     </div>
   </footer>
   <!-- JavaScript -->
-  <script src="../js/index.js"></script>
+  <script src="../js/index.js">
+  </script>
 </body>
 
 </html>

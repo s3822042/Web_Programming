@@ -1,27 +1,61 @@
 <?php
+session_start();
 error_reporting(E_ERROR | E_PARSE);
 if (fopen('../php/install.php', 'r') != null) {
   exit("'install.php' still exists! Delete it to proceed!");
 }
 
 
-$array = array();
+$store_name_array = array();
 $h = fopen("../data/stores.csv", "r");
 
 
+$row_store = 1;
+
 while (($row = fgetcsv($h)) !== FALSE) {
+  // Skip the first line
+  if ($row_store == 1) {
+    $row_store++;
+    continue;
+  }
   // Read the data
-  $array[] = trim($row[1]);
+  $store_name_array[] = trim($row[1]);
+  $store_cate_id_array[] = trim($row[2]);
 }
 
-sort($array);
+
 
 fclose($h);
 
+$path = "../data/categories.csv";
+$file = fopen($path, 'r');
+
+$row = 1;
+
+while (($data = fgetcsv($file)) !== FALSE) {
+  // Skip the first line
+  if ($row == 1) {
+    $row++;
+    continue;
+  }
+  // Add data to array
+  $category_name[] = trim($data[1]);
+}
+
+fclose($file);
+
+$chosen_index = array_search($_POST['categories'], $category_name) + 1;
+$count = 0;
+$browse_cate = [];
+foreach ($store_cate_id_array as $c) {
+  if ($c == $chosen_index) {
+    $browse_cate[] = $store_name_array[$count];
+  }
+  $count++;
+}
 
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -84,35 +118,25 @@ fclose($h);
     <div class="drop-down-bar">
       <label id="browse">Browse by categories :</label>
 
-
-      <?php
-      $path = "../data/categories.csv";
-      $file = fopen($path, 'r');
-
-      $row = 1;
-
-      while (($data = fgetcsv($file)) !== FALSE) {
-        // Skip the first line
-        if ($row == 1) {
-          $row++;
-          continue;
-        }
-        // Add data to array
-        $lines[] = trim($data[1]);
-      }
-
-      // sort array alphabetically
-      sort($lines);
-
-      fclose($file);
-
-      echo '<select name="file[]">';
-      for ($i = 0; $i < count($lines); $i++) {
-        echo '<option value="' . urlencode($lines[$i]) . '">' . $lines[$i] . '</option>';
-      }
-      echo '</select>';
-      ?>
-
+      <form method="post" action="" id="myForm">
+        <div class="select">
+          <select name="categories" onchange="onChange()" class="select-option">
+            <option <?php if ($_POST['categories'] == 'Department stores') echo 'selected'; ?>>Department stores</option>
+            <option <?php if ($_POST['categories'] == 'Grocery stores') echo 'selected'; ?>>Grocery stores</option>
+            <option <?php if ($_POST['categories'] == 'Restaurants') echo 'selected'; ?>>Restaurants</option>
+            <option <?php if ($_POST['categories'] == 'Clothing stores') echo 'selected'; ?>>Clothing stores</option>
+            <option <?php if ($_POST['categories'] == 'Accessory stores') echo 'selected'; ?>>Accessory stores</option>
+            <option <?php if ($_POST['categories'] == 'Pharmacies') echo 'selected'; ?>>Pharmacies</option>
+            <option <?php if ($_POST['categories'] == 'Technology stores') echo 'selected'; ?>>Technology stores</option>
+            <option <?php if ($_POST['categories'] == 'Pet stores') echo 'selected'; ?>>Pet stores</option>
+            <option <?php if ($_POST['categories'] == 'Toy Stores') echo 'selected'; ?>>Toy stores</option>
+            <option <?php if ($_POST['categories'] == 'Specialty stores') echo 'selected'; ?>>Specialty stores</option>
+            <option <?php if ($_POST['categories'] == 'Thrift stores') echo 'selected'; ?>>Thrift stores</option>
+            <option <?php if ($_POST['categories'] == 'Services') echo 'selected'; ?>>Services</option>
+            <option <?php if ($_POST['categories'] == 'Kiosks') echo 'selected'; ?>>Kiosks</option>
+          </select>
+        </div>
+      </form>
     </div>
   </div>
   <section id="stores">
@@ -123,9 +147,7 @@ fclose($h);
 
         <?php
 
-        $remove = array_pop($array);  
-        for ($i = 0; $i < count($array); $i++) {
-          
+        for ($i = 0; $i < count($browse_cate); $i++) {
           echo '<div class="store-card">';
           echo '<figure>';
           echo '<a href="">';
@@ -133,7 +155,7 @@ fclose($h);
           echo '</a>';
           echo '</figure>';
           echo '<div class="store-name">';
-          echo $array[$i];
+          echo $browse_cate[$i];
           echo '</div>';
           echo '</div>';
         }
