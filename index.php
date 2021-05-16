@@ -1,3 +1,131 @@
+<?php
+session_start();
+set_time_limit(500);
+error_reporting(E_ERROR | E_PARSE);
+if (fopen('../php/install.php', 'r') != null) {
+  exit("'install.php' still exists! Delete it to proceed!");
+}
+
+
+$store_csv = "./data/stores.csv";
+$store_file = fopen($store_csv, "r");
+
+
+
+$storeName = array();
+$storeCreatedDate = array();
+$isFeatured = array();
+
+while (($store_row = fgetcsv($store_file)) !== FALSE) {
+  // Read the data
+  $storeName[] = trim($store_row[1]);
+  $storeCreatedDate[] = trim($store_row[3]);
+  $isFeatured[] = trim($store_row[4]);
+}
+
+function compareByTimeStamp($time1, $time2)
+{
+  date_format($time1, "Y/m/d H:i:s");
+  date_format($time2, "Y/m/d H:i:s");
+  if (strtotime($time1) < strtotime($time2))
+    return 1;
+  else if (strtotime($time1) > strtotime($time2))
+    return -1;
+  else
+    return 0;
+}
+// remove the first element in array
+$removed = array_shift($isFeatured);
+$removed = array_shift($storeName);
+$removed = array_shift($storeCreatedDate);
+
+
+
+// STORE
+
+$new_store_data = array_combine($storeName,  $storeCreatedDate);
+
+
+uasort($new_store_data, function ($a, $b) use ($storeCreatedDate) {
+  usort($storeCreatedDate, "compareByTimeStamp");
+  return array_search($a, $storeCreatedDate) <=> array_search($b, $storeCreatedDate);
+});
+
+$sliceArrayStore = array_slice($new_store_data, 0, 5, true);
+$newStore = array_keys($sliceArrayStore);
+
+
+$featured_store_data = array_combine($storeName, $isFeatured);
+
+
+
+$arr = array_diff($featured_store_data, array("FALSE"));
+
+
+$featureStore = array_keys($arr);
+
+
+fclose($store_file);
+
+
+// PRODUCT
+
+$product_csv = "./data/products.csv";
+$product_file = fopen($product_csv, "r");
+
+$productName = array();
+$productCreatedDate = array();
+$isFeaturedProduct = array();
+
+
+while (($product_row = fgetcsv($product_file)) !== FALSE) {
+  // Read the data
+  $productName[] = trim($product_row[1]);
+  $productCreatedDate[] = trim($product_row[3]);
+
+  $isFeaturedProduct[] = trim($product_row[5]);
+}
+
+// remove the first element in array
+$removed = array_shift($isFeaturedProduct);
+$removed = array_shift($productName);
+$removed = array_shift($productCreatedDate);
+
+
+
+
+
+$new_product_data = array_combine($productCreatedDate,  $productName);
+
+
+
+
+uasort($new_product_data, function ($c, $d) use ($productCreatedDate) {
+  usort($productCreatedDate, "compareByTimeStamp");
+  return array_search($c, $productCreatedDate) <=> array_search($d, $productCreatedDate);
+});
+
+$sliceArrayProduct = array_slice($new_product_data, 0, 5, true);
+$newProduct = array_values($sliceArrayProduct);
+
+
+$featured_product_data = array_combine($productName, $isFeaturedProduct);
+
+
+
+$arr2 = array_diff($featured_product_data, array("FALSE"));
+
+
+$featureProduct = array_keys($arr2);
+
+print_r($featuredProduct);
+
+
+fclose($product_file)
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,26 +187,20 @@
       <div class="stores-header">
         <h2>New Stores</h2>
       </div>
-      <div class="store store-1">
-        <figure>
-          <a href="templates/store/store_Apple.html">
-            <img src="https://i.imgur.com/jIB3Op5.jpg" alt="store-image" /></a>
-          <figcaption>Apple</figcaption>
-        </figure>
-      </div>
-      <div class="store store-2">
-        <figure>
-          <a href="templates/store/store_Nike.html"><img src="https://i.imgur.com/51qACw4.jpg" alt="store-image" /></a>
-          <figcaption>Nike</figcaption>
-        </figure>
-      </div>
-      <div class="store store-3">
-        <figure>
-          <a href="templates/store/store_Rolex.html">
-            <img src="https://i.imgur.com/bpOtMwr.png" alt="store-image" /></a>
-          <figcaption>Rolex</figcaption>
-        </figure>
-      </div>
+
+      <?php
+      for ($i = 0; $i < count($newStore); $i++) {
+        echo ' <div class="store">';
+        echo '<figure>';
+        echo '<a href="">';
+        echo '<img src="https://i.imgur.com/jIB3Op5.jpg" alt="store-image" /></a>';
+        echo '<figcaption>';
+        echo $newStore[$i];
+        echo '</figcaption>';
+        echo '</div>';
+      }
+      ?>
+
     </div>
   </section>
   <!-- End new stores -->
@@ -90,73 +212,23 @@
       </div>
       <!-- Product card row 1 -->
       <div class="product-container" id="product-slider">
-        <div class="product-card" onmouseover="pauseSlides()" onmouseout="startSlides()">
-          <!-- Store name -->
-          <section class="ribbon">
-            <div class="store-nike">
-              <a href="templates/store/store_Nike.html">
-                <img src="https://i.imgur.com/ljKPWN6.jpg" alt="logo-nike" /></a>
-            </div>
-          </section>
-          <!-- End store name -->
-          <img src="https://i.imgur.com/gBfzpkA.jpg" alt="product1" class="product-icon" />
-          <div class="product-name">Air Zoom Tempo Next%</div>
-          <div class="product-description" style="text-align: center">
-            From $270 Lightweight Neutral, 230g, 10mm Drop
-          </div>
-          <a href="templates\product\air-zoom-tempo.html" class="button">Buy now</a>
-        </div>
-        <div class="product-card" onmouseover="pauseSlides()" onmouseout="startSlides()">
-          <!-- Store name -->
-          <section class="ribbon">
-            <div class="store-apple">
-              <a href="templates/store/store_Apple.html">
-                <img src="https://i.imgur.com/euQFiTp.jpg" alt="logo-apple" /></a>
-            </div>
-          </section>
-          <!-- End store name -->
-          <img src="https://i.imgur.com/RWeXaod.jpg" alt="product2" class="product-icon" />
-          <div class="product-name">
-            Airpods<br />
-            PRO
-          </div>
-          <div class="product-description" style="text-align: center">
-            From $249 for Noise Cancelling, 5 hours single charge
-          </div>
-          <a href="templates\product\airpod-pro.html" class="button">Buy now</a>
-        </div>
-        <div class="product-card" onmouseover="pauseSlides()" onmouseout="startSlides()">
-          <!-- Store name -->
-          <section class="ribbon">
-            <div class="store-nike">
-              <a href="templates/store/store_Nike.html">
-                <img src="https://i.imgur.com/ljKPWN6.jpg" alt="logo-nike" /></a>
-            </div>
-          </section>
-          <!-- End store name -->
-          <img src="https://i.imgur.com/po8lRdK.jpg" alt="product3" class="product-icon" />
-          <div class="product-name">Mercurial Vapor 14 Elite FG</div>
-          <div class="product-description" style="text-align: center">
-            From $249 Avail Q Lining Material, Titan Synthetic
-          </div>
-          <a href="templates\product\mercurial-vapor-14-elite-FG.html" class="button">Buy now</a>
-        </div>
-        <div class="product-card" onmouseover="pauseSlides()" onmouseout="startSlides()">
-          <!-- Store name -->
-          <!-- Store name -->
-          <section class="ribbon">
-            <div class="store-rolex">
-              <a href="templates/store/store_Rolex.html">
-                <img src="https://i.imgur.com/IyW42DX.png" alt="logo-rolex" /></a>
-            </div>
-          </section>
-          <img src="https://i.imgur.com/9fM3nCA.jpg" alt="product4" class="product-icon" />
-          <div class="product-name">Submariner Blue Dial</div>
-          <div class="product-description" style="text-align: center">
-            From $14,459 Stainless Steel, 18k Yellow Gold
-          </div>
-          <a href="templates\product\submariner-blue-dial.html" class="button">Buy now</a>
-        </div>
+
+        <?php
+        for ($i = 0; $i < count($newProduct); $i++) {
+          echo '<div class="product-card" onmouseover="pauseSlides()" onmouseout="startSlides()">';
+          echo '<section class="ribbon">';
+          echo '<div class="store-nike">';
+          echo '<a href="">';
+          echo '<img src="https://i.imgur.com/ljKPWN6.jpg" alt="logo-nike" /></a>';
+          echo '</div>';
+          echo '</section>';
+          echo '<img src="https://i.imgur.com/gBfzpkA.jpg" alt="product1" class="product-icon" />';
+          echo '<div class="product-name">';
+          echo $newProduct[$i];
+          echo '</div>';
+          echo '<a href="templates\product\air-zoom-tempo.html" class="button">Buy now</a>';
+        }
+        ?>
       </div>
       <!-- End product card row 1-->
     </div>
@@ -168,9 +240,18 @@
       <div class="stores-header">
         <h2>Featured Store</h2>
       </div>
-      <a href="templates/store/store_Nike.html">
-        <div class="store-wrap"></div>
-      </a>
+      <?php
+      for ($i = 0; $i < count($featureStore); $i++) {
+        echo ' <div class="store">';
+        echo '<figure>';
+        echo '<a href="">';
+        echo '<img src="https://i.imgur.com/jIB3Op5.jpg" alt="store-image" /></a>';
+        echo '<figcaption>';
+        echo $featureStore[$i];
+        echo '</figcaption>';
+        echo '</div>';
+      }
+      ?>
     </div>
   </section>
   <!-- End featured store -->
@@ -180,9 +261,23 @@
       <div class="products-header">
         <h2>Featured Products</h2>
       </div>
-      <a href="templates\product\Jordan-jumpman-2021-PF.html">
-        <div class="product-wrap"></div>
-      </a>
+      <?php
+      for ($i = 0; $i < count($featureProduct); $i++) {
+        echo '<div class="product-card" onmouseover="pauseSlides()" onmouseout="startSlides()">';
+        echo '<section class="ribbon">';
+        echo '<div class="store-nike">';
+        echo '<a href="">';
+        echo '<img src="https://i.imgur.com/ljKPWN6.jpg" alt="logo-nike" /></a>';
+        echo '</div>';
+        echo '</section>';
+        echo '<img src="https://i.imgur.com/gBfzpkA.jpg" alt="product1" class="product-icon" />';
+        echo '<div class="product-name">';
+        echo $featureProduct[$i];
+        echo '</div>';
+        echo '<a href="templates\product\air-zoom-tempo.html" class="button">Buy now</a>';
+      }
+      ?>
+    </div>
     </div>
   </section>
   <!-- End featured products -->
