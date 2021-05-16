@@ -138,15 +138,18 @@ function validateLogin() {
   let email = document.loginForm.email.value;
   let pass = document.loginForm.pwd.value;
 
-  let emailRegex = /(?:[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/g;
+  let emailRegex =
+    /(?:[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/g;
   let password = "password";
   if (emailRegex.test(email)) {
-    if (pass == password || pass == "$2y$10VJZeRekNVK8dodKsQubVcOa5PupDhGH4JYyr6lS4CxdzzTJ.7/cK6") {
+    if (
+      pass == password ||
+      pass == "$2y$10VJZeRekNVK8dodKsQubVcOa5PupDhGH4JYyr6lS4CxdzzTJ.7/cK6"
+    ) {
       localStorage.setItem("validatedEmailAddress", email);
       return true;
     }
-  }
-  else {
+  } else {
     alert("Login was unsuccessful, please check your email and/or password");
     return false;
   }
@@ -256,8 +259,7 @@ function checkValidation() {
             if ((check = validateZipCode()) == true) {
               if ((check = validateAdditionalField()) == true) {
                 return true;
-              }
-              else {
+              } else {
                 return false;
               }
             } else {
@@ -281,7 +283,8 @@ function checkValidation() {
 }
 
 function validateEmail() {
-  const emailRegex = /(?:[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/g;
+  const emailRegex =
+    /(?:[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/g;
   let emailAddress = document.getElementById("email-address").value;
   if (emailRegex.test(emailAddress)) {
     return true;
@@ -313,12 +316,10 @@ function validateAdditionalField() {
     if (validation.length < 1) {
       alert("Please type your store name");
       return false;
-    }
-    else {
+    } else {
       return true;
     }
-  }
-  else {
+  } else {
     return true;
   }
 }
@@ -328,7 +329,11 @@ function validateZipCode() {
   const regex_2 = /\b\d{5}\b/g;
   const regex_3 = /\b\d{6}\b/g;
   let zipcode = document.getElementById("zip-code").value;
-  if ((regex_1.test(zipcode)) == true || (regex_2.test(zipcode)) == true || (regex_3.test(zipcode)) == true) {
+  if (
+    regex_1.test(zipcode) == true ||
+    regex_2.test(zipcode) == true ||
+    regex_3.test(zipcode) == true
+  ) {
     return true;
   } else {
     alert("Invalid zip code, please type zipcode 4~6 digits");

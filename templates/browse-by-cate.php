@@ -1,27 +1,61 @@
 <?php
+session_start();
 error_reporting(E_ERROR | E_PARSE);
 if (fopen('../php/install.php', 'r') != null) {
   exit("'install.php' still exists! Delete it to proceed!");
 }
 
-if (isset($_POST['categories'])) {
-  $select = $_POST['categories'];
-  switch ($select) {
-    case 'all':
-      $options = 0;
-    case 'shoes':
-      $options = 1;
-      break;
-    case 'watch':
-      $options = 2;
-      break;
-    case 'smartphone':
-      $options = 3;
-      break;
-  }
-}
-?>
 
+$store_name_array = array();
+$h = fopen("../data/stores.csv", "r");
+
+
+$row_store = 1;
+
+while (($row = fgetcsv($h)) !== FALSE) {
+  // Skip the first line
+  if ($row_store == 1) {
+    $row_store++;
+    continue;
+  }
+  // Read the data
+  $store_name_array[] = trim($row[1]);
+  $store_cate_id_array[] = trim($row[2]);
+}
+
+
+
+fclose($h);
+
+$path = "../data/categories.csv";
+$file = fopen($path, 'r');
+
+$row = 1;
+
+while (($data = fgetcsv($file)) !== FALSE) {
+  // Skip the first line
+  if ($row == 1) {
+    $row++;
+    continue;
+  }
+  // Add data to array
+  $category_name[] = trim($data[1]);
+}
+
+fclose($file);
+
+$chosen_index = array_search($_POST['categories'], $category_name) + 1;
+$count = 0;
+$browse_cate = [];
+foreach ($store_cate_id_array as $c) {
+  if ($c == $chosen_index) {
+    $browse_cate[] = $store_name_array[$count];
+  }
+  $count++;
+}
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +76,7 @@ if (isset($_POST['categories'])) {
   <header>
     <!-- Logo -->
     <div class="brand">
-      <a href="../index.html"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" />
+      <a href="../index.php"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" />
       </a>
     </div>
     <!-- Right menu -->
@@ -83,13 +117,25 @@ if (isset($_POST['categories'])) {
   <div class="wrapper">
     <div class="drop-down-bar">
       <label id="browse">Browse by categories :</label>
-      <form method="post" action="" id="myForm" class="form-categories">
-        <select name="categories" onchange="onChange()">
-          <option name="all" value="all" id="all" <?php if ($_POST['categories'] == 'all') echo 'selected'; ?>>All categories</option>
-          <option name="shoes" value="shoes" id="shoes" <?php if ($_POST['categories'] == 'shoes') echo 'selected'; ?>>Shoes</option>
-          <option name="watch" value="watch" id="watch" <?php if ($_POST['categories'] == 'watch') echo 'selected'; ?>>Watch</option>
-          <option name="smartphone" value="smartphone" id="smartphone" <?php if ($_POST['categories'] == 'smartphone') echo 'selected'; ?>>Smart phone</option>
-        </select>
+
+      <form method="post" action="" id="myForm">
+        <div class="select">
+          <select name="categories" onchange="onChange()" class="select-option">
+            <option <?php if ($_POST['categories'] == 'Department stores') echo 'selected'; ?>>Department stores</option>
+            <option <?php if ($_POST['categories'] == 'Grocery stores') echo 'selected'; ?>>Grocery stores</option>
+            <option <?php if ($_POST['categories'] == 'Restaurants') echo 'selected'; ?>>Restaurants</option>
+            <option <?php if ($_POST['categories'] == 'Clothing stores') echo 'selected'; ?>>Clothing stores</option>
+            <option <?php if ($_POST['categories'] == 'Accessory stores') echo 'selected'; ?>>Accessory stores</option>
+            <option <?php if ($_POST['categories'] == 'Pharmacies') echo 'selected'; ?>>Pharmacies</option>
+            <option <?php if ($_POST['categories'] == 'Technology stores') echo 'selected'; ?>>Technology stores</option>
+            <option <?php if ($_POST['categories'] == 'Pet stores') echo 'selected'; ?>>Pet stores</option>
+            <option <?php if ($_POST['categories'] == 'Toy Stores') echo 'selected'; ?>>Toy stores</option>
+            <option <?php if ($_POST['categories'] == 'Specialty stores') echo 'selected'; ?>>Specialty stores</option>
+            <option <?php if ($_POST['categories'] == 'Thrift stores') echo 'selected'; ?>>Thrift stores</option>
+            <option <?php if ($_POST['categories'] == 'Services') echo 'selected'; ?>>Services</option>
+            <option <?php if ($_POST['categories'] == 'Kiosks') echo 'selected'; ?>>Kiosks</option>
+          </select>
+        </div>
       </form>
     </div>
   </div>
@@ -98,35 +144,23 @@ if (isset($_POST['categories'])) {
       <!-- Store card row-->
 
       <div class="store-container">
-        <div class="store-card" id="store-nike" style="display:<?php echo $options == 1 ? 'block' : 'none' ?>">
-          <figure>
-            <a href="store/store_Nike.html">
-              <img src="https://i.imgur.com/SPU418r.jpg" alt="store1" class="store-icon" />
-            </a>
-          </figure>
-          <div class="store-name">Nike</div>
-          <div class="store-description" style="text-align: center"></div>
-        </div>
-        <div class="store-card" id="store-rolex" style="display:<?php echo $options == 2 ? 'block' : 'none' ?>">
-          <figure>
-            <a href="store/store_Rolex.html">
-              <img src="https://i.imgur.com/bpOtMwr.png" alt="store2" class="store-icon" />
-            </a>
-          </figure>
-          <div class="store-name">Rolex</div>
-          <div class="store-description"></div>
-        </div>
-        <div class="store-card" id="store-apple" style="display:<?php echo $options == 3 ? 'block' : 'none' ?>">
-          <figure>
-            <a href="store/store_Apple.html">
-              <img src="https://i.imgur.com/pFWAXrC.jpg" alt="store3" class="store-icon" />
-            </a>
-          </figure>
-          <div class="store-name">Apple</div>
-          <div class="store-description" style="text-align: center"></div>
-        </div>
 
+        <?php
 
+        for ($i = 0; $i < count($browse_cate); $i++) {
+          echo '<div class="store-card">';
+          echo '<figure>';
+          echo '<a href="">';
+          echo '<img src="https://i.imgur.com/SPU418r.jpg" alt="store1" class="store-icon" />';
+          echo '</a>';
+          echo '</figure>';
+          echo '<div class="store-name">';
+          echo $browse_cate[$i];
+          echo '</div>';
+          echo '</div>';
+        }
+
+        ?>
       </div>
       <!-- End store card row-->
     </div>
@@ -138,7 +172,7 @@ if (isset($_POST['categories'])) {
       <div class="grid-container">
         <!-- Footer Logo -->
         <div class="grid-item">
-          <a href="../index.html"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" /></a>
+          <a href="../index.php"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" /></a>
         </div>
         <!-- Quick Link -->
         <div class="grid-item inner-grid-container">

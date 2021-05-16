@@ -31,21 +31,15 @@
 .store-container {
     font-family: "Amazon Ember",Arial,sans-serif;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
     margin: 0 30px;
     padding-top: 15px;
     padding-bottom: 15px;
   }
   
 .store-card {
-    flex: 1 1 30%;
-    max-width: 605px;
+    width: 25%;
     background: #fff;
-    padding: 20px 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     box-shadow: 0 0 2px 0 #ccc;
     transition: 0.3s;
     padding-bottom: 30px;
@@ -75,6 +69,13 @@
     text-align: center;
   }
 
+.letters-list{
+  font-size: 20px;
+  border: none;
+  background-color:white;
+  color: blue;
+  cursor: pointer;
+}
 @media only screen and (max-width: 1024px) {
 	#stores .container .store-container .store-card {
 		width: 50%;

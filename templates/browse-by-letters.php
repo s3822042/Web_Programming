@@ -1,7 +1,41 @@
 <?php
+session_start();
 error_reporting(E_ERROR | E_PARSE);
 if (fopen('../php/install.php', 'r') != null) {
   exit("'install.php' still exists! Delete it to proceed!");
+}
+
+
+$array = array();
+$file = fopen("../data/stores.csv", "r");
+
+
+while (($row = fgetcsv($file)) !== FALSE) {
+  // Read the data
+  $array[] = trim($row[1]);
+}
+// sort alphabetically
+sort($array);
+// remove last element of array
+$remove = array_pop($array);
+
+
+fclose($file);
+
+
+$chosen_letter = $_POST["chosen-letter"];
+$matched_store = [];
+$matched_number = [];
+
+foreach ($array as $v) {
+  $first_letter = strtolower(substr($v, 0, 1));
+  $first_number = substr($v, 0, 1);
+  if ($first_letter == $chosen_letter) {
+    $matched_store[] = $v;
+  }
+  if (is_numeric($first_number))  {
+    $matched_number[] = $v;
+  }
 }
 ?>
 
@@ -24,7 +58,7 @@ if (fopen('../php/install.php', 'r') != null) {
   <header>
     <!-- Logo -->
     <div class="brand">
-      <a href="../index.html"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" />
+      <a href="../index.php"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" />
       </a>
     </div>
     <!-- Right menu -->
@@ -64,68 +98,85 @@ if (fopen('../php/install.php', 'r') != null) {
 
   <div class="wrapper">
     <div class="horizontal-line-1">
-      <label id="browse-letter">Browse by letters :</label>
-      <a href="browse-by-letters.html">a</a>
-      <a href="browse-by-letters.html">b</a>
-      <a href="browse-by-letters.html">c</a>
-      <a href="browse-by-letters.html">d</a>
-      <a href="browse-by-letters.html">e</a>
-      <a href="browse-by-letters.html">f</a>
-      <a href="browse-by-letters.html">g</a>
-      <a href="browse-by-letters.html">h</a>
-      <a href="browse-by-letters.html">i</a>
-      <a href="browse-by-letters.html">j</a>
-      <a href="browse-by-letters.html">k</a>
-      <a href="browse-by-letters.html">l</a>
-      <a href="browse-by-letters.html">m</a>
-      <a href="browse-by-letters.html">n</a>
-      <a href="browse-by-letters.html">o</a>
-      <a href="browse-by-letters.html">p</a>
-      <a href="browse-by-letters.html">q</a>
-      <a href="browse-by-letters.html">r</a>
-      <a href="browse-by-letters.html">s</a>
-      <a href="browse-by-letters.html">t</a>
-      <a href="browse-by-letters.html">u</a>
-      <a href="browse-by-letters.html">v</a>
-      <a href="browse-by-letters.html">w</a>
-      <a href="browse-by-letters.html">x</a>
-      <a href="browse-by-letters.html">y</a>
-      <a href="browse-by-letters.html">z</a>
+      <div class="browse-letter">Browse by letters :</div>
+      <form id="letters" method="post" action="browse-by-letters.php" name="letters">
+        <input class="letters-list" type="submit" name="chosen-number" value="#" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="a" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="b" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="c" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="d" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="e" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="f" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="g" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="h" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="i" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="j" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="k" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="l" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="m" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="n" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="o" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="p" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="q" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="r" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="s" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="t" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="u" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="v" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="x" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="y" />
+        <input class="letters-list" type="submit" name="chosen-letter" value="z" />
+      </form>
     </div>
   </div>
-  <section id="stores">
+  <section id=" stores">
     <div class="container">
       <!-- Store card row-->
       <div class="store-container">
-        <div class="store-card">
-          <figure>
-            <a href="store/store_Rolex.html">
-              <img src="https://i.imgur.com/bpOtMwr.png" alt="store1" class="store-icon" />
-            </a>
-          </figure>
-          <div class="store-name">Rolex</div>
-          <div class="store-description" style="text-align: center"></div>
-        </div>
-        <div class="store-card">
-          <figure>
-            <a href="store/store_Nike.html">
-              <img src="https://i.imgur.com/SPU418r.jpg" alt="store2" class="store-icon" />
-            </a>
-          </figure>
-          <div class="store-name">Nike</div>
-          <div class="store-description"></div>
-        </div>
-        <div class="store-card">
-          <figure>
-            <a href="store/store_Apple.html">
-              <img src="https://i.imgur.com/pFWAXrC.jpg" alt="store3" class="store-icon" />
-            </a>
-          </figure>
-          <div class="store-name">Apple</div>
-          <div class="store-description" style="text-align: center"></div>
-        </div>
+
+        <?php
+
+        if($chosen_number = $_POST["chosen-number"]){
+          for ($i = 0; $i < count($matched_number); $i++) {
+
+            echo '<div class="store-card">';
+            echo '<figure>';
+            echo '<a href="">';
+            echo '<img src="https://i.imgur.com/SPU418r.jpg" alt="store1" class="store-icon" />';
+            echo '</a>';
+            echo '</figure>';
+            echo '<div class="store-name">';
+            echo $matched_number[$i];
+            echo '</div>';
+            echo '</div>';
+          }
+        }
+
+        
+        
+
+        for ($i = 0; $i < count($matched_store); $i++) {
+
+          echo '<div class="store-card">';
+          echo '<figure>';
+          echo '<a href="">';
+          echo '<img src="https://i.imgur.com/SPU418r.jpg" alt="store1" class="store-icon" />';
+          echo '</a>';
+          echo '</figure>';
+          echo '<div class="store-name">';
+          echo $matched_store[$i];
+          echo '</div>';
+          echo '</div>';
+        }
+        ?>
+
+
       </div>
-      <!-- End store card row-->
+
+      
+
+    </div>
+    <!-- End store card row-->
     </div>
   </section>
 
@@ -135,7 +186,7 @@ if (fopen('../php/install.php', 'r') != null) {
       <div class="grid-container">
         <!-- Footer Logo -->
         <div class="grid-item">
-          <a href="../index.html"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" /></a>
+          <a href="../index.php"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" /></a>
         </div>
         <!-- Quick Link -->
         <div class="grid-item inner-grid-container">
@@ -176,7 +227,8 @@ if (fopen('../php/install.php', 'r') != null) {
     </div>
   </footer>
   <!-- JavaScript -->
-  <script src="../js/index.js"></script>
+  <script src="../js/index.js">
+  </script>
 </body>
 
 </html>

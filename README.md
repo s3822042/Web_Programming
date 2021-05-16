@@ -60,7 +60,7 @@ Development, especially in Web Programming and Data Science. As developers, we f
 │ ├── sign-up-form.html / - Sign up page
 │ ├── term_of_services.php / - Terms of Service page
 │ ├── thank_you.html / - Thank You page after purchasing product
-├── index.html / - Homepage
+├── index.php / - Homepage
 ├── .gitignore
 ├── README.md
 ```
