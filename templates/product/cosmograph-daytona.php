@@ -1,11 +1,62 @@
+<?php
+	session_start();
+  
+  error_reporting(E_ERROR | E_PARSE);
+  if (fopen('../../php/install.php', 'r') != null) {
+      exit("'install.php' still exists! Delete it to proceed!");
+  } 
+
+  // unset($_COOKIE['visited']);
+  // unset($_SESSION['a-product-added']);
+  // unset($_SESSION['last-visited-product']);
+  // unset($_POST['a-product-added']);
+  // unset($_POST['quantity']);
+
+  
+  if (!isset($_COOKIE['visited'])) { // no cookie, so probably the first time here
+    $_COOKIE['visited'] = 'yes';
+    if (isset($_SESSION['a-product-added']) || isset($_SESSION['last-visited-product']))
+    {
+      unset($_SESSION['a-product-added']);
+      unset($_SESSION['last-visited-product']);
+    }
+  }
+  
+  if (isset($_POST['a-product-added'])) {
+    $_SESSION['a-product-added'] = 'already';
+  }
+
+  if (isset($_COOKIE['visited']) && $_COOKIE['visited'] == 'yes') {
+    $_SESSION['last-visited-product'] = "cosmograph-daytona.php";
+  } 
+
+
+  // echo '<h2>$_SESSION values</h2>';
+  // echo '<pre>';
+  // print_r($_SESSION);
+  // echo '</pre>';
+  // echo '<hr>';
+
+  // echo '<h2>$_POST values</h2>';
+  // echo '<pre>';
+  // print_r($_POST);
+  // echo '</pre>';
+  // echo '<hr>';
+
+  // echo '<h2>$_COOKIE values</h2>';
+  // echo '<pre>';
+  // print_r($_COOKIE);
+  // echo '</pre>';
+  // echo '<hr>';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Datejust 36 Ladies</title>
+    <title>Cosmograph daytona</title>
     <link rel="stylesheet" href="../../css/style.css" />
     <link rel="stylesheet" href="../../css/product.module.css" />
     <link
@@ -15,31 +66,39 @@
       crossorigin="anonymous"
     />
   </head>
+
   <body onmouseover="cartNumbers()">
     <!--toast-->
-    <div class="toast" id="toast">
-    </div>
+    <div class="toast" id="toast"></div>
     <!-- Navigation bar -->
     <header>
-        <!-- Logo -->
-        <div class="brand">
-            <a href="../../index.php"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" />
-            </a>
-        </div>
-        <!-- Right menu -->
-        <nav class="menu">
-            <input type="checkbox" id="menuToggle" />
-            <label for="menuToggle" class="menu-icon"><i class="fa fa-bars"></i
+      <!-- Logo -->
+      <div class="brand">
+        <a href="../../index.php"
+          ><img
+            src="https://i.imgur.com/mE6aWmB.png"
+            alt="logo"
+            class="logo-img"
+          />
+        </a>
+      </div>
+      <!-- Right menu -->
+      <nav class="menu">
+        <input type="checkbox" id="menuToggle" />
+        <label for="menuToggle" class="menu-icon"
+          ><i class="fa fa-bars"></i
         ></label>
         <ul>
           <a href="../about.php"><li>About us</li></a>
           <a href="../fees.html"><li>Fees</li></a>
-          <a href="../account/account.html"><li>Account</li></a>
+          <a href="../account/account.php"><li>Account</li></a>
           <a href="../browse-menu.html"><li>Browse</li></a>
           <a href="../faq.html"><li>FAQs</li></a>
           <a href="../contact.html"><li>Contact</li></a>
           <a href="../login-form.php"><li>Sign in</li></a>
-          <a href="../cart.html"  style="color: red" class="cart-nav"id = "cart"><li>Cart: <span>0</span> </li></a>
+          <a href="../cart.php" style="color: red" class="cart-nav" id="cart"
+            ><li>Cart: <span>0</span></li></a
+          >
         </ul>
       </nav>
     </header>
@@ -48,97 +107,118 @@
     <div class="product_description">
       <div class="product_content">
         <!--product content-->
-        <h1 id="product-name">Datejust 36 Ladies</h1>
+        <h1 id="product-name">Cosmograph daytona</h1>
         <h3>General description</h3>
         <div class="product_detail">
           <!--product image different angle-->
           <div class="product_from_different_angle">
-            <img src="https://i.imgur.com/aHGVgqI.jpg" class="angle" />
-            <img src="https://i.imgur.com/xBaFG2C.jpg" class="angle" />
-            <img src="https://i.imgur.com/90UmjWz.jpg" class="angle" />
+            <img
+              src="https://i.imgur.com/IzeTT5m.jpg"
+              class="angle"
+              alt="product general picture"
+            />
+            <img
+              src="https://i.imgur.com/QvMywkE.jpg"
+              class="angle"
+              alt="product from another angle"
+            />
+            <img
+              src="https://i.imgur.com/vJFkkew.jpg"
+              class="angle"
+              alt="product from another angle"
+            />
+            <img
+              src="https://i.imgur.com/zrY5tlr.jpg"
+              class="angle"
+              alt="product from another angle"
+            />
+            <img
+              src="https://i.imgur.com/CK9TMPb.jpg"
+              class="angle"
+              alt="product from another angle"
+            />
+            <img
+              src="https://i.imgur.com/FSQlwL8.jpg"
+              class="angle"
+              alt="product from another angle"
+            />
           </div>
           <!--product picture-->
           <div class="product_picture">
             <img
-              src="https://i.imgur.com/aHGVgqI.jpg"
+              src="https://i.imgur.com/IzeTT5m.jpg"
               class="general_picture"
+              alt="product general picture"
             />
           </div>
           <!--general description-->
           <div class="product_general_description">
             <span class="fa fa-star checked"></span>
-            <!--fullstar-->
+            <!--full-star-->
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fas fa-star-half-alt checked"></span>
             <!--half star-->
-            <span> 4.6/5 90 reviews </span>
-            <p id="price">Price: $<span>9975</span></p>
+            <span> 4.3/5 196 reviews </span>
+            <p id="price">Price: $<span>97650</span></p>
             <!--size selection-->
             <p>Diameter: 41mm</p>
-            <p>Color available: Diamond pink, Julibee Dial</p>
+            <p>Color available: Yellow / Gold / Green</p>
             <div>
               <span>
                 <img
-                  src="https://i.imgur.com/aHGVgqI.jpg"
+                  src="https://i.imgur.com/IzeTT5m.jpg"
                   class="same_product_another_design"
+                  alt="product with another design"
                 />
               </span>
               <span>
                 <img
-                  src="https://i.imgur.com/jtARkSC.jpg"
+                  src="https://i.imgur.com/lLcHxhm.jpg"
                   class="same_product_another_design"
+                  alt="product with another design"
                 />
               </span>
               <span>
                 <img
-                  src="https://i.imgur.com/wVAWGGO.jpg"
+                  src="https://i.imgur.com/4nXB9A2.jpg"
                   class="same_product_another_design"
-                />
-              </span>
-              <span>
-                <img
-                  src="https://i.imgur.com/jHR6g88.jpg"
-                  class="same_product_another_design"
-                />
-              </span>
-              <span>
-                <img
-                  src="https://i.imgur.com/iGLuPUH.jpg"
-                  class="same_product_another_design"
+                  alt="product with another design"
                 />
               </span>
             </div>
             <p>Description</p>
             <ul>
               <li style="list-style-type: disc"><b>Brand</b> :Rolex</li>
-              <li style="list-style-type: disc"><b>Series</b> :Datejust</li>
-              <li style="list-style-type: disc"><b>Gender</b> :Ladies</li>
-              <li style="list-style-type: disc"><b>Model</b> :279174PDJ</li>
+              <li style="list-style-type: disc"><b>Series</b> :Daytona</li>
+              <li style="list-style-type: disc"><b>Gender</b> :Men</li>
+              <li style="list-style-type: disc"><b>Model</b> :m116508-0013</li>
               <li style="list-style-type: disc">
                 <b>Watch label</b> :Swiss Made
               </li>
               <li style="list-style-type: disc"><b>Movement</b> :Automatic</li>
               <li style="list-style-type: disc">
-                <b>Engine</b> :Rolex Calibre 2236
+                <b>Engine</b> :Rolex Calibre 4130
               </li>
               <li style="list-style-type: disc">
-                <b>Power reserve</b> :55 hours
+                <b>Power reserve</b> :72 hours
               </li>
             </ul>
             <br />
             <div class="buying">
-              <input
-                type="number"
-                id="quantity"
-                name="quantity"
-                min="1"
-                max="100"
-                value="1"
-              />
-              <a class="addtocart" style="margin-left: 10px; border: solid; padding: 5px; cursor: pointer;">Add Cart</a>
-            </div>
+              <form method="post" name="product-added-button-form" action="cosmograph-daytona.php">
+                <input
+                  type="number"
+                  id="quantity"
+                  name="quantity"
+                  min="1"
+                  max="100"
+                  value="1"
+                />
+                <button type="submit" name="a-product-added" value="true" class="addtocart" style="margin-left: 10px; border: solid; padding: 5px; cursor: pointer;">Add Cart</button>
+              </form>
+          </div>
           </div>
         </div>
         <!--end general description-->
@@ -147,39 +227,41 @@
         <div class="detail_description">
           <h3>Detail Description</h3>
           <p>
-            Stainless steel case with a stainless steel Rolex jubilee bracelet
-            with 18kt yellow gold center links. Fixed 18kt yellow gold bezel set
-            with diamonds. Green stripe motif dial with yellow gold-tone hands
-            and diamond hour markers. Dial Type: Analog. Date display at the 3
-            o'clock position. Rolex calibre 2236 automatic movement, based upon
-            Rolex 2235, containing 31 Jewels, bitting at 28800 vph, and has a
-            power reserve of approximately 55 hours. Scratch resistant sapphire
-            crystal. Screw down crown. Solid case back. Round case shape. Case
-            size: 28 mm. Concealed crown clasp. Water resistant at 100 meters /
-            330 feet. Functions: date, hour, minute, second, chronometer. Lady
-            Datejust Series. Luxury watch style. Watch label: Swiss Made. Rolex
-            Lady Datejust Green Stripe Dial Diamond Bezel Automatic Watch
-            279383GNDJ.
+            18kt yellow gold case with a 18kt yellow gold Rolex oyster bracelet.
+            Fixed 18kt yellow gold bezel showing tachymeter markings. Green dial
+            with gold-tone hands and index hour markers. Minute markers around
+            the outer rim. Dial Type: Analog. Luminescent hands and markers.
+            Chronograph - three sub-dials displaying: 60 second, 30 minute and
+            12 hour. Rolex calibre 4130 automatic movement with a 72-hour power
+            reserve. Scratch resistant sapphire crystal. Screw down crown. Solid
+            case back. Case size: 40 mm. Case thickness: 12.5 mm. Round case
+            shape. Band width: 20 mm. Oysterlock clasp. Water resistant at 100
+            meters / 330 feet. Functions: chronograph, tachymeter, hour, minute,
+            second. Luxury watch style. Watch label: Swiss Made. Rolex
+            Cosmograph Daytona Green Dial 18K Yellow Gold Oyster Men's Watch
+            116508GRSO.
           </p>
           <div class="separator"></div>
           <h3>Dial</h3>
           <ul>
-            <li><b>Dial color</b> :Pink</li>
+            <li><b>Dial color</b> :Green</li>
             <li><b>Type</b> :Analog</li>
             <li><b>Crystal</b> :Scratch Resistant Sapphire</li>
-            <li><b>Hands</b> :Silver-tone</li>
-            <li><b>Dial Markers</b> :Diamond</li>
-            <li><b>Bezel</b> :Fixed</li>
-            <li><b>Bezel color</b> :Silver-tone</li>
-            <li><b>Bezel material</b> :Stainless Steel</li>
+            <li><b>Hands</b> :Luminous Yellow Gold-tone</li>
+            <li><b>Dial Markers</b> :Index</li>
+            <li><b>Second Marker</b> :Minute Markers around the outer rim</li>
+            <li><b>Sub Dial</b> :Three - 60 Second, 30 Minute and 12 Hour</li>
+            <li><b>Luminiscene</b> :Hands and Markers</li>
+            <li><b>Bezel</b> :Fixed Tachymeter Scale</li>
+            <li><b>Bezel material</b> :18kt Yellow Gold</li>
             <li><b>Crown</b> :Screw Down</li>
           </ul>
           <div class="separator"></div>
           <h3>Case</h3>
           <ul>
-            <li><b>Case size</b> :28 mm</li>
-            <li><b>Case material</b> :Stainless Steel</li>
-            <li><b>Case color</b> :Silver-tone</li>
+            <li><b>Case size</b> :40 mm</li>
+            <li><b>Case thickness</b> :12.5 mm</li>
+            <li><b>Case material</b> :18kt Yellow Gold</li>
             <li><b>Case shape</b> :Round</li>
             <li><b>Case back</b> :Solid</li>
           </ul>
@@ -187,25 +269,31 @@
           <h3>Features</h3>
           <ul>
             <li><b>Water resistance</b> :100 meters / 330 feet</li>
-            <li><b>Calendar</b> :Date display at the 3 o'clock position</li>
-            <li><b>Function</b> :Date, Hour, Minute, Second</li>
-            <li><b>Watch features</b> :Analog, Diamond, Stainless Steel</li>
+            <li>
+              <b>Function</b> :Chronograph, Hour, Minute, Second, Chronometer,
+              Tachymeter
+            </li>
+            <li>
+              <b>Watch features</b> :Analog, Chronograph, Chronometer, Gold
+            </li>
           </ul>
           <div class="separator"></div>
           <h3>Band</h3>
           <ul>
-            <li><b>Band material</b> :Stainless Steel Rolex Jubilee</li>
+            <li><b>Band material</b> :18kt Yellow Gold Rolex Oyster</li>
             <li><b>Band type</b> :Bracelet</li>
-            <li><b>Band color</b> :Silver-tone</li>
-            <li><b>Clasp</b> :Watch features</li>
+            <li><b>Band width</b> :20 mm</li>
+            <li><b>Band color</b> :Yellow Gold-tone</li>
+            <li><b>Clasp</b> :Oysterlock</li>
           </ul>
           <div class="separator"></div>
           <h3>Additional information</h3>
           <ul>
             <li><b>Watch style</b> :Luxury</li>
             <li><b>Warranty</b> :2 Year Jomashop Warranty</li>
-            <li><b>UPC code</b> :842047146903</li>
-            <li><b>Internal ID</b> :RLX279174PDJ</li>
+            <li><b>Internal ID</b> :RLX116508GRSO</li>
+            <li><b>UPC code</b> :842047109014</li>
+            <li><b>Item variation</b> :116508-0013, 116508GRSO</li>
             <li><b>Department</b> :Watches</li>
             <li><b>Category</b> :Watches</li>
           </ul>
@@ -234,11 +322,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(7000% / 90)"></div>
+                <div class="amount_bar" style="width: calc(13200% / 196)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>78%</p>
+                <p>67%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_4_star">
@@ -248,11 +336,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(1000% / 90)"></div>
+                <div class="amount_bar" style="width: calc(2000% / 196)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>11%</p>
+                <p>10%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_3_star">
@@ -262,11 +350,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(600% / 90)"></div>
+                <div class="amount_bar" style="width: calc(2300% / 196)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>7%</p>
+                <p>12%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_2_star">
@@ -276,11 +364,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(200% / 90)"></div>
+                <div class="amount_bar" style="width: calc(1200% / 196)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>2%</p>
+                <p>6%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_1_star">
@@ -290,11 +378,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(200% / 196)"></div>
+                <div class="amount_bar" style="width: calc(900% / 196)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>2%</p>
+                <p>5%</p>
               </div>
             </div>
             <!--write your review here-->
@@ -328,6 +416,7 @@
                 <img
                   src="https://i.imgur.com/l40m95m.png"
                   class="users-avatar"
+                  alt="reviewer avatar"
                 />
               </div>
               <!--review content-->
@@ -357,6 +446,7 @@
                 <img
                   src="https://i.imgur.com/dnHWRnW.png"
                   class="users-avatar"
+                  alt="reviewer avatar"
                 />
               </div>
               <!--review content-->
@@ -389,6 +479,7 @@
                 <img
                   src="https://i.imgur.com/gc0dOkW.jpg"
                   class="users-avatar"
+                  alt="reviewer avatar"
                 />
               </div>
               <!--review content-->
@@ -424,6 +515,7 @@
                 ><img
                   src="https://i.imgur.com/fN53ZCR.jpg"
                   class="product-img"
+                  alt="similar product"
                 />
               </a>
               <figcaption>
@@ -432,7 +524,7 @@
                 </a>
                 <div>
                   <span class="fa fa-star checked"></span>
-                  <!--fullstar-->
+                  <!--full-star-->
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
@@ -445,25 +537,24 @@
           </span>
           <span class="product_list">
             <figure class="product">
-              <a href="submariner-blue-dial.html"
+              <a href="lady-datejust.html"
                 ><img
-                  src="https://i.imgur.com/7fVDSvD.jpg"
+                  src="https://i.imgur.com/aHGVgqI.jpg"
                   class="product-img"
+                  alt="similar product"
                 />
               </a>
               <figcaption>
-                <a href="" class="product-link">
-                  <b>Submariner blue dial </b>
-                </a>
+                <a href="" class="product-link"> <b>Lady Datejust </b> </a>
                 <div>
                   <span class="fa fa-star checked"></span>
-                  <!--fullstar-->
+                  <!--full-star-->
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
-                  <span class="far fa-star"></span>
+                  <span class="fas fa-star-half-alt checked"></span>
                   <!--half star-->
-                  <span> 4.1/5 180 reviews </span>
+                  <span> 4.6/5 90 reviews </span>
                 </div>
               </figcaption>
             </figure>
@@ -474,6 +565,7 @@
                 ><img
                   src="https://i.imgur.com/iGLuPUH.jpg"
                   class="product-img"
+                  alt="similar product"
                 />
               </a>
               <figcaption>
@@ -493,21 +585,24 @@
           </span>
           <span class="product_list">
             <figure class="product">
-              <a href="cosmograph-daytona.html"
+              <a href="submariner-blue-dial.html"
                 ><img
-                  src="https://i.imgur.com/IzeTT5m.jpg"
+                  src="https://i.imgur.com/7fVDSvD.jpg"
                   class="product-img"
+                  alt="similar product"
                 />
               </a>
               <figcaption>
-                <a href="" class="product-link"> <b> Cosmograph daytona</b> </a>
+                <a href="submariner-blue-dial.html" class="product-link">
+                  <b>Submariner blue dial </b>
+                </a>
                 <div>
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fas fa-star-half-alt checked"></span>
-                  <span> 4.3/5 196</span>
+                  <span> 4.4/5 235 reviews </span>
                 </div>
               </figcaption>
             </figure>
@@ -518,6 +613,7 @@
                 ><img
                   src="https://i.imgur.com/qrT8W80.jpg"
                   class="product-img"
+                  alt="similar product"
                 />
               </a>
               <figcaption>
@@ -554,27 +650,29 @@
           </div>
           <!-- Quick Link -->
           <div class="grid-item inner-grid-container">
-            <div class="grid-item">
-              <a href="../about.php">About Us</a>
-            </div>
-            <div class="grid-item">
-              <a href="../fees.html">Fees</a>
-            </div>
-            <div class="grid-item">
-              <a href="../browse-menu.html">Browse</a>
-            </div>
-            <div class="grid-item">
-              <a href="../term_of_services.php">Term of Service</a>
-            </div>
-            <div class="grid-item">
-              <a href="../account/account.html">Account</a>
-            </div>
-            <div class="grid-item"><a href="../faq.html">FAQs</a></div>
-            <div class="grid-item">
-              <a href="../contact.html">Contact</a>
-            </div>
-            <div class="grid-item">
-              <a href="../privacy_policies.php">Privacy Policy</a>
+            <div class="grid-item inner-grid-container">
+              <div class="grid-item">
+                <a href="../about.php">About Us</a>
+              </div>
+              <div class="grid-item">
+                <a href="../fees.html">Fees</a>
+              </div>
+              <div class="grid-item">
+                <a href="../browse-menu.html">Browse</a>
+              </div>
+              <div class="grid-item">
+                <a href="../term_of_services.php">Term of Service</a>
+              </div>
+              <div class="grid-item">
+                <a href="../account/account.php">Account</a>
+              </div>
+              <div class="grid-item"><a href="../faq.html">FAQs</a></div>
+              <div class="grid-item">
+                <a href="../contact.html">Contact</a>
+              </div>
+              <div class="grid-item">
+                <a href="../privacy_policies.php">Privacy Policy</a>
+              </div>
             </div>
           </div>
           <!-- Social Link -->
@@ -585,13 +683,14 @@
               <a href=""><i class="fab fa-linkedin-in circle-icon"></i></a>
               <a href=""><i class="fab fa-twitter circle-icon"></i></a>
             </div>
-            <hr />
-            <!-- Copyright -->
-            <p>&copy 2021 | RMIT University | Group 16</p>
+          </div>
         </div>
+        <hr />
+        <!-- Copyright -->
+        <p>&copy 2021 | RMIT University | Group 16</p>
+      </div>
     </footer>
     <!-- JavaScript -->
     <script src="../../js/index.js"></script>
-</body>
-
+  </body>
 </html>

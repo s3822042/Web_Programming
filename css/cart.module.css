@@ -133,7 +133,7 @@ footer {
     padding: 5px;
     resize: horizontal;
     width: 100px;
-    margin-right: 45px;
+    margin-right: 55px;
     border: 2px solid rgba(241, 16, 16, 0.8);
 }
 
@@ -155,43 +155,36 @@ footer {
 .button-container {
     width: 100%;
     max-width: 1000px;
-    display: flex;
-    justify-content: flex-start;
     margin: 0 auto;
     margin-top: 20px;
+    margin-bottom: 120px;
 }
 
 .button-container .continue-button {
-    width: 40%;
+    width: 20%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     margin: 0 auto;
 }
 
 .button-container .order-button {
-    width: 40%;
+    width: 20%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     margin: 0 auto;
 }
 
-.button-container .continue-button a, .button-container .order-button a {
+.button-container .continue-button, .button-container .order-button {
     border-radius: 4px; 
     padding: 10px; 
     cursor: pointer; 
     background-color: rgba(0, 0, 0, 0.8);
     color: #fff;
+    margin-bottom: 20px;
 }
 
-.button-container .order-button a {
-    border-radius: 4px; 
-    padding: 10px 55px 10px 55px; 
-    cursor: pointer; 
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
-}
 
-.button-container .continue-button a:hover, .button-container .order-button a:hover {
+.button-container .continue-button:hover, .button-container .order-button:hover {
     background-color: rgba(241, 16, 16, 0.8);
     color: #fff;
 }

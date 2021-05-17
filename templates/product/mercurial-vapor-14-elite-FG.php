@@ -1,10 +1,63 @@
+<?php
+	session_start();
+  
+  error_reporting(E_ERROR | E_PARSE);
+  if (fopen('../../php/install.php', 'r') != null) {
+      exit("'install.php' still exists! Delete it to proceed!");
+  } 
+
+  // unset($_COOKIE['visited']);
+  // unset($_SESSION['a-product-added']);
+  // unset($_SESSION['last-visited-product']);
+  // unset($_POST['a-product-added']);
+  // unset($_POST['quantity']);
+
+  
+  if (!isset($_COOKIE['visited'])) { // no cookie, so probably the first time here
+    $_COOKIE['visited'] = 'yes';
+    if (isset($_SESSION['a-product-added']) || isset($_SESSION['last-visited-product']))
+    {
+      unset($_SESSION['a-product-added']);
+      unset($_SESSION['last-visited-product']);
+    }
+  }
+  
+  if (isset($_POST['a-product-added'])) {
+    $_SESSION['a-product-added'] = 'already';
+  }
+
+  if (isset($_COOKIE['visited']) && $_COOKIE['visited'] == 'yes') {
+    $_SESSION['last-visited-product'] = "mercurial-vapor-14-elite-FG.php";
+  } 
+
+
+  // echo '<h2>$_SESSION values</h2>';
+  // echo '<pre>';
+  // print_r($_SESSION);
+  // echo '</pre>';
+  // echo '<hr>';
+
+  // echo '<h2>$_POST values</h2>';
+  // echo '<pre>';
+  // print_r($_POST);
+  // echo '</pre>';
+  // echo '<hr>';
+
+  // echo '<h2>$_COOKIE values</h2>';
+  // echo '<pre>';
+  // print_r($_COOKIE);
+  // echo '</pre>';
+  // echo '<hr>';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jordan Jumpman 2021 PF</title>
+    <title>Mercurial vapor 14 elite FG</title>
     <link rel="stylesheet" href="../../css/style.css" />
     <link rel="stylesheet" href="../../css/product.module.css" />
     <link
@@ -14,39 +67,31 @@
       crossorigin="anonymous"
     />
   </head>
-
   <body onmouseover="cartNumbers()">
     <!--toast-->
-    <div class="toast" id="toast"></div>
+    <div class="toast" id="toast">
+    </div>
     <!-- Navigation bar -->
     <header>
-      <!-- Logo -->
-      <div class="brand">
-        <a href="../../index.php"
-          ><img
-            src="https://i.imgur.com/mE6aWmB.png"
-            alt="logo"
-            class="logo-img"
-          />
-        </a>
-      </div>
-      <!-- Right menu -->
-      <nav class="menu">
-        <input type="checkbox" id="menuToggle" />
-        <label for="menuToggle" class="menu-icon"
-          ><i class="fa fa-bars"></i
+        <!-- Logo -->
+        <div class="brand">
+            <a href="../../index.php"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" />
+            </a>
+        </div>
+        <!-- Right menu -->
+        <nav class="menu">
+            <input type="checkbox" id="menuToggle" />
+            <label for="menuToggle" class="menu-icon"><i class="fa fa-bars"></i
         ></label>
         <ul>
           <a href="../about.php"><li>About us</li></a>
           <a href="../fees.html"><li>Fees</li></a>
-          <a href="../account/account.html"><li>Account</li></a>
+          <a href="../account/account.php"><li>Account</li></a>
           <a href="../browse-menu.html"><li>Browse</li></a>
           <a href="../faq.html"><li>FAQs</li></a>
           <a href="../contact.html"><li>Contact</li></a>
           <a href="../login-form.php"><li>Sign in</li></a>
-          <a href="../cart.html" style="color: red" class="cart-nav" id="cart"
-            ><li>Cart: <span>0</span></li></a
-          >
+          <a href="../cart.php"  style="color: red" class="cart-nav"id = "cart"><li>Cart: <span>0</span> </li></a>
         </ul>
       </nav>
     </header>
@@ -55,48 +100,23 @@
     <div class="product_description">
       <div class="product_content">
         <!--product content-->
-        <h1 id="product-name">Jordan Jumpman 2021 PF</h1>
+        <h1 id="product-name">Mercurial vapor 14 elite FG</h1>
         <h3>General description</h3>
         <div class="product_detail">
           <!--product image different angle-->
           <div class="product_from_different_angle">
-            <img
-              src="https://i.imgur.com/VrKvgwl.jpg"
-              class="angle"
-              alt="product general picture"
-            />
-            <img
-              src="https://i.imgur.com/r0QvJNv.png"
-              class="angle"
-              alt="product from another angle"
-            />
-            <img
-              src="https://i.imgur.com/vvZwNE2.png"
-              class="angle"
-              alt="product from another angle"
-            />
-            <img
-              src="https://i.imgur.com/9bgCHIg.png"
-              class="angle"
-              alt="product from another angle"
-            />
-            <img
-              src="https://i.imgur.com/XFMcrAg.png"
-              class="angle"
-              alt="product from another angle"
-            />
-            <img
-              src="https://i.imgur.com/o5pi2LW.png"
-              class="angle"
-              alt="product from another angle"
-            />
+            <img src="https://i.imgur.com/icnhKJD.jpg" class="angle" />
+            <img src="https://i.imgur.com/TNcssD3.png" class="angle" />
+            <img src="https://i.imgur.com/841OA6z.png" class="angle" />
+            <img src="https://i.imgur.com/d7sk4ef.png" class="angle" />
+            <img src="https://i.imgur.com/2JZvCt5.png" class="angle" />
+            <img src="https://i.imgur.com/ag4RKTc.png" class="angle" />
           </div>
           <!--product picture-->
           <div class="product_picture">
             <img
-              src="https://i.imgur.com/VrKvgwl.jpg"
+              src="https://i.imgur.com/icnhKJD.jpg"
               class="general_picture"
-              alt="product general picture"
             />
           </div>
           <!--general description-->
@@ -108,74 +128,62 @@
             <span class="fa fa-star checked"></span>
             <span class="fas fa-star-half-alt checked"></span>
             <!--half star-->
-            <span> 4.5/5 32 reviews </span>
-            <p id="price">Price: $<span>178</span></p>
+            <span> 4.3/5 196 reviews </span>
+            <p id="price">Price: $<span>249</span></p>
             <!--size selection-->
             <span>Size: </span>
             <input
-              type="number"
-              id="size"
-              name="size"
-              min="35"
-              max="60"
-              value="35"
-              style="margin-right: 70px"
+                  type="number"
+                  id="size"
+                  name="size"
+                  min="35"
+                  max="60"
+                  value="35"
+                  style="margin-right:70px;"
             />
 
-            <p>Color available: Black/Black/White/University Red</p>
+            <p>
+              Color available: Bright Crimson/Indigo Burst/White/Metallic Silver
+            </p>
             <div>
               <span>
                 <img
-                  src="https://i.imgur.com/VrKvgwl.jpg"
+                  src="https://i.imgur.com/icnhKJD.jpg"
                   class="same_product_another_design"
-                  alt="product with another design"
                 />
               </span>
               <span>
                 <img
-                  src="https://i.imgur.com/Is2102U.jpg"
+                  src="https://i.imgur.com/2IzobsE.jpg"
                   class="same_product_another_design"
-                  alt="product with another design"
-                />
-              </span>
-              <span>
-                <img
-                  src="https://i.imgur.com/HfZAMhM.jpg"
-                  class="same_product_another_design"
-                  alt="product with another design"
                 />
               </span>
             </div>
             <p>Description</p>
             <ul class="detail-list">
-              <li style="list-style-type: disc">Foam midsole</li>
-              <li style="list-style-type: disc">Heel pull loop</li>
-              <li style="list-style-type: disc">Style: CQ4229-006</li>
               <li style="list-style-type: disc">
-                Country/Region of Origin: Vietnam
+                For use on slightly wet, short-grass pitches
+              </li>
+              <li style="list-style-type: disc">Cushioned insole</li>
+              <li style="list-style-type: disc">Style: CQ7635-600</li>
+              <li style="list-style-type: disc">
+                Country/Region of Origin: China
               </li>
             </ul>
             <br />
             <div class="buying">
-              <input
-                type="number"
-                id="quantity"
-                name="quantity"
-                min="1"
-                max="100"
-                value="1"
-              />
-              <a
-                class="addtocart"
-                style="
-                  margin-left: 10px;
-                  border: solid;
-                  padding: 5px;
-                  cursor: pointer;
-                "
-                >Add Cart</a
-              >
-            </div>
+              <form method="post" name="product-added-button-form" action="mercurial-vapor-14-elite-FG.php">
+                <input
+                  type="number"
+                  id="quantity"
+                  name="quantity"
+                  min="1"
+                  max="100"
+                  value="1"
+                />
+                <button type="submit" name="a-product-added" value="true" class="addtocart" style="margin-left: 10px; border: solid; padding: 5px; cursor: pointer;">Add Cart</button>
+              </form>
+          </div>
           </div>
         </div>
         <!--end general description-->
@@ -183,41 +191,37 @@
         <!--detail description-->
         <div class="detail_description">
           <h3>Detail Description</h3>
-          <b>FOR THE PLAYER WHO'S GOT NEXT.</b>
+          <b>LOOK FAST. PLAY FAST.</b>
           <p>
-            Inspired by the design of the latest Air Jordan game shoe, the
-            Jordan Jumpman 2021 helps up-and-coming players level up their game.
-            The shoe features responsive Zoom Air cushioning in the forefoot.
-            Curved Flightwire cables are stitched into the material for a close,
-            secure fit for competitive play. This PF version is ideal for use on
-            outdoor courts.
+            The Nike Mercurial Vapor 14 Elite FG features a stripped-down design
+            that uses the minimal amount of materials possible, so you can play
+            your fastest from start to finish. A cushioned insole gives you
+            non-stop comfort, and a specially designed plate provides instant
+            responsiveness for quicker cuts at high speeds.
           </p>
-          <b>Responsive Up Front</b>
+          <b>Minimal Components for Max Speed</b>
           <p>
-            A Zoom Air unit in the forefoot provides lightweight responsiveness
-            to help drive you forwards.
+            A stripped-down version of the Flyknit upper is the first of its
+            kind. Use of the minimal amount of materials leaves only what is
+            truly needed while reducing its weight in the process.
           </p>
-          <b>Secure Support</b>
+          <b>Dig In, Take Off</b>
           <p>
-            Curved Flightwire cables are stitched into the upper along the side
-            to help create a secure fit when you lace up.
+            The forefoot plate features a Nike Aerotrak zone with grooves for
+            explosive acceleration. Chevron studs provide multi-directional
+            traction with every step.
           </p>
-          <b>Stable Side to Side</b>
+          <b>Grip and Go</b>
           <p>
-            A moulded TPU piece set into the midsole provides side-to-side
-            stability when you're moving in multiple directions.
+            NikeGrip technology on the insole helps prevent your foot from
+            sliding when the game heats up.
           </p>
-          <b>More Benefits</b>
-          <ul>
-            <li style="list-style-type: disc">
-              Lightweight material through the toe and sides provides a close,
-              comfortable fit.
-            </li>
-            <li style="list-style-type: disc">
-              Extra-durable rubber outsole with herringbone traction helps you
-              grip the outdoor court.
-            </li>
-          </ul>
+          <b>Secure and Fast</b>
+          <p>
+            The look of fast comes alive with a translucent, high-tenacity
+            Flyknit and synthetic upper. Its secure feel helps contain your foot
+            with every step.
+          </p>
         </div>
         <!--end detail description-->
         <!--review section-->
@@ -233,7 +237,7 @@
               <span class="fa fa-star checked"></span>
               <span class="fa fa-star checked"></span>
               <span class="fas fa-star-half-alt checked"></span>
-              <span> 4.5/5 32 reviews </span>
+              <span> 4.3/5 196 reviews </span>
             </div>
             <!--review bar-->
             <div class="review_bar" id="review_bar_5_star">
@@ -243,11 +247,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(2500% / 32)"></div>
+                <div class="amount_bar" style="width: calc(13200% / 196)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>78%</p>
+                <p>67%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_4_star">
@@ -257,11 +261,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(400% / 32)"></div>
+                <div class="amount_bar" style="width: calc(2000% / 196)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>12%</p>
+                <p>10%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_3_star">
@@ -271,11 +275,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(0% / 32)"></div>
+                <div class="amount_bar" style="width: calc(2300% / 196)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>0%</p>
+                <p>12%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_2_star">
@@ -285,11 +289,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(100% / 32)"></div>
+                <div class="amount_bar" style="width: calc(1200% / 196)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>3%</p>
+                <p>6%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_1_star">
@@ -299,11 +303,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(100% / 32)"></div>
+                <div class="amount_bar" style="width: calc(900% / 196)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>3%</p>
+                <p>5%</p>
               </div>
             </div>
             <!--write your review here-->
@@ -337,7 +341,6 @@
                 <img
                   src="https://i.imgur.com/l40m95m.png"
                   class="users-avatar"
-                  alt="reviewer avatar"
                 />
               </div>
               <!--review content-->
@@ -369,7 +372,6 @@
                 <img
                   src="https://i.imgur.com/dnHWRnW.png"
                   class="users-avatar"
-                  alt="reviewer avatar"
                 />
               </div>
               <!--review content-->
@@ -401,7 +403,6 @@
                 <img
                   src="https://i.imgur.com/gc0dOkW.jpg"
                   class="users-avatar"
-                  alt="reviewer avatar"
                 />
               </div>
               <!--review content-->
@@ -432,26 +433,23 @@
         <div class="similar-product">
           <span class="product_list">
             <figure class="product">
-              <a href="air-zoom-tempo.html"
+              <a href="Jordan-jumpman-2021-PF.html"
                 ><img
-                  src="https://i.imgur.com/6ruNW3m.jpg"
+                  src="https://i.imgur.com/VrKvgwl.jpg"
                   class="product-img"
-                  alt="similar product"
                 />
               </a>
               <figcaption>
-                <a href="air-zoom-tempo.html" class="product-link">
-                  <b> Air zoom tempo NEXT% </b>
+                <a href="Jordan-jumpman-2021-PF.html" class="product-link">
+                  <b>Jordan jumpman 2021 PF </b>
                 </a>
                 <div>
                   <span class="fa fa-star checked"></span>
-                  <!--fullstar-->
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fas fa-star-half-alt checked"></span>
-                  <!--half star-->
-                  <span> 4.8/5 235 reviews </span>
+                  <span> 4.5/5 32 reviews </span>
                 </div>
               </figcaption>
             </figure>
@@ -462,7 +460,6 @@
                 ><img
                   src="https://i.imgur.com/XGksMUd.jpg"
                   class="product-img"
-                  alt="similar product"
                 />
               </a>
               <figcaption>
@@ -488,7 +485,6 @@
                 ><img
                   src="https://i.imgur.com/IARpVzC.jpg"
                   class="product-img"
-                  alt="similar product"
                 />
               </a>
               <figcaption>
@@ -510,16 +506,15 @@
           </span>
           <span class="product_list">
             <figure class="product">
-              <a href="mercurial-vapor-14-elite-FG.html"
+              <a href="air-zoom-tempo.html"
                 ><img
-                  src="https://i.imgur.com/icnhKJD.jpg"
+                  src="https://i.imgur.com/6ruNW3m.jpg"
                   class="product-img"
-                  alt="similar product"
                 />
               </a>
               <figcaption>
-                <a href="mercurial-vapor-14-elite-FG.html" class="product-link">
-                  <b> Mercurial vapor 14 elite FG</b>
+                <a href="air-zoom-tempo.html" class="product-link">
+                  <b> Air zoom tempo NEXT% </b>
                 </a>
                 <div>
                   <span class="fa fa-star checked"></span>
@@ -529,7 +524,7 @@
                   <span class="fa fa-star checked"></span>
                   <span class="fas fa-star-half-alt checked"></span>
                   <!--half star-->
-                  <span> 4.3/5 196 reviews </span>
+                  <span> 4.8/5 235 reviews </span>
                 </div>
               </figcaption>
             </figure>
@@ -540,7 +535,6 @@
                 ><img
                   src="https://i.imgur.com/m5o3lTS.jpg"
                   class="product-img"
-                  alt="similar product"
                 />
               </a>
               <figcaption>
@@ -592,7 +586,7 @@
               <a href="../term_of_services.php">Term of Service</a>
             </div>
             <div class="grid-item">
-              <a href="../account/account.html">Account</a>
+              <a href="../account/account.php">Account</a>
             </div>
             <div class="grid-item"><a href="../faq.html">FAQs</a></div>
             <div class="grid-item">
@@ -610,14 +604,13 @@
               <a href=""><i class="fab fa-linkedin-in circle-icon"></i></a>
               <a href=""><i class="fab fa-twitter circle-icon"></i></a>
             </div>
-          </div>
+            <hr />
+            <!-- Copyright -->
+            <p>&copy 2021 | RMIT University | Group 16</p>
         </div>
-        <hr />
-        <!-- Copyright -->
-        <p>&copy 2021 | RMIT University | Group 16</p>
-      </div>
     </footer>
     <!-- JavaScript -->
     <script src="../../js/index.js"></script>
-  </body>
+</body>
+
 </html>
