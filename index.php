@@ -31,7 +31,7 @@
         <a href="templates/fees.html">
           <li>Fees</li>
         </a>
-        <a href="templates/account/account.html">
+        <a href="templates/account/account.php">
           <li>Account</li>
         </a>
         <a href="templates/browse-menu.html">
@@ -46,7 +46,7 @@
         <a href="templates/login-form.php">
           <li>Sign in</li>
         </a>
-        <a href="templates/cart.html" id="cart">
+        <a href="templates/cart.php" id="cart">
           <li>Cart</li>
         </a>
       </ul>
@@ -104,7 +104,7 @@
           <div class="product-description" style="text-align: center">
             From $270 Lightweight Neutral, 230g, 10mm Drop
           </div>
-          <a href="templates\product\air-zoom-tempo.html" class="button">Buy now</a>
+          <a href="templates\product\air-zoom-tempo.php" class="button">Buy now</a>
         </div>
         <div class="product-card" onmouseover="pauseSlides()" onmouseout="startSlides()">
           <!-- Store name -->
@@ -123,7 +123,7 @@
           <div class="product-description" style="text-align: center">
             From $249 for Noise Cancelling, 5 hours single charge
           </div>
-          <a href="templates\product\airpod-pro.html" class="button">Buy now</a>
+          <a href="templates\product\airpod-pro.php" class="button">Buy now</a>
         </div>
         <div class="product-card" onmouseover="pauseSlides()" onmouseout="startSlides()">
           <!-- Store name -->
@@ -139,7 +139,7 @@
           <div class="product-description" style="text-align: center">
             From $249 Avail Q Lining Material, Titan Synthetic
           </div>
-          <a href="templates\product\mercurial-vapor-14-elite-FG.html" class="button">Buy now</a>
+          <a href="templates\product\mercurial-vapor-14-elite-FG.php" class="button">Buy now</a>
         </div>
         <div class="product-card" onmouseover="pauseSlides()" onmouseout="startSlides()">
           <!-- Store name -->
@@ -155,7 +155,7 @@
           <div class="product-description" style="text-align: center">
             From $14,459 Stainless Steel, 18k Yellow Gold
           </div>
-          <a href="templates\product\submariner-blue-dial.html" class="button">Buy now</a>
+          <a href="templates\product\submariner-blue-dial.php" class="button">Buy now</a>
         </div>
       </div>
       <!-- End product card row 1-->
@@ -180,7 +180,7 @@
       <div class="products-header">
         <h2>Featured Products</h2>
       </div>
-      <a href="templates\product\Jordan-jumpman-2021-PF.html">
+      <a href="templates\product\Jordan-jumpman-2021-PF.php">
         <div class="product-wrap"></div>
       </a>
     </div>
@@ -209,7 +209,7 @@
             <a href="templates/term_of_services.php">Term of Service</a>
           </div>
           <div class="grid-item">
-            <a href="templates/account/account.html">Account</a>
+            <a href="templates/account/account.php">Account</a>
           </div>
           <div class="grid-item"><a href="templates/faq.html">FAQs</a></div>
           <div class="grid-item">

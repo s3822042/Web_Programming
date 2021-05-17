@@ -1,3 +1,55 @@
+<?php
+	session_start();
+  
+  error_reporting(E_ERROR | E_PARSE);
+  if (fopen('../../php/install.php', 'r') != null) {
+      exit("'install.php' still exists! Delete it to proceed!");
+  } 
+
+  // unset($_COOKIE['visited']);
+  // unset($_SESSION['a-product-added']);
+  // unset($_SESSION['last-visited-product']);
+  // unset($_POST['a-product-added']);
+  // unset($_POST['quantity']);
+
+  
+  if (!isset($_COOKIE['visited'])) { // no cookie, so probably the first time here
+    $_COOKIE['visited'] = 'yes';
+    if (isset($_SESSION['a-product-added']) || isset($_SESSION['last-visited-product']))
+    {
+      unset($_SESSION['a-product-added']);
+      unset($_SESSION['last-visited-product']);
+    }
+  }
+  
+  if (isset($_POST['a-product-added'])) {
+    $_SESSION['a-product-added'] = 'already';
+  }
+
+  if (isset($_COOKIE['visited']) && $_COOKIE['visited'] == 'yes') {
+    $_SESSION['last-visited-product'] = "apple-watch-series-6.php";
+  } 
+
+
+  // echo '<h2>$_SESSION values</h2>';
+  // echo '<pre>';
+  // print_r($_SESSION);
+  // echo '</pre>';
+  // echo '<hr>';
+
+  // echo '<h2>$_POST values</h2>';
+  // echo '<pre>';
+  // print_r($_POST);
+  // echo '</pre>';
+  // echo '<hr>';
+
+  // echo '<h2>$_COOKIE values</h2>';
+  // echo '<pre>';
+  // print_r($_COOKIE);
+  // echo '</pre>';
+  // echo '<hr>';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +82,7 @@
         <ul>
           <a href="../about.php"><li>About us</li></a>
           <a href="../fees.html"><li>Fees</li></a>
-          <a href="../account/account.html"><li>Account</li></a>
+          <a href="../account/account.php"><li>Account</li></a>
           <a href="../browse-menu.html"><li>Browse</li></a>
           <a href="../faq.html"><li>FAQs</li></a>
           <a href="../contact.html"><li>Contact</li></a>
@@ -97,16 +149,18 @@
                         </ul>
                         <br>
                         <div class="buying">
-                            <input
-                              type="number"
-                              id="quantity"
-                              name="quantity"
-                              min="1"
-                              max="100"
-                              value="1"
-                            />
-                            <a class="addtocart" style="margin-left: 10px; border: solid; padding: 5px; cursor: pointer;">Add Cart</a>
-                          </div>
+                            <form method="post" name="product-added-button-form" action="apple-watch-series-6.php">
+                              <input
+                                type="number"
+                                id="quantity"
+                                name="quantity"
+                                min="1"
+                                max="100"
+                                value="1"
+                              />
+                              <button type="submit" name="a-product-added" value="true" class="addtocart" style="margin-left: 10px; border: solid; padding: 5px; cursor: pointer;">Add Cart</button>
+                            </form>
+                        </div>
                 </div>
             </div>
             <!--end general description-->
@@ -434,7 +488,7 @@
                     <div class="grid-item">
                         <a href="../term_of_services.php">Term of Service</a>
                     </div>
-                    <div class="grid-item"><a href="../account/account.html">Account</a></div>
+                    <div class="grid-item"><a href="../account/account.php">Account</a></div>
                     <div class="grid-item"><a href="../faq.html">FAQs</a></div>
                     <div class="grid-item">
                         <a href="../contact.html">Contact</a>

@@ -1,10 +1,62 @@
+<?php
+	session_start();
+  
+  error_reporting(E_ERROR | E_PARSE);
+  if (fopen('../../php/install.php', 'r') != null) {
+      exit("'install.php' still exists! Delete it to proceed!");
+  } 
+
+  // unset($_COOKIE['visited']);
+  // unset($_SESSION['a-product-added']);
+  // unset($_SESSION['last-visited-product']);
+  // unset($_POST['a-product-added']);
+  // unset($_POST['quantity']);
+
+  
+  if (!isset($_COOKIE['visited'])) { // no cookie, so probably the first time here
+    $_COOKIE['visited'] = 'yes';
+    if (isset($_SESSION['a-product-added']) || isset($_SESSION['last-visited-product']))
+    {
+      unset($_SESSION['a-product-added']);
+      unset($_SESSION['last-visited-product']);
+    }
+  }
+  
+  if (isset($_POST['a-product-added'])) {
+    $_SESSION['a-product-added'] = 'already';
+  }
+
+  if (isset($_COOKIE['visited']) && $_COOKIE['visited'] == 'yes') {
+    $_SESSION['last-visited-product'] = "ipad-pro-2020.php";
+  } 
+
+
+  // echo '<h2>$_SESSION values</h2>';
+  // echo '<pre>';
+  // print_r($_SESSION);
+  // echo '</pre>';
+  // echo '<hr>';
+
+  // echo '<h2>$_POST values</h2>';
+  // echo '<pre>';
+  // print_r($_POST);
+  // echo '</pre>';
+  // echo '<hr>';
+
+  // echo '<h2>$_COOKIE values</h2>';
+  // echo '<pre>';
+  // print_r($_COOKIE);
+  // echo '</pre>';
+  // echo '<hr>';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Airpod pro</title>
+    <title>Ipad pro</title>
     <link rel="stylesheet" href="../../css/style.css" />
     <link rel="stylesheet" href="../../css/product.module.css" />
     <link
@@ -39,7 +91,7 @@
         <ul>
           <a href="../about.php"><li>About us</li></a>
           <a href="../fees.html"><li>Fees</li></a>
-          <a href="../account/account.html"><li>Account</li></a>
+          <a href="../account/account.php"><li>Account</li></a>
           <a href="../browse-menu.html"><li>Browse</li></a>
           <a href="../faq.html"><li>FAQs</li></a>
           <a href="../contact.html"><li>Contact</li></a>
@@ -55,33 +107,38 @@
     <div class="product_description">
       <div class="product_content">
         <!--product content-->
-        <h1 id="product-name">Airpod pro</h1>
+        <h1 id="product-name">Ipad pro</h1>
         <h3>General description</h3>
         <div class="product_detail">
           <!--product image different angle-->
           <div class="product_from_different_angle">
             <img
-              src="https://i.imgur.com/JkaRVXM.jpg"
+              src="https://i.imgur.com/lEEMbrp.jpg"
               class="angle"
               alt="product general picture"
             />
             <img
-              src="https://i.imgur.com/qmoj2dq.jpg"
+              src="https://i.imgur.com/T4mFrIm.jpg"
               class="angle"
               alt="product from another angle"
             />
             <img
-              src="https://i.imgur.com/MP5pK2b.jpg"
+              src="https://i.imgur.com/nQ8HCCf.jpg"
               class="angle"
               alt="product from another angle"
             />
             <img
-              src="https://i.imgur.com/RAQkkgl.jpg"
+              src="https://i.imgur.com/lEEMbrp.jpg"
               class="angle"
               alt="product from another angle"
             />
             <img
-              src="https://i.imgur.com/HKn7NMh.jpg"
+              src="https://i.imgur.com/shD2xhf.jpg"
+              class="angle"
+              alt="product from another angle"
+            />
+            <img
+              src="https://i.imgur.com/LeP9NWU.jpg"
               class="angle"
               alt="product from another angle"
             />
@@ -89,7 +146,7 @@
           <!--product picture-->
           <div class="product_picture">
             <img
-              src="https://i.imgur.com/JkaRVXM.jpg"
+              src="https://i.imgur.com/lEEMbrp.jpg"
               class="general_picture"
               alt="product general picture"
             />
@@ -101,47 +158,32 @@
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
-            <span class="fas fa-star-half-alt checked"></span>
-            <!--half star-->
-            <span> 4.3/5 196 reviews </span>
-            <p id="price">Price: $<span>249</span></p>
-            <p>Color available: White</p>
+            <span class="far fa-star"></span>
+            <!--no star-->
+            <span> 4.1/5 180 reviews </span>
+            <p id="price">Price: $<span>799</span></p>
+            <p>Color available: Space Gray</p>
             <p>Description</p>
-            <b>Charging case</b>
             <ul class="detail-list">
-              <li style="list-style-type: disc">Height: 45.2mm</li>
-              <li style="list-style-type: disc">Width: 60.6mm</li>
-              <li style="list-style-type: disc">Depth : 21.7mm</li>
-              <li style="list-style-type: disc">Weight: 45.6g</li>
-            </ul>
-            <b> Airpod (each)</b>
-            <ul class="detail-list">
-              <li style="list-style-type: disc">Height: 30.9mm</li>
-              <li style="list-style-type: disc">Width: 21.8mm</li>
-              <li style="list-style-type: disc">Depth: 24.0mm</li>
-              <li style="list-style-type: disc">Weight: 5.4g</li>
+              <li style="list-style-type: disc">Height: 247.6mm</li>
+              <li style="list-style-type: disc">Width: 178.5mm</li>
+              <li style="list-style-type: disc">Depth : 5.9mm</li>
+              <li style="list-style-type: disc">Weight: 471g</li>
             </ul>
             <br />
             <div class="buying">
-              <input
-                type="number"
-                id="quantity"
-                name="quantity"
-                min="1"
-                max="100"
-                value="1"
-              />
-              <a
-                class="addtocart"
-                style="
-                  margin-left: 10px;
-                  border: solid;
-                  padding: 5px;
-                  cursor: pointer;
-                "
-                >Add Cart</a
-              >
-            </div>
+              <form method="post" name="product-added-button-form" action="ipad-pro-2020.php">
+                <input
+                  type="number"
+                  id="quantity"
+                  name="quantity"
+                  min="1"
+                  max="100"
+                  value="1"
+                />
+                <button type="submit" name="a-product-added" value="true" class="addtocart" style="margin-left: 10px; border: solid; padding: 5px; cursor: pointer;">Add Cart</button>
+              </form>
+          </div>
           </div>
         </div>
         <!--end general description-->
@@ -149,97 +191,55 @@
         <!--detail description-->
         <div class="detail_description">
           <h3>Detail Description</h3>
-          <b> Audio Technology</b>
+          <b> Techspecs</b>
           <ul>
-            <li style="list-style-type: disc">Active Noise Cancellation.</li>
-            <li style="list-style-type: disc">Transparency mode.</li>
-            <li style="list-style-type: disc">Adaptive EQ.</li>
+            <li style="list-style-type: disc">Liquid Retina display.</li>
             <li style="list-style-type: disc">
-              Vent system for pressure equalization.
+              11-inch (diagonal) LED-backlit Multi‑Touch display with IPS
+              technology.
             </li>
             <li style="list-style-type: disc">
-              Custom high-excursion Apple driver.
+              2388-by-1668-pixel resolution at 264 pixels per inch (ppi).
+            </li>
+            <li style="list-style-type: disc">ProMotion technology.</li>
+            <li style="list-style-type: disc">Wide color display (P3).</li>
+            <li style="list-style-type: disc">True Tone display.</li>
+            <li style="list-style-type: disc">
+              Fingerprint-resistant oleophobic coating.
+            </li>
+            <li style="list-style-type: disc">Fully laminated display.</li>
+            <li style="list-style-type: disc">Antireflective coating.</li>
+            <li style="list-style-type: disc">1.8% reflectivity.</li>
+            <li style="list-style-type: disc">600 nits brightness.</li>
+            <li style="list-style-type: disc">
+              Supports Apple Pencil (2nd generation).
             </li>
             <li style="list-style-type: disc">
-              Custom high dynamic range amplifier.
+              A12Z Bionic chip with 64-bit architecture with Neural Engine
+              technology.
             </li>
             <li style="list-style-type: disc">
-              Spatial audio with dynamic head tracking.
-            </li>
-          </ul>
-          <br />
-          <b>Sensor</b>
-          <ul>
-            <li style="list-style-type: disc">Dual beamforming microphones.</li>
-            <li style="list-style-type: disc">Inward-facing microphone.</li>
-            <li style="list-style-type: disc">Dual optical sensors.</li>
-            <li style="list-style-type: disc">
-              Motion-detecting accelerometer.
+              TrueDepth Camera and 4K video recording.
             </li>
             <li style="list-style-type: disc">
-              Speech-detecting accelerometer.
-            </li>
-            <li style="list-style-type: disc">Force sensor.</li>
-          </ul>
-          <br />
-          <b>Chip</b>
-          <p>H1-based System in Package.</p>
-          <b>Sweat and Water Resistance</b>
-          <p>Sweat and water resistant (IPX4).</p>
-          <b>Charging Case</b>
-          <p>Works with Qi-certified chargers or the Lightning connector.</p>
-          <b>Battery</b>
-          <ul>
-            <li><b>Airpods Pro </b></li>
-            <li style="list-style-type: disc">
-              Up to 4.5 hours of listening time with a single charge (up to 5
-              hours with Active Noise Cancellation and Transparency off).
+              Five studio-quality microphones for calls, video recording, and
+              audio recording.
             </li>
             <li style="list-style-type: disc">
-              Up to 3.5 hours of talk time with a single charge.
-            </li>
-            <li><b>AirPods Pro with Wireless Charging Case</b></li>
-            <li style="list-style-type: disc">
-              More than 24 hours of listening time.
+              Support Nano‑SIM (supports Apple SIM6) and esim.
             </li>
             <li style="list-style-type: disc">
-              More than 18 hours of talk time.
+              Enabled by TrueDepth camera for facial recognition.
+            </li>
+            <li style="list-style-type: disc">Operating with iPadOS 14.</li>
+            <li style="list-style-type: disc">
+              Up to 10 hours of surfing the web on Wi-Fi or watching video.
             </li>
             <li style="list-style-type: disc">
-              5 minutes in the case provides around 1 hour of listening time or
-              around 1 hour of talk time.
-            </li>
-          </ul>
-          <br />
-          <b>Connectivity</b>
-          <p>Bluetooth 5.0.</p>
-          <b>In the box</b>
-          <ul>
-            <li style="list-style-type: disc">AirPods Pro.</li>
-            <li style="list-style-type: disc">Wireless Charging Case.</li>
-            <li style="list-style-type: disc">
-              Silicone ear tips (three sizes).
-            </li>
-            <li style="list-style-type: disc">Lightning to USB-C Cable.</li>
-            <li style="list-style-type: disc">Documentation.</li>
-          </ul>
-          <br />
-          <b>System Requirements</b>
-          <ul>
-            <li style="list-style-type: disc">
-              iPhone and iPod touch models with the latest version of iOS.
+              Operating at 32° to 95° F (0° to 35° C).
             </li>
             <li style="list-style-type: disc">
-              iPad models with the latest version of iPadOS.
-            </li>
-            <li style="list-style-type: disc">
-              Apple Watch models with the latest version of watchOS.
-            </li>
-            <li style="list-style-type: disc">
-              Mac models with the latest version of macOS.
-            </li>
-            <li style="list-style-type: disc">
-              Apple TV models with the latest version of tvOS.
+              Operating up to 10,000 feet (3000 m).
             </li>
           </ul>
         </div>
@@ -256,8 +256,8 @@
               <span class="fa fa-star checked"></span>
               <span class="fa fa-star checked"></span>
               <span class="fa fa-star checked"></span>
-              <span class="fas fa-star-half-alt checked"></span>
-              <span> 4.3/5 196 reviews </span>
+              <span class="far fa-star"></span>
+              <span> 4.1/5 180 reviews </span>
             </div>
             <!--review bar-->
             <div class="review_bar" id="review_bar_5_star">
@@ -267,11 +267,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(13200% / 196)"></div>
+                <div class="amount_bar" style="width: calc(11000% / 180)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>67%</p>
+                <p>61%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_4_star">
@@ -281,11 +281,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(2000% / 196)"></div>
+                <div class="amount_bar" style="width: calc(3500% / 180)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>10%</p>
+                <p>19%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_3_star">
@@ -295,11 +295,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(2300% / 196)"></div>
+                <div class="amount_bar" style="width: calc(500% / 180)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>12%</p>
+                <p>3%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_2_star">
@@ -309,11 +309,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(1200% / 196)"></div>
+                <div class="amount_bar" style="width: calc(300% / 180)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>6%</p>
+                <p>2%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_1_star">
@@ -323,11 +323,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(900% / 196)"></div>
+                <div class="amount_bar" style="width: calc(2700% / 180)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>5%</p>
+                <p>15%</p>
               </div>
             </div>
             <!--write your review here-->
@@ -506,25 +506,23 @@
           </span>
           <span class="product_list">
             <figure class="product">
-              <a href="ipad-pro-2020.html"
+              <a href="airpod-pro.html"
                 ><img
-                  src="https://i.imgur.com/lEEMbrp.jpg"
+                  src="https://i.imgur.com/JkaRVXM.jpg"
                   class="product-img"
                   alt="similar product"
                 />
               </a>
               <figcaption>
-                <a href="ipad-pro-2020.html" class="product-link">
-                  <b> Ipad pro 2020 </b>
+                <a href="airpod-pro.html" class="product-link">
+                  <b> Airpod pro </b>
                 </a>
                 <div>
                   <span class="fa fa-star checked"></span>
-                  <!--fullstar-->
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fas fa-star-half-alt checked"></span>
-                  <!--half star-->
                   <span> 4.3/5 196 reviews </span>
                 </div>
               </figcaption>
@@ -586,7 +584,6 @@
     </div>
     <!--End body part-->
     <script src="../../js/add-cart-other.js"></script>
-
     <!-- Footer -->
     <footer class="page-footer">
       <div class="container">
@@ -615,7 +612,7 @@
               <a href="../term_of_services.php">Term of Service</a>
             </div>
             <div class="grid-item">
-              <a href="../account/account.html">Account</a>
+              <a href="../account/account.php">Account</a>
             </div>
             <div class="grid-item"><a href="../faq.html">FAQs</a></div>
             <div class="grid-item">

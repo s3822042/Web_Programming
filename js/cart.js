@@ -1,15 +1,15 @@
 function totalCost() {
     let cart = JSON.parse(localStorage.getItem("cart"));
     let total = 0;
-    msg = '';
+    // msg = '';
     for (let item of cart) {
         // msg += item["name"] + ": $" + item["price"] +" x " + item["quantity"] + " of Size " + item["size"];
         let sub_total = parseFloat(item["price"]) * parseFloat(item["quantity"]);
         // msg += " = $" + sub_total + "\n";
         total += sub_total;
     }
-    msg += "----------------\n";
-    msg += "Total: $" + total;
+    // msg += "----------------\n";
+    // msg += "Total: $" + total;
     localStorage.setItem("totalCost", total);
 }
 

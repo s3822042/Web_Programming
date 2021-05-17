@@ -1,10 +1,62 @@
+<?php
+	session_start();
+  
+  error_reporting(E_ERROR | E_PARSE);
+  if (fopen('../../php/install.php', 'r') != null) {
+      exit("'install.php' still exists! Delete it to proceed!");
+  } 
+
+  // unset($_COOKIE['visited']);
+  // unset($_SESSION['a-product-added']);
+  // unset($_SESSION['last-visited-product']);
+  // unset($_POST['a-product-added']);
+  // unset($_POST['quantity']);
+
+  
+  if (!isset($_COOKIE['visited'])) { // no cookie, so probably the first time here
+    $_COOKIE['visited'] = 'yes';
+    if (isset($_SESSION['a-product-added']) || isset($_SESSION['last-visited-product']))
+    {
+      unset($_SESSION['a-product-added']);
+      unset($_SESSION['last-visited-product']);
+    }
+  }
+  
+  if (isset($_POST['a-product-added'])) {
+    $_SESSION['a-product-added'] = 'already';
+  }
+
+  if (isset($_COOKIE['visited']) && $_COOKIE['visited'] == 'yes') {
+    $_SESSION['last-visited-product'] = "Jordan-onetake-2-PF.php";
+  } 
+
+
+  // echo '<h2>$_SESSION values</h2>';
+  // echo '<pre>';
+  // print_r($_SESSION);
+  // echo '</pre>';
+  // echo '<hr>';
+
+  // echo '<h2>$_POST values</h2>';
+  // echo '<pre>';
+  // print_r($_POST);
+  // echo '</pre>';
+  // echo '<hr>';
+
+  // echo '<h2>$_COOKIE values</h2>';
+  // echo '<pre>';
+  // print_r($_COOKIE);
+  // echo '</pre>';
+  // echo '<hr>';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Champagne Day-date</title>
+    <title>Jordan onetake II PF</title>
     <link rel="stylesheet" href="../../css/style.css" />
     <link rel="stylesheet" href="../../css/product.module.css" />
     <link
@@ -39,7 +91,7 @@
         <ul>
           <a href="../about.php"><li>About us</li></a>
           <a href="../fees.html"><li>Fees</li></a>
-          <a href="../account/account.html"><li>Account</li></a>
+          <a href="../account/account.php"><li>Account</li></a>
           <a href="../browse-menu.html"><li>Browse</li></a>
           <a href="../faq.html"><li>FAQs</li></a>
           <a href="../contact.html"><li>Contact</li></a>
@@ -55,38 +107,38 @@
     <div class="product_description">
       <div class="product_content">
         <!--product content-->
-        <h1 id="product-name">Champagne Day-date</h1>
+        <h1 id="product-name">Jordan onetake II PF</h1>
         <h3>General description</h3>
         <div class="product_detail">
           <!--product image different angle-->
           <div class="product_from_different_angle">
             <img
-              src="https://i.imgur.com/qrT8W80.jpg"
+              src="https://i.imgur.com/XGksMUd.jpg"
               class="angle"
               alt="product general picture"
             />
             <img
-              src="https://i.imgur.com/0eMOG6n.jpg"
+              src="https://i.imgur.com/FZsqT71.png"
               class="angle"
               alt="product from another angle"
             />
             <img
-              src="https://i.imgur.com/VoEDQq9.jpg"
+              src="https://i.imgur.com/YDolOkq.png"
               class="angle"
               alt="product from another angle"
             />
             <img
-              src="https://i.imgur.com/hE9cA0A.jpg"
+              src="https://i.imgur.com/BkW5Xpp.png"
               class="angle"
               alt="product from another angle"
             />
             <img
-              src="https://i.imgur.com/so56QRQ.jpg"
+              src="https://i.imgur.com/zM94aXY.png"
               class="angle"
               alt="product from another angle"
             />
             <img
-              src="https://i.imgur.com/dSXp38M.jpg"
+              src="https://i.imgur.com/lDpbBDW.png"
               class="angle"
               alt="product from another angle"
             />
@@ -94,7 +146,7 @@
           <!--product picture-->
           <div class="product_picture">
             <img
-              src="https://i.imgur.com/qrT8W80.jpg"
+              src="https://i.imgur.com/XGksMUd.jpg"
               class="general_picture"
               alt="product general picture"
             />
@@ -108,72 +160,82 @@
             <span class="fa fa-star checked"></span>
             <span class="fas fa-star-half-alt checked"></span>
             <!--half star-->
-            <span> 4.8/5 235 reviews </span>
-            <p id="price">Price: $<span>37550</span></p>
+            <span> 4.4/5 235 reviews </span>
+            <p id="price">Price: $<span>144</span></p>
             <!--size selection-->
-            <p>Diameter: 36mm</p>
-            <p>Color available: Champagne / Gold / Yellow</p>
+            <span>Size: </span>
+            <input
+              type="number"
+              id="size"
+              name="size"
+              min="35"
+              max="60"
+              value="35"
+              style="margin-right: 70px"
+            />
+
+            <p>Color available: Black/Metallic Gold/White/Metallic Gold</p>
             <div>
               <span>
                 <img
-                  src="https://i.imgur.com/qrT8W80.jpg"
+                  src="https://i.imgur.com/XGksMUd.jpg"
                   class="same_product_another_design"
                   alt="product with another design"
                 />
               </span>
               <span>
                 <img
-                  src="https://i.imgur.com/o1OJ84q.jpg"
+                  src="https://i.imgur.com/DNbxsqW.jpg"
                   class="same_product_another_design"
                   alt="product with another design"
                 />
               </span>
               <span>
                 <img
-                  src="https://i.imgur.com/ApqVOKj.jpg"
+                  src="https://i.imgur.com/VwGSPyi.jpg"
+                  class="same_product_another_design"
+                  alt="product with another design"
+                />
+              </span>
+              <span>
+                <img
+                  src="https://i.imgur.com/7yst6GK.jpg"
                   class="same_product_another_design"
                   alt="product with another design"
                 />
               </span>
             </div>
             <p>Description</p>
-            <ul>
-              <li style="list-style-type: disc"><b>Brand</b> :Rolex</li>
-              <li style="list-style-type: disc"><b>Series</b> :Day-Date</li>
-              <li style="list-style-type: disc"><b>Gender</b> :Unisex</li>
-              <li style="list-style-type: disc"><b>Model</b> :118348CJDP</li>
+            <ul class="detail-list">
               <li style="list-style-type: disc">
-                <b>Watch label</b> :Swiss Made
+                Lightweight, mixed-material upper.
               </li>
-              <li style="list-style-type: disc"><b>Movement</b> :Automatic</li>
+              <li style="list-style-type: disc">Breathable mesh tongue</li>
+              <li style="list-style-type: disc">Padded collar</li>
+              <li style="list-style-type: disc">Exterior plastic shank</li>
+              <li style="list-style-type: disc">Colour-shifting tongue logo</li>
               <li style="list-style-type: disc">
-                <b>Engine</b> :Rolex Calibre 3155
+                Heel pull made from lace material
               </li>
+              <li style="list-style-type: disc">Style: CW2458-007</li>
               <li style="list-style-type: disc">
-                <b>Power reserve</b> :48 hours
+                Country/Region of Origin: Vietnam
               </li>
             </ul>
             <br />
             <div class="buying">
-              <input
-                type="number"
-                id="quantity"
-                name="quantity"
-                min="1"
-                max="100"
-                value="1"
-              />
-              <a
-                class="addtocart"
-                style="
-                  margin-left: 10px;
-                  border: solid;
-                  padding: 5px;
-                  cursor: pointer;
-                "
-                >Add Cart</a
-              >
-            </div>
+              <form method="post" name="product-added-button-form" action="Jordan-onetake-2-PF.php">
+                <input
+                  type="number"
+                  id="quantity"
+                  name="quantity"
+                  min="1"
+                  max="100"
+                  value="1"
+                />
+                <button type="submit" name="a-product-added" value="true" class="addtocart" style="margin-left: 10px; border: solid; padding: 5px; cursor: pointer;">Add Cart</button>
+              </form>
+          </div>
           </div>
         </div>
         <!--end general description-->
@@ -181,73 +243,40 @@
         <!--detail description-->
         <div class="detail_description">
           <h3>Detail Description</h3>
+          <b>DISRUPTIVE SPEED AT THE CRITICAL MOMENT. </b>
           <p>
-            18kt yellow gold case with a 18kt yellow gold Rolex president
-            bracelet. Fixed 18kt yellow gold bezel set with 52 diamonds.
-            Champagne jubilee dial with gold-tone hands and diamond hour
-            markers. Dial Type: Analog. Date display at the 3 o'clock position.
-            day of the week display centered on the 12 o'clock positon. Rolex
-            calibre 3155 automatic movement, based upon Rolex 3055, containing
-            31 jewels, bitting at 28800 vph, and has a power reserve of
-            approximately 48 hours. Scratch resistant sapphire crystal. Screw
-            down crown. Solid case back. Round case shape. Case size: 36 mm.
-            Concealed crown clasp. Water resistant at 100 meters / 330 feet.
-            Functions: date, day, hour, minute, second, chronometer. Day-date
-            Series. Casual watch style. Watch label: Swiss Made. Rolex Day-Date
-            Champagne Jubilee Automatic 18kt Yellow Gold 36 mm President
-            Watch118348CJDP.
+            Russell Westbrook backs up his brashness with a fast, aggressive
+            playing style and numbers that place him among the league's best.
+            His all-new Jordan One Take II embodies his edginess and speed.
+            Colours, textures and design lines speak to Russ' persona both on
+            and off the court. This PF version uses an extra-durable outsole
+            that's ideal for outdoor courts.
           </p>
-          <div class="separator"></div>
-          <h3>Dial</h3>
+          <b>Top-Loaded Zoom</b>
+          <p>
+            The Zoom Air unit in the forefoot is top-loaded to help bring the
+            responsive sensation closer to your foot. The section of the outsole
+            directly under the Zoom switches to herringbone traction.
+          </p>
+          <b>Ground Control</b>
+          <p>
+            The rubber outsole is separated into 2 sections to help reduce the
+            shoe's overall weight and enable smooth transitions. A
+            multi-directional cross-hatch tread pattern provides traction to
+            help you stop, cut and go at the game's pace.
+          </p>
+          <b>Lock-In Lacing</b>
+          <p>
+            The laces feed through eyestays and webbing loops. When you lace up,
+            it puts tension on the webbing, which helps keep your foot secure
+            over the footbed.
+          </p>
+          <b>More Benefits</b>
           <ul>
-            <li><b>Dial color</b> :Champagne Jubilee</li>
-            <li><b>Type</b> :Analog</li>
-            <li><b>Crystal</b> :Scratch Resistant Sapphire</li>
-            <li><b>Hands</b> :Gold-tone</li>
-            <li><b>Dial Markers</b> :Diamond</li>
-            <li><b>Bezel</b> :Fixed</li>
-            <li>
-              <b>Bezel material</b> :18kt Yellow Gold set with 52 Diamonds
+            <li style="list-style-type: disc">
+              Extra-durable rubber outsole is designed to hold up on outdoor
+              surfaces.
             </li>
-            <li><b>Crown</b> :Screw Down</li>
-          </ul>
-          <div class="separator"></div>
-          <h3>Case</h3>
-          <ul>
-            <li><b>Case size</b> :36 mm</li>
-            <li><b>Case material</b> :18kt Yellow Gold</li>
-            <li><b>Case shape</b> :Round</li>
-            <li><b>Case back</b> :Solid</li>
-          </ul>
-          <div class="separator"></div>
-          <h3>Features</h3>
-          <ul>
-            <li><b>Water resistance</b> :100 meters / 330 feet</li>
-            <li>
-              <b>Function</b> :Date, Day, Hour, Minute, Second, Chronometer
-            </li>
-            <li><b>Watch features</b> :Analog, Chronometer, Diamond, Gold</li>
-            <li>
-              <b>Calendar</b> :Date display at the 3 o'clock position. Day of
-              the Week display centered on the 12 o'clock position
-            </li>
-          </ul>
-          <div class="separator"></div>
-          <h3>Band</h3>
-          <ul>
-            <li><b>Band material</b> :18kt Yellow Gold Rolex President</li>
-            <li><b>Band type</b> :Bracelet</li>
-            <li><b>Clasp</b> :Concealed Crown</li>
-          </ul>
-          <div class="separator"></div>
-          <h3>Additional information</h3>
-          <ul>
-            <li><b>Watch style</b> :Casual</li>
-            <li><b>Warranty</b> :2 Year Jomashop Warranty</li>
-            <li><b>Internal ID</b> :RLX118348CJDP</li>
-            <li><b>UPC code</b> :842047146620</li>
-            <li><b>Department</b> :Watches</li>
-            <li><b>Category</b> :Watches</li>
           </ul>
         </div>
         <!--end detail description-->
@@ -264,7 +293,7 @@
               <span class="fa fa-star checked"></span>
               <span class="fa fa-star checked"></span>
               <span class="fas fa-star-half-alt checked"></span>
-              <span> 4.8/5 235 reviews </span>
+              <span> 4.4/5 235 reviews </span>
             </div>
             <!--review bar-->
             <div class="review_bar" id="review_bar_5_star">
@@ -274,11 +303,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(21000% / 235)"></div>
+                <div class="amount_bar" style="width: calc(14000% / 235)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>90%</p>
+                <p>60%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_4_star">
@@ -288,11 +317,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(1500% / 235)"></div>
+                <div class="amount_bar" style="width: calc(7200% / 235)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>6%</p>
+                <p>31%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_3_star">
@@ -316,11 +345,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(300% / 235)"></div>
+                <div class="amount_bar" style="width: calc(1000% / 235)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>1%</p>
+                <p>4%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_1_star">
@@ -330,11 +359,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(300% / 235)"></div>
+                <div class="amount_bar" style="width: calc(1700% / 235)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>1%</p>
+                <p>7%</p>
               </div>
             </div>
             <!--write your review here-->
@@ -347,7 +376,7 @@
                   <span>☆</span><span>☆</span><span>☆</span><span>☆</span
                   ><span>☆</span>
                 </div>
-                <p>Your prefered name:</p>
+                <p>Your preferred name:</p>
                 <input type="text" name="user_pref_name" class="text-area" />
                 <p>Your reason:</p>
                 <input type="text" name="user's_reason " class="text-area" />
@@ -373,21 +402,23 @@
               </div>
               <!--review content-->
               <div class="review-content">
-                <p>Lucas</p>
+                <p>Michael</p>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="far fa-star"></span>
                 <!--no star-->
-                <span class="review_reason"><b> Luxury</b> </span>
+                <span class="review_reason"
+                  ><b> This is an amazing shoe but not perfect</b>
+                </span>
                 <p class="text-area">
-                  Beautiful. It is so satisfying to wear such a high quality
-                  watch on our hand. It is an absolute amazing watch. It is
-                  totally worth the amount that I have to pay
+                  This shoe fit perfectly into my feet but it doesn't really fit
+                  for playing sports that I liked such as football but it is
+                  perfect for running.
                 </p>
                 <i class="far fa-thumbs-up like-button"></i>
-                <span> 14 likes </span>
+                <span> 63 likes </span>
               </div>
             </div>
             <!--end comment 1-->
@@ -403,24 +434,23 @@
               </div>
               <!--review content-->
               <div class="review-content">
-                <p>Sam</p>
+                <p>Nguyen The Minh</p>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
-                <span class="far fa-star"></span>
+                <span class="fa fa-star checked"></span>
                 <!--no star-->
-                <span class="review_reason"
-                  ><b> Exactly what you need</b>
-                </span>
+                <span class="review_reason"><b> Perfect shoe</b> </span>
                 <p class="text-area">
-                  One of the best watch on my collection. It got everything from
-                  the beauty and strength. Even though it is not too expensive
-                  comparing to the exclusive made watch, it is can still be
-                  considered one of the best out there
+                  This is the best shoe I could ever wish for. I have never wear
+                  a shoe that fit me this much. I am not just talking about the
+                  size but also the feeling. The feeling of wearing the shoe
+                  that can be used in every aspect and every sport is really
+                  good.
                 </p>
                 <i class="far fa-thumbs-up like-button"></i>
-                <span> 12 likes </span>
+                <span> 30 likes </span>
               </div>
             </div>
             <!--end comment 2-->
@@ -436,23 +466,22 @@
               </div>
               <!--review content-->
               <div class="review-content">
-                <p>Manh</p>
+                <p>Nguyen The Minh</p>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="far fa-star"></span>
                 <!--no star-->
-                <span class="review_reason"><b> One of the best</b> </span>
+                <span class="review_reason"><b> Recommended</b> </span>
                 <p class="text-area">
-                  It is perfect for people who are starting to collect watch. It
-                  is worthy but at the same not too expensive. It is also newly
-                  made which means it got all the best features that was
-                  selected by the other generation. I highly suggest you should
-                  buy this watch as soon as possible
+                  Not the best shoe for competitor or contestor but it is still
+                  an amazing and affordable for common people to have a shoe to
+                  do and enjoy their daily activity. You can do most thing with
+                  this shoe since it is flexible
                 </p>
                 <i class="far fa-thumbs-up like-button"></i>
-                <span> 10 likes </span>
+                <span> 21 likes </span>
               </div>
             </div>
             <!--end comment 3-->
@@ -463,41 +492,41 @@
         <div class="similar-product">
           <span class="product_list">
             <figure class="product">
-              <a href="submariner-black-dial.html"
+              <a href="Jordan-jumpman-2021-PF.html"
                 ><img
-                  src="https://i.imgur.com/fN53ZCR.jpg"
+                  src="https://i.imgur.com/VrKvgwl.jpg"
                   class="product-img"
                   alt="similar product"
                 />
               </a>
               <figcaption>
-                <a href="" class="product-link">
-                  <b>Submariner black dial </b>
+                <a href="Jordan-jumpman-2021-PF.html" class="product-link">
+                  <b>Jordan jumpman 2021 PF </b>
                 </a>
                 <div>
                   <span class="fa fa-star checked"></span>
-                  <!--fullstar-->
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
-                  <span class="far fa-star"></span>
-                  <!--half star-->
-                  <span> 4.1/5 180 reviews </span>
+                  <span class="fas fa-star-half-alt checked"></span>
+                  <span> 4.5/5 32 reviews </span>
                 </div>
               </figcaption>
             </figure>
           </span>
           <span class="product_list">
             <figure class="product">
-              <a href="lady-datejust.html"
+              <a href="air-zoom-tempo.html"
                 ><img
-                  src="https://i.imgur.com/aHGVgqI.jpg"
+                  src="https://i.imgur.com/6ruNW3m.jpg"
                   class="product-img"
                   alt="similar product"
                 />
               </a>
               <figcaption>
-                <a href="" class="product-link"> <b>Lady Datejust </b> </a>
+                <a href="air-zoom-tempo.html" class="product-link">
+                  <b> Air zoom tempo NEXT% </b>
+                </a>
                 <div>
                   <span class="fa fa-star checked"></span>
                   <!--fullstar-->
@@ -506,23 +535,75 @@
                   <span class="fa fa-star checked"></span>
                   <span class="fas fa-star-half-alt checked"></span>
                   <!--half star-->
-                  <span> 4.6/5 90 reviews </span>
+                  <span> 4.8/5 235 reviews </span>
                 </div>
               </figcaption>
             </figure>
           </span>
           <span class="product_list">
             <figure class="product">
-              <a href="lady-date-just-automatic.html"
+              <a href="kyrie-7-EP.html"
                 ><img
-                  src="https://i.imgur.com/iGLuPUH.jpg"
+                  src="https://i.imgur.com/IARpVzC.jpg"
                   class="product-img"
                   alt="similar product"
                 />
               </a>
               <figcaption>
-                <a href="" class="product-link">
-                  <b> Lady Datejust automatic </b>
+                <a href="kyrie-7-EP.html" class="product-link">
+                  <b> Kyrie 7 EP </b>
+                </a>
+                <div>
+                  <span class="fa fa-star checked"></span>
+                  <!--fullstar-->
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fas fa-star-half-alt checked"></span>
+                  <!--half star-->
+                  <span> 4.3/5 196 reviews </span>
+                </div>
+              </figcaption>
+            </figure>
+          </span>
+          <span class="product_list">
+            <figure class="product">
+              <a href="mercurial-vapor-14-elite-FG.html"
+                ><img
+                  src="https://i.imgur.com/icnhKJD.jpg"
+                  class="product-img"
+                  alt="similar product"
+                />
+              </a>
+              <figcaption>
+                <a href="mercurial-vapor-14-elite-FG.html" class="product-link">
+                  <b> Mercurial vapor 14 elite FG</b>
+                </a>
+                <div>
+                  <span class="fa fa-star checked"></span>
+                  <!--fullstar-->
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fas fa-star-half-alt checked"></span>
+                  <!--half star-->
+                  <span> 4.3/5 196 reviews </span>
+                </div>
+              </figcaption>
+            </figure>
+          </span>
+          <span class="product_list">
+            <figure class="product" id="product_5">
+              <a href="night-crater-impact.html"
+                ><img
+                  src="https://i.imgur.com/m5o3lTS.jpg"
+                  class="product-img"
+                  alt="similar product"
+                />
+              </a>
+              <figcaption>
+                <a href="night-crater-impact.html" class="product-link">
+                  <b> Night crater impact </b>
                 </a>
                 <div>
                   <span class="fa fa-star checked"></span>
@@ -535,60 +616,12 @@
               </figcaption>
             </figure>
           </span>
-          <span class="product_list">
-            <figure class="product">
-              <a href="cosmograph-daytona.html"
-                ><img
-                  src="https://i.imgur.com/IzeTT5m.jpg"
-                  class="product-img"
-                  alt="similar product"
-                />
-              </a>
-              <figcaption>
-                <a href="" class="product-link"> <b> Cosmograph daytona</b> </a>
-                <div>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fas fa-star-half-alt checked"></span>
-                  <span> 4.3/5 196</span>
-                </div>
-              </figcaption>
-            </figure>
-          </span>
-          <span class="product_list">
-            <figure class="product" id="product_5">
-              <a href="submariner-blue-dial.html"
-                ><img
-                  src="https://i.imgur.com/7fVDSvD.jpg"
-                  class="product-img"
-                  alt="similar product"
-                />
-              </a>
-              <figcaption>
-                <a href="" class="product-link">
-                  <b>Submariner blue dial </b>
-                </a>
-                <div>
-                  <span class="fa fa-star checked"></span>
-                  <!--fullstar-->
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="far fa-star"></span>
-                  <!--half star-->
-                  <span> 4.1/5 180 reviews </span>
-                </div>
-              </figcaption>
-            </figure>
-          </span>
         </div>
       </div>
       <!--end review content-->
     </div>
     <!--End body part-->
-    <script src="../../js/add-cart-other.js"></script>
+    <script src="../../js/add-cart-nike.js"></script>
     <!-- Footer -->
     <footer class="page-footer">
       <div class="container">
@@ -617,7 +650,7 @@
               <a href="../term_of_services.php">Term of Service</a>
             </div>
             <div class="grid-item">
-              <a href="../account/account.html">Account</a>
+              <a href="../account/account.php">Account</a>
             </div>
             <div class="grid-item"><a href="../faq.html">FAQs</a></div>
             <div class="grid-item">

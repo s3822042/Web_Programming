@@ -1,3 +1,39 @@
+<?php
+	session_start();
+
+  error_reporting(E_ERROR | E_PARSE);
+
+  if (fopen('../php/install.php', 'r') != null) {
+      exit("'install.php' still exists! Delete it to proceed!");
+  } 
+  // echo '<h2>$_SESSION values</h2>';
+  // echo '<pre>';
+  // print_r($_SESSION);
+  // echo '</pre>';
+  // echo '<hr>';
+
+  if ($_POST['account-type'] == "shopper") { 
+    unset($_POST['store-name-of-owner']);
+  }
+
+  $currentSignUpInfo = $_POST;
+  if (count($currentSignUpInfo) == 12 || count($currentSignUpInfo) == 13) {
+    $_SESSION['sign-up-email'] = $_POST['sign-up-email'];
+    $_SESSION['sign-up-confirm-password'] = $_POST['sign-up-confirm-password'];
+    unset($_SESSION['user']);
+    header('Location: login-form.php');
+  }
+
+  // echo '<h2>$_POST values</h2>';
+  // echo '<pre>';
+  // print_r($_POST);
+  // echo '</pre>';
+  // echo '<hr>';
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,53 +84,53 @@
         <a href="login-form.php">
           <li>Sign in</li>
         </a>
-        <a href="cart.html" id="cart">
+        <a href="cart.php" id="cart">
           <li>Cart</li>
         </a>
       </ul>
     </nav>
   </header>
-
-
   <!-- End header -->
+
+
   <section id="wrapper">
     <h1>Sign Up</h1>
-    <form action="account/account.html" method="post" enctype=multipart/form-data onsubmit="return checkValidation()"
+    <form action="sign-up-form.php" method="post" enctype=multipart/form-data onsubmit="return checkValidation()"
       name="regForm">
       <div class="form">
         <div class="field-wrap">
           <div>
             <label for="first-name">First Name:</label>
-            <input id="first-name" type="text" placeholder="Enter your first name" required />
+            <input id="first-name" name="first_name" type="text" placeholder="Enter your first name" required />
 
           </div>
           <div>
             <label for="last-name">Last Name :</label>
-            <input id="last-name" type="text" placeholder="Enter your last name" required />
+            <input id="last-name" name="last-name" type="text" placeholder="Enter your last name" required />
 
           </div>
         </div>
         <div class="field-wrap">
           <div>
             <label for="email-address">Email:</label>
-            <input type="text" id="email-address" name="email" placeholder="abcdxyz@gmail.com" required />
+            <input type="text" id="email-address" name="sign-up-email" placeholder="abcdxyz@gmail.com" required />
           </div>
         </div>
         <div class="field-wrap">
           <div>
             <label for="phonenumber">Phone number</label>
-            <input type="tel" id="phonenumber" placeholder="Ex:0821234567" />
+            <input type="tel" id="phonenumber" name="phone-number" placeholder="Ex:0821234567" />
           </div>
         </div>
         <div class="field-wrap">
           <div>
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter password" required />
+            <input type="password" id="password" name="sign-up-password" placeholder="Enter password" required />
 
           </div>
           <div>
             <label for="password">Confirm password</label>
-            <input type="password" id="confirm-password" name="confirm-password" placeholder="Enter password"
+            <input type="password" id="confirm-password" name="sign-up-confirm-password" placeholder="Enter password"
               required />
 
           </div>
@@ -102,31 +138,31 @@
         <div class="field-wrap">
           <div>
             <label for="profile-picture">Upload your picture</label>
-            <input type="file" id="profile-picture" name="profile" />
+            <input type="file" id="profile-picture" name="profile-picture" />
           </div>
         </div>
         <div class="field-wrap">
           <address>
             <label for="address">Address:</label>
-            <input type="text" id="address" placeholder="Ex: 123 Nguyen Trai Q.5" required />
+            <input type="text" id="address" name="sign-up-address" placeholder="Ex: 123 Nguyen Trai Q.5" required />
           </address>
         </div>
         <div class="field-wrap">
           <div>
             <label for="city">City:</label>
-            <input type="text" id="city" placeholder="Ex: Ho Chi Minh" required />
+            <input type="text" id="city" name="sign-up-city" placeholder="Ex: Ho Chi Minh" required />
           </div>
         </div>
         <div class="field-wrap">
           <div>
             <label for="zip-code">Zip Code:</label>
-            <input type="number" id="zip-code" name="zip-code" placeholder="4~6 digits" required />
+            <input type="number" id="zip-code" name="sign-up-zip-code" placeholder="4~6 digits" required />
           </div>
         </div>
         <div class="field-wrap">
           <div>
             Country:
-            <select id="country" name="country">
+            <select id="country" name="sign-up-country">
               <option>Select country</option>
               <option value="AF">Afghanistan</option>
               <option value="AX">Aland Islands</option>
@@ -400,11 +436,11 @@
             <label for="store-owner">Store Owner</label>
             <input type="radio" id="shopper" name="account-type" value="shopper" onclick="hideAdditionalField()" />
             <label for="shopper">Shopper</label>
-            <input type="text" id="store-name" placeholder="Ex: Store name">
+            <input type="text" id="store-name" name="store-name-of-owner" placeholder="Ex: Store name">
           </div>
         </div>
         <div class="button">
-          <button type="submit" value=submit id="submit-btn">Get Started</button>
+          <button type="submit" value="submit" name="hit-register" id="submit-btn">Get Started</button>
         </div>
       </div>
     </form>

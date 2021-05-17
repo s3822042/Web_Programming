@@ -1,12 +1,29 @@
+<?php
+	session_start();
+
+	error_reporting(E_ERROR | E_PARSE);
+	if (fopen('../php/install.php', 'r') != null) {
+		exit("'install.php' still exists! Delete it to proceed!");
+	} 
+
+	if (isset($_SESSION['a-product-added'])) {
+		unset($_SESSION['a-product-added']);
+	}
+
+	if (isset($_SESSION['last-visited-product'])) {
+		unset($_SESSION['last-visited-product']);
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fees</title>
+    <title>Thank you</title>
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/fees.module.css" />
+    <link rel="stylesheet" href="../css/thank_you.module.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -14,7 +31,8 @@
       crossorigin="anonymous"
     />
   </head>
-  <body>
+
+  <body onmouseover="window.localStorage.removeItem('cart');window.localStorage.removeItem('totalCost')">
     <!-- Navigation bar -->
     <header>
       <!-- Logo -->
@@ -34,95 +52,44 @@
           ><i class="fa fa-bars"></i
         ></label>
         <ul>
-          <a href="about.php"><li>About us</li></a>
-          <a href="fees.html"><li>Fees</li></a>
-          <a href="account/account.php"><li>Account</li></a>
-          <a href="browse-menu.html"><li>Browse</li></a>
-          <a href="faq.html"><li>FAQs</li></a>
-          <a href="contact.html"><li>Contact</li></a>
-          <a href="login-form.php"><li>Sign in</li></a>
-          <a href="cart.php" id="cart"><li>Cart</li></a>
+          <a href="about.php">
+            <li>About us</li>
+          </a>
+          <a href="fees.html">
+            <li>Fees</li>
+          </a>
+          <a href="account/account.php">
+            <li>Account</li>
+          </a>
+          <a href="browse-menu.html">
+            <li>Browse</li>
+          </a>
+          <a href="faq.html">
+            <li>FAQs</li>
+          </a>
+          <a href="contact.html">
+            <li>Contact</li>
+          </a>
+          <a href="login-form.php">
+            <li>Sign in</li>
+          </a>
+          <a href="cart.php" style="color: red" id="cart">
+            <li>Cart</li>
+          </a>
         </ul>
       </nav>
     </header>
     <!-- End header -->
-    <!-- Pricing table -->
-    <!-- For customer -->
-    <div id="title">
-      <p>FOR CUSTOMER</p>
-    </div>
-    <!-- Pricing card  -->
-    <section>
-      <div class="pricing-table">
-        <!-- Regular member -->
-        <div class="pricing-card">
-          <h3 class="card-header">Regular Member</h3>
-          <div class="plan-price-content">Free</div>
-          <ul>
-            <li>No discount per transaction</li>
-            <li>Charged shipping</li>
-            <li>No priority for transaction</li>
-            <li>Limited Support</li>
-          </ul>
-          <a href="#" class="button">Register Now</a>
-        </div>
-        <!-- Premium member -->
-        <div class="pricing-card">
-          <h3 class="card-header">Premium Member</h3>
-          <div class="plan-price-content">
-            <sup>$</sup>20<span>/month</span>
-          </div>
-          <ul>
-            <li>8% discount per transaction</li>
-            <li>Free shipping within 5 km</li>
-            <li>Priority for transaction</li>
-            <li>24/7 Support</li>
-          </ul>
-          <a href="#" class="button">Register Now</a>
-        </div>
+    <main style="height: 500px">
+      <div class="container" style="margin-top: 200px">
+        <section class="thankyou">
+          <h1>Thank you for your purchase!</h1>
+
+          <p>You will receive a confirmation email from us soon.</p>
+        </section>
       </div>
-    </section>
-    <!-- End Customer -->
-    <hr class="pill" />
-    <!-- For Shop Owner -->
-    <div id="title">
-      <p>FOR SHOP OWNER</p>
-    </div>
-    <section>
-      <!-- Pricing card -->
-      <div class="pricing-table">
-        <!-- Renting service -->
-        <div class="pricing-card">
-          <h3 class="card-header">Renting Service</h3>
-          <div class="plan-price-content">
-            <sup>$</sup>699<span>/month</span>
-          </div>
-          <ul>
-            <li>Unique storage in cloud network</li>
-            <li>Encrypted transaction</li>
-            <li>High-quality guidance</li>
-            <li>Worldwide advertising support</li>
-          </ul>
-          <a href="#" class="button">Register Now</a>
-        </div>
-        <!-- Commission fees -->
-        <div class="pricing-card">
-          <h3 class="card-header">Commission Fees</h3>
-          <div class="plan-price-content">
-            <sup>$</sup>5<span>/product</span>
-          </div>
-          <ul>
-            <li>Risk control</li>
-            <li>Maintenance cost</li>
-            <li>Future potential</li>
-            <li>Charity donation</li>
-          </ul>
-          <a href="#" class="button">Register Now</a>
-        </div>
-      </div>
-    </section>
-    <!-- End shop owner -->
-    <!-- End Pricing table -->
+    </main>
+
     <!-- Footer -->
     <footer class="page-footer">
       <div class="container">
