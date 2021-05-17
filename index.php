@@ -50,10 +50,10 @@ uasort($new_store_data, function ($a, $b) use ($storeCreatedDate) {
   return array_search($a, $storeCreatedDate) <=> array_search($b, $storeCreatedDate);
 });
 
-$sliceArrayStore = array_slice($new_store_data, 0, 5, true);
+$sliceArrayStore = array_splice($new_store_data, 0, 10, true);
 $newStore = array_keys($sliceArrayStore);
 
-$sliceFeatureStore = array_slice($isFeatured, 0, 10, true);
+$sliceFeatureStore = array_splice($isFeatured, 0, 10, true);
 $featureStore = array_values($sliceFeatureStore);
 
 
@@ -174,7 +174,7 @@ fclose($store_file);
 
 
   usort($productCreatedDate, "date_compare");
-  $sliceArrayProduct = array_splice($productCreatedDate, 0, 5, true);
+  $sliceArrayProduct = array_splice($productCreatedDate, 0, 10, true);
 
 
   $sliceArrayProduct = array_map(function ($x) {
