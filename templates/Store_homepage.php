@@ -6,65 +6,6 @@ if (fopen('../php/install.php', 'r') != null) {
     exit("'install.php' still exists! Delete it to proceed!");
 }
 
-
-$store_csv = "../data/stores.csv";
-$store_file = fopen($store_csv, "r");
-
-
-
-$storeName = array();
-$storeCreatedDate = array();
-$isFeatured = array();
-
-while (($store_row = fgetcsv($store_file)) !== FALSE) {
-    // Read the data
-    $storeName[] = trim($store_row[1]);
-    $storeCreatedDate[] = trim($store_row[3]);
-    $isFeatured[] = trim($store_row[4]);
-}
-
-function compareByTimeStamp($time1, $time2)
-{
-    if (strtotime($time1) < strtotime($time2))
-        return 1;
-    else if (strtotime($time1) > strtotime($time2))
-        return -1;
-    else
-        return 0;
-}
-// remove the first element in array
-$removed = array_shift($isFeatured);
-$removed = array_shift($storeName);
-$removed = array_shift($storeCreatedDate);
-
-
-
-// STORE
-
-$new_store_data = array_combine($storeName,  $storeCreatedDate);
-
-
-uasort($new_store_data, function ($a, $b) use ($storeCreatedDate) {
-    usort($storeCreatedDate, "compareByTimeStamp");
-    return array_search($a, $storeCreatedDate) <=> array_search($b, $storeCreatedDate);
-});
-
-$sliceArrayStore = array_slice($new_store_data, 0, 5, true);
-$newStore = array_keys($sliceArrayStore);
-
-
-$featured_store_data = array_combine($storeName, $isFeatured);
-
-
-
-$arr = array_diff($featured_store_data, array("FALSE"));
-
-
-$featureStore = array_keys($arr);
-
-
-fclose($store_file);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,10 +14,10 @@ fclose($store_file);
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homepage</title>
+    <title>Store Homepage</title>
     <!-- Link CSS -->
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/index.module.css" />
+    <link rel="stylesheet" href="../css/store/store_Nike.module.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 </head>
 
@@ -121,28 +62,6 @@ fclose($store_file);
         </nav>
     </header>
     <!-- End header -->
-    <!-- New store -->
-    <section id="stores">
-        <div class="container">
-            <div class="stores-header">
-                <h2>New Stores</h2>
-            </div>
-
-            <?php
-            for ($i = 0; $i < count($newStore); $i++) {
-                echo ' <div class="store">';
-                echo '<figure>';
-                echo '<a href="">';
-                echo '<img src="https://i.imgur.com/jIB3Op5.jpg" alt="store-image" /></a>';
-                echo '<figcaption>';
-                echo $newStore[$i];
-                echo '</figcaption>';
-                echo '</div>';
-            }
-            ?>
-
-        </div>
-    </section>
     <?php
 
     // PRODUCT
@@ -186,93 +105,71 @@ fclose($store_file);
 
     $newProduct = array_values($sliceArrayProduct);
 
-    fclose($product_file)
+    fclose($product_file);
 
     ?>
 
+    <div class="paral1">
+        <div class="paral1-title">
+            <p class="title-content"><strong>FEATURED PRODUCTS</strong></p>
+        </div>
+    </div>
 
-
-
-    <!-- End new stores -->
-    <!-- New product -->
+    <!-- Featured product -->
     <section id="products">
         <div class="container">
-            <div class="products-header">
-                <h2>New Products</h2>
+            <!-- Product card row-->
+            <div class="product-container">
+                <?php
+                for ($i = 0; $i < count($featureProduct); $i++) {
+                    echo '<div class="product-card">';
+                    echo '<img src="https://i.imgur.com/xWWeeGR.jpg" alt="product1" class="product-icon" style="width: 300px; height: 300px" />';
+                    echo '<div class="product-name">';
+                    echo $featureProduct[$i];
+                    echo '<a href="" class="button">Buy now</a>';
+                    echo '</div>';
+                    echo '</div>';
+                }
+                ?>
             </div>
-            <!-- Product card row 1 -->
-            <div class="product-container" id="product-slider">
+            <!-- End product card row-->
+        </div>
+    </section>
+    <!-- End featured product -->
+
+    <div class="paral2">
+        <div class="paral2-title">
+            <p class="title-content-2"><strong>NEW PRODUCTS</strong></p>
+        </div>
+    </div>
+
+    <!-- New product -->
+    <section id="products">
+        <div class="container" style="padding-top: 30px">
+            <!-- Product card-->
+            <div class="product-container">
                 <?php
                 for ($i = 0; $i < count($newProduct); $i++) {
-                    echo '<div class="product-card" onmouseover="pauseSlides()" onmouseout="startSlides()">';
-                    echo '<section class="ribbon">';
-                    echo '<div class="store-nike">';
-                    echo '<a href="">';
-                    echo '<img src="https://i.imgur.com/ljKPWN6.jpg" alt="logo-nike" /></a>';
-                    echo '</div>';
-                    echo '</section>';
-                    echo '<img src="https://i.imgur.com/gBfzpkA.jpg" alt="product1" class="product-icon" />';
+                    echo '<div class="product-card">';
+                    echo '<img src="https://i.imgur.com/xWWeeGR.jpg" alt="product1" class="product-icon" style="width: 300px; height: 300px" />';
                     echo '<div class="product-name">';
                     echo $newProduct[$i];
+                    echo '<a href="l" class="button">Buy now</a>';
                     echo '</div>';
-                    echo '<a href="templates\product\air-zoom-tempo.html" class="button">Buy now</a>';
+                    echo '</div>';
                 }
                 ?>
 
+            </div>
+            <!-- End product card row-->
+        </div>
+    </section>
+    <!-- End New product -->
 
 
-            </div>
-            <!-- End product card row 1-->
-        </div>
-    </section>
-    <!-- End new product -->
-    <!-- Featured Store -->
-    <section id="stores">
-        <div class="container">
-            <div class="stores-header">
-                <h2>Featured Store</h2>
-            </div>
-            <?php
-            for ($i = 0; $i < count($featureStore); $i++) {
-                echo ' <div class="store">';
-                echo '<figure>';
-                echo '<a href="">';
-                echo '<img src="https://i.imgur.com/jIB3Op5.jpg" alt="store-image" /></a>';
-                echo '<figcaption>';
-                echo $featureStore[$i];
-                echo '</figcaption>';
-                echo '</div>';
-            }
-            ?>
-        </div>
-    </section>
-    <!-- End featured store -->
-    <!-- Featured Product -->
-    <section id="products">
-        <div class="container">
-            <div class="products-header">
-                <h2>Featured Products</h2>
-            </div>
-            <?php
-            for ($i = 0; $i < count($featureProduct); $i++) {
-                echo '<div class="product-card" onmouseover="pauseSlides()" onmouseout="startSlides()">';
-                echo '<section class="ribbon">';
-                echo '<div class="store-nike">';
-                echo '<a href="">';
-                echo '<img src="https://i.imgur.com/ljKPWN6.jpg" alt="logo-nike" /></a>';
-                echo '</div>';
-                echo '</section>';
-                echo '<img src="https://i.imgur.com/gBfzpkA.jpg" alt="product1" class="product-icon" />';
-                echo '<div class="product-name">';
-                echo $featureProduct[$i];
-                echo '</div>';
-                echo '<a href="templates\product\air-zoom-tempo.html" class="button">Buy now</a>';
-            }
-            ?>
-        </div>
-        </div>
-    </section>
-    <!-- End featured products -->
+
+
+
     <!-- Footer -->
     <footer class="page-footer">
         <div class="container">
