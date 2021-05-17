@@ -25,8 +25,6 @@ while (($store_row = fgetcsv($store_file)) !== FALSE) {
 
 function compareByTimeStamp($time1, $time2)
 {
-  date_format($time1, "Y/m/d H:i:s");
-  date_format($time2, "Y/m/d H:i:s");
   if (strtotime($time1) < strtotime($time2))
     return 1;
   else if (strtotime($time1) > strtotime($time2))
@@ -67,65 +65,7 @@ $featureStore = array_keys($arr);
 
 fclose($store_file);
 
-
-// PRODUCT
-
-$product_csv = "./data/products.csv";
-$product_file = fopen($product_csv, "r");
-
-$productName = array();
-$productCreatedDate = array();
-$isFeaturedProduct = array();
-
-
-while (($product_row = fgetcsv($product_file)) !== FALSE) {
-  // Read the data
-  $productName[] = trim($product_row[1]);
-  $productCreatedDate[] = trim($product_row[3]);
-
-  $isFeaturedProduct[] = trim($product_row[5]);
-}
-
-// remove the first element in array
-$removed = array_shift($isFeaturedProduct);
-$removed = array_shift($productName);
-$removed = array_shift($productCreatedDate);
-
-
-
-
-
-$new_product_data = array_combine($productCreatedDate,  $productName);
-
-
-
-
-uasort($new_product_data, function ($c, $d) use ($productCreatedDate) {
-  usort($productCreatedDate, "compareByTimeStamp");
-  return array_search($c, $productCreatedDate) <=> array_search($d, $productCreatedDate);
-});
-
-$sliceArrayProduct = array_slice($new_product_data, 0, 5, true);
-$newProduct = array_values($sliceArrayProduct);
-
-
-$featured_product_data = array_combine($productName, $isFeaturedProduct);
-
-
-
-$arr2 = array_diff($featured_product_data, array("FALSE"));
-
-
-$featureProduct = array_keys($arr2);
-
-print_r($featuredProduct);
-
-
-fclose($product_file)
-
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -203,6 +143,56 @@ fclose($product_file)
 
     </div>
   </section>
+  <?php
+
+  // PRODUCT
+
+  $product_csv = "./data/products.csv";
+  $product_file = fopen($product_csv, "r");
+
+
+  while (($product_row = fgetcsv($product_file)) !== FALSE) {
+    // Read the data
+    $temp = substr($product_row[3], 0, 4);
+    if ($temp == '2021') {
+      $productCreatedDate[] = array($product_row[1], trim($product_row[3]));
+    }
+
+    if ($product_row[5] === 'TRUE') {
+      $featureProduct[] = trim($product_row[1]);
+    }
+  }
+
+  function date_compare($a, $b)
+  {
+    $time1 = strtotime($a[1]);
+    $time2 = strtotime($b[1]);
+    if ($time1 < $time2)
+      return 1;
+    else if ($time1 > $time2)
+      return -1;
+    else
+      return 0;
+  }
+
+
+  usort($productCreatedDate, "date_compare");
+  $sliceArrayProduct = array_splice($productCreatedDate, 0, 5, true);
+
+
+  $sliceArrayProduct = array_map(function ($x) {
+    return $x[0];
+  }, $sliceArrayProduct);
+
+  $newProduct = array_values($sliceArrayProduct);
+
+  fclose($product_file)
+
+  ?>
+
+
+
+
   <!-- End new stores -->
   <!-- New product -->
   <section id="products">
@@ -212,7 +202,6 @@ fclose($product_file)
       </div>
       <!-- Product card row 1 -->
       <div class="product-container" id="product-slider">
-
         <?php
         for ($i = 0; $i < count($newProduct); $i++) {
           echo '<div class="product-card" onmouseover="pauseSlides()" onmouseout="startSlides()">';
@@ -229,6 +218,9 @@ fclose($product_file)
           echo '<a href="templates\product\air-zoom-tempo.html" class="button">Buy now</a>';
         }
         ?>
+
+
+
       </div>
       <!-- End product card row 1-->
     </div>
