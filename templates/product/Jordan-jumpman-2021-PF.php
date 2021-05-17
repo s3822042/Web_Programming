@@ -1,10 +1,62 @@
+<?php
+	session_start();
+  
+  error_reporting(E_ERROR | E_PARSE);
+  if (fopen('../../php/install.php', 'r') != null) {
+      exit("'install.php' still exists! Delete it to proceed!");
+  } 
+
+  // unset($_COOKIE['visited']);
+  // unset($_SESSION['a-product-added']);
+  // unset($_SESSION['last-visited-product']);
+  // unset($_POST['a-product-added']);
+  // unset($_POST['quantity']);
+
+  
+  if (!isset($_COOKIE['visited'])) { // no cookie, so probably the first time here
+    $_COOKIE['visited'] = 'yes';
+    if (isset($_SESSION['a-product-added']) || isset($_SESSION['last-visited-product']))
+    {
+      unset($_SESSION['a-product-added']);
+      unset($_SESSION['last-visited-product']);
+    }
+  }
+  
+  if (isset($_POST['a-product-added'])) {
+    $_SESSION['a-product-added'] = 'already';
+  }
+
+  if (isset($_COOKIE['visited']) && $_COOKIE['visited'] == 'yes') {
+    $_SESSION['last-visited-product'] = "Jordan-jumpman-2021-PF.php";
+  } 
+
+
+  // echo '<h2>$_SESSION values</h2>';
+  // echo '<pre>';
+  // print_r($_SESSION);
+  // echo '</pre>';
+  // echo '<hr>';
+
+  // echo '<h2>$_POST values</h2>';
+  // echo '<pre>';
+  // print_r($_POST);
+  // echo '</pre>';
+  // echo '<hr>';
+
+  // echo '<h2>$_COOKIE values</h2>';
+  // echo '<pre>';
+  // print_r($_COOKIE);
+  // echo '</pre>';
+  // echo '<hr>';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kyrie 7 EP</title>
+    <title>Jordan Jumpman 2021 PF</title>
     <link rel="stylesheet" href="../../css/style.css" />
     <link rel="stylesheet" href="../../css/product.module.css" />
     <link
@@ -39,12 +91,12 @@
         <ul>
           <a href="../about.php"><li>About us</li></a>
           <a href="../fees.html"><li>Fees</li></a>
-          <a href="../account/account.html"><li>Account</li></a>
+          <a href="../account/account.php"><li>Account</li></a>
           <a href="../browse-menu.html"><li>Browse</li></a>
           <a href="../faq.html"><li>FAQs</li></a>
           <a href="../contact.html"><li>Contact</li></a>
           <a href="../login-form.php"><li>Sign in</li></a>
-          <a href="../cart.html" style="color: red" class="cart-nav" id="cart"
+          <a href="../cart.php" style="color: red" class="cart-nav" id="cart"
             ><li>Cart: <span>0</span></li></a
           >
         </ul>
@@ -55,38 +107,38 @@
     <div class="product_description">
       <div class="product_content">
         <!--product content-->
-        <h1 id="product-name">Kyrie 7 EP</h1>
+        <h1 id="product-name">Jordan Jumpman 2021 PF</h1>
         <h3>General description</h3>
         <div class="product_detail">
           <!--product image different angle-->
           <div class="product_from_different_angle">
             <img
-              src="https://i.imgur.com/IARpVzC.jpg"
+              src="https://i.imgur.com/VrKvgwl.jpg"
               class="angle"
               alt="product general picture"
             />
             <img
-              src="https://i.imgur.com/ygDDynS.png"
+              src="https://i.imgur.com/r0QvJNv.png"
               class="angle"
               alt="product from another angle"
             />
             <img
-              src="https://i.imgur.com/Llr0MV1.png"
+              src="https://i.imgur.com/vvZwNE2.png"
               class="angle"
               alt="product from another angle"
             />
             <img
-              src="https://i.imgur.com/cWb5JgO.png"
+              src="https://i.imgur.com/9bgCHIg.png"
               class="angle"
               alt="product from another angle"
             />
             <img
-              src="https://i.imgur.com/Ze9IqJl.png"
+              src="https://i.imgur.com/XFMcrAg.png"
               class="angle"
               alt="product from another angle"
             />
             <img
-              src="https://i.imgur.com/ZLEwTZT.png"
+              src="https://i.imgur.com/o5pi2LW.png"
               class="angle"
               alt="product from another angle"
             />
@@ -94,7 +146,7 @@
           <!--product picture-->
           <div class="product_picture">
             <img
-              src="https://i.imgur.com/IARpVzC.jpg"
+              src="https://i.imgur.com/VrKvgwl.jpg"
               class="general_picture"
               alt="product general picture"
             />
@@ -108,8 +160,8 @@
             <span class="fa fa-star checked"></span>
             <span class="fas fa-star-half-alt checked"></span>
             <!--half star-->
-            <span> 4.3/5 196 reviews </span>
-            <p id="price">Price: $<span>174</span></p>
+            <span> 4.5/5 32 reviews </span>
+            <p id="price">Price: $<span>178</span></p>
             <!--size selection-->
             <span>Size: </span>
             <input
@@ -122,32 +174,25 @@
               style="margin-right: 70px"
             />
 
-            <p>Color available: Black/Team Orange/White/University Gold</p>
+            <p>Color available: Black/Black/White/University Red</p>
             <div>
               <span>
                 <img
-                  src="https://i.imgur.com/vuv8YJF.jpg"
+                  src="https://i.imgur.com/VrKvgwl.jpg"
                   class="same_product_another_design"
                   alt="product with another design"
                 />
               </span>
               <span>
                 <img
-                  src="https://i.imgur.com/mJ4SS8H.jpg"
+                  src="https://i.imgur.com/Is2102U.jpg"
                   class="same_product_another_design"
                   alt="product with another design"
                 />
               </span>
               <span>
                 <img
-                  src="https://i.imgur.com/PvXFNnI.jpg"
-                  class="same_product_another_design"
-                  alt="product with another design"
-                />
-              </span>
-              <span>
-                <img
-                  src="https://i.imgur.com/3mo64jA.jpg"
+                  src="https://i.imgur.com/HfZAMhM.jpg"
                   class="same_product_another_design"
                   alt="product with another design"
                 />
@@ -155,39 +200,27 @@
             </div>
             <p>Description</p>
             <ul class="detail-list">
-              <li style="list-style-type: disc">Thin, padded tongue.</li>
+              <li style="list-style-type: disc">Foam midsole</li>
+              <li style="list-style-type: disc">Heel pull loop</li>
+              <li style="list-style-type: disc">Style: CQ4229-006</li>
               <li style="list-style-type: disc">
-                Moulded "KI" logo on the tongue.
-              </li>
-              <li style="list-style-type: disc">
-                Embroidered graphics on the heel.
-              </li>
-              <li style="list-style-type: disc">Style: CQ9327-003</li>
-              <li style="list-style-type: disc">
-                Country/Region of Origin: China
+                Country/Region of Origin: Vietnam
               </li>
             </ul>
             <br />
             <div class="buying">
-              <input
-                type="number"
-                id="quantity"
-                name="quantity"
-                min="1"
-                max="100"
-                value="1"
-              />
-              <a
-                class="addtocart"
-                style="
-                  margin-left: 10px;
-                  border: solid;
-                  padding: 5px;
-                  cursor: pointer;
-                "
-                >Add Cart</a
-              >
-            </div>
+              <form method="post" name="product-added-button-form" action="Jordan-jumpman-2021-PF.php">
+                <input
+                  type="number"
+                  id="quantity"
+                  name="quantity"
+                  min="1"
+                  max="100"
+                  value="1"
+                />
+                <button type="submit" name="a-product-added" value="true" class="addtocart" style="margin-left: 10px; border: solid; padding: 5px; cursor: pointer;">Add Cart</button>
+              </form>
+          </div>
           </div>
         </div>
         <!--end general description-->
@@ -195,36 +228,39 @@
         <!--detail description-->
         <div class="detail_description">
           <h3>Detail Description</h3>
-          <b>CREATE ON DEMAND.</b>
+          <b>FOR THE PLAYER WHO'S GOT NEXT.</b>
           <p>
-            Kyrie Irving is a creative force on and off the court. He needs his
-            shoes to keep up with his playmaking, but also sync with his
-            boundary-pushing style and ethos. The Kyrie 7 helps players at all
-            levels take advantage of their quick first step by optimizing the
-            shoe's fit, court feel and banking ability. This EP version uses an
-            extra-durable outsole that's ideal for outdoor courts.
+            Inspired by the design of the latest Air Jordan game shoe, the
+            Jordan Jumpman 2021 helps up-and-coming players level up their game.
+            The shoe features responsive Zoom Air cushioning in the forefoot.
+            Curved Flightwire cables are stitched into the material for a close,
+            secure fit for competitive play. This PF version is ideal for use on
+            outdoor courts.
           </p>
-          <b>Play Contained</b>
+          <b>Responsive Up Front</b>
           <p>
-            Mesh details wrap around your foot to create a close, comfortable
-            fit. The laces feed through moulded fins that pull down over your
-            forefoot when you lace up.
+            A Zoom Air unit in the forefoot provides lightweight responsiveness
+            to help drive you forwards.
           </p>
-          <b>Quick First Step</b>
+          <b>Secure Support</b>
           <p>
-            The large forefoot Air Zoom Turbo unit is curved to bend in multiple
-            directions. It provides energy return for responsive cornering.
+            Curved Flightwire cables are stitched into the upper along the side
+            to help create a secure fit when you lace up.
           </p>
-          <b>Data-Informed Traction</b>
+          <b>Stable Side to Side</b>
           <p>
-            The 360-degree, computer-generated traction pattern helps you stay
-            in control and move in and out of cuts. The rubber wraps up along
-            the inner foot to give you traction when changing directions.
+            A moulded TPU piece set into the midsole provides side-to-side
+            stability when you're moving in multiple directions.
           </p>
           <b>More Benefits</b>
           <ul>
             <li style="list-style-type: disc">
-              Padded collar provides support for your Achilles tendon.
+              Lightweight material through the toe and sides provides a close,
+              comfortable fit.
+            </li>
+            <li style="list-style-type: disc">
+              Extra-durable rubber outsole with herringbone traction helps you
+              grip the outdoor court.
             </li>
           </ul>
         </div>
@@ -242,7 +278,7 @@
               <span class="fa fa-star checked"></span>
               <span class="fa fa-star checked"></span>
               <span class="fas fa-star-half-alt checked"></span>
-              <span> 4.3/5 196 reviews </span>
+              <span> 4.5/5 32 reviews </span>
             </div>
             <!--review bar-->
             <div class="review_bar" id="review_bar_5_star">
@@ -252,11 +288,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(13200% / 196)"></div>
+                <div class="amount_bar" style="width: calc(2500% / 32)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>67%</p>
+                <p>78%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_4_star">
@@ -266,11 +302,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(2000% / 196)"></div>
+                <div class="amount_bar" style="width: calc(400% / 32)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>10%</p>
+                <p>12%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_3_star">
@@ -280,11 +316,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(2300% / 196)"></div>
+                <div class="amount_bar" style="width: calc(0% / 32)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>12%</p>
+                <p>0%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_2_star">
@@ -294,11 +330,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(1200% / 196)"></div>
+                <div class="amount_bar" style="width: calc(100% / 32)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>6%</p>
+                <p>3%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_1_star">
@@ -308,11 +344,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(900% / 196)"></div>
+                <div class="amount_bar" style="width: calc(100% / 32)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>5%</p>
+                <p>3%</p>
               </div>
             </div>
             <!--write your review here-->
@@ -441,24 +477,26 @@
         <div class="similar-product">
           <span class="product_list">
             <figure class="product">
-              <a href="Jordan-jumpman-2021-PF.html"
+              <a href="air-zoom-tempo.html"
                 ><img
-                  src="https://i.imgur.com/VrKvgwl.jpg"
+                  src="https://i.imgur.com/6ruNW3m.jpg"
                   class="product-img"
                   alt="similar product"
                 />
               </a>
               <figcaption>
-                <a href="Jordan-jumpman-2021-PF.html" class="product-link">
-                  <b>Jordan jumpman 2021 PF </b>
+                <a href="air-zoom-tempo.html" class="product-link">
+                  <b> Air zoom tempo NEXT% </b>
                 </a>
                 <div>
                   <span class="fa fa-star checked"></span>
+                  <!--fullstar-->
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fas fa-star-half-alt checked"></span>
-                  <span> 4.5/5 32 reviews </span>
+                  <!--half star-->
+                  <span> 4.8/5 235 reviews </span>
                 </div>
               </figcaption>
             </figure>
@@ -491,16 +529,16 @@
           </span>
           <span class="product_list">
             <figure class="product">
-              <a href="air-zoom-tempo.html"
+              <a href="kyrie-7-EP.html"
                 ><img
-                  src="https://i.imgur.com/6ruNW3m.jpg"
+                  src="https://i.imgur.com/IARpVzC.jpg"
                   class="product-img"
                   alt="similar product"
                 />
               </a>
               <figcaption>
-                <a href="air-zoom-tempo.html" class="product-link">
-                  <b> Air zoom tempo NEXT% </b>
+                <a href="kyrie-7-EP.html" class="product-link">
+                  <b> Kyrie 7 EP </b>
                 </a>
                 <div>
                   <span class="fa fa-star checked"></span>
@@ -510,7 +548,7 @@
                   <span class="fa fa-star checked"></span>
                   <span class="fas fa-star-half-alt checked"></span>
                   <!--half star-->
-                  <span> 4.8/5 235 reviews </span>
+                  <span> 4.3/5 196 reviews </span>
                 </div>
               </figcaption>
             </figure>
@@ -599,7 +637,7 @@
               <a href="../term_of_services.php">Term of Service</a>
             </div>
             <div class="grid-item">
-              <a href="../account/account.html">Account</a>
+              <a href="../account/account.php">Account</a>
             </div>
             <div class="grid-item"><a href="../faq.html">FAQs</a></div>
             <div class="grid-item">

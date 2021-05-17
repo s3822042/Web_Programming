@@ -12,7 +12,7 @@ window.onload = () => {
       savetoStorage();
     }
   }
-  show_cart();
+  // show_cart();
 };
 
 // 2. Automatically Slider
@@ -140,15 +140,9 @@ function validateLogin() {
 
   let emailRegex =
     /(?:[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/g;
-  let password = "password";
   if (emailRegex.test(email)) {
-    if (
-      pass == password ||
-      pass == "$2y$10VJZeRekNVK8dodKsQubVcOa5PupDhGH4JYyr6lS4CxdzzTJ.7/cK6"
-    ) {
-      localStorage.setItem("validatedEmailAddress", email);
-      return true;
-    }
+    localStorage.setItem("validatedEmailAddress", email);
+    return true;
   } else {
     alert("Login was unsuccessful, please check your email and/or password");
     return false;
@@ -341,14 +335,14 @@ function validateZipCode() {
   }
 }
 // 8. Hide cart when user is not logged in
-function show_cart() {
-  let cart_nav = document.getElementById("cart");
-  if (localStorage.getItem("validatedEmailAddress") !== null) {
-    cart_nav.style.visibility = "visible";
-  } else {
-    cart_nav.style.visibility = "hidden";
-  }
-}
+// function show_cart() {
+//   let cart_nav = document.getElementById("cart");
+//   if (localStorage.getItem("validatedEmailAddress") !== null) {
+//     cart_nav.style.visibility = "visible";
+//   } else {
+//     cart_nav.style.visibility = "hidden";
+//   }
+// }
 
 // reload the page when option menu is checked
 function onChange() {

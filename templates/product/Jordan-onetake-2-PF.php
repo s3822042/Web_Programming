@@ -1,10 +1,62 @@
+<?php
+	session_start();
+  
+  error_reporting(E_ERROR | E_PARSE);
+  if (fopen('../../php/install.php', 'r') != null) {
+      exit("'install.php' still exists! Delete it to proceed!");
+  } 
+
+  // unset($_COOKIE['visited']);
+  // unset($_SESSION['a-product-added']);
+  // unset($_SESSION['last-visited-product']);
+  // unset($_POST['a-product-added']);
+  // unset($_POST['quantity']);
+
+  
+  if (!isset($_COOKIE['visited'])) { // no cookie, so probably the first time here
+    $_COOKIE['visited'] = 'yes';
+    if (isset($_SESSION['a-product-added']) || isset($_SESSION['last-visited-product']))
+    {
+      unset($_SESSION['a-product-added']);
+      unset($_SESSION['last-visited-product']);
+    }
+  }
+  
+  if (isset($_POST['a-product-added'])) {
+    $_SESSION['a-product-added'] = 'already';
+  }
+
+  if (isset($_COOKIE['visited']) && $_COOKIE['visited'] == 'yes') {
+    $_SESSION['last-visited-product'] = "Jordan-onetake-2-PF.php";
+  } 
+
+
+  // echo '<h2>$_SESSION values</h2>';
+  // echo '<pre>';
+  // print_r($_SESSION);
+  // echo '</pre>';
+  // echo '<hr>';
+
+  // echo '<h2>$_POST values</h2>';
+  // echo '<pre>';
+  // print_r($_POST);
+  // echo '</pre>';
+  // echo '<hr>';
+
+  // echo '<h2>$_COOKIE values</h2>';
+  // echo '<pre>';
+  // print_r($_COOKIE);
+  // echo '</pre>';
+  // echo '<hr>';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ipad pro</title>
+    <title>Jordan onetake II PF</title>
     <link rel="stylesheet" href="../../css/style.css" />
     <link rel="stylesheet" href="../../css/product.module.css" />
     <link
@@ -39,12 +91,12 @@
         <ul>
           <a href="../about.php"><li>About us</li></a>
           <a href="../fees.html"><li>Fees</li></a>
-          <a href="../account/account.html"><li>Account</li></a>
+          <a href="../account/account.php"><li>Account</li></a>
           <a href="../browse-menu.html"><li>Browse</li></a>
           <a href="../faq.html"><li>FAQs</li></a>
           <a href="../contact.html"><li>Contact</li></a>
           <a href="../login-form.php"><li>Sign in</li></a>
-          <a href="../cart.html" style="color: red" class="cart-nav" id="cart"
+          <a href="../cart.php" style="color: red" class="cart-nav" id="cart"
             ><li>Cart: <span>0</span></li></a
           >
         </ul>
@@ -55,38 +107,38 @@
     <div class="product_description">
       <div class="product_content">
         <!--product content-->
-        <h1 id="product-name">Ipad pro</h1>
+        <h1 id="product-name">Jordan onetake II PF</h1>
         <h3>General description</h3>
         <div class="product_detail">
           <!--product image different angle-->
           <div class="product_from_different_angle">
             <img
-              src="https://i.imgur.com/lEEMbrp.jpg"
+              src="https://i.imgur.com/XGksMUd.jpg"
               class="angle"
               alt="product general picture"
             />
             <img
-              src="https://i.imgur.com/T4mFrIm.jpg"
+              src="https://i.imgur.com/FZsqT71.png"
               class="angle"
               alt="product from another angle"
             />
             <img
-              src="https://i.imgur.com/nQ8HCCf.jpg"
+              src="https://i.imgur.com/YDolOkq.png"
               class="angle"
               alt="product from another angle"
             />
             <img
-              src="https://i.imgur.com/lEEMbrp.jpg"
+              src="https://i.imgur.com/BkW5Xpp.png"
               class="angle"
               alt="product from another angle"
             />
             <img
-              src="https://i.imgur.com/shD2xhf.jpg"
+              src="https://i.imgur.com/zM94aXY.png"
               class="angle"
               alt="product from another angle"
             />
             <img
-              src="https://i.imgur.com/LeP9NWU.jpg"
+              src="https://i.imgur.com/lDpbBDW.png"
               class="angle"
               alt="product from another angle"
             />
@@ -94,7 +146,7 @@
           <!--product picture-->
           <div class="product_picture">
             <img
-              src="https://i.imgur.com/lEEMbrp.jpg"
+              src="https://i.imgur.com/XGksMUd.jpg"
               class="general_picture"
               alt="product general picture"
             />
@@ -106,39 +158,84 @@
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
-            <span class="far fa-star"></span>
-            <!--no star-->
-            <span> 4.1/5 180 reviews </span>
-            <p id="price">Price: $<span>799</span></p>
-            <p>Color available: Space Gray</p>
+            <span class="fas fa-star-half-alt checked"></span>
+            <!--half star-->
+            <span> 4.4/5 235 reviews </span>
+            <p id="price">Price: $<span>144</span></p>
+            <!--size selection-->
+            <span>Size: </span>
+            <input
+              type="number"
+              id="size"
+              name="size"
+              min="35"
+              max="60"
+              value="35"
+              style="margin-right: 70px"
+            />
+
+            <p>Color available: Black/Metallic Gold/White/Metallic Gold</p>
+            <div>
+              <span>
+                <img
+                  src="https://i.imgur.com/XGksMUd.jpg"
+                  class="same_product_another_design"
+                  alt="product with another design"
+                />
+              </span>
+              <span>
+                <img
+                  src="https://i.imgur.com/DNbxsqW.jpg"
+                  class="same_product_another_design"
+                  alt="product with another design"
+                />
+              </span>
+              <span>
+                <img
+                  src="https://i.imgur.com/VwGSPyi.jpg"
+                  class="same_product_another_design"
+                  alt="product with another design"
+                />
+              </span>
+              <span>
+                <img
+                  src="https://i.imgur.com/7yst6GK.jpg"
+                  class="same_product_another_design"
+                  alt="product with another design"
+                />
+              </span>
+            </div>
             <p>Description</p>
             <ul class="detail-list">
-              <li style="list-style-type: disc">Height: 247.6mm</li>
-              <li style="list-style-type: disc">Width: 178.5mm</li>
-              <li style="list-style-type: disc">Depth : 5.9mm</li>
-              <li style="list-style-type: disc">Weight: 471g</li>
+              <li style="list-style-type: disc">
+                Lightweight, mixed-material upper.
+              </li>
+              <li style="list-style-type: disc">Breathable mesh tongue</li>
+              <li style="list-style-type: disc">Padded collar</li>
+              <li style="list-style-type: disc">Exterior plastic shank</li>
+              <li style="list-style-type: disc">Colour-shifting tongue logo</li>
+              <li style="list-style-type: disc">
+                Heel pull made from lace material
+              </li>
+              <li style="list-style-type: disc">Style: CW2458-007</li>
+              <li style="list-style-type: disc">
+                Country/Region of Origin: Vietnam
+              </li>
             </ul>
             <br />
             <div class="buying">
-              <input
-                type="number"
-                id="quantity"
-                name="quantity"
-                min="1"
-                max="100"
-                value="1"
-              />
-              <a
-                class="addtocart"
-                style="
-                  margin-left: 10px;
-                  border: solid;
-                  padding: 5px;
-                  cursor: pointer;
-                "
-                >Add Cart</a
-              >
-            </div>
+              <form method="post" name="product-added-button-form" action="Jordan-onetake-2-PF.php">
+                <input
+                  type="number"
+                  id="quantity"
+                  name="quantity"
+                  min="1"
+                  max="100"
+                  value="1"
+                />
+                <button type="submit" name="a-product-added" value="true" class="addtocart" style="margin-left: 10px; border: solid; padding: 5px; cursor: pointer;">Add Cart</button>
+              </form>
+          </div>
           </div>
         </div>
         <!--end general description-->
@@ -146,55 +243,39 @@
         <!--detail description-->
         <div class="detail_description">
           <h3>Detail Description</h3>
-          <b> Techspecs</b>
+          <b>DISRUPTIVE SPEED AT THE CRITICAL MOMENT. </b>
+          <p>
+            Russell Westbrook backs up his brashness with a fast, aggressive
+            playing style and numbers that place him among the league's best.
+            His all-new Jordan One Take II embodies his edginess and speed.
+            Colours, textures and design lines speak to Russ' persona both on
+            and off the court. This PF version uses an extra-durable outsole
+            that's ideal for outdoor courts.
+          </p>
+          <b>Top-Loaded Zoom</b>
+          <p>
+            The Zoom Air unit in the forefoot is top-loaded to help bring the
+            responsive sensation closer to your foot. The section of the outsole
+            directly under the Zoom switches to herringbone traction.
+          </p>
+          <b>Ground Control</b>
+          <p>
+            The rubber outsole is separated into 2 sections to help reduce the
+            shoe's overall weight and enable smooth transitions. A
+            multi-directional cross-hatch tread pattern provides traction to
+            help you stop, cut and go at the game's pace.
+          </p>
+          <b>Lock-In Lacing</b>
+          <p>
+            The laces feed through eyestays and webbing loops. When you lace up,
+            it puts tension on the webbing, which helps keep your foot secure
+            over the footbed.
+          </p>
+          <b>More Benefits</b>
           <ul>
-            <li style="list-style-type: disc">Liquid Retina display.</li>
             <li style="list-style-type: disc">
-              11-inch (diagonal) LED-backlit Multi‑Touch display with IPS
-              technology.
-            </li>
-            <li style="list-style-type: disc">
-              2388-by-1668-pixel resolution at 264 pixels per inch (ppi).
-            </li>
-            <li style="list-style-type: disc">ProMotion technology.</li>
-            <li style="list-style-type: disc">Wide color display (P3).</li>
-            <li style="list-style-type: disc">True Tone display.</li>
-            <li style="list-style-type: disc">
-              Fingerprint-resistant oleophobic coating.
-            </li>
-            <li style="list-style-type: disc">Fully laminated display.</li>
-            <li style="list-style-type: disc">Antireflective coating.</li>
-            <li style="list-style-type: disc">1.8% reflectivity.</li>
-            <li style="list-style-type: disc">600 nits brightness.</li>
-            <li style="list-style-type: disc">
-              Supports Apple Pencil (2nd generation).
-            </li>
-            <li style="list-style-type: disc">
-              A12Z Bionic chip with 64-bit architecture with Neural Engine
-              technology.
-            </li>
-            <li style="list-style-type: disc">
-              TrueDepth Camera and 4K video recording.
-            </li>
-            <li style="list-style-type: disc">
-              Five studio-quality microphones for calls, video recording, and
-              audio recording.
-            </li>
-            <li style="list-style-type: disc">
-              Support Nano‑SIM (supports Apple SIM6) and esim.
-            </li>
-            <li style="list-style-type: disc">
-              Enabled by TrueDepth camera for facial recognition.
-            </li>
-            <li style="list-style-type: disc">Operating with iPadOS 14.</li>
-            <li style="list-style-type: disc">
-              Up to 10 hours of surfing the web on Wi-Fi or watching video.
-            </li>
-            <li style="list-style-type: disc">
-              Operating at 32° to 95° F (0° to 35° C).
-            </li>
-            <li style="list-style-type: disc">
-              Operating up to 10,000 feet (3000 m).
+              Extra-durable rubber outsole is designed to hold up on outdoor
+              surfaces.
             </li>
           </ul>
         </div>
@@ -211,8 +292,8 @@
               <span class="fa fa-star checked"></span>
               <span class="fa fa-star checked"></span>
               <span class="fa fa-star checked"></span>
-              <span class="far fa-star"></span>
-              <span> 4.1/5 180 reviews </span>
+              <span class="fas fa-star-half-alt checked"></span>
+              <span> 4.4/5 235 reviews </span>
             </div>
             <!--review bar-->
             <div class="review_bar" id="review_bar_5_star">
@@ -222,11 +303,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(11000% / 180)"></div>
+                <div class="amount_bar" style="width: calc(14000% / 235)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>61%</p>
+                <p>60%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_4_star">
@@ -236,11 +317,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(3500% / 180)"></div>
+                <div class="amount_bar" style="width: calc(7200% / 235)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>19%</p>
+                <p>31%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_3_star">
@@ -250,11 +331,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(500% / 180)"></div>
+                <div class="amount_bar" style="width: calc(300% / 235)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>3%</p>
+                <p>1%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_2_star">
@@ -264,11 +345,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(300% / 180)"></div>
+                <div class="amount_bar" style="width: calc(1000% / 235)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>2%</p>
+                <p>4%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_1_star">
@@ -278,11 +359,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(2700% / 180)"></div>
+                <div class="amount_bar" style="width: calc(1700% / 235)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>15%</p>
+                <p>7%</p>
               </div>
             </div>
             <!--write your review here-->
@@ -321,7 +402,7 @@
               </div>
               <!--review content-->
               <div class="review-content">
-                <p>Mike</p>
+                <p>Michael</p>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
@@ -329,15 +410,15 @@
                 <span class="far fa-star"></span>
                 <!--no star-->
                 <span class="review_reason"
-                  ><b> This technology is nice</b>
+                  ><b> This is an amazing shoe but not perfect</b>
                 </span>
                 <p class="text-area">
-                  This is exactly what I need, It is simple but really easy to
-                  use. I really like it because it is the perfect companion for
-                  me who want to go on a walk while listening to music.
+                  This shoe fit perfectly into my feet but it doesn't really fit
+                  for playing sports that I liked such as football but it is
+                  perfect for running.
                 </p>
                 <i class="far fa-thumbs-up like-button"></i>
-                <span> 32 likes </span>
+                <span> 63 likes </span>
               </div>
             </div>
             <!--end comment 1-->
@@ -353,23 +434,23 @@
               </div>
               <!--review content-->
               <div class="review-content">
-                <p>Ricky</p>
+                <p>Nguyen The Minh</p>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
-                <span class="far fa-star"></span>
+                <span class="fa fa-star checked"></span>
                 <!--no star-->
-                <span class="review_reason"><b>What we need</b> </span>
+                <span class="review_reason"><b> Perfect shoe</b> </span>
                 <p class="text-area">
-                  This is exactly what I needed. It is really easy to use. I
-                  have used this technology for more than month now and I can
-                  guarantee that I can barely see any bad point about this
-                  product. This is perfect for almost every activity. I highly
-                  recommend this if you don't have one yet
+                  This is the best shoe I could ever wish for. I have never wear
+                  a shoe that fit me this much. I am not just talking about the
+                  size but also the feeling. The feeling of wearing the shoe
+                  that can be used in every aspect and every sport is really
+                  good.
                 </p>
                 <i class="far fa-thumbs-up like-button"></i>
-                <span> 21 likes </span>
+                <span> 30 likes </span>
               </div>
             </div>
             <!--end comment 2-->
@@ -385,22 +466,22 @@
               </div>
               <!--review content-->
               <div class="review-content">
-                <p>Smith</p>
+                <p>Nguyen The Minh</p>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="far fa-star"></span>
                 <!--no star-->
-                <span class="review_reason"><b> Daily necessity</b> </span>
+                <span class="review_reason"><b> Recommended</b> </span>
                 <p class="text-area">
-                  The newly added feature is amazing. I highly suggest everyone
-                  to have this product. Currently, there are not many product
-                  are as good as this one out there so I believe everyone should
-                  buy it since I can guarantee it is worth it.
+                  Not the best shoe for competitor or contestor but it is still
+                  an amazing and affordable for common people to have a shoe to
+                  do and enjoy their daily activity. You can do most thing with
+                  this shoe since it is flexible
                 </p>
                 <i class="far fa-thumbs-up like-button"></i>
-                <span> 13 likes </span>
+                <span> 21 likes </span>
               </div>
             </div>
             <!--end comment 3-->
@@ -411,42 +492,16 @@
         <div class="similar-product">
           <span class="product_list">
             <figure class="product">
-              <a href="apple-watch-series-6.html"
+              <a href="Jordan-jumpman-2021-PF.html"
                 ><img
-                  src="https://i.imgur.com/6KqDWVE.jpg"
+                  src="https://i.imgur.com/VrKvgwl.jpg"
                   class="product-img"
                   alt="similar product"
                 />
               </a>
               <figcaption>
-                <a href="apple-watch-series-6.html" class="product-link">
-                  <b>Apple watch series 6 </b>
-                </a>
-                <div>
-                  <span class="fa fa-star checked"></span>
-                  <!--fullstar-->
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fas fa-star-half-alt checked"></span>
-                  <!--half star-->
-                  <span> 4.7/5 80 reviews </span>
-                </div>
-              </figcaption>
-            </figure>
-          </span>
-          <span class="product_list">
-            <figure class="product">
-              <a href="homepod-mini.html"
-                ><img
-                  src="https://i.imgur.com/EVvlj0R.jpg"
-                  class="product-img"
-                  alt="similar product"
-                />
-              </a>
-              <figcaption>
-                <a href="homepod-mini.html" class="product-link">
-                  <b> Homepod mini </b>
+                <a href="Jordan-jumpman-2021-PF.html" class="product-link">
+                  <b>Jordan jumpman 2021 PF </b>
                 </a>
                 <div>
                   <span class="fa fa-star checked"></span>
@@ -454,73 +509,101 @@
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fas fa-star-half-alt checked"></span>
-                  <span> 4.3/5 196 reviews </span>
-                </div>
-              </figcaption>
-            </figure>
-          </span>
-          <span class="product_list">
-            <figure class="product">
-              <a href="airpod-pro.html"
-                ><img
-                  src="https://i.imgur.com/JkaRVXM.jpg"
-                  class="product-img"
-                  alt="similar product"
-                />
-              </a>
-              <figcaption>
-                <a href="airpod-pro.html" class="product-link">
-                  <b> Airpod pro </b>
-                </a>
-                <div>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fas fa-star-half-alt checked"></span>
-                  <span> 4.3/5 196 reviews </span>
-                </div>
-              </figcaption>
-            </figure>
-          </span>
-          <span class="product_list">
-            <figure class="product">
-              <a href="iphone-12-pro.html"
-                ><img
-                  src="https://i.imgur.com/wL3doZA.jpg"
-                  class="product-img"
-                  alt="similar product"
-                />
-              </a>
-              <figcaption>
-                <a href="iphone-12-pro.html" class="product-link">
-                  <b> Iphone 12 pro </b>
-                </a>
-                <div>
-                  <span class="fa fa-star checked"></span>
-                  <!--fullstar-->
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fas fa-star-half-alt checked"></span>
-                  <!--half star-->
                   <span> 4.5/5 32 reviews </span>
                 </div>
               </figcaption>
             </figure>
           </span>
           <span class="product_list">
-            <figure class="product" id="product_5">
-              <a href="Macbook-pro.html"
+            <figure class="product">
+              <a href="air-zoom-tempo.html"
                 ><img
-                  src="https://i.imgur.com/vEYOqp1.jpg"
+                  src="https://i.imgur.com/6ruNW3m.jpg"
                   class="product-img"
                   alt="similar product"
                 />
               </a>
               <figcaption>
-                <a href="Macbook-pro.html" class="product-link">
-                  <b> Macbook pro </b>
+                <a href="air-zoom-tempo.html" class="product-link">
+                  <b> Air zoom tempo NEXT% </b>
+                </a>
+                <div>
+                  <span class="fa fa-star checked"></span>
+                  <!--fullstar-->
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fas fa-star-half-alt checked"></span>
+                  <!--half star-->
+                  <span> 4.8/5 235 reviews </span>
+                </div>
+              </figcaption>
+            </figure>
+          </span>
+          <span class="product_list">
+            <figure class="product">
+              <a href="kyrie-7-EP.html"
+                ><img
+                  src="https://i.imgur.com/IARpVzC.jpg"
+                  class="product-img"
+                  alt="similar product"
+                />
+              </a>
+              <figcaption>
+                <a href="kyrie-7-EP.html" class="product-link">
+                  <b> Kyrie 7 EP </b>
+                </a>
+                <div>
+                  <span class="fa fa-star checked"></span>
+                  <!--fullstar-->
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fas fa-star-half-alt checked"></span>
+                  <!--half star-->
+                  <span> 4.3/5 196 reviews </span>
+                </div>
+              </figcaption>
+            </figure>
+          </span>
+          <span class="product_list">
+            <figure class="product">
+              <a href="mercurial-vapor-14-elite-FG.html"
+                ><img
+                  src="https://i.imgur.com/icnhKJD.jpg"
+                  class="product-img"
+                  alt="similar product"
+                />
+              </a>
+              <figcaption>
+                <a href="mercurial-vapor-14-elite-FG.html" class="product-link">
+                  <b> Mercurial vapor 14 elite FG</b>
+                </a>
+                <div>
+                  <span class="fa fa-star checked"></span>
+                  <!--fullstar-->
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fas fa-star-half-alt checked"></span>
+                  <!--half star-->
+                  <span> 4.3/5 196 reviews </span>
+                </div>
+              </figcaption>
+            </figure>
+          </span>
+          <span class="product_list">
+            <figure class="product" id="product_5">
+              <a href="night-crater-impact.html"
+                ><img
+                  src="https://i.imgur.com/m5o3lTS.jpg"
+                  class="product-img"
+                  alt="similar product"
+                />
+              </a>
+              <figcaption>
+                <a href="night-crater-impact.html" class="product-link">
+                  <b> Night crater impact </b>
                 </a>
                 <div>
                   <span class="fa fa-star checked"></span>
@@ -528,7 +611,7 @@
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fas fa-star-half-alt checked"></span>
-                  <span> 4.8/5 235 reviews </span>
+                  <span> 4.4/5 75 reviews </span>
                 </div>
               </figcaption>
             </figure>
@@ -538,7 +621,7 @@
       <!--end review content-->
     </div>
     <!--End body part-->
-    <script src="../../js/add-cart-other.js"></script>
+    <script src="../../js/add-cart-nike.js"></script>
     <!-- Footer -->
     <footer class="page-footer">
       <div class="container">
@@ -567,7 +650,7 @@
               <a href="../term_of_services.php">Term of Service</a>
             </div>
             <div class="grid-item">
-              <a href="../account/account.html">Account</a>
+              <a href="../account/account.php">Account</a>
             </div>
             <div class="grid-item"><a href="../faq.html">FAQs</a></div>
             <div class="grid-item">

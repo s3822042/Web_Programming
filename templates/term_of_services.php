@@ -51,7 +51,7 @@ if (fopen('../php/install.php', 'r') != null) {
         <a href="fees.html">
           <li>Fees</li>
         </a>
-        <a href="account/account.html">
+        <a href="account/account.php">
           <li>Account</li>
         </a>
         <a href="browse-menu.html">
@@ -66,7 +66,7 @@ if (fopen('../php/install.php', 'r') != null) {
         <a href="login-form.php">
           <li>Sign in</li>
         </a>
-        <a href="cart.html" id="cart">
+        <a href="cart.php" id="cart">
           <li>Cart</li>
         </a>
       </ul>
@@ -205,7 +205,7 @@ if (fopen('../php/install.php', 'r') != null) {
           <div class="grid-item">
             <a href="term_of_services.php">Term of Service</a>
           </div>
-          <div class="grid-item"><a href="account/account.html">Account</a></div>
+          <div class="grid-item"><a href="account/account.php">Account</a></div>
           <div class="grid-item"><a href="faq.html">FAQs</a></div>
           <div class="grid-item">
             <a href="contact.html">Contact</a>

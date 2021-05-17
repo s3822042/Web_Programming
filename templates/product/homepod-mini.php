@@ -1,41 +1,104 @@
+<?php
+	session_start();
+  
+  error_reporting(E_ERROR | E_PARSE);
+  if (fopen('../../php/install.php', 'r') != null) {
+      exit("'install.php' still exists! Delete it to proceed!");
+  } 
+
+  // unset($_COOKIE['visited']);
+  // unset($_SESSION['a-product-added']);
+  // unset($_SESSION['last-visited-product']);
+  // unset($_POST['a-product-added']);
+  // unset($_POST['quantity']);
+
+  
+  if (!isset($_COOKIE['visited'])) { // no cookie, so probably the first time here
+    $_COOKIE['visited'] = 'yes';
+    if (isset($_SESSION['a-product-added']) || isset($_SESSION['last-visited-product']))
+    {
+      unset($_SESSION['a-product-added']);
+      unset($_SESSION['last-visited-product']);
+    }
+  }
+  
+  if (isset($_POST['a-product-added'])) {
+    $_SESSION['a-product-added'] = 'already';
+  }
+
+  if (isset($_COOKIE['visited']) && $_COOKIE['visited'] == 'yes') {
+    $_SESSION['last-visited-product'] = "homepod-mini.php";
+  } 
+
+
+  // echo '<h2>$_SESSION values</h2>';
+  // echo '<pre>';
+  // print_r($_SESSION);
+  // echo '</pre>';
+  // echo '<hr>';
+
+  // echo '<h2>$_POST values</h2>';
+  // echo '<pre>';
+  // print_r($_POST);
+  // echo '</pre>';
+  // echo '<hr>';
+
+  // echo '<h2>$_COOKIE values</h2>';
+  // echo '<pre>';
+  // print_r($_COOKIE);
+  // echo '</pre>';
+  // echo '<hr>';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Macbook pro</title>
+    <title>Homepod mini</title>
     <link rel="stylesheet" href="../../css/style.css" />
     <link rel="stylesheet" href="../../css/product.module.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+  </head>
 
-<body onmouseover="cartNumbers()">
-  <!--toast-->
-    <div class="toast" id="toast">
-    </div>
+  <body onmouseover="cartNumbers()">
+    <!--toast-->
+    <div class="toast" id="toast"></div>
     <!-- Navigation bar -->
     <header>
-        <!-- Logo -->
-        <div class="brand">
-            <a href="../../index.php"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" />
-            </a>
-        </div>
-        <!-- Right menu -->
-        <nav class="menu">
-            <input type="checkbox" id="menuToggle" />
-            <label for="menuToggle" class="menu-icon"><i class="fa fa-bars"></i
+      <!-- Logo -->
+      <div class="brand">
+        <a href="../../index.php"
+          ><img
+            src="https://i.imgur.com/mE6aWmB.png"
+            alt="logo"
+            class="logo-img"
+          />
+        </a>
+      </div>
+      <!-- Right menu -->
+      <nav class="menu">
+        <input type="checkbox" id="menuToggle" />
+        <label for="menuToggle" class="menu-icon"
+          ><i class="fa fa-bars"></i
         ></label>
         <ul>
           <a href="../about.php"><li>About us</li></a>
           <a href="../fees.html"><li>Fees</li></a>
-          <a href="../account/account.html"><li>Account</li></a>
+          <a href="../account/account.php"><li>Account</li></a>
           <a href="../browse-menu.html"><li>Browse</li></a>
           <a href="../faq.html"><li>FAQs</li></a>
           <a href="../contact.html"><li>Contact</li></a>
           <a href="../login-form.php"><li>Sign in</li></a>
-          <a href="../cart.html"  style="color: red" class="cart-nav"id = "cart"><li>Cart: <span>0</span> </li></a>
+          <a href="../cart.php" style="color: red" class="cart-nav" id="cart"
+            ><li>Cart: <span>0</span></li></a
+          >
         </ul>
       </nav>
     </header>
@@ -44,23 +107,43 @@
     <div class="product_description">
       <div class="product_content">
         <!--product content-->
-        <h1 id="product-name">Macbook pro</h1>
+        <h1 id="product-name">Homepod mini</h1>
         <h3>General description</h3>
         <div class="product_detail">
           <!--product image different angle-->
           <div class="product_from_different_angle">
-            <img src="https://i.imgur.com/vEYOqp1.jpg" class="angle" />
-            <img src="https://i.imgur.com/edgb50X.jpg" class="angle" />
-            <img src="https://i.imgur.com/ZbpJqlA.jpg" class="angle" />
-            <img src="https://i.imgur.com/bajgweR.jpg" class="angle" />
-            <img src="https://i.imgur.com/lpKrKtO.jpg" class="angle" />
-            <img src="https://i.imgur.com/uESwhAT.jpg" class="angle" />
+            <img
+              src="https://i.imgur.com/EVvlj0R.jpg"
+              class="angle"
+              alt="product general picture"
+            />
+            <img
+              src="https://i.imgur.com/iXFcbuX.jpg"
+              class="angle"
+              alt="product from another angle"
+            />
+            <img
+              src="https://i.imgur.com/5PGTcUD.jpg"
+              class="angle"
+              alt="product from another angle"
+            />
+            <img
+              src="https://i.imgur.com/wQC7yXY.jpg"
+              class="angle"
+              alt="product from another angle"
+            />
+            <img
+              src="https://i.imgur.com/p57D2yA.jpg"
+              class="angle"
+              alt="product from another angle"
+            />
           </div>
           <!--product picture-->
           <div class="product_picture">
             <img
-              src="https://i.imgur.com/vEYOqp1.jpg"
+              src="https://i.imgur.com/EVvlj0R.jpg"
               class="general_picture"
+              alt="product general picture"
             />
           </div>
           <!--general description-->
@@ -72,107 +155,116 @@
             <span class="fa fa-star checked"></span>
             <span class="fas fa-star-half-alt checked"></span>
             <!--half star-->
-            <span> 4.8/5 235 reviews </span>
-            <p id="price">Price: $<span>1299</span></p>
-            <p>Color available: Space Gray</p>
+            <span> 4.6/5 90 reviews </span>
+            <p id="price">Price: $<span>99</span></p>
+            <p>Color available: White</p>
             <div>
               <span>
                 <img
-                  src="https://i.imgur.com/vEYOqp1.jpg"
+                  src="https://i.imgur.com/EVvlj0R.jpg"
                   class="same_product_another_design"
+                  alt="product with another design"
                 />
               </span>
               <span>
                 <img
-                  src="https://i.imgur.com/dLAPUMy.jpg"
+                  src="https://i.imgur.com/qvcMsjF.jpg"
                   class="same_product_another_design"
+                  alt="product with another design"
                 />
               </span>
             </div>
             <p>Description</p>
             <ul class="detail-list">
-              <li style="list-style-type: disc">Height: 1.56cm</li>
-              <li style="list-style-type: disc">Width: 30.41cm</li>
-              <li style="list-style-type: disc">Depth : 21.24cm</li>
-              <li style="list-style-type: disc">Weight: 1400g</li>
+              <li style="list-style-type: disc">Height: 84.3mm</li>
+              <li style="list-style-type: disc">Width: 97.9mm</li>
+              <li style="list-style-type: disc">Weight: 345g</li>
             </ul>
             <br />
-            <div class="buying">
-              <input
-                type="number"
-                id="quantity"
-                name="quantity"
-                min="1"
-                max="100"
-                value="1"
-              />
-              <a class="addtocart" style="margin-left: 10px; border: solid; padding: 5px; cursor: pointer;">Add Cart</a>
-            </div>
+            <<div class="buying">
+              <form method="post" name="product-added-button-form" action="homepod-mini.php">
+                <input
+                  type="number"
+                  id="quantity"
+                  name="quantity"
+                  min="1"
+                  max="100"
+                  value="1"
+                />
+                <button type="submit" name="a-product-added" value="true" class="addtocart" style="margin-left: 10px; border: solid; padding: 5px; cursor: pointer;">Add Cart</button>
+              </form>
+          </div>
           </div>
         </div>
         <!--end general description-->
         <div class="separator"></div>
         <!--detail description-->
         <div class="detail_description">
-          <h3>Detail description</h3>
-          <b> Techspecs</b>
+          <h3>Detail Description</h3>
+          <b> Audio Technology</b>
           <ul>
             <li style="list-style-type: disc">
-              13.3-inch (diagonal) LED-backlit display with IPS technology;
-              2560-by-1600 native resolution at 227 pixels per inch with support
-              for millions of colors.
-            </li>
-            <li style="list-style-type: disc">500 nits brightness.</li>
-            <li style="list-style-type: disc">Wide color (P3).</li>
-            <li style="list-style-type: disc">True Tone technology.</li>
-            <li style="list-style-type: disc">
-              Apple M1 Chip with 8-core CPU, 4 performance core and 4 efficiency
-              cores and 16-core Neural Engine.
+              Full-range driver and dual passive radiators for deep bass and
+              crisp high frequencies.
             </li>
             <li style="list-style-type: disc">
-              Up to 17 hours wireless web or Up to 20 hours Apple TV app movie
-              playback.
+              Custom acoustic waveguide for a 360º sound field.
             </li>
             <li style="list-style-type: disc">
-              Built-in 58.2-watt-hour lithium-polymer battery with 61W USB-C
-              Power Adapter.
+              Acoustically transparent fabric.
             </li>
             <li style="list-style-type: disc">
-              8GB unified memory and can be configured to 16GB.
+              Computational audio for real-time tuning.
             </li>
-            <li style="list-style-type: disc">720p FaceTime HD camera.</li>
             <li style="list-style-type: disc">
-              Stereo speakers with high dynamic range.
+              Four-microphone design for far-field Siri.
             </li>
-            <li style="list-style-type: disc">Operating system: macOS.</li>
             <li style="list-style-type: disc">
-              many features such as: VoiceOver, Zoom, Reduce motion,...
+              Multi-room audio with AirPlay 2.
+            </li>
+            <li style="list-style-type: disc">Stereo pair capable.</li>
+          </ul>
+          <br />
+          <b>Accessibility feature</b>
+          <ul>
+            <li style="list-style-type: disc">Touch Accommodations.</li>
+            <li style="list-style-type: disc">Siri.</li>
+            <li style="list-style-type: disc">VoiceOver.</li>
+            <li style="list-style-type: disc">Home app and HomeKit.</li>
+            <li style="list-style-type: disc">Intercom transcriptions.</li>
+          </ul>
+          <br />
+          <b>Wireless</b>
+          <ul>
+            <li style="list-style-type: disc">802.11n Wi-Fi.</li>
+            <li style="list-style-type: disc">Direct guest access.</li>
+            <li style="list-style-type: disc">Bluetooth 5.0.</li>
+            <li style="list-style-type: disc">Thread.</li>
+            <li style="list-style-type: disc">
+              Ultra Wideband chip for device proximity.
             </li>
           </ul>
           <br />
-          <b>Operating requirements:</b>
+          <b>System Requirements</b>
+          <p>
+            This product requires you to have the latest version of the software
+            with phone requirement such as iPhone SE, iPhone 6s or later, or
+            iPod touch (7th generation) with the latest iOS; or iPad Pro, iPad
+            (5th generation or later), iPad Air 2 or later, or iPad mini 4 or
+            later with the latest iPadOS. Moreover, you are require to have
+            802.11n Wi-Fi internet access in order to access to the homepod mini
+            feature.
+          </p>
+          <b>Electric and Environment Requirements:</b>
           <ul>
             <li style="list-style-type: disc">
-              Line voltage: 100V to 240V AC.
-            </li>
-            <li style="list-style-type: disc">Frequency: 50Hz to 60Hz.</li>
-            <li style="list-style-type: disc">
-              Operating temperature: 10° to 35° C.
+              Operating temperature: 32° to 95° F (0° to 35° C).
             </li>
             <li style="list-style-type: disc">
-              Storage temperature: −25° to 45° C.
+              Relative humidity: 5% to 90% nonconsenting.
             </li>
             <li style="list-style-type: disc">
-              Relative humidity: 0% to 90% nonconsenting.
-            </li>
-            <li style="list-style-type: disc">
-              Operating altitude: tested up to 3,000 meters.
-            </li>
-            <li style="list-style-type: disc">
-              Maximum storage altitude: 4,500 meters.
-            </li>
-            <li style="list-style-type: disc">
-              Maximum shipping altitude: 10,500 meters.
+              Operating altitude: tested up to 10,000 feet (3000 m).
             </li>
           </ul>
         </div>
@@ -190,7 +282,7 @@
               <span class="fa fa-star checked"></span>
               <span class="fa fa-star checked"></span>
               <span class="fas fa-star-half-alt checked"></span>
-              <span> 4.8/5 235 reviews </span>
+              <span> 4.3/5 196 reviews </span>
             </div>
             <!--review bar-->
             <div class="review_bar" id="review_bar_5_star">
@@ -200,11 +292,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(21000% / 235)"></div>
+                <div class="amount_bar" style="width: calc(7000% / 90)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>90%</p>
+                <p>78%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_4_star">
@@ -214,11 +306,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(1500% / 235)"></div>
+                <div class="amount_bar" style="width: calc(1000% / 90)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>6%</p>
+                <p>11%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_3_star">
@@ -228,11 +320,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(300% / 235)"></div>
+                <div class="amount_bar" style="width: calc(600% / 90)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>1%</p>
+                <p>7%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_2_star">
@@ -242,11 +334,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(300% / 235)"></div>
+                <div class="amount_bar" style="width: calc(200% / 90)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>1%</p>
+                <p>2%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_1_star">
@@ -256,11 +348,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(300% / 235)"></div>
+                <div class="amount_bar" style="width: calc(200% / 90)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>1%</p>
+                <p>2%</p>
               </div>
             </div>
             <!--write your review here-->
@@ -294,6 +386,7 @@
                 <img
                   src="https://i.imgur.com/l40m95m.png"
                   class="users-avatar"
+                  alt="reviewer avatar"
                 />
               </div>
               <!--review content-->
@@ -325,6 +418,7 @@
                 <img
                   src="https://i.imgur.com/dnHWRnW.png"
                   class="users-avatar"
+                  alt="reviewer avatar"
                 />
               </div>
               <!--review content-->
@@ -356,6 +450,7 @@
                 <img
                   src="https://i.imgur.com/gc0dOkW.jpg"
                   class="users-avatar"
+                  alt="reviewer avatar"
                 />
               </div>
               <!--review content-->
@@ -390,6 +485,7 @@
                 ><img
                   src="https://i.imgur.com/6KqDWVE.jpg"
                   class="product-img"
+                  alt="similar product"
                 />
               </a>
               <figcaption>
@@ -411,15 +507,16 @@
           </span>
           <span class="product_list">
             <figure class="product">
-              <a href="homepod-mini.html"
+              <a href="airpod-pro.html"
                 ><img
-                  src="https://i.imgur.com/EVvlj0R.jpg"
+                  src="https://i.imgur.com/JkaRVXM.jpg"
                   class="product-img"
+                  alt="similar product"
                 />
               </a>
               <figcaption>
-                <a href="homepod-mini.html" class="product-link">
-                  <b> Homepod mini </b>
+                <a href="airpod-pro.html" class="product-link">
+                  <b> Airpod pro </b>
                 </a>
                 <div>
                   <span class="fa fa-star checked"></span>
@@ -438,6 +535,7 @@
                 ><img
                   src="https://i.imgur.com/lEEMbrp.jpg"
                   class="product-img"
+                  alt="similar product"
                 />
               </a>
               <figcaption>
@@ -463,6 +561,7 @@
                 ><img
                   src="https://i.imgur.com/wL3doZA.jpg"
                   class="product-img"
+                  alt="similar product"
                 />
               </a>
               <figcaption>
@@ -484,15 +583,16 @@
           </span>
           <span class="product_list">
             <figure class="product" id="product_5">
-              <a href="airpod-pro.html"
+              <a href="Macbook-pro.html"
                 ><img
-                  src="https://i.imgur.com/JkaRVXM.jpg"
+                  src="https://i.imgur.com/vEYOqp1.jpg"
                   class="product-img"
+                  alt="similar product"
                 />
               </a>
               <figcaption>
-                <a href="airpod-pro.html" class="product-link">
-                  <b> Airpod pro </b>
+                <a href="Macbook-pro.html" class="product-link">
+                  <b> Macbook pro </b>
                 </a>
                 <div>
                   <span class="fa fa-star checked"></span>
@@ -500,7 +600,7 @@
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fas fa-star-half-alt checked"></span>
-                  <span> 4.3/5 196 reviews </span>
+                  <span> 4.8/5 235 reviews </span>
                 </div>
               </figcaption>
             </figure>
@@ -539,7 +639,7 @@
               <a href="../term_of_services.php">Term of Service</a>
             </div>
             <div class="grid-item">
-              <a href="../account/account.html">Account</a>
+              <a href="../account/account.php">Account</a>
             </div>
             <div class="grid-item"><a href="../faq.html">FAQs</a></div>
             <div class="grid-item">
@@ -557,13 +657,14 @@
               <a href=""><i class="fab fa-linkedin-in circle-icon"></i></a>
               <a href=""><i class="fab fa-twitter circle-icon"></i></a>
             </div>
-            <hr />
-            <!-- Copyright -->
-            <p>&copy 2021 | RMIT University | Group 16</p>
+          </div>
         </div>
+        <hr />
+        <!-- Copyright -->
+        <p>&copy 2021 | RMIT University | Group 16</p>
+      </div>
     </footer>
     <!-- JavaScript -->
     <script src="../../js/index.js"></script>
-</body>
-
+  </body>
 </html>

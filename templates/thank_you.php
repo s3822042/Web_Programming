@@ -1,12 +1,29 @@
+<?php
+	session_start();
+
+	error_reporting(E_ERROR | E_PARSE);
+	if (fopen('../php/install.php', 'r') != null) {
+		exit("'install.php' still exists! Delete it to proceed!");
+	} 
+
+	if (isset($_SESSION['a-product-added'])) {
+		unset($_SESSION['a-product-added']);
+	}
+
+	if (isset($_SESSION['last-visited-product'])) {
+		unset($_SESSION['last-visited-product']);
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Order Placement</title>
+    <title>Thank you</title>
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/cart.module.css" />
+    <link rel="stylesheet" href="../css/thank_you.module.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -15,9 +32,9 @@
     />
   </head>
 
-  <body onmouseover="cartNumbers()">
+  <body onmouseover="window.localStorage.removeItem('cart');window.localStorage.removeItem('totalCost')">
     <!-- Navigation bar -->
-    <header onmouseleave="window.location.reload()">
+    <header>
       <!-- Logo -->
       <div class="brand">
         <a href="../index.php"
@@ -41,7 +58,7 @@
           <a href="fees.html">
             <li>Fees</li>
           </a>
-          <a href="account/account.html">
+          <a href="account/account.php">
             <li>Account</li>
           </a>
           <a href="browse-menu.html">
@@ -56,63 +73,23 @@
           <a href="login-form.php">
             <li>Sign in</li>
           </a>
-          <a href="../cart.html" style="color: red" class="cart-nav" id="cart"
-            ><li>Cart: <span>0</span></li></a
-          >
+          <a href="cart.php" style="color: red" id="cart">
+            <li>Cart</li>
+          </a>
         </ul>
       </nav>
     </header>
     <!-- End header -->
-    <!--body-->
-    <div id="title">
-      <p style="height: 100px">CART</p>
-    </div>
+    <main style="height: 500px">
+      <div class="container" style="margin-top: 200px">
+        <section class="thankyou">
+          <h1>Thank you for your purchase!</h1>
 
-    <div class="product-container">
-      <div class="product-header">
-        <h5 class="product-title">PRODUCT</h5>
-        <h5 class="price">PRICE</h5>
-        <h5 class="quantity">QUANTITY</h5>
-        <h5 class="total">COST</h5>
+          <p>You will receive a confirmation email from us soon.</p>
+        </section>
       </div>
+    </main>
 
-      <div class="products"></div>
-
-      <div class="coupon-input">
-        <label id="coupon-title" for="coupon-input-field"
-          ><strong>COUPON:</strong></label
-        >
-        <input
-          id="coupon-input-field"
-          type="text"
-          placeholder="(Optional)"
-          oninput="this.value = this.value.toUpperCase()"
-          onblur="afterCoupon(); validCoupon()"
-        />
-      </div>
-
-      <div class="payment-total">
-        <h4 id="paymentTotalValue">
-          PAYMENT TOTAL:
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-            >$0</span
-          >
-        </h4>
-      </div>
-
-      <div class="button-container">
-        <div class="continue-button"><a>Continue Shopping</a></div>
-        <div class="order-button">
-          <a
-            href="thank_you.html"
-            onclick="window.localStorage.removeItem('cart');window.localStorage.removeItem('totalCost')"
-            >Order</a
-          >
-        </div>
-      </div>
-    </div>
-
-    <script src="../js/cart.js"></script>
     <!-- Footer -->
     <footer class="page-footer">
       <div class="container">
@@ -136,10 +113,10 @@
             </div>
             <div class="grid-item"><a href="browse-menu.html">Browse</a></div>
             <div class="grid-item">
-              <a href="../term_of_services.php">Term of Service</a>
+              <a href="term_of_services.php">Term of Service</a>
             </div>
             <div class="grid-item">
-              <a href="account/account.html">Account</a>
+              <a href="account/account.php">Account</a>
             </div>
             <div class="grid-item"><a href="faq.html">FAQs</a></div>
             <div class="grid-item">

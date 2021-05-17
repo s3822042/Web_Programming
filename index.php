@@ -159,7 +159,7 @@ fclose($product_file)
         <a href="templates/fees.html">
           <li>Fees</li>
         </a>
-        <a href="templates/account/account.html">
+        <a href="templates/account/account.php">
           <li>Account</li>
         </a>
         <a href="templates/browse-menu.html">
@@ -174,7 +174,7 @@ fclose($product_file)
         <a href="templates/login-form.php">
           <li>Sign in</li>
         </a>
-        <a href="templates/cart.html" id="cart">
+        <a href="templates/cart.php" id="cart">
           <li>Cart</li>
         </a>
       </ul>
@@ -304,7 +304,7 @@ fclose($product_file)
             <a href="templates/term_of_services.php">Term of Service</a>
           </div>
           <div class="grid-item">
-            <a href="templates/account/account.html">Account</a>
+            <a href="templates/account/account.php">Account</a>
           </div>
           <div class="grid-item"><a href="templates/faq.html">FAQs</a></div>
           <div class="grid-item">

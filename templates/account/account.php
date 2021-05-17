@@ -1,3 +1,17 @@
+<?php
+    session_start();
+    error_reporting(E_ERROR | E_PARSE);
+
+    if (fopen('../php/install.php', 'r') != null) {
+        exit("'install.php' still exists! Delete it to proceed!");
+    } 
+    echo '<h2>$_SESSION values</h2>';
+    echo '<pre>';
+    print_r($_SESSION);
+    echo '</pre>';
+    echo '<hr>';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,7 +30,7 @@
     />
     <script src="../../js/index.js"></script>
   </head>
-  <body onload="displayUserInput()">
+  <body onload="displayUserInput();">
     <!-- Navigation bar -->
     <header>
       <!-- Logo -->
@@ -57,7 +71,7 @@
           <a href="../login-form.php">
             <li>Sign in</li>
           </a>
-          <a href="../cart.html" id="cart">
+          <a href="../cart.php" id="cart">
             <li>Cart</li>
           </a>
         </ul>
@@ -165,7 +179,6 @@
                     type="text"
                     name="email"
                     id="email"
-                    value=""
                   />
                 </div>
               </div>

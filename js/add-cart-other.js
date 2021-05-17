@@ -10,7 +10,7 @@ addButton = document.querySelector('.addtocart');
 addButton.addEventListener('click', addProduct);
 
 function addProduct() {
-    if (localStorage.getItem("validatedEmailAddress") !== null) {
+    // if (localStorage.getItem("validatedEmailAddress") !== null) {
         let toast = document.getElementById("toast")
         let name = document.getElementById('product-name').textContent;
         let price = document.querySelector('#price span').textContent;
@@ -28,13 +28,13 @@ function addProduct() {
         setTimeout(function dissapear() {
             toast.classList.remove("toast-visible");
         }, 4000);
-    } else {
-        toast.classList.add("toast-visible")
-        toast.innerHTML = "You need to log in first in order to add product to the cart"
-        setTimeout(function dissapear() {
-            toast.classList.remove("toast-visible");
-        }, 4000);
-    }
+    // } else {
+    //     toast.classList.add("toast-visible")
+    //     toast.innerHTML = "You need to log in first in order to add product to the cart"
+    //     setTimeout(function dissapear() {
+    //         toast.classList.remove("toast-visible");
+    //     }, 4000);
+    // }
 }
 // remove toast (faster option)
 document.getElementById("toast").addEventListener("click", function() {

@@ -72,7 +72,7 @@ foreach ($array as $v) {
         <a href="fees.html">
           <li>Fees</li>
         </a>
-        <a href="account/account.html">
+        <a href="account/account.php">
           <li>Account</li>
         </a>
         <a href="browse-menu.html">
@@ -87,7 +87,7 @@ foreach ($array as $v) {
         <a href="login-form.php">
           <li>Sign in</li>
         </a>
-        <a href="cart.html" id="cart">
+        <a href="cart.php" id="cart">
           <li>Cart</li>
         </a>
       </ul>
@@ -201,7 +201,7 @@ foreach ($array as $v) {
             <a href="term_of_services.php">Term of Service</a>
           </div>
           <div class="grid-item">
-            <a href="account/account.html">Account</a>
+            <a href="account/account.php">Account</a>
           </div>
           <div class="grid-item"><a href="faq.html">FAQs</a></div>
           <div class="grid-item">

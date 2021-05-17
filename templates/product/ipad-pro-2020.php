@@ -1,10 +1,62 @@
+<?php
+	session_start();
+  
+  error_reporting(E_ERROR | E_PARSE);
+  if (fopen('../../php/install.php', 'r') != null) {
+      exit("'install.php' still exists! Delete it to proceed!");
+  } 
+
+  // unset($_COOKIE['visited']);
+  // unset($_SESSION['a-product-added']);
+  // unset($_SESSION['last-visited-product']);
+  // unset($_POST['a-product-added']);
+  // unset($_POST['quantity']);
+
+  
+  if (!isset($_COOKIE['visited'])) { // no cookie, so probably the first time here
+    $_COOKIE['visited'] = 'yes';
+    if (isset($_SESSION['a-product-added']) || isset($_SESSION['last-visited-product']))
+    {
+      unset($_SESSION['a-product-added']);
+      unset($_SESSION['last-visited-product']);
+    }
+  }
+  
+  if (isset($_POST['a-product-added'])) {
+    $_SESSION['a-product-added'] = 'already';
+  }
+
+  if (isset($_COOKIE['visited']) && $_COOKIE['visited'] == 'yes') {
+    $_SESSION['last-visited-product'] = "ipad-pro-2020.php";
+  } 
+
+
+  // echo '<h2>$_SESSION values</h2>';
+  // echo '<pre>';
+  // print_r($_SESSION);
+  // echo '</pre>';
+  // echo '<hr>';
+
+  // echo '<h2>$_POST values</h2>';
+  // echo '<pre>';
+  // print_r($_POST);
+  // echo '</pre>';
+  // echo '<hr>';
+
+  // echo '<h2>$_COOKIE values</h2>';
+  // echo '<pre>';
+  // print_r($_COOKIE);
+  // echo '</pre>';
+  // echo '<hr>';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>lady Date-just automatic</title>
+    <title>Ipad pro</title>
     <link rel="stylesheet" href="../../css/style.css" />
     <link rel="stylesheet" href="../../css/product.module.css" />
     <link
@@ -39,12 +91,12 @@
         <ul>
           <a href="../about.php"><li>About us</li></a>
           <a href="../fees.html"><li>Fees</li></a>
-          <a href="../account/account.html"><li>Account</li></a>
+          <a href="../account/account.php"><li>Account</li></a>
           <a href="../browse-menu.html"><li>Browse</li></a>
           <a href="../faq.html"><li>FAQs</li></a>
           <a href="../contact.html"><li>Contact</li></a>
           <a href="../login-form.php"><li>Sign in</li></a>
-          <a href="../cart.html" style="color: red" class="cart-nav" id="cart"
+          <a href="../cart.php" style="color: red" class="cart-nav" id="cart"
             ><li>Cart: <span>0</span></li></a
           >
         </ul>
@@ -55,23 +107,38 @@
     <div class="product_description">
       <div class="product_content">
         <!--product content-->
-        <h1 id="product-name">Lady Date-just automatic</h1>
+        <h1 id="product-name">Ipad pro</h1>
         <h3>General description</h3>
         <div class="product_detail">
           <!--product image different angle-->
           <div class="product_from_different_angle">
             <img
-              src="https://i.imgur.com/EchqR7N.jpg"
+              src="https://i.imgur.com/lEEMbrp.jpg"
               class="angle"
               alt="product general picture"
             />
             <img
-              src="https://i.imgur.com/OlIlifk.jpg"
+              src="https://i.imgur.com/T4mFrIm.jpg"
               class="angle"
               alt="product from another angle"
             />
             <img
-              src="https://i.imgur.com/NC965sK.jpg"
+              src="https://i.imgur.com/nQ8HCCf.jpg"
+              class="angle"
+              alt="product from another angle"
+            />
+            <img
+              src="https://i.imgur.com/lEEMbrp.jpg"
+              class="angle"
+              alt="product from another angle"
+            />
+            <img
+              src="https://i.imgur.com/shD2xhf.jpg"
+              class="angle"
+              alt="product from another angle"
+            />
+            <img
+              src="https://i.imgur.com/LeP9NWU.jpg"
               class="angle"
               alt="product from another angle"
             />
@@ -79,9 +146,9 @@
           <!--product picture-->
           <div class="product_picture">
             <img
-              src="https://i.imgur.com/EchqR7N.jpg"
+              src="https://i.imgur.com/lEEMbrp.jpg"
               class="general_picture"
-              at="product general picture"
+              alt="product general picture"
             />
           </div>
           <!--general description-->
@@ -91,51 +158,32 @@
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
-            <span class="fas fa-star-half-alt checked"></span>
-            <!--half star-->
-            <span> 4.4/5 75 reviews </span>
-            <p id="price">Price: $<span>24495</span></p>
-            <!--size selection-->
-            <p>Diameter: 41mm</p>
-            <p>Color available: Diamond green dial</p>
+            <span class="far fa-star"></span>
+            <!--no star-->
+            <span> 4.1/5 180 reviews </span>
+            <p id="price">Price: $<span>799</span></p>
+            <p>Color available: Space Gray</p>
             <p>Description</p>
-            <ul>
-              <li style="list-style-type: disc"><b>Brand</b> :Rolex</li>
-              <li style="list-style-type: disc"><b>Series</b> :Datejust</li>
-              <li style="list-style-type: disc"><b>Gender</b> :Ladies</li>
-              <li style="list-style-type: disc"><b>Model</b> :279175GNDP</li>
-              <li style="list-style-type: disc">
-                <b>Watch label</b> :Swiss Made
-              </li>
-              <li style="list-style-type: disc"><b>Movement</b> :Automatic</li>
-              <li style="list-style-type: disc">
-                <b>Engine</b> :Rolex Calibre 2236
-              </li>
-              <li style="list-style-type: disc">
-                <b>Power reserve</b> :55 hours
-              </li>
+            <ul class="detail-list">
+              <li style="list-style-type: disc">Height: 247.6mm</li>
+              <li style="list-style-type: disc">Width: 178.5mm</li>
+              <li style="list-style-type: disc">Depth : 5.9mm</li>
+              <li style="list-style-type: disc">Weight: 471g</li>
             </ul>
             <br />
             <div class="buying">
-              <input
-                type="number"
-                id="quantity"
-                name="quantity"
-                min="1"
-                max="100"
-                value="1"
-              />
-              <a
-                class="addtocart"
-                style="
-                  margin-left: 10px;
-                  border: solid;
-                  padding: 5px;
-                  cursor: pointer;
-                "
-                >Add Cart</a
-              >
-            </div>
+              <form method="post" name="product-added-button-form" action="ipad-pro-2020.php">
+                <input
+                  type="number"
+                  id="quantity"
+                  name="quantity"
+                  min="1"
+                  max="100"
+                  value="1"
+                />
+                <button type="submit" name="a-product-added" value="true" class="addtocart" style="margin-left: 10px; border: solid; padding: 5px; cursor: pointer;">Add Cart</button>
+              </form>
+          </div>
           </div>
         </div>
         <!--end general description-->
@@ -143,64 +191,56 @@
         <!--detail description-->
         <div class="detail_description">
           <h3>Detail Description</h3>
-          <p>
-            18k everose gold case with a 18k everose gold Rolex President
-            bracelet. Fixed fluted 18k everose gold bezel. Green dial with rose
-            gold hands and diamond hour markers. Dial Type: Analog. Date display
-            at the 3 o'clock position. Rolex Calibre 2236 Automatic movement,
-            based upon Rolex 2235, containing 31 Jewels, bitting at 28800 vph,
-            and has a power reserve of approximately 55 hours. Scratch resistant
-            sapphire crystal. Screw down crown. Screw down case back. Round case
-            shape. Case size: 28 mm. Fold over clasp. Water resistant at 100
-            meters / 330 feet. Functions: date, hour, minute, second.
-            Lady-datejust Series. Dress watch style. Watch label: Swiss Made.
-            Rolex Lady-Datejust Automatic Diamond Green Dial Ladies Watch
-            279175GNDP.
-          </p>
-          <div class="separator"></div>
-          <h3>Dial</h3>
+          <b> Techspecs</b>
           <ul>
-            <li><b>Dial color</b> :Green</li>
-            <li><b>Type</b> :Analog</li>
-            <li><b>Crystal</b> :Scratch Resistant Sapphire</li>
-            <li><b>Hands</b> :Rose Gold</li>
-            <li><b>Dial Markers</b> :Diamond</li>
-            <li><b>Bezel</b> :Fixed fluted</li>
-            <li><b>Bezel color</b> :Silver-tone</li>
-            <li><b>Bezel material</b> :18k Everose Gold</li>
-            <li><b>Crown</b> :Screw Down</li>
-          </ul>
-          <div class="separator"></div>
-          <h3>Case</h3>
-          <ul>
-            <li><b>Case size</b> :28 mm</li>
-            <li><b>Case material</b> :18k Everose Gold</li>
-            <li><b>Case shape</b> :Round</li>
-            <li><b>Case back</b> :Screw Down</li>
-          </ul>
-          <div class="separator"></div>
-          <h3>Features</h3>
-          <ul>
-            <li><b>Water resistance</b> :100 meters / 330 feet</li>
-            <li><b>Calendar</b> :Date display at the 3 o'clock position</li>
-            <li><b>Function</b> :Date, Hour, Minute, Second</li>
-            <li><b>Watch features</b> :Analog, Diamond, Gold</li>
-          </ul>
-          <div class="separator"></div>
-          <h3>Band</h3>
-          <ul>
-            <li><b>Band material</b> :18k Everose Gold Rolex President</li>
-            <li><b>Band type</b> :Bracelet</li>
-            <li><b>Clasp</b> :Fold over</li>
-          </ul>
-          <div class="separator"></div>
-          <h3>Additional information</h3>
-          <ul>
-            <li><b>Watch style</b> :Dress</li>
-            <li><b>Warranty</b> :2 Year Jomashop Warranty</li>
-            <li><b>Internal ID</b> :RLX279175GNDP</li>
-            <li><b>Department</b> :Watches</li>
-            <li><b>Category</b> :Watches</li>
+            <li style="list-style-type: disc">Liquid Retina display.</li>
+            <li style="list-style-type: disc">
+              11-inch (diagonal) LED-backlit Multi‑Touch display with IPS
+              technology.
+            </li>
+            <li style="list-style-type: disc">
+              2388-by-1668-pixel resolution at 264 pixels per inch (ppi).
+            </li>
+            <li style="list-style-type: disc">ProMotion technology.</li>
+            <li style="list-style-type: disc">Wide color display (P3).</li>
+            <li style="list-style-type: disc">True Tone display.</li>
+            <li style="list-style-type: disc">
+              Fingerprint-resistant oleophobic coating.
+            </li>
+            <li style="list-style-type: disc">Fully laminated display.</li>
+            <li style="list-style-type: disc">Antireflective coating.</li>
+            <li style="list-style-type: disc">1.8% reflectivity.</li>
+            <li style="list-style-type: disc">600 nits brightness.</li>
+            <li style="list-style-type: disc">
+              Supports Apple Pencil (2nd generation).
+            </li>
+            <li style="list-style-type: disc">
+              A12Z Bionic chip with 64-bit architecture with Neural Engine
+              technology.
+            </li>
+            <li style="list-style-type: disc">
+              TrueDepth Camera and 4K video recording.
+            </li>
+            <li style="list-style-type: disc">
+              Five studio-quality microphones for calls, video recording, and
+              audio recording.
+            </li>
+            <li style="list-style-type: disc">
+              Support Nano‑SIM (supports Apple SIM6) and esim.
+            </li>
+            <li style="list-style-type: disc">
+              Enabled by TrueDepth camera for facial recognition.
+            </li>
+            <li style="list-style-type: disc">Operating with iPadOS 14.</li>
+            <li style="list-style-type: disc">
+              Up to 10 hours of surfing the web on Wi-Fi or watching video.
+            </li>
+            <li style="list-style-type: disc">
+              Operating at 32° to 95° F (0° to 35° C).
+            </li>
+            <li style="list-style-type: disc">
+              Operating up to 10,000 feet (3000 m).
+            </li>
           </ul>
         </div>
         <!--end detail description-->
@@ -216,8 +256,8 @@
               <span class="fa fa-star checked"></span>
               <span class="fa fa-star checked"></span>
               <span class="fa fa-star checked"></span>
-              <span class="fas fa-star-half-alt checked"></span>
-              <span> 4.4/5 75 reviews </span>
+              <span class="far fa-star"></span>
+              <span> 4.1/5 180 reviews </span>
             </div>
             <!--review bar-->
             <div class="review_bar" id="review_bar_5_star">
@@ -227,11 +267,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(5500% / 75)"></div>
+                <div class="amount_bar" style="width: calc(11000% / 180)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>73%</p>
+                <p>61%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_4_star">
@@ -241,11 +281,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(500% / 75)"></div>
+                <div class="amount_bar" style="width: calc(3500% / 180)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>8%</p>
+                <p>19%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_3_star">
@@ -255,11 +295,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(700% / 75)"></div>
+                <div class="amount_bar" style="width: calc(500% / 180)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>9%</p>
+                <p>3%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_2_star">
@@ -269,11 +309,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(500% / 75)"></div>
+                <div class="amount_bar" style="width: calc(300% / 180)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>7%</p>
+                <p>2%</p>
               </div>
             </div>
             <div class="review_bar" id="review_bar_1_star">
@@ -283,11 +323,11 @@
               </div>
               <!--bar-->
               <div class="gray_bar">
-                <div class="amount_bar" style="width: calc(200% / 75)"></div>
+                <div class="amount_bar" style="width: calc(2700% / 180)"></div>
               </div>
               <!--percentage -->
               <div class="percentage">
-                <p>3%</p>
+                <p>15%</p>
               </div>
             </div>
             <!--write your review here-->
@@ -326,21 +366,23 @@
               </div>
               <!--review content-->
               <div class="review-content">
-                <p>Lucas</p>
+                <p>Mike</p>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="far fa-star"></span>
                 <!--no star-->
-                <span class="review_reason"><b> Luxury</b> </span>
+                <span class="review_reason"
+                  ><b> This technology is nice</b>
+                </span>
                 <p class="text-area">
-                  Beautiful. It is so satisfying to wear such a high quality
-                  watch on our hand. It is an absolute amazing watch. It is
-                  totally worth the amount that I have to pay
+                  This is exactly what I need, It is simple but really easy to
+                  use. I really like it because it is the perfect companion for
+                  me who want to go on a walk while listening to music.
                 </p>
                 <i class="far fa-thumbs-up like-button"></i>
-                <span> 14 likes </span>
+                <span> 32 likes </span>
               </div>
             </div>
             <!--end comment 1-->
@@ -356,24 +398,23 @@
               </div>
               <!--review content-->
               <div class="review-content">
-                <p>Sam</p>
+                <p>Ricky</p>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="far fa-star"></span>
                 <!--no star-->
-                <span class="review_reason"
-                  ><b> Exactly what you need</b>
-                </span>
+                <span class="review_reason"><b>What we need</b> </span>
                 <p class="text-area">
-                  One of the best watch on my collection. It got everything from
-                  the beauty and strength. Even though it is not too expensive
-                  comparing to the exclusive made watch, it is can still be
-                  considered one of the best out there
+                  This is exactly what I needed. It is really easy to use. I
+                  have used this technology for more than month now and I can
+                  guarantee that I can barely see any bad point about this
+                  product. This is perfect for almost every activity. I highly
+                  recommend this if you don't have one yet
                 </p>
                 <i class="far fa-thumbs-up like-button"></i>
-                <span> 12 likes </span>
+                <span> 21 likes </span>
               </div>
             </div>
             <!--end comment 2-->
@@ -389,23 +430,22 @@
               </div>
               <!--review content-->
               <div class="review-content">
-                <p>Manh</p>
+                <p>Smith</p>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="far fa-star"></span>
                 <!--no star-->
-                <span class="review_reason"><b> One of the best</b> </span>
+                <span class="review_reason"><b> Daily necessity</b> </span>
                 <p class="text-area">
-                  It is perfect for people who are starting to collect watch. It
-                  is worthy but at the same not too expensive. It is also newly
-                  made which means it got all the best features that was
-                  selected by the other generation. I highly suggest you should
-                  buy this watch as soon as possible
+                  The newly added feature is amazing. I highly suggest everyone
+                  to have this product. Currently, there are not many product
+                  are as good as this one out there so I believe everyone should
+                  buy it since I can guarantee it is worth it.
                 </p>
                 <i class="far fa-thumbs-up like-button"></i>
-                <span> 10 likes </span>
+                <span> 13 likes </span>
               </div>
             </div>
             <!--end comment 3-->
@@ -416,41 +456,17 @@
         <div class="similar-product">
           <span class="product_list">
             <figure class="product">
-              <a href="submariner-black-dial.html"
+              <a href="apple-watch-series-6.html"
                 ><img
-                  src="https://i.imgur.com/fN53ZCR.jpg"
+                  src="https://i.imgur.com/6KqDWVE.jpg"
                   class="product-img"
                   alt="similar product"
                 />
               </a>
               <figcaption>
-                <a href="" class="product-link">
-                  <b>Submariner black dial </b>
+                <a href="apple-watch-series-6.html" class="product-link">
+                  <b>Apple watch series 6 </b>
                 </a>
-                <div>
-                  <span class="fa fa-star checked"></span>
-                  <!--fullstar-->
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="far fa-star"></span>
-                  <!--half star-->
-                  <span> 4.1/5 180 reviews </span>
-                </div>
-              </figcaption>
-            </figure>
-          </span>
-          <span class="product_list">
-            <figure class="product">
-              <a href="lady-datejust.html"
-                ><img
-                  src="https://i.imgur.com/aHGVgqI.jpg"
-                  class="product-img"
-                  alt="similar product"
-                />
-              </a>
-              <figcaption>
-                <a href="" class="product-link"> <b>Lady Datejust </b> </a>
                 <div>
                   <span class="fa fa-star checked"></span>
                   <!--fullstar-->
@@ -459,23 +475,71 @@
                   <span class="fa fa-star checked"></span>
                   <span class="fas fa-star-half-alt checked"></span>
                   <!--half star-->
-                  <span> 4.6/5 90 reviews </span>
+                  <span> 4.7/5 80 reviews </span>
                 </div>
               </figcaption>
             </figure>
           </span>
           <span class="product_list">
             <figure class="product">
-              <a href="submariner-blue-dial.html"
+              <a href="homepod-mini.html"
                 ><img
-                  src="https://i.imgur.com/7fVDSvD.jpg"
+                  src="https://i.imgur.com/EVvlj0R.jpg"
                   class="product-img"
                   alt="similar product"
                 />
               </a>
               <figcaption>
-                <a href="" class="product-link">
-                  <b>Submariner blue dial </b>
+                <a href="homepod-mini.html" class="product-link">
+                  <b> Homepod mini </b>
+                </a>
+                <div>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fas fa-star-half-alt checked"></span>
+                  <span> 4.3/5 196 reviews </span>
+                </div>
+              </figcaption>
+            </figure>
+          </span>
+          <span class="product_list">
+            <figure class="product">
+              <a href="airpod-pro.html"
+                ><img
+                  src="https://i.imgur.com/JkaRVXM.jpg"
+                  class="product-img"
+                  alt="similar product"
+                />
+              </a>
+              <figcaption>
+                <a href="airpod-pro.html" class="product-link">
+                  <b> Airpod pro </b>
+                </a>
+                <div>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fas fa-star-half-alt checked"></span>
+                  <span> 4.3/5 196 reviews </span>
+                </div>
+              </figcaption>
+            </figure>
+          </span>
+          <span class="product_list">
+            <figure class="product">
+              <a href="iphone-12-pro.html"
+                ><img
+                  src="https://i.imgur.com/wL3doZA.jpg"
+                  class="product-img"
+                  alt="similar product"
+                />
+              </a>
+              <figcaption>
+                <a href="iphone-12-pro.html" class="product-link">
+                  <b> Iphone 12 pro </b>
                 </a>
                 <div>
                   <span class="fa fa-star checked"></span>
@@ -483,53 +547,33 @@
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
-                  <span class="far fa-star"></span>
-                  <!--half star-->
-                  <span> 4.1/5 180 reviews </span>
-                </div>
-              </figcaption>
-            </figure>
-          </span>
-          <span class="product_list">
-            <figure class="product">
-              <a href="cosmograph-daytona.html"
-                ><img
-                  src="https://i.imgur.com/IzeTT5m.jpg"
-                  class="product-img"
-                  alt="similar product"
-                />
-              </a>
-              <figcaption>
-                <a href="" class="product-link"> <b> Cosmograph daytona</b> </a>
-                <div>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
                   <span class="fas fa-star-half-alt checked"></span>
-                  <span> 4.3/5 196</span>
+                  <!--half star-->
+                  <span> 4.5/5 32 reviews </span>
                 </div>
               </figcaption>
             </figure>
           </span>
           <span class="product_list">
             <figure class="product" id="product_5">
-              <a href="champagne-day-date.html"
+              <a href="Macbook-pro.html"
                 ><img
-                  src="https://i.imgur.com/qrT8W80.jpg"
+                  src="https://i.imgur.com/vEYOqp1.jpg"
                   class="product-img"
                   alt="similar product"
                 />
               </a>
               <figcaption>
-                <a href="" class="product-link"> <b>Day-Date Champagne</b> </a>
+                <a href="Macbook-pro.html" class="product-link">
+                  <b> Macbook pro </b>
+                </a>
                 <div>
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fas fa-star-half-alt checked"></span>
-                  <span> 4.8/5 235 reviews</span>
+                  <span> 4.8/5 235 reviews </span>
                 </div>
               </figcaption>
             </figure>
@@ -568,7 +612,7 @@
               <a href="../term_of_services.php">Term of Service</a>
             </div>
             <div class="grid-item">
-              <a href="../account/account.html">Account</a>
+              <a href="../account/account.php">Account</a>
             </div>
             <div class="grid-item"><a href="../faq.html">FAQs</a></div>
             <div class="grid-item">

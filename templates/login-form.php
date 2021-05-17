@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 function encrypt_decrypt($string, $action = 'encrypt')
 {
@@ -26,6 +27,12 @@ if (fopen('../php/install.php', 'r') != null) {
 // echo $adminPass;
 // echo '</pre>';
 
+// echo '<h2>$_SESSION values</h2>';
+// echo '<pre>';
+// print_r($_SESSION);
+// echo '</pre>';
+// echo '<hr>';
+
 // echo '<h2>$_POST values</h2>';
 // echo '<pre>';
 // print_r($_POST);
@@ -46,11 +53,23 @@ if (isset($_POST['log-in-hit'])) {
   if (isset($_POST['email']) && $_POST['email'] == $adminUsername && isset($_POST['pwd']) && $_POST['pwd'] == $adminPass) {
     $_SESSION['admin_username'] = $_POST['email'];
     header('location: CMS.php');
-  } else if (isset($_POST['pwd']) && $_POST['pwd'] == "password") {
+  } else if (isset($_POST['email']) && $_POST['email'] == $_SESSION['sign-up-email'] && isset($_POST['pwd']) && $_POST['pwd'] == $_SESSION['sign-up-confirm-password']) {
     $_SESSION['user'] = $_POST['email'];
     unset($_SESSION['admin_username']);
-    header('location: account/account.html');
-  }
+    unset($_SESSION['sign-up-email']);
+    unset($_SESSION['sign-up-confirm-password']);
+    if (isset($_SESSION['visited-cart-page']) && $_SESSION['visited-cart-page'] == 'already')
+    {
+      if (isset($_SESSION['last-visited-product'])) {
+        $lvp = $_SESSION['last-visited-product'];
+        header('location: product/'.$lvp);
+      } else {
+        header('location: ../index.php');
+      }
+    } else {
+      header('location: account/account.php');
+    }
+  } 
   fclose($datafile);
 }
 ?>
@@ -103,7 +122,7 @@ if (isset($_POST['log-in-hit'])) {
         <a href="login-form.php">
           <li>Sign in</li>
         </a>
-        <a href="cart.html" id="cart">
+        <a href="cart.php" id="cart">
           <li>Cart</li>
         </a>
       </ul>
@@ -129,7 +148,7 @@ if (isset($_POST['log-in-hit'])) {
           <button type="submit" name="log-in-hit" value="submit">Log in</button>
         </div>
         <div class="register">
-          <a href="sign-up-form.html">Register</a>
+          <a href="sign-up-form.php">Register</a>
         </div>
         <div class="password-reset">
           <a href="forgot-password.html">Forgot your password?</a>
