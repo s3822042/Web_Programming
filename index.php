@@ -2,7 +2,7 @@
 session_start();
 
 error_reporting(E_ERROR | E_PARSE);
-if (fopen('php/install.php', 'r') != null) {
+if (fopen('./php/install.php', 'r') != null) {
   exit("'install.php' still exists! Delete it to proceed!");
 }
 
@@ -20,7 +20,9 @@ while (($store_row = fgetcsv($store_file)) !== FALSE) {
   // Read the data
   $storeName[] = trim($store_row[1]);
   $storeCreatedDate[] = trim($store_row[3]);
-  $isFeatured[] = trim($store_row[4]);
+  if ($store_row[4] === 'TRUE') {
+    $isFeatured[] = trim($store_row[1]);
+  }
 }
 
 function compareByTimeStamp($time1, $time2)
@@ -33,7 +35,6 @@ function compareByTimeStamp($time1, $time2)
     return 0;
 }
 // remove the first element in array
-$removed = array_shift($isFeatured);
 $removed = array_shift($storeName);
 $removed = array_shift($storeCreatedDate);
 
@@ -52,15 +53,9 @@ uasort($new_store_data, function ($a, $b) use ($storeCreatedDate) {
 $sliceArrayStore = array_slice($new_store_data, 0, 5, true);
 $newStore = array_keys($sliceArrayStore);
 
+$sliceFeatureStore = array_slice($isFeatured, 0, 10, true);
+$featureStore = array_values($sliceFeatureStore);
 
-$featured_store_data = array_combine($storeName, $isFeatured);
-
-
-
-$arr = array_diff($featured_store_data, array("FALSE"));
-
-
-$featureStore = array_keys($arr);
 
 
 fclose($store_file);
@@ -147,7 +142,7 @@ fclose($store_file);
 
   // PRODUCT
 
-  $product_csv = "../data/products.csv";
+  $product_csv = "./data/products.csv";
   $product_file = fopen($product_csv, "r");
 
 
@@ -159,9 +154,11 @@ fclose($store_file);
     }
 
     if ($product_row[5] === 'TRUE') {
-      $featureProduct[] = trim($product_row[1]);
+      $featureProductArray[] = trim($product_row[1]);
     }
   }
+  $featureProduct = array_splice($featureProductArray, 0, 10, true);
+
 
   function date_compare($a, $b)
   {
