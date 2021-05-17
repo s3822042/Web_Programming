@@ -1,8 +1,8 @@
 <?php
 session_start();
-set_time_limit(500);
+
 error_reporting(E_ERROR | E_PARSE);
-if (fopen('../php/install.php', 'r') != null) {
+if (fopen('php/install.php', 'r') != null) {
   exit("'install.php' still exists! Delete it to proceed!");
 }
 
@@ -147,7 +147,7 @@ fclose($store_file);
 
   // PRODUCT
 
-  $product_csv = "./data/products.csv";
+  $product_csv = "../data/products.csv";
   $product_file = fopen($product_csv, "r");
 
 
