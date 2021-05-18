@@ -11,7 +11,6 @@ $store_csv = "./data/stores.csv";
 $store_file = fopen($store_csv, "r");
 
 
-
 $storeName = array();
 $storeCreatedDate = array();
 $isFeatured = array();
@@ -39,10 +38,9 @@ $removed = array_shift($storeName);
 $removed = array_shift($storeCreatedDate);
 
 
-
 // STORE
 
-$new_store_data = array_combine($storeName,  $storeCreatedDate);
+$new_store_data = array_combine($storeName, $storeCreatedDate);
 
 
 uasort($new_store_data, function ($a, $b) use ($storeCreatedDate) {
@@ -55,7 +53,6 @@ $newStore = array_keys($sliceArrayStore);
 
 $sliceFeatureStore = array_splice($isFeatured, 0, 10, true);
 $featureStore = array_values($sliceFeatureStore);
-
 
 
 fclose($store_file);
@@ -79,10 +76,7 @@ fclose($store_file);
   <!-- Navigation bar -->
   <header>
     <!-- Logo -->
-    <div class="brand">
-      <a href="index.php"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" />
-      </a>
-    </div>
+    <div class="brand"> <a href="index.php"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" /> </a> </div>
     <!-- Right menu -->
     <nav class="menu">
       <input type="checkbox" id="menuToggle" />
@@ -90,26 +84,19 @@ fclose($store_file);
       <ul>
         <a href="templates/about.php">
           <li>About us</li>
-        </a>
-        <a href="templates/fees.html">
+        </a> <a href="templates/fees.html">
           <li>Fees</li>
-        </a>
-        <a href="templates/account/account.php">
+        </a> <a href="templates/account/account.php">
           <li>Account</li>
-        </a>
-        <a href="templates/browse-menu.html">
+        </a> <a href="templates/browse-menu.html">
           <li>Browse</li>
-        </a>
-        <a href="templates/faq.html">
+        </a> <a href="templates/faq.html">
           <li>FAQs</li>
-        </a>
-        <a href="templates/contact.html">
+        </a> <a href="templates/contact.html">
           <li>Contact</li>
-        </a>
-        <a href="templates/login-form.php">
+        </a> <a href="templates/login-form.php">
           <li>Sign in</li>
-        </a>
-        <a href="templates/cart.php" id="cart">
+        </a> <a href="templates/cart.php" id="cart">
           <li>Cart</li>
         </a>
       </ul>
@@ -122,7 +109,6 @@ fclose($store_file);
       <div class="stores-header">
         <h2>New Stores</h2>
       </div>
-
       <?php
       for ($i = 0; $i < count($newStore); $i++) {
         echo ' <div class="store">';
@@ -135,7 +121,6 @@ fclose($store_file);
         echo '</div>';
       }
       ?>
-
     </div>
   </section>
   <?php
@@ -187,9 +172,6 @@ fclose($store_file);
 
   ?>
 
-
-
-
   <!-- End new stores -->
   <!-- New product -->
   <section id="products">
@@ -215,9 +197,6 @@ fclose($store_file);
           echo '<a href="templates\product\air-zoom-tempo.html" class="button">Buy now</a>';
         }
         ?>
-
-
-
       </div>
       <!-- End product card row 1-->
     </div>
@@ -275,42 +254,21 @@ fclose($store_file);
     <div class="container">
       <div class="grid-container">
         <!-- Footer Logo -->
-        <div class="grid-item">
-          <a href="index.php"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" /></a>
-        </div>
+        <div class="grid-item"> <a href="index.php"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" /></a> </div>
         <!-- Quick Link -->
         <div class="grid-item inner-grid-container">
-          <div class="grid-item">
-            <a href="templates/about.php">About Us</a>
-          </div>
-          <div class="grid-item">
-            <a href="templates/fees.html">Fees</a>
-          </div>
-          <div class="grid-item">
-            <a href="templates/browse-menu.html">Browse</a>
-          </div>
-          <div class="grid-item">
-            <a href="templates/term_of_services.php">Term of Service</a>
-          </div>
-          <div class="grid-item">
-            <a href="templates/account/account.php">Account</a>
-          </div>
+          <div class="grid-item"> <a href="templates/about.php">About Us</a> </div>
+          <div class="grid-item"> <a href="templates/fees.html">Fees</a> </div>
+          <div class="grid-item"> <a href="templates/browse-menu.html">Browse</a> </div>
+          <div class="grid-item"> <a href="templates/term_of_services.php">Term of Service</a> </div>
+          <div class="grid-item"> <a href="templates/account/account.php">Account</a> </div>
           <div class="grid-item"><a href="templates/faq.html">FAQs</a></div>
-          <div class="grid-item">
-            <a href="templates/contact.html">Contact</a>
-          </div>
-          <div class="grid-item">
-            <a href="templates/privacy_policies.php">Privacy Policy</a>
-          </div>
+          <div class="grid-item"> <a href="templates/contact.html">Contact</a> </div>
+          <div class="grid-item"> <a href="templates/privacy_policies.php">Privacy Policy</a> </div>
         </div>
         <!-- Social Link -->
         <div class="grid-item">
-          <div class="social-buttons">
-            <a href=""><i class="fab fa-instagram circle-icon"></i></a>
-            <a href=""><i class="fab fa-facebook circle-icon"></i></a>
-            <a href=""><i class="fab fa-linkedin-in circle-icon"></i></a>
-            <a href=""><i class="fab fa-twitter circle-icon"></i></a>
-          </div>
+          <div class="social-buttons"> <a href=""><i class="fab fa-instagram circle-icon"></i></a> <a href=""><i class="fab fa-facebook circle-icon"></i></a> <a href=""><i class="fab fa-linkedin-in circle-icon"></i></a> <a href=""><i class="fab fa-twitter circle-icon"></i></a> </div>
         </div>
       </div>
       <hr />
