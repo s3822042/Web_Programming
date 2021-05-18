@@ -1,0 +1,225 @@
+<?php
+session_start();
+
+error_reporting(E_ERROR | E_PARSE);
+if (fopen('../php/install.php', 'r') != null) {
+    exit("'install.php' still exists! Delete it to proceed!");
+}
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Store Homepage</title>
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/store/store_Nike.module.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+</head>
+
+<body>
+    <!-- Navigation bar -->
+    <header>
+        <!-- Logo -->
+        <div class="brand">
+            <a href="index.php"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" />
+            </a>
+        </div>
+        <!-- Right menu -->
+        <nav class="menu">
+            <input type="checkbox" id="menuToggle" />
+            <label for="menuToggle" class="menu-icon"><i class="fa fa-bars"></i></label>
+            <ul>
+                <a href="templates/about.php">
+                    <li>About us</li>
+                </a>
+                <a href="templates/fees.html">
+                    <li>Fees</li>
+                </a>
+                <a href="templates/account/account.php">
+                    <li>Account</li>
+                </a>
+                <a href="templates/browse-menu.html">
+                    <li>Browse</li>
+                </a>
+                <a href="templates/faq.html">
+                    <li>FAQs</li>
+                </a>
+                <a href="templates/contact.html">
+                    <li>Contact</li>
+                </a>
+                <a href="templates/login-form.php">
+                    <li>Sign in</li>
+                </a>
+                <a href="templates/cart.php" id="cart">
+                    <li>Cart</li>
+                </a>
+            </ul>
+        </nav>
+    </header>
+    <!-- End header -->
+    <?php
+
+    // PRODUCT
+
+    $product_csv = "../data/products.csv";
+    $product_file = fopen($product_csv, "r");
+
+
+    while (($product_row = fgetcsv($product_file)) !== FALSE) {
+        // Read the data
+        $temp = substr($product_row[3], 0, 4);
+        if ($temp == '2021') {
+            $productCreatedDate[] = array($product_row[1], trim($product_row[3]));
+        }
+
+        if ($product_row[6] === 'TRUE') {
+            $featureProduct[] = trim($product_row[1]);
+        }
+    }
+
+    function date_compare($a, $b)
+    {
+        $time1 = strtotime($a[1]);
+        $time2 = strtotime($b[1]);
+        if ($time1 < $time2)
+            return 1;
+        else if ($time1 > $time2)
+            return -1;
+        else
+            return 0;
+    }
+
+
+    usort($productCreatedDate, "date_compare");
+    $sliceArrayProduct = array_splice($productCreatedDate, 0, 5, true);
+
+
+    $sliceArrayProduct = array_map(function ($x) {
+        return $x[0];
+    }, $sliceArrayProduct);
+
+    $newProduct = array_values($sliceArrayProduct);
+
+    fclose($product_file);
+
+    ?>
+
+    <div class="paral1">
+        <div class="paral1-title">
+            <p class="title-content"><strong>FEATURED PRODUCTS</strong></p>
+        </div>
+    </div>
+
+    <!-- Featured product -->
+    <section id="products">
+        <div class="container">
+            <!-- Product card row-->
+            <div class="product-container">
+                <?php
+                for ($i = 0; $i < count($featureProduct); $i++) {
+                    echo '<div class="product-card">';
+                    echo '<img src="https://i.imgur.com/xWWeeGR.jpg" alt="product1" class="product-icon" style="width: 300px; height: 300px" />';
+                    echo '<div class="product-name">';
+                    echo $featureProduct[$i];
+                    echo '<a href="" class="button">Buy now</a>';
+                    echo '</div>';
+                    echo '</div>';
+                }
+                ?>
+            </div>
+            <!-- End product card row-->
+        </div>
+    </section>
+    <!-- End featured product -->
+
+    <div class="paral2">
+        <div class="paral2-title">
+            <p class="title-content-2"><strong>NEW PRODUCTS</strong></p>
+        </div>
+    </div>
+
+    <!-- New product -->
+    <section id="products">
+        <div class="container" style="padding-top: 30px">
+            <!-- Product card-->
+            <div class="product-container">
+                <?php
+                for ($i = 0; $i < count($newProduct); $i++) {
+                    echo '<div class="product-card">';
+                    echo '<img src="https://i.imgur.com/xWWeeGR.jpg" alt="product1" class="product-icon" style="width: 300px; height: 300px" />';
+                    echo '<div class="product-name">';
+                    echo $newProduct[$i];
+                    echo '<a href="l" class="button">Buy now</a>';
+                    echo '</div>';
+                    echo '</div>';
+                }
+                ?>
+
+            </div>
+            <!-- End product card row-->
+        </div>
+    </section>
+    <!-- End New product -->
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <div class="container">
+            <div class="grid-container">
+                <!-- Footer Logo -->
+                <div class="grid-item">
+                    <a href="../index.php"><img src="https://i.imgur.com/mE6aWmB.png" alt="logo" class="logo-img" /></a>
+                </div>
+                <!-- Quick Link -->
+                <div class="grid-item inner-grid-container">
+                    <div class="grid-item">
+                        <a href="about.php">About Us</a>
+                    </div>
+                    <div class="grid-item">
+                        <a href="fees.html">Fees</a>
+                    </div>
+                    <div class="grid-item">
+                        <a href="browse-menu.html">Browse</a>
+                    </div>
+                    <div class="grid-item">
+                        <a href="term_of_services.php">Term of Service</a>
+                    </div>
+                    <div class="grid-item">
+                        <a href="account/account.php">Account</a>
+                    </div>
+                    <div class="grid-item"><a href="templates/faq.html">FAQs</a></div>
+                    <div class="grid-item">
+                        <a href="contact.html">Contact</a>
+                    </div>
+                    <div class="grid-item">
+                        <a href="privacy_policies.php">Privacy Policy</a>
+                    </div>
+                </div>
+                <!-- Social Link -->
+                <div class="grid-item">
+                    <div class="social-buttons">
+                        <a href=""><i class="fab fa-instagram circle-icon"></i></a>
+                        <a href=""><i class="fab fa-facebook circle-icon"></i></a>
+                        <a href=""><i class="fab fa-linkedin-in circle-icon"></i></a>
+                        <a href=""><i class="fab fa-twitter circle-icon"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <!-- Copyright -->
+            <p>&copy 2021 | RMIT University | Group 16</p>
+        </div>
+    </footer>
+    <!-- JavaScript -->
+    <script src="../js/index.js"></script>
+</body>
+
+</html>
