@@ -10,6 +10,18 @@
     // print_r($_SESSION);
     // echo '</pre>';
     // echo '<hr>';
+
+    // echo '<h2>$POST values</h2>';
+    // echo '<pre>';
+    // print_r($POST);
+    // echo '</pre>';
+    // echo '<hr>';
+    
+    if (isset($_POST['log-out'])) {
+        unset($_SESSION['user']);
+        unset($_SESSION['admin_username']);
+        header('location: login-form.php');
+    }
 ?>
 
 
@@ -26,7 +38,7 @@
                 padding: 0px;
                 width: 100%;
                 height:100%;
-                background-image: url("https://i.imgur.com/2PlstbA.png");
+                /* background-image: url("https://i.imgur.com/2PlstbA.png"); */
                 background-repeat: none;
             }
 
@@ -51,7 +63,7 @@
             }
 
 
-            .vertical-center-1 > button {
+            .vertical-center-1 > button, .vertical-center-1  #button4 {
                 height: 50px;
                 font-size: 18px;
                 border-radius: 10px;
@@ -69,12 +81,16 @@
                 padding: 0 41px 0 41px;
             }
 
+            .vertical-center-1  #button4 {
+                padding: 0 20px 0 20px;
+            }
+
             .vertical-center-1 > button > a {
                 text-decoration: none;
                 color: inherit;
             }
 
-            .vertical-center-1 > button:hover {
+            .vertical-center-1 > button:hover, .vertical-center-1  #button4:hover {
                 font-size: 18px;
                 border-radius: 10px;
                 background-color: #000;
@@ -114,6 +130,9 @@
                 <a href="About_Us_CMS.php">Change About Us Content</a>
                 </button><br>
 
+                <form method="post" action="CMS.php">
+                    <input type="submit" id="button4" name="log-out" value="Log Out"><br>
+                </form>
             </div>
         </div>
     </body>

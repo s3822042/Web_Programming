@@ -23,6 +23,7 @@
         // print_r($_SESSION);
         // echo '</pre>';
         // echo '<hr>';
+        header('location: CMS.php');
     }
 ?>
 
@@ -112,7 +113,13 @@
                     cols=50
                     style='font-family: "Times New Roman"; font-size: 18px; text-align: center;'
 
-            >https://i.imgur.com/wnuKAT5.jpg</textarea><br>
+            ><?php
+                        if (isset($_SESSION['luan'])) {
+                            echo $_SESSION['luan'];
+                        } else {
+                            echo "https://i.imgur.com/wnuKAT5.jpg";
+                        }
+                        ?></textarea><br>
             <br>
 
             <!--  Andrew -->
@@ -123,7 +130,13 @@
                     cols=50
                     style='font-family: "Times New Roman"; font-size: 18px; text-align: center;'
 
-            >https://i.imgur.com/WfzZhTt.jpg</textarea><br>
+            ><?php
+                        if (isset($_SESSION['andrew'])) {
+                            echo $_SESSION['andrew'];
+                        } else {
+                            echo "https://i.imgur.com/WfzZhTt.jpg";
+                        }
+                        ?></textarea><br>
             <br>
 
             <!--  Huy Duong -->
@@ -134,7 +147,13 @@
                     cols=50
                     style='font-family: "Times New Roman"; font-size: 18px; text-align: center;'
 
-            >https://i.imgur.com/HqKscdf.jpg</textarea><br>
+            ><?php
+                        if (isset($_SESSION['huy'])) {
+                            echo $_SESSION['huy'];
+                        } else {
+                            echo "https://i.imgur.com/HqKscdf.jpg";
+                        }
+                        ?></textarea><br>
             <br>
 
             <!--  Minh Nguyen -->
@@ -145,7 +164,13 @@
                     cols=50
                     style='font-family: "Times New Roman"; font-size: 18px; text-align: center;'
 
-            >https://i.imgur.com/cv75nwp.jpg</textarea><br>
+            ><?php
+                        if (isset($_SESSION['minh'])) {
+                            echo $_SESSION['minh'];
+                        } else {
+                            echo "https://i.imgur.com/cv75nwp.jpg";
+                        }
+                        ?></textarea><br>
             <br>
             
             <hr>

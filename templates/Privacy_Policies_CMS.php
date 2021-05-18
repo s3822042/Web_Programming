@@ -23,6 +23,7 @@
         // print_r($_SESSION);
         // echo '</pre>';
         // echo '<hr>';
+        header('location: CMS.php');
     }
 ?>
 
@@ -110,9 +111,13 @@
                     name="content1" 
                     rows=9
                     cols=100
-                    style='font-family: "Times New Roman"; font-size: 24px; text-align: justify;'
-
-            ><strong>Mall Express</strong> is committed to protecting the privacy of its users. This Privacy Policy (“Privacy Policy”) is designed to help you understand what information we gather, how we use it, what we do to protect it, and to assist you in making informed decisions when using our website. Unless otherwise indicated below, this Privacy Policy applies to any website that references this Privacy Policy, any Company website, as well as any data the Company may collect across partnered and unaffiliated sites.</textarea><br>
+                    style='font-family: "Times New Roman"; font-size: 24px; text-align: justify;'><?php
+                    if (isset($_SESSION['content1'])) {
+                        echo $_SESSION['content1'];
+                    } else {
+                        echo '<strong>Mall Express</strong> is committed to protecting the privacy of its users. This Privacy Policy (“Privacy Policy”) is designed to help you understand what information we gather, how we use it, what we do to protect it, and to assist you in making informed decisions when using our website. Unless otherwise indicated below, this Privacy Policy applies to any website that references this Privacy Policy, any Company website, as well as any data the Company may collect across partnered and unaffiliated sites.';
+                    }
+                ?></textarea><br>
             <br>
 
             <!-- intro 2 -->
@@ -122,7 +127,13 @@
                     rows=5
                     cols=100
                     style='font-family: "Times New Roman"; font-size: 24px; text-align: justify;'
-            >For purposes of this Agreement, the terms “we,” “us,” and “our” refer to the Company. “You” refers to you, as a user of the website.</textarea><br>
+            ><?php
+                if (isset($_SESSION['content2'])) {
+                    echo $_SESSION['content2'];
+                } else {
+                    echo 'For purposes of this Agreement, the terms “we,” “us,” and “our” refer to the Company. “You” refers to you, as a user of the website.';
+                }
+        ?></textarea><br>
 			<br>
 
             <!-- consent -->
@@ -132,7 +143,13 @@
                     rows=9
                     cols=100
                     style='font-family: "Times New Roman"; font-size: 24px; text-align: justify;'
-            >By accessing our website, you accept our Privacy Policy and Terms of Use, and you consent to our collection, storage, use and disclosure of your personal information as described in this Privacy Policy. In addition, by using our website, or services across partnered and unaffiliated sites, you are accepting the policies and practices described in this Privacy Policy. Each time you visit our website, and any time you voluntarily provide us with information, you agree that you are consenting to our collection, use and disclosure of the information that you provide, and you are consenting to receive emails or otherwise be contacted, as described in this Privacy Policy. Whether or not you register or do any sort of business with us, this Privacy Policy applies to all users of the website.</textarea><br>
+            ><?php
+                if (isset($_SESSION['content3'])) {
+                    echo $_SESSION['content3'];
+                } else {
+                    echo 'By accessing our website, you accept our Privacy Policy and Terms of Use, and you consent to our collection, storage, use and disclosure of your personal information as described in this Privacy Policy. In addition, by using our website, or services across partnered and unaffiliated sites, you are accepting the policies and practices described in this Privacy Policy. Each time you visit our website, and any time you voluntarily provide us with information, you agree that you are consenting to our collection, use and disclosure of the information that you provide, and you are consenting to receive emails or otherwise be contacted, as described in this Privacy Policy. Whether or not you register or do any sort of business with us, this Privacy Policy applies to all users of the website.';
+                }
+        ?></textarea><br>
             <br>
 
             <!-- info collect intro -->
@@ -142,7 +159,13 @@
                     rows=9
                     cols=100
                     style='font-family: "Times New Roman"; font-size: 24px; text-align: justify;'
-            >We may collect both “Non-Personal Information” and “Personal Information” about you. “Non-Personal Information” includes information that cannot be used to personally identify you, such as anonymous usage data, general demographic information we may collect, referring/exit pages and URLs, platform types, preferences you submit and preferences that are generated based on the data you submit and number of clicks. “Personal Information” includes information that can be used to personally identify you, such as your name, address and email address.</textarea><br>
+            ><?php
+                if (isset($_SESSION['content4'])) {
+                    echo $_SESSION['content4'];
+                } else {
+                    echo 'We may collect both “Non-Personal Information” and “Personal Information” about you. “Non-Personal Information” includes information that cannot be used to personally identify you, such as anonymous usage data, general demographic information we may collect, referring/exit pages and URLs, platform types, preferences you submit and preferences that are generated based on the data you submit and number of clicks. “Personal Information” includes information that can be used to personally identify you, such as your name, address and email address.';
+                }
+        ?></textarea><br>
             <br>
 
             <!-- info collect google -->
@@ -152,7 +175,13 @@
                     rows=9
                     cols=100
                     style='font-family: "Times New Roman"; font-size: 24px; text-align: justify;'
-            >This website uses Google Analytics to track information regarding your use of the website. We may track information provided to us by your browser or use of the website, such as the website you came from (known as the “referring URL”), the type of browser you use, the device from which you connected to the website, the time and date of access, and other information that does not personally identify you. We use this information for, among other things, the operation of the website, to maintain the quality of the website, to provide general statistics regarding use of the website and for other business purposes.</textarea><br>
+            ><?php
+                if (isset($_SESSION['content5'])) {
+                    echo $_SESSION['content5'];
+                } else {
+                    echo 'This website uses Google Analytics to track information regarding your use of the website. We may track information provided to us by your browser or use of the website, such as the website you came from (known as the “referring URL”), the type of browser you use, the device from which you connected to the website, the time and date of access, and other information that does not personally identify you. We use this information for, among other things, the operation of the website, to maintain the quality of the website, to provide general statistics regarding use of the website and for other business purposes.';
+                }
+        ?></textarea><br>
             <br>
 
             <!-- info collect cookies -->
@@ -162,7 +191,13 @@
                     rows=9
                     cols=100
                     style='font-family: "Times New Roman"; font-size: 24px; text-align: justify;'
-            >We track this information in Google Analytics using cookies, or small text files which include an anonymous unique identifier. Cookies are sent to a user’s browser from our servers and are stored on the user’s computer hard drive. Sending a cookie to a user’s browser enables us to collect Non-Personal Information about that user and keep a record of the user’s preferences when utilizing our services, both on an individual and aggregate basis. The Company may use both persistent and session cookies; persistent cookies remain on your computer after you close your session and until you delete them, while session cookies expire when you close your browser. Persistent cookies can be removed by following your Internet browser help file directions. If you choose to disable cookies, some areas of the website may not work properly.</textarea><br>
+            ><?php
+                if (isset($_SESSION['content6'])) {
+                    echo $_SESSION['content6'];
+                } else {
+                    echo 'We track this information in Google Analytics using cookies, or small text files which include an anonymous unique identifier. Cookies are sent to a user’s browser from our servers and are stored on the user’s computer hard drive. Sending a cookie to a user’s browser enables us to collect Non-Personal Information about that user and keep a record of the user’s preferences when utilizing our services, both on an individual and aggregate basis. The Company may use both persistent and session cookies; persistent cookies remain on your computer after you close your session and until you delete them, while session cookies expire when you close your browser. Persistent cookies can be removed by following your Internet browser help file directions. If you choose to disable cookies, some areas of the website may not work properly.';
+                }
+        ?></textarea><br>
             <br>
 
             <!-- info collect website forms -->
@@ -172,7 +207,13 @@
                     rows=9
                     cols=100
                     style='font-family: "Times New Roman"; font-size: 24px; text-align: justify;'
-            >There may be several online forms present on our website where you are able to submit personally identifiable information in order to express interest in our business or submit an inquiry regarding our business. These forms may appear as RFP forms, Contact Us forms, Wedding RFP forms, or other similar forms that request your information before submitting. When you contact us using a form on our website, we collect information that identifies you, such as your name, job title, business name, phone number, email address, and other personally identifiable information. Some of this information is required and other information is optional. This information is used to better address your inquiry and is not used for marketing purposes or shared with other third party companies. If you would prefer that we do not collect this information then simply do not fill out the form. If you have already submitted your information through a form and would like to be removed, please email us.</textarea><br>
+            ><?php
+                if (isset($_SESSION['content8'])) {
+                    echo $_SESSION['content8'];
+                } else {
+                    echo 'There may be several online forms present on our website where you are able to submit personally identifiable information in order to express interest in our business or submit an inquiry regarding our business. These forms may appear as RFP forms, Contact Us forms, Wedding RFP forms, or other similar forms that request your information before submitting. When you contact us using a form on our website, we collect information that identifies you, such as your name, job title, business name, phone number, email address, and other personally identifiable information. Some of this information is required and other information is optional. This information is used to better address your inquiry and is not used for marketing purposes or shared with other third party companies. If you would prefer that we do not collect this information then simply do not fill out the form. If you have already submitted your information through a form and would like to be removed, please email us.';
+                }
+        ?></textarea><br>
             <br>
 
             <!-- info collect email communication -->
@@ -182,7 +223,13 @@
                     rows=9
                     cols=100
                     style='font-family: "Times New Roman"; font-size: 24px; text-align: justify;'
-            >Based upon the Personal Information that you provide us, we may communicate with you in response to your inquiries to provide the services you request and to manage your account. We will communicate with you by email or telephone, in accordance with your wishes. We may also use your Personal Information to send you updates and other promotional communications. If you no longer wish to receive those email updates, you may opt-out of receiving them by following the instructions included in each update or communication.</textarea><br>
+            ><?php
+                if (isset($_SESSION['content9'])) {
+                    echo $_SESSION['content9'];
+                } else {
+                    echo 'Based upon the Personal Information that you provide us, we may communicate with you in response to your inquiries to provide the services you request and to manage your account. We will communicate with you by email or telephone, in accordance with your wishes. We may also use your Personal Information to send you updates and other promotional communications. If you no longer wish to receive those email updates, you may opt-out of receiving them by following the instructions included in each update or communication.';
+                }
+        ?></textarea><br>
             <br>
 
             <!-- info collect buttons and others -->
@@ -192,7 +239,13 @@
                     rows=9
                     cols=100
                     style='font-family: "Times New Roman"; font-size: 24px; text-align: justify;'
-            >Our websites may include features such as plugins, buttons, tools, or content that link to other companies. We may collect information about your use of these features. In addition, when you see or interact with these buttons, tools, or content, or view any of our web pages containing them, some information from your browser may automatically be sent to the other company. Please read that company’s privacy policy for more information.</textarea><br>
+            ><?php
+                if (isset($_SESSION['content12'])) {
+                    echo $_SESSION['content12'];
+                } else {
+                    echo 'Our websites may include features such as plugins, buttons, tools, or content that link to other companies. We may collect information about your use of these features. In addition, when you see or interact with these buttons, tools, or content, or view any of our web pages containing them, some information from your browser may automatically be sent to the other company. Please read that company’s privacy policy for more information.';
+                }
+        ?></textarea><br>
             <br>
 
             <!-- info collect social media -->
@@ -202,7 +255,13 @@
                     rows=5
                     cols=100
                     style='font-family: "Times New Roman"; font-size: 24px; text-align: justify;'
-            >We have a presence on various social media networks, such as Facebook, Instagram, Twitter, Google+, Pinterest, and LinkedIn. We may collect information when you interact with our social media accounts and pages.</textarea><br>
+            ><?php
+                if (isset($_SESSION['content13'])) {
+                    echo $_SESSION['content13'];
+                } else {
+                    echo 'We have a presence on various social media networks, such as Facebook, Instagram, Twitter, Google+, Pinterest, and LinkedIn. We may collect information when you interact with our social media accounts and pages.';
+                }
+        ?></textarea><br>
             <br>
 
             <!-- use/share info personal info 1 -->
@@ -212,7 +271,13 @@
                     rows=10
                     cols=100
                     style='font-family: "Times New Roman"; font-size: 24px; text-align: justify;'
-            >In general, we do not sell, trade, rent or otherwise share your Personal Information with third parties without your consent. We may share your Personal Information with vendors and other third-party providers who are performing services for the Company. In general, the vendors and third-party providers used by us will only collect, use and disclose your information to the extent necessary to allow them to perform the services they provide for the Company. For example, when you provide us with personal information to complete a transaction, verify your credit card, place an order, arrange for a delivery, or return a purchase, you consent to our collecting and using such personal information for that specific purpose, including by transmitting such information to our vendors (and their service providers) performing these services for the Company.</textarea><br>
+            ><?php
+                if (isset($_SESSION['content14'])) {
+                    echo $_SESSION['content14'];
+                } else {
+                    echo 'In general, we do not sell, trade, rent or otherwise share your Personal Information with third parties without your consent. We may share your Personal Information with vendors and other third-party providers who are performing services for the Company. In general, the vendors and third-party providers used by us will only collect, use and disclose your information to the extent necessary to allow them to perform the services they provide for the Company. For example, when you provide us with personal information to complete a transaction, verify your credit card, place an order, arrange for a delivery, or return a purchase, you consent to our collecting and using such personal information for that specific purpose, including by transmitting such information to our vendors (and their service providers) performing these services for the Company.';
+                }
+        ?></textarea><br>
             <br>
 
             <!-- use/share info personal info 2 -->
@@ -222,7 +287,13 @@
                     rows=5
                     cols=100
                     style='font-family: "Times New Roman"; font-size: 24px; text-align: justify;'
-            >However, certain third-party service providers, such as payment processors, have their own privacy policies in respect of the information that we are required to provide to them in order to use their services. For these third-party service providers, we recommend that you read their privacy policies so that you can understand the manner in which your Personal Information will be handled by such providers.</textarea><br>
+            ><?php
+                if (isset($_SESSION['content15'])) {
+                    echo $_SESSION['content15'];
+                } else {
+                    echo 'However, certain third-party service providers, such as payment processors, have their own privacy policies in respect of the information that we are required to provide to them in order to use their services. For these third-party service providers, we recommend that you read their privacy policies so that you can understand the manner in which your Personal Information will be handled by such providers.';
+                }
+        ?></textarea><br>
             <br>
 
             <!-- use/share info personal info 3 -->
@@ -232,7 +303,13 @@
                     rows=3
                     cols=100
                     style='font-family: "Times New Roman"; font-size: 24px; text-align: justify;'
-            >In addition, we may disclose your Personal Information if required to do so by law or if you violate our Terms of Use.</textarea><br>
+            ><?php
+                if (isset($_SESSION['content16'])) {
+                    echo $_SESSION['content16'];
+                } else {
+                    echo 'In addition, we may disclose your Personal Information if required to do so by law or if you violate our Terms of Use.';
+                }
+        ?></textarea><br>
             <br>
 
             <!-- use/share info NON-personal info -->
@@ -242,7 +319,13 @@
                     rows=8
                     cols=100
                     style='font-family: "Times New Roman"; font-size: 24px; text-align: justify;'
-            >In general, we use Non-Personal Information to help us improve the website and customize the user experience. We also aggregate Non-Personal Information in order to track trends and analyze use patterns of the website. This Privacy Policy does not limit in any way our use or disclosure of Non-Personal Information and we reserve the right to use and disclose such Non-Personal Information to our partners, advertisers and other third parties at our sole discretion.</textarea><br>
+            ><?php
+                if (isset($_SESSION['content17'])) {
+                    echo $_SESSION['content17'];
+                } else {
+                    echo 'In general, we use Non-Personal Information to help us improve the website and customize the user experience. We also aggregate Non-Personal Information in order to track trends and analyze use patterns of the website. This Privacy Policy does not limit in any way our use or disclosure of Non-Personal Information and we reserve the right to use and disclose such Non-Personal Information to our partners, advertisers and other third parties at our sole discretion.';
+                }
+        ?></textarea><br>
             <br>
 
             <!-- protect info -->
@@ -252,7 +335,13 @@
                     rows=8
                     cols=100
                     style='font-family: "Times New Roman"; font-size: 24px; text-align: justify;'
-            >We implement reasonable precautions and follow industry best practices in order to protect your Personal Information and ensure that such Personal Information is not accessed, disclosed, altered or destroyed. However, these measures do not guarantee that your information will not be accessed, disclosed, altered or destroyed by breach of such precautions. By using our website, you acknowledge that you understand and agree to assume these risks.</textarea><br>
+            ><?php
+                if (isset($_SESSION['content18'])) {
+                    echo $_SESSION['content18'];
+                } else {
+                    echo 'We implement reasonable precautions and follow industry best practices in order to protect your Personal Information and ensure that such Personal Information is not accessed, disclosed, altered or destroyed. However, these measures do not guarantee that your information will not be accessed, disclosed, altered or destroyed by breach of such precautions. By using our website, you acknowledge that you understand and agree to assume these risks.';
+                }
+        ?></textarea><br>
             <br>
 
             <!-- hosting -->
@@ -262,7 +351,13 @@
                     rows=8
                     cols=100
                     style='font-family: "Times New Roman"; font-size: 24px; text-align: justify;'
-            >Our website is hosted by InMotion Hosting, Inc. InMotion Hosting provides us with the online platform that allows us to provide the website to you. Your information, including Personal Information, may be stored through InMotion Hosting servers. By using the website, you consent to InMotion Hosting’s collection, disclosure, storage, and use of your Personal Information in accordance with InMotion Hosting’s privacy policy.</textarea><br>
+            ><?php
+                if (isset($_SESSION['content21'])) {
+                    echo $_SESSION['content21'];
+                } else {
+                    echo 'Our website is hosted by InMotion Hosting, Inc. InMotion Hosting provides us with the online platform that allows us to provide the website to you. Your information, including Personal Information, may be stored through InMotion Hosting servers. By using the website, you consent to InMotion Hosting’s collection, disclosure, storage, and use of your Personal Information in accordance with InMotion Hosting’s privacy policy.';
+                }
+        ?></textarea><br>
             <br>
 
             <!-- link to other websites -->
@@ -272,7 +367,13 @@
                     rows=8
                     cols=100
                     style='font-family: "Times New Roman"; font-size: 24px; text-align: justify;'
-            >As part of the website, we may provide links to or compatibility with other websites or applications. However, we are not responsible for the privacy practices employed by those websites or the information or content they contain. This Privacy Policy applies solely to information collected by us through the website. Therefore, this Privacy Policy does not apply to your use of a third-party website accessed by selecting a link via our website. To the extent that you access or use the website through or on another website or application, then the privacy policy of that other website or application will apply to your access or use of that site or application. We encourage our users to read the privacy statements of other websites before proceeding to use them.</textarea><br>
+            ><?php
+                if (isset($_SESSION['content22'])) {
+                    echo $_SESSION['content22'];
+                } else {
+                    echo 'As part of the website, we may provide links to or compatibility with other websites or applications. However, we are not responsible for the privacy practices employed by those websites or the information or content they contain. This Privacy Policy applies solely to information collected by us through the website. Therefore, this Privacy Policy does not apply to your use of a third-party website accessed by selecting a link via our website. To the extent that you access or use the website through or on another website or application, then the privacy policy of that other website or application will apply to your access or use of that site or application. We encourage our users to read the privacy statements of other websites before proceeding to use them.';
+                }
+        ?></textarea><br>
             <br>
 
             <!-- changes to PP -->
@@ -282,7 +383,13 @@
                     rows=10
                     cols=100
                     style='font-family: "Times New Roman"; font-size: 24px; text-align: justify;'
-            >The Company reserves the right to change this Privacy Policy and our Terms of Use at any time. If we decide to change this Privacy Policy, we will post these changes on this page so that you are always aware of what information we collect, how we use it, and under what circumstances we disclose it. Any such modifications become effective upon your continued access to and/or use of the website five (5) days after we first post the changes on the website or otherwise provide you with notice of such modifications. It is your sole responsibility to check this website from time to time to view any such changes to the terms of this Privacy Policy. If you do not agree to any changes, if and when such changes may be made to this Privacy Policy, you must cease access to this website. If you have provided your email address to us, you give us permission to email you for the purpose of notification as described in this Privacy Policy.</textarea><br>
+            ><?php
+                if (isset($_SESSION['content24'])) {
+                    echo $_SESSION['content24'];
+                } else {
+                    echo 'The Company reserves the right to change this Privacy Policy and our Terms of Use at any time. If we decide to change this Privacy Policy, we will post these changes on this page so that you are always aware of what information we collect, how we use it, and under what circumstances we disclose it. Any such modifications become effective upon your continued access to and/or use of the website five (5) days after we first post the changes on the website or otherwise provide you with notice of such modifications. It is your sole responsibility to check this website from time to time to view any such changes to the terms of this Privacy Policy. If you do not agree to any changes, if and when such changes may be made to this Privacy Policy, you must cease access to this website. If you have provided your email address to us, you give us permission to email you for the purpose of notification as described in this Privacy Policy.';
+                }
+        ?></textarea><br>
             <br>
 
             <!-- merger or acquisition -->
@@ -292,7 +399,13 @@
                     rows=10
                     cols=100
                     style='font-family: "Times New Roman"; font-size: 24px; text-align: justify;'
-            >In the event we undergo a business transaction such as a merger, acquisition by another company, or sale of all or a portion of our assets, your Personal Information may be among the assets transferred. You acknowledge and consent that such transfers may occur and are permitted by this Privacy Policy, and that any acquirer of our assets may continue to process your Personal Information as set forth in this Privacy Policy. If our information practices change at any time in the future, we will post the policy changes here so that you may opt out of the new information practices. We suggest that you check this Privacy Policy periodically if you are concerned about how your information is used.</textarea><br>
+            ><?php
+                if (isset($_SESSION['content25'])) {
+                    echo $_SESSION['content25'];
+                } else {
+                    echo 'In the event we undergo a business transaction such as a merger, acquisition by another company, or sale of all or a portion of our assets, your Personal Information may be among the assets transferred. You acknowledge and consent that such transfers may occur and are permitted by this Privacy Policy, and that any acquirer of our assets may continue to process your Personal Information as set forth in this Privacy Policy. If our information practices change at any time in the future, we will post the policy changes here so that you may opt out of the new information practices. We suggest that you check this Privacy Policy periodically if you are concerned about how your information is used.';
+                }
+        ?></textarea><br>
             <br>
 
             <!-- last updated -->
@@ -302,7 +415,13 @@
                     rows=2
                     cols=100
                     style='font-family: "Times New Roman"; font-size: 24px; text-align: justify;'
-            >This Privacy Policy was last updated on Monday, April 04, 2021.</textarea><br>
+            ><?php
+                if (isset($_SESSION['content27'])) {
+                    echo $_SESSION['content27'];
+                } else {
+                    echo 'This Privacy Policy was last updated on Monday, April 04, 2021.';
+                }
+        ?></textarea><br>
             <hr>
 
             <!-- Button -->
