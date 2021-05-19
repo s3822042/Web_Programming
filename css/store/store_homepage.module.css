@@ -1,0 +1,54 @@
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#products{
+  width: 100%;
+}
+#products .container{
+  display: block;
+	width: 100%;
+	margin: 0 0;
+	font-size: 16px;
+}
+.title{
+  text-align: center;
+  font-size:40px;
+  font-weight: bold;
+  text-transform: uppercase;
+  
+}
+
+.product-container {
+  font-family: "Amazon Ember",Arial,sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 30px;
+}
+
+.product-card {
+  flex: 1 1 30%;
+  max-width: 605px;
+  background: #fff;
+  padding: 20px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 2px 0 #ccc;
+  transition: 0.3s;
+}
+
+.product-card:hover{
+  transform: scale(1.1);
+  box-shadow: 0 0 25px -5px #ccc;
+}
+
+.product-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 25px 0 10px 0;
+  text-align: center;
+}
