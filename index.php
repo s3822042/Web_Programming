@@ -109,6 +109,7 @@ fclose($store_file);
       <div class="stores-header">
         <h2>New Stores</h2>
       </div>
+      <div class = "store_grid">
       <?php
       for ($i = 0; $i < count($newStore); $i++) {
         echo ' <div class="store">';
@@ -118,9 +119,11 @@ fclose($store_file);
         echo '<figcaption>';
         echo $newStore[$i];
         echo '</figcaption>';
+        echo '</figure>';
         echo '</div>';
       }
       ?>
+      </div>
     </div>
   </section>
   <?php
@@ -194,7 +197,9 @@ fclose($store_file);
           echo '<div class="product-name">';
           echo $newProduct[$i];
           echo '</div>';
-          echo '<a href="templates\product\air-zoom-tempo.html" class="button">Buy now</a>';
+          echo '<a href="" class="button">Buy now</a>';
+          echo '</div>';
+
         }
         ?>
       </div>
@@ -206,8 +211,9 @@ fclose($store_file);
   <section id="stores">
     <div class="container">
       <div class="stores-header">
-        <h2>Featured Store</h2>
+        <h2>Feature Stores</h2>
       </div>
+      <div class = "store_grid">
       <?php
       for ($i = 0; $i < count($featureStore); $i++) {
         echo ' <div class="store">';
@@ -217,9 +223,11 @@ fclose($store_file);
         echo '<figcaption>';
         echo $featureStore[$i];
         echo '</figcaption>';
+        echo '</figure>';
         echo '</div>';
       }
       ?>
+      </div>
     </div>
   </section>
   <!-- End featured store -->
@@ -227,25 +235,29 @@ fclose($store_file);
   <section id="products">
     <div class="container">
       <div class="products-header">
-        <h2>Featured Products</h2>
+        <h2>Feature Products</h2>
       </div>
-      <?php
-      for ($i = 0; $i < count($featureProduct); $i++) {
-        echo '<div class="product-card" onmouseover="pauseSlides()" onmouseout="startSlides()">';
-        echo '<section class="ribbon">';
-        echo '<div class="store-nike">';
-        echo '<a href="">';
-        echo '<img src="https://i.imgur.com/ljKPWN6.jpg" alt="logo-nike" /></a>';
-        echo '</div>';
-        echo '</section>';
-        echo '<img src="https://i.imgur.com/gBfzpkA.jpg" alt="product1" class="product-icon" />';
-        echo '<div class="product-name">';
-        echo $featureProduct[$i];
-        echo '</div>';
-        echo '<a href="templates\product\air-zoom-tempo.html" class="button">Buy now</a>';
-      }
-      ?>
-    </div>
+      <!-- Product card row 1 -->
+      <div class="product-container" id="product-slider" style= "margin-bottom: 20px">
+        <?php
+        for ($i = 0; $i < count($featureProduct); $i++) {
+          echo '<div class="product-card" onmouseover="pauseSlides()" onmouseout="startSlides()">';
+          echo '<section class="ribbon">';
+          echo '<div class="store-nike">';
+          echo '<a href="">';
+          echo '<img src="https://i.imgur.com/ljKPWN6.jpg" alt="logo-nike" /></a>';
+          echo '</div>';
+          echo '</section>';
+          echo '<img src="https://i.imgur.com/gBfzpkA.jpg" alt="product1" class="product-icon" />';
+          echo '<div class="product-name">';
+          echo $featureProduct[$i];
+          echo '</div>';
+          echo '<a href="" class="button">Buy now</a>';
+          echo '</div>';
+        }
+        ?>
+      </div>
+      <!-- End product card row 1-->
     </div>
   </section>
   <!-- End featured products -->
@@ -277,7 +289,7 @@ fclose($store_file);
     </div>
   </footer>
   <!-- JavaScript -->
-  <script src="js/index.js"></script>
+  <!-- <script src="js/index.js"></script> -->
 </body>
 
 </html>
