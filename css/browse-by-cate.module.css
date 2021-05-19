@@ -48,7 +48,7 @@ body{
   }
   
 .store-card {
-     width: 25%;
+    width: 25%;
     background: #fff;
     box-shadow: 0 0 2px 0 #ccc;
     transition: 0.3s;
