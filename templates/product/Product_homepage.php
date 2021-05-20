@@ -1,16 +1,38 @@
+<?php
+session_start();
+
+error_reporting(E_ERROR | E_PARSE);
+if (fopen('../../php/install.php', 'r') != null) {
+    exit("'install.php' still exists! Delete it to proceed!");
+}
+
+$product_csv = "../../data/products.csv";
+$product_file = fopen($product_csv, 'r');
+
+while (($product_row = fgetcsv($product_file)) !== FALSE) {
+    $bigArray[] = $product_row;
+}
+
+$path = $_SERVER['REQUEST_URI'];
+$folders = parse_url($path, PHP_URL_QUERY);
+$your_id = explode("=", $folders); // get id
+
+
+fclose($product_file);
+?>
+
+
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Product</title>
     <meta charset="utf-8">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
     <link rel="stylesheet" href="../../css/style.css" />
     <link rel="stylesheet" href="../../css/product/product.module.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-
-
 </head>
 
 <body>
@@ -56,11 +78,13 @@
                 <div class="product-info">
                     <div class="info-wrapper">
                         <div class="product-price left-to-right">
-                            <span>$</span>230
+                            <span style="color:black">$<?php
+                                                        echo $bigArray[(int)$your_id[1]][2];
+                                                        ?></span>
                         </div>
                         <div class="product-name left-to-right">
                             <h2>
-                                Nike ZoomX Vaporfly NEXT%
+                                <?php echo $bigArray[(int)$your_id[1]][1]; ?>
                             </h2>
                         </div>
                         <div class="button left-to-right">

@@ -15,42 +15,6 @@ window.onload = () => {
   // show_cart();
 };
 
-// 2. Automatically Slider
-const productSlider = document.getElementById("product-slider");
-
-function appendProductSlider() {
-  const productCard = document.querySelector(".product-card");
-  productSlider.appendChild(productCard);
-}
-
-function getProducts() {
-  // Prior to getting products.
-  shouldScroll =
-    productSlider.scrollLeft + productSlider.clientWidth ===
-    productSlider.scrollWidth;
-
-  appendProductSlider();
-  // After getting products.
-  if (!shouldScroll) {
-    scrollToRight();
-  }
-}
-
-function scrollToRight() {
-  productSlider.scrollLeft = productSlider.scrollWidth;
-}
-
-scrollToRight();
-
-var theInterval = setInterval(getProducts, 500);
-
-function startSlides(event) {
-  theInterval = setInterval(getProducts, 500);
-}
-
-function pauseSlides(event) {
-  clearInterval(theInterval); // Clear the interval we set earlier
-}
 // 3. Modal form
 
 function on() {
