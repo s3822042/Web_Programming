@@ -164,7 +164,7 @@ fclose($store_file);
           echo '<div class="product-name">';
           echo $newProduct[$i][1];
           echo '</div>';
-          echo '<a href="' . 'templates/product/Product_homepage.php?id=' . $newProduct[$i][0] . '">';
+          echo '<a href="' . 'templates/product/Product_homepage.php?id=' . $newProduct[$i][0] . '"';
           echo 'class="button">Buy now</a>';
           echo '</div>';
         }
