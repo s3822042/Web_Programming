@@ -102,7 +102,7 @@ fclose($store_file);
         for ($i = 0; $i < count($newStore); $i++) {
           echo ' <div class="store">';
           echo '<figure>';
-          echo '<a href="' . 'templates/store/Store_homepage.php?id=$' . $newStore[$i][0] . '">';
+          echo '<a href="' . 'templates/store/Store_homepage.php?id=' . $newStore[$i][0] . '">';
           echo '<img src="https://i.imgur.com/jIB3Op5.jpg" alt="store-image" /></a>';
           echo '<figcaption>';
           echo $newStore[$i][1];
@@ -185,7 +185,7 @@ fclose($store_file);
         for ($i = 0; $i < count($featureStore); $i++) {
           echo ' <div class="store">';
           echo '<figure>';
-          echo '<a href="' . 'templates/store/Store_homepage.php?id=$' . $featureStore[$i][0] . '">';
+          echo '<a href="' . 'templates/store/Store_homepage.php?id=' . $featureStore[$i][0] . '">';
           echo '<img src="https://i.imgur.com/jIB3Op5.jpg" alt="store-image" /></a>';
           echo '<figcaption>';
           echo $featureStore[$i][1];
