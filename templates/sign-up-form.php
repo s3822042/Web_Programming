@@ -140,8 +140,8 @@
 
 		// assign values into variables
 		$email = $_POST['sign-up-email'];
-        $pwd = $_POST['sign-up-password'];
-        $pwd = encrypt_decrypt($pwd, 'encrypt');
+    $pwd = $_POST['sign-up-password'];
+    $pwd = encrypt_decrypt($pwd, 'encrypt');
 		$phonenum = $_POST['phone-number'];
 
 		// count the number of line to append the id of succesfully signed up users
@@ -156,17 +156,17 @@
 		//Start writing in data file + with id on each row
 		$fp = fopen('../php/login_data.csv', 'a');
 		fwrite($fp, $linecount);
-        fwrite($fp, ",");
-        fwrite($fp, $email);
-        fwrite($fp, ",");
-        fwrite($fp, $pwd);
+    fwrite($fp, ",");
+    fwrite($fp, $email);
+    fwrite($fp, ",");
+    fwrite($fp, $pwd);
 		fwrite($fp, ",");
 		fwrite($fp, $phonenum);
 		fwrite($fp, "\n");
-        fclose($fp);
+    fclose($fp);
 		unset($_SESSION['user']);
 		$_SESSION['sign-up-email'] = $email;
-    $_SESSION['sign-up-confirm-password'] = $pwd;
+    $_SESSION['sign-up-confirm-password'] = encrypt_decrypt($pwd, 'decrypt');;
 		header('Location: login-form.php');
 	}
 
