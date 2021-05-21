@@ -22,13 +22,6 @@ $your_id = explode("=", $folders); // get id
 
 
 while (($product_row = fgetcsv($product_file)) !== FALSE) {
-    // Read the data
-    if ($your_id[1] == $product_row[4]) {
-        $product_name[] = $product_row[1];
-        $product_date[] = $product_row[3];
-        $product_store_id = $product_row[4];
-    }
-
     $temp = substr($product_row[3], 0, 4);
     if (
         $your_id[1] == $product_row[4] &&
@@ -42,16 +35,11 @@ while (($product_row = fgetcsv($product_file)) !== FALSE) {
     }
 }
 
-
-
-
 while (($store_row = fgetcsv($store_file)) !== FALSE) {
     if ($your_id[1] == $store_row[0]) {
         $product_store_name[] = $store_row[1];
     }
 }
-
-
 
 function date_compare($a, $b)
 {
