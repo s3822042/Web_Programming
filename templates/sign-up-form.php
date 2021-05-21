@@ -1,9 +1,24 @@
 <?php
-if ( empty(session_id()) ) session_start();
+  if ( empty(session_id()) ) session_start();
 	error_reporting(E_ERROR | E_PARSE);
 	if (fopen('../php/install.php', 'r') != null) {
 		exit("'install.php' still exists! Delete it to proceed!");
 	} 
+  if (fopen('../../php/install.php', 'r') != null) {
+    exit("'install.php' still exists! Delete it to proceed!");
+  }
+
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $_SESSION['postdata'] = $_POST;
+      unset($_POST);
+      header("Location: ".$_SERVER['REQUEST_URI']);
+      exit;
+  }
+      
+  if (@$_SESSION['postdata']){
+  $_POST=$_SESSION['postdata'];
+  unset($_SESSION['postdata']);
+}
 
 	function encrypt_decrypt($string, $action = 'encrypt')
     {
