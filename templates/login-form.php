@@ -1,6 +1,6 @@
  <?php
 ob_start();
-session_start();
+if ( empty(session_id()) ) session_start();
 function encrypt_decrypt($string, $action = 'encrypt')
 {
   $encrypt_method = "AES-256-CBC";

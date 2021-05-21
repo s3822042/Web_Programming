@@ -1,5 +1,5 @@
 <?php
-    session_start();
+if ( empty(session_id()) ) session_start();
     error_reporting(E_ERROR | E_PARSE);
 
     if (fopen('../php/install.php', 'r') != null) {
