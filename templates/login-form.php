@@ -1,4 +1,4 @@
-<?php
+ <?php
 ob_start();
 if ( empty(session_id()) ) session_start();
 function encrypt_decrypt($string, $action = 'encrypt')
@@ -40,38 +40,33 @@ if (fopen('../php/install.php', 'r') != null) {
 // echo '<hr>';
 
 if (isset($_POST['log-in-hit'])) {
-  $adminUsername = "";
-  $adminPass = "";
-  $datafile = fopen('../php/data.txt', 'r');
-  if ($datafile) {
-    $adminUsername = trim(fgets($datafile));
-    $adminPass = trim(encrypt_decrypt(fgets($datafile), 'decrypt'));
-  } else {
-    exit("Cannot find data.txt!");
-  }
+    $adminUsername = "";
+	$adminPass = "";
+	$datafile = fopen('../php/data.txt', 'r');
+	if ($datafile) {
+		$adminUsername = trim(fgets($datafile));
+		$adminPass = trim(encrypt_decrypt(fgets($datafile), 'decrypt'));
+	} else {
+		exit("Cannot find data.txt!");
+	}
 
-  if (isset($_POST['email']) && $_POST['email'] == $adminUsername && isset($_POST['pwd']) && $_POST['pwd'] == $adminPass) {
-    $_SESSION['admin_username'] = $_POST['email'];
-    header('location: CMS.php');
-  } else if (isset($_POST['email']) && $_POST['email'] == $_SESSION['sign-up-email'] && isset($_POST['pwd']) && $_POST['pwd'] == $_SESSION['sign-up-confirm-password']) {
-    $_SESSION['user'] = $_POST['email'];
-    unset($_SESSION['admin_username']);
-    unset($_SESSION['sign-up-email']);
-    unset($_SESSION['sign-up-confirm-password']);
-    if (isset($_SESSION['visited-cart-page']) && $_SESSION['visited-cart-page'] == 'already')
-    {
-      if (isset($_SESSION['last-visited-product'])) {
-        $lvp = $_SESSION['last-visited-product'];
-        header('location: product/'.$lvp);
-      } else {
-        header('location: ../index.php');
-      }
-    } else {
-      header('location: account/account.php');
+	if (isset($_POST['email']) && $_POST['email'] == $adminUsername && isset($_POST['pwd']) && $_POST['pwd'] == $adminPass) {
+	$_SESSION['admin_username'] = $_POST['email'];
+		unset($_POST);
+		header('location: CMS.php');
+	} 
+	else if (isset($_POST['email']) && $_POST['email'] == $_SESSION['sign-up-email'] && isset($_POST['pwd']) && $_POST['pwd'] == $_SESSION['sign-up-confirm-password']) {
+		$_SESSION['user'] = $_POST['email'];
+		unset($_SESSION['admin_username']);
+		unset($_SESSION['sign-up-email']);
+		unset($_SESSION['sign-up-confirm-password']);
+    } 
+	else {
+		unset($_POST);
+      	header('location: account/account.php');
     }
-  } 
+} 
   fclose($datafile);
-}
 ?>
 
 <!DOCTYPE html>
@@ -133,15 +128,33 @@ if (isset($_POST['log-in-hit'])) {
   <section id="wrapper">
     <h1>Login</h1>
     <div class="form">
-      <form method="post" name="loginForm" onsubmit="return validateLogin()" action="login-form.php">
-
+      <form method="post" name="loginForm" action="login-form.php">
         <div class="field-wrapper">
           <label for="email"></label>
-          <input type="text" name="email" id="email" placeholder="Email address" />
+          <input type="text" name="email" id="email" placeholder="Email address" onclick="this.value=''" onkeypress="this.style.color='black'"
+		  		<?php
+				  	if (isset($_POST['email']) && $_POST['pwd'])
+					  {
+						if ($_POST['email'] != $_SESSION['sign-up-email'] && $_POST['pwd'] != $_SESSION['sign-up-confirm-password']) {
+							echo ' value='.'"Unknown email AND password!"';
+							echo ' style="color: red;"';
+						}
+						else if ($_POST['email'] != $_SESSION['sign-up-email']) 
+						{
+							echo ' value='.'"Unknown email!"';
+							echo ' style="color: red;"';
+						}
+						else if ($_POST['pwd'] != $_SESSION['sign-up-confirm-password']) {
+							echo ' value='.'"Please check your password!"';
+							echo ' style="color: red;"';
+						}
+					  }
+				?>
+		  required/>
         </div>
         <div class="field-wrapper">
           <label for="password"></label>
-          <input type="password" name="pwd" id="pwd" placeholder="Password" />
+          <input type="password" name="pwd" id="pwd" placeholder="Password" onclick="this.value=''" onkeypress="this.style.color='black'" required/>
         </div>
 
         <div class="button">
