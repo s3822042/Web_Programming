@@ -22,7 +22,6 @@ $your_id = explode("=", $folders); // get id
 
 
 while (($product_row = fgetcsv($product_file)) !== FALSE) {
-    $temp = substr($product_row[3], 0, 4);
     if ($your_id[1] == $product_row[4]) {
         $productCreatedDate[] = array($product_row[0], $product_row[1], trim($product_row[3]));
     }
