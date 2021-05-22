@@ -1,10 +1,26 @@
 <?php
-if ( empty(session_id()) ) session_start();
+  if ( empty(session_id()) ) session_start();
 	error_reporting(E_ERROR | E_PARSE);
 	if (fopen('../php/install.php', 'r') != null) {
 		exit("'install.php' still exists! Delete it to proceed!");
 	} 
+  if (fopen('../../php/install.php', 'r') != null) {
+    exit("'install.php' still exists! Delete it to proceed!");
+  }
 
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $_SESSION['postdata'] = $_POST;
+      unset($_POST);
+      header("Location: ".$_SERVER['REQUEST_URI']);
+      exit;
+  }
+      
+  if (@$_SESSION['postdata']){
+  $_POST=$_SESSION['postdata'];
+  unset($_SESSION['postdata']);
+}
+  if(isset($_SESSION['user'])) unset($_SESSION['user']);
+  
 	function encrypt_decrypt($string, $action = 'encrypt')
     {
         $encrypt_method = "AES-256-CBC";
@@ -125,8 +141,8 @@ if ( empty(session_id()) ) session_start();
 
 		// assign values into variables
 		$email = $_POST['sign-up-email'];
-        $pwd = $_POST['sign-up-password'];
-        $pwd = encrypt_decrypt($pwd, 'encrypt');
+    $pwd = $_POST['sign-up-password'];
+    $pwd = encrypt_decrypt($pwd, 'encrypt');
 		$phonenum = $_POST['phone-number'];
 
 		// count the number of line to append the id of succesfully signed up users
@@ -141,17 +157,17 @@ if ( empty(session_id()) ) session_start();
 		//Start writing in data file + with id on each row
 		$fp = fopen('../php/login_data.csv', 'a');
 		fwrite($fp, $linecount);
-        fwrite($fp, ",");
-        fwrite($fp, $email);
-        fwrite($fp, ",");
-        fwrite($fp, $pwd);
+    fwrite($fp, ",");
+    fwrite($fp, $email);
+    fwrite($fp, ",");
+    fwrite($fp, $pwd);
 		fwrite($fp, ",");
 		fwrite($fp, $phonenum);
 		fwrite($fp, "\n");
-        fclose($fp);
+    fclose($fp);
 		unset($_SESSION['user']);
 		$_SESSION['sign-up-email'] = $email;
-    $_SESSION['sign-up-confirm-password'] = $pwd;
+    $_SESSION['sign-up-confirm-password'] = encrypt_decrypt($pwd, 'decrypt');;
 		header('Location: login-form.php');
 	}
 

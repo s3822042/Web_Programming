@@ -5,6 +5,17 @@ if ( empty(session_id()) ) session_start();
       exit("'install.php' still exists! Delete it to proceed!");
   } 
 
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $_SESSION['postdata'] = $_POST;
+    unset($_POST);
+    header("Location: ".$_SERVER['REQUEST_URI']);
+    exit;
+  }
+    
+  if (@$_SESSION['postdata']){
+  $_POST=$_SESSION['postdata'];
+  unset($_SESSION['postdata']);
+  }
 
   // echo '<h2>$_SESSION values</h2>';
   // echo '<pre>';
@@ -26,7 +37,7 @@ if ( empty(session_id()) ) session_start();
     header('location: sign-up-form.php');
   }
 
-  if (isset($_SESSION['user']) && $_POST['hit-button'] == 'Order' && isset($_SESSION['a-product-added']) && $_SESSION['a-product-added'] == 'already')
+  if (isset($_SESSION['user']) && $_POST['hit-button'] == 'Order' && isset($_SESSION['cart']))
   {
     header('location: thank_you.php');
   }
@@ -53,29 +64,10 @@ if ( empty(session_id()) ) session_start();
     />
   </head>
 
-  <?php
-    echo "<body onmouseover='cartNumbers(); totalCost()'>";
-  ?>
 
-<script type="text/javascript">
-  function totalCost() {
-    let cart = JSON.parse(localStorage.getItem("cart"));
-    let total = 0;
-    // msg = '';
-    for (let item of cart) {
-        // msg += item["name"] + ": $" + item["price"] +" x " + item["quantity"] + " of Size " + item["size"];
-        let sub_total = parseFloat(item["price"]) * parseFloat(item["quantity"]);
-        // msg += " = $" + sub_total + "\n";
-        total += sub_total;
-    }
-    // msg += "----------------\n";
-    // msg += "Total: $" + total;
-    localStorage.setItem("totalCost", total);
-}
-</script>
-  <!-- <script src="../js/cart.js"></script> -->
+  <body>
     <!-- Navigation bar -->
-    <header onmouseleave="window.location.reload()">
+    <header>
       <!-- Logo -->
       <div class="brand">
         <a href="../index.php"
@@ -114,8 +106,7 @@ if ( empty(session_id()) ) session_start();
           <a href="login-form.php">
             <li>Sign in</li>
           </a>
-          <a href="cart.php" style="color: red" class="cart-nav" id="cart"
-            ><li>Cart: <span>0</span></li></a
+          <a href="cart.php" ><li>Cart</li></a
           >
         </ul>
       </nav>
@@ -128,38 +119,41 @@ if ( empty(session_id()) ) session_start();
 
     <div class="product-container">
       <div class="product-header">
-        <h5 class="product-title">PRODUCT</h5>
-        <h5 class="price">PRICE</h5>
-        <h5 class="quantity">QUANTITY</h5>
-        <h5 class="total">COST</h5>
+        <h3 class="product-title">PRODUCT</h3>
+        <h3 class="price">PRICE</h3>
+        <h3 class="quantity">QUANTITY</h3>
+        <h3 class="total">COST</h3>
       </div>
 
-      <div class="products"></div>
-
-      <div class="coupon-input">
-        <label id="coupon-title" for="coupon-input-field"
-          ><strong>COUPON:</strong></label
-        >
-        <input
-          id="coupon-input-field"
-          type="text"
-          placeholder="(Optional)"
-          oninput="this.value = this.value.toUpperCase()"
-          onblur="afterCoupon(); validCoupon()"
-        />
-      </div>
-
-      <div class="payment-total">
-        <h4 id="paymentTotalValue">
-          PAYMENT TOTAL:
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-            >$0</span
-          >
-        </h4>
+      <?php 
+        foreach($_SESSION['cart'] as $product)
+        {
+          echo '<div class="product-header-sub" style="margin-top:-4px;">';
+          echo '<p class="product-title">'.$product[1].'</p>';
+          echo '<p class="price">$'.$product[2].'</p>';
+          echo '<p class="quantity">'.$product[3].'</p>';
+          echo '<p class="total">$'.(float)$product[2] * (int)$product[3].'</p>';
+          echo '</div>';
+        }
+      ?>
+      <div class="product-header-sub" style="border-bottom: 4px solid rgba(241, 16, 16, 0.8);">
+        <h3 class="product-title"></h3>
+        <h3 class="price"></h3>
+        <h3 class="quantity">TOTAL:</h3>
+        <h3 class="total">
+          <?php
+            $sum = 0;
+            foreach($_SESSION['cart'] as $product)
+            {
+              $sum = $sum + ((float)$product[2] * (int)$product[3]);
+            }
+            echo '$'.$sum;
+          ?>
+        </h3>
       </div>
 
       <div class="button-container">
-        <form method="post" name="cart-buttons-form" action="cart.php">
+        <form method="post" name="cart-buttons-form" action="cart.php" id="submit-buttons">
           <input type="submit" name="hit-button" value="Continue Shopping" class="continue-button">
           <input type="submit" name="hit-button" value="Order" class="order-button">
         </form>

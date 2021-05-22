@@ -6,13 +6,7 @@ if ( empty(session_id()) ) session_start();
 		exit("'install.php' still exists! Delete it to proceed!");
 	} 
 
-	if (isset($_SESSION['a-product-added'])) {
-		unset($_SESSION['a-product-added']);
-	}
-
-	if (isset($_SESSION['last-visited-product'])) {
-		unset($_SESSION['last-visited-product']);
-	}
+	if(isset($_SESSION['cart'])) unset($_SESSION['cart']);
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +26,7 @@ if ( empty(session_id()) ) session_start();
     />
   </head>
 
-  <body onmouseover="window.localStorage.removeItem('cart');window.localStorage.removeItem('totalCost')">
+  <body>
     <!-- Navigation bar -->
     <header>
       <!-- Logo -->
@@ -73,7 +67,7 @@ if ( empty(session_id()) ) session_start();
           <a href="login-form.php">
             <li>Sign in</li>
           </a>
-          <a href="cart.php" style="color: red" id="cart">
+          <a href="cart.php" id="cart">
             <li>Cart</li>
           </a>
         </ul>

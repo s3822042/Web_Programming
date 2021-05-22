@@ -1,6 +1,26 @@
- <?php
+<?php
 ob_start();
 if ( empty(session_id()) ) session_start();
+
+error_reporting(E_ERROR | E_PARSE);
+if (fopen('../../php/install.php', 'r') != null) {
+  exit("'install.php' still exists! Delete it to proceed!");
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $_SESSION['postdata'] = $_POST;
+  unset($_POST);
+  header("Location: ".$_SERVER['REQUEST_URI']);
+  exit;
+}
+  
+if (@$_SESSION['postdata']){
+$_POST=$_SESSION['postdata'];
+unset($_SESSION['postdata']);
+}
+
+if(isset($_SESSION['user'])) header('Location: account/account.php');
+
 function encrypt_decrypt($string, $action = 'encrypt')
 {
   $encrypt_method = "AES-256-CBC";
@@ -15,10 +35,6 @@ function encrypt_decrypt($string, $action = 'encrypt')
     $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
   }
   return $output;
-}
-error_reporting(E_ERROR | E_PARSE);
-if (fopen('../php/install.php', 'r') != null) {
-  exit("'install.php' still exists! Delete it to proceed!");
 }
 
 // echo '<h2>log in values</h2>';
@@ -40,7 +56,7 @@ if (fopen('../php/install.php', 'r') != null) {
 // echo '<hr>';
 
 if (isset($_POST['log-in-hit'])) {
-    $adminUsername = "";
+  $adminUsername = "";
 	$adminPass = "";
 	$datafile = fopen('../php/data.txt', 'r');
 	if ($datafile) {
@@ -51,8 +67,9 @@ if (isset($_POST['log-in-hit'])) {
 	}
 
 	if (isset($_POST['email']) && $_POST['email'] == $adminUsername && isset($_POST['pwd']) && $_POST['pwd'] == $adminPass) {
-	$_SESSION['admin_username'] = $_POST['email'];
-		unset($_POST);
+	  $_SESSION['admin_username'] = $_POST['email'];
+    unset($_SESSION['sign-up-email']);
+		unset($_SESSION['sign-up-confirm-password']);
 		header('location: CMS.php');
 	} 
 	else if (isset($_POST['email']) && $_POST['email'] == $_SESSION['sign-up-email'] && isset($_POST['pwd']) && $_POST['pwd'] == $_SESSION['sign-up-confirm-password']) {
@@ -60,11 +77,8 @@ if (isset($_POST['log-in-hit'])) {
 		unset($_SESSION['admin_username']);
 		unset($_SESSION['sign-up-email']);
 		unset($_SESSION['sign-up-confirm-password']);
+    header('location: account/account.php');
     } 
-	else {
-		unset($_POST);
-      	header('location: account/account.php');
-    }
 } 
   fclose($datafile);
 ?>

@@ -68,15 +68,21 @@
 
 .body_container .account_body .account_main_content .submit_button {
     color: black;
-    margin-left: 80%;
+    margin-left: 35%;
     transition: 0.3s;
     margin-top: 10px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 4px; 
+    cursor: pointer; 
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
 }
 
-.body_container ._body .account_main_content .submit_button:hover {
-    background-color: #748dff;
-    color: white
+.body_container .account_body .account_main_content .submit_button:hover {
+    background-color: rgba(241, 16, 16, 0.8);
+    color: #fff;
 }
+
 
 .body_container .account_body .account_main_content .personal_detail .information_box {
     display: grid;
