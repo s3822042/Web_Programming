@@ -1,39 +1,21 @@
-<?php
-if ( empty(session_id()) ) session_start();
+<?php require '../php/browse_store.php';
+if (empty(session_id())) session_start();
 error_reporting(E_ERROR | E_PARSE);
 if (fopen('../php/install.php', 'r') != null) {
   exit("'install.php' still exists! Delete it to proceed!");
 }
 
-
-$array = array();
-$file = fopen("../data/stores.csv", "r");
-
-
-while (($row = fgetcsv($file)) !== FALSE) {
-  // Read the data
-  $array[] = trim($row[1]);
-}
-// sort alphabetically
-sort($array);
-// remove last element of array
-$remove = array_pop($array);
-
-
-fclose($file);
-
-
 $chosen_letter = $_POST["chosen-letter"];
 $matched_store = [];
 $matched_number = [];
 
-foreach ($array as $v) {
+foreach ($browse_letter as $v) {
   $first_letter = strtolower(substr($v, 0, 1));
   $first_number = substr($v, 0, 1);
   if ($first_letter == $chosen_letter) {
     $matched_store[] = $v;
   }
-  if (is_numeric($first_number))  {
+  if (is_numeric($first_number)) {
     $matched_number[] = $v;
   }
 }
@@ -133,12 +115,9 @@ foreach ($array as $v) {
     <div class="container">
       <!-- Store card row-->
       <div class="store-container">
-
         <?php
-
-        if($chosen_number = $_POST["chosen-number"]){
+        if ($chosen_number = $_POST["chosen-number"]) {
           for ($i = 0; $i < count($matched_number); $i++) {
-
             echo '<div class="store-card">';
             echo '<figure>';
             echo '<a href="">';
@@ -151,12 +130,7 @@ foreach ($array as $v) {
             echo '</div>';
           }
         }
-
-        
-        
-
         for ($i = 0; $i < count($matched_store); $i++) {
-
           echo '<div class="store-card">';
           echo '<figure>';
           echo '<a href="">';
@@ -169,12 +143,7 @@ foreach ($array as $v) {
           echo '</div>';
         }
         ?>
-
-
       </div>
-
-      
-
     </div>
     <!-- End store card row-->
     </div>

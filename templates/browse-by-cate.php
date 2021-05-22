@@ -1,55 +1,16 @@
-<?php
-if ( empty(session_id()) ) session_start();
+<?php require '../php/browse_store.php';
+if (empty(session_id())) session_start();
 error_reporting(E_ERROR | E_PARSE);
 if (fopen('../php/install.php', 'r') != null) {
   exit("'install.php' still exists! Delete it to proceed!");
 }
-
-
-$store_name_array = array();
-$h = fopen("../data/stores.csv", "r");
-
-
-$row_store = 1;
-
-while (($row = fgetcsv($h)) !== FALSE) {
-  // Skip the first line
-  if ($row_store == 1) {
-    $row_store++;
-    continue;
-  }
-  // Read the data
-  $store_name_array[] = trim($row[1]);
-  $store_cate_id_array[] = trim($row[2]);
-}
-
-
-
-fclose($h);
-
-$path = "../data/categories.csv";
-$file = fopen($path, 'r');
-
-$row = 1;
-
-while (($data = fgetcsv($file)) !== FALSE) {
-  // Skip the first line
-  if ($row == 1) {
-    $row++;
-    continue;
-  }
-  // Add data to array
-  $category_name[] = trim($data[1]);
-}
-
-fclose($file);
 
 $chosen_index = array_search($_POST['categories'], $category_name) + 1;
 $count = 0;
 $browse_cate = [];
 foreach ($store_cate_id_array as $c) {
   if ($c == $chosen_index) {
-    $browse_cate[] = $store_name_array[$count];
+    $browse_cate[] = array($store_name_array[$count]);
   }
   $count++;
 }
@@ -150,12 +111,12 @@ foreach ($store_cate_id_array as $c) {
         for ($i = 0; $i < count($browse_cate); $i++) {
           echo '<div class="store-card">';
           echo '<figure>';
-          echo '<a href="">';
+          echo '<a href="' . './store/Store_homepage.php?id=' . $browse_cate[$i][0][1] . '">';
           echo '<img src="https://i.imgur.com/SPU418r.jpg" alt="store1" class="store-icon" />';
           echo '</a>';
           echo '</figure>';
           echo '<div class="store-name">';
-          echo $browse_cate[$i];
+          echo $browse_cate[$i][0];
           echo '</div>';
           echo '</div>';
         }

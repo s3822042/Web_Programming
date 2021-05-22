@@ -1,65 +1,10 @@
-<?php
+<?php require '../../php/store_page.php';
 if (empty(session_id())) session_start();
 
 error_reporting(E_ERROR | E_PARSE);
 if (fopen('../../php/install.php', 'r') != null) {
     exit("'install.php' still exists! Delete it to proceed!");
 }
-
-
-// PRODUCT
-
-$product_csv = "../../data/products.csv";
-$product_file = fopen($product_csv, "r");
-
-
-$store_csv = "../../data/stores.csv";
-$store_file = fopen($store_csv, "r");
-
-$path = $_SERVER['REQUEST_URI'];
-$folders = parse_url($path, PHP_URL_QUERY);
-$your_id = explode("=", $folders); // get id
-
-
-while (($product_row = fgetcsv($product_file)) !== FALSE) {
-    if ($your_id[1] == $product_row[4]) {
-        $productCreatedDate[] = array($product_row[0], $product_row[1], trim($product_row[3]));
-    }
-    if ($your_id[1] == $product_row[4] && $product_row[6] === 'TRUE') {
-        $featureProduct[] = array($product_row[1], $product_row[0]);
-    }
-}
-
-while (($store_row = fgetcsv($store_file)) !== FALSE) {
-    if ($your_id[1] == $store_row[0]) {
-        $product_store_name[] = $store_row[1];
-    }
-}
-
-function date_compare($a, $b)
-{
-    $time1 = strtotime($a[2]);
-    $time2 = strtotime($b[2]);
-    if ($time1 < $time2)
-        return 1;
-    else if ($time1 > $time2)
-        return -1;
-    else
-        return 0;
-}
-
-if (!empty($productCreatedDate)) {
-    usort($productCreatedDate, "date_compare");
-    $sliceArrayProduct = array_splice($productCreatedDate, 0, 5, true);
-    $newProduct = array_values($sliceArrayProduct);
-}
-
-
-fclose($store_file);
-fclose($product_file);
-
-
-
 ?>
 
 <!DOCTYPE html>
