@@ -298,17 +298,3 @@ function validateZipCode() {
     return false;
   }
 }
-// 8. Hide cart when user is not logged in
-// function show_cart() {
-//   let cart_nav = document.getElementById("cart");
-//   if (localStorage.getItem("validatedEmailAddress") !== null) {
-//     cart_nav.style.visibility = "visible";
-//   } else {
-//     cart_nav.style.visibility = "hidden";
-//   }
-// }
-
-// reload the page when option menu is checked
-function onChange() {
-  document.getElementById("myForm").submit();
-}
