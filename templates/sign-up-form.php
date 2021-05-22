@@ -35,7 +35,7 @@
         <a href="fees.html">
           <li>Fees</li>
         </a>
-        <a href="account/account.html">
+        <a href="account/account.php">
           <li>Account</li>
         </a>
         <a href="browse-menu.html">

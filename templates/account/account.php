@@ -33,7 +33,7 @@
         <a href="../fees.html">
           <li>Fees</li>
         </a>
-        <a href="../account/account.html">
+        <a href="account.php">
           <li>Account</li>
         </a>
         <a href="../browse-menu.html">
@@ -160,7 +160,7 @@
             <a href="../term_of_services.php">Term of Service</a>
           </div>
           <div class="grid-item">
-            <a href="../account/account.html">Account</a>
+            <a href="account.html">Account</a>
           </div>
           <div class="grid-item"><a href="../faq.html">FAQs</a></div>
           <div class="grid-item">
