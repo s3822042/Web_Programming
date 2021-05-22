@@ -23,8 +23,8 @@ Development, especially in Web Programming and Data Science. As developers, we f
 
 ```
 
-
-├── css/ - CSS Folder
+├── assets / Image file
+├── css / - CSS file
 │ ├── account / - CSS files related to account
 │ ├── store / - CSS files related to store
 │ ├── about.module.css / - About page
@@ -42,15 +42,25 @@ Development, especially in Web Programming and Data Science. As developers, we f
 │ ├── sign-up-form.module.css / - CSS files related to Sign up page
 │ ├── term_of_services.module.css / - CSS files related to Terms of Service page
 │ ├── thank_you.module.css / - CSS files related to Thank You page after purchasing product
+├── data / - CSV file
+├── js / JavaScript file
+│ ├── index.js
+│ ├── product.js / - Js files for Product page
+├── php / PHP file
+│ ├── browse_store.php / -PHP file for Browse by letters and categories page
+│ ├── install.php / - PHP file to register admin account
+│ ├── mall_page.php / - PHP file for Mall Homepage ( index file )
+│ ├── product_page.php / - PHP file for Product_homepage
+│ ├── store_page.php / - PHP file for Store_homepage
 ├── templates / - HTML file
 │ ├── account / - HTML files related to account
 │ ├── product / - HTML files related to product
 │ ├── store / - HTML files related to store
 │ ├── about.php / - About page
-│ ├── browse-by-cate.html / - Browse By Categories page
-│ ├── browse-by-letters.html / - Browse By Alphabet Character page
-│ ├── browse-menu / - Browse Store page
-│ ├── cart.html / - Order Placement page
+│ ├── browse-menu.html / - Browse Store page
+│ ├── browse-by-cate.php / - Browse By Categories page
+│ ├── browse-by-letters.php / - Browse By Alphabet Character page
+│ ├── cart.php / - Order Placement page
 │ ├── contact.html / - Contact page 
 │ ├── faq.html / - FAQ page
 │ ├── fees.html / - Fees page
@@ -59,8 +69,8 @@ Development, especially in Web Programming and Data Science. As developers, we f
 │ ├── privacy_policies.php / - Privacy Policies page
 │ ├── sign-up-form.html / - Sign up page
 │ ├── term_of_services.php / - Terms of Service page
-│ ├── thank_you.html / - Thank You page after purchasing product
-├── index.php / - Homepage
+│ ├── thank_you.php / - Thank You page after purchasing product
 ├── .gitignore
 ├── README.md
+├── index.php / - Homepage
 ```
