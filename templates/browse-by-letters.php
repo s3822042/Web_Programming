@@ -99,12 +99,12 @@
           for ($i = 0; $i < count($matched_number); $i++) {
             echo '<div class="store-card">';
             echo '<figure>';
-            echo '<a href="">';
+            echo '<a href="./store/Store_homepage.php?id='.$matched_number[$i][0].'">';
             echo '<img src="https://i.imgur.com/SPU418r.jpg" alt="store1" class="store-icon" />';
             echo '</a>';
             echo '</figure>';
             echo '<div class="store-name">';
-            echo $matched_number[$i];
+            echo $matched_number[$i][1];
             echo '</div>';
             echo '</div>';
           }
@@ -112,12 +112,12 @@
         for ($i = 0; $i < count($matched_store); $i++) {
           echo '<div class="store-card">';
           echo '<figure>';
-          echo '<a href="">';
+          echo '<a href="./store/Store_homepage.php?id='.$matched_store[$i][0].'">';
           echo '<img src="https://i.imgur.com/SPU418r.jpg" alt="store1" class="store-icon" />';
           echo '</a>';
           echo '</figure>';
           echo '<div class="store-name">';
-          echo $matched_store[$i];
+          echo $matched_store[$i][1];
           echo '</div>';
           echo '</div>';
         }

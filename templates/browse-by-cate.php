@@ -90,16 +90,15 @@
       <div class="store-container">
 
         <?php
-
         for ($i = 0; $i < count($browse_cate); $i++) {
           echo '<div class="store-card">';
           echo '<figure>';
-          echo '<a href="">';
+          echo '<a href="./store/Store_homepage.php?id='.$browse_cate[$i][0].'">';
           echo '<img src="https://i.imgur.com/SPU418r.jpg" alt="store1" class="store-icon" />';
           echo '</a>';
           echo '</figure>';
           echo '<div class="store-name">';
-          echo $browse_cate[$i];
+          echo $browse_cate[$i][1];
           echo '</div>';
           echo '</div>';
         }
