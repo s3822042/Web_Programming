@@ -31,7 +31,7 @@
         continue;
     }
     // Read the data
-    $store_name_array[] = trim($row[1]);
+    $store_name_array[] = array($row[0], trim($row[1]));
     $store_cate_id_array[] = trim($row[2]);
     }
     fclose($h);
