@@ -1,25 +1,4 @@
-<?php require '../php/browse_store.php';
-if (empty(session_id())) session_start();
-error_reporting(E_ERROR | E_PARSE);
-if (fopen('../php/install.php', 'r') != null) {
-  exit("'install.php' still exists! Delete it to proceed!");
-}
-
-$chosen_letter = $_POST["chosen-letter"];
-$matched_store = [];
-$matched_number = [];
-
-foreach ($browse_letter as $v) {
-  $first_letter = strtolower(substr($v, 0, 1));
-  $first_number = substr($v, 0, 1);
-  if ($first_letter == $chosen_letter) {
-    $matched_store[] = $v;
-  }
-  if (is_numeric($first_number)) {
-    $matched_number[] = $v;
-  }
-}
-?>
+<?php require '../php/browse_letter_require.php';?>
 
 <!DOCTYPE html>
 <html lang="en">
