@@ -23,11 +23,7 @@ $your_id = explode("=", $folders); // get id
 
 while (($product_row = fgetcsv($product_file)) !== FALSE) {
     $temp = substr($product_row[3], 0, 4);
-    if (
-        $your_id[1] == $product_row[4] &&
-        $temp == '2021' || $temp == '2020'
-        || $temp == '2019'
-    ) {
+    if ($your_id[1] == $product_row[4]) {
         $productCreatedDate[] = array($product_row[0], $product_row[1], trim($product_row[3]));
     }
     if ($your_id[1] == $product_row[4] && $product_row[6] === 'TRUE') {
@@ -53,12 +49,11 @@ function date_compare($a, $b)
         return 0;
 }
 
-
-usort($productCreatedDate, "date_compare");
-$sliceArrayProduct = array_splice($productCreatedDate, 0, 5, true);
-
-
-$newProduct = array_values($sliceArrayProduct);
+if (!empty($productCreatedDate)) {
+    usort($productCreatedDate, "date_compare");
+    $sliceArrayProduct = array_splice($productCreatedDate, 0, 5, true);
+    $newProduct = array_values($sliceArrayProduct);
+}
 
 
 fclose($store_file);
@@ -136,22 +131,27 @@ fclose($product_file);
             <!-- Product card row 1 -->
             <div class="product-container" id="product-slider" style="margin-bottom: 20px">
                 <?php
-                for ($i = 0; $i < count($featureProduct); $i++) {
-                    echo '<div class="product-card">';
-                    echo '<section class="ribbon">';
-                    echo '<div class="store-nike">';
-                    echo '<a href="">';
-                    echo '<img src="https://i.imgur.com/ljKPWN6.jpg" alt="logo-nike" /></a>';
-                    echo '</div>';
-                    echo '</section>';
-                    echo '<img src="https://i.imgur.com/gBfzpkA.jpg" alt="product1" class="product-icon" />';
-                    echo '<div class="product-name">';
-                    echo $featureProduct[$i][0];
-                    echo '</div>';
-                    echo '<a href="' . '../product/Product_homepage.php?id=' . $featureProduct[$i][1] . '"';
-                    echo 'class="button">Buy now</a>';
-                    echo '</div>';
+                if (empty($featureProduct)) {
+                    echo 'This store does not have any feature product';
+                } else {
+                    for ($i = 0; $i < count($featureProduct); $i++) {
+                        echo '<div class="product-card">';
+                        echo '<section class="ribbon">';
+                        echo '<div class="store-nike">';
+                        echo '<a href="">';
+                        echo '<img src="https://i.imgur.com/ljKPWN6.jpg" alt="logo-nike" /></a>';
+                        echo '</div>';
+                        echo '</section>';
+                        echo '<img src="https://i.imgur.com/gBfzpkA.jpg" alt="product1" class="product-icon" />';
+                        echo '<div class="product-name">';
+                        echo  $featureProduct[$i][0];
+                        echo '</div>';
+                        echo '<a href="' . '../product/Product_homepage.php?id=' . $featureProduct[$i][1] . '"';
+                        echo 'class="button">Buy now</a>';
+                        echo '</div>';
+                    }
                 }
+
                 ?>
             </div>
             <!-- End product card row 1-->
@@ -167,21 +167,25 @@ fclose($product_file);
             <!-- Product card row 1 -->
             <div class="product-container" id="product-slider">
                 <?php
-                for ($i = 0; $i < count($newProduct); $i++) {
-                    echo '<div class="product-card">';
-                    echo '<section class="ribbon">';
-                    echo '<div class="store-nike">';
-                    echo '<a href="">';
-                    echo '<img src="https://i.imgur.com/ljKPWN6.jpg" alt="logo-nike" /></a>';
-                    echo '</div>';
-                    echo '</section>';
-                    echo '<img src="https://i.imgur.com/gBfzpkA.jpg" alt="product1" class="product-icon" />';
-                    echo '<div class="product-name">';
-                    echo $newProduct[$i][1];
-                    echo '</div>';
-                    echo '<a href="' . '../product/Product_homepage.php?id=' . $newProduct[$i][0] . '"';
-                    echo 'class="button">Buy now</a>';
-                    echo '</div>';
+                if (empty($newProduct)) {
+                    echo 'This store does not have any new product';
+                } else {
+                    for ($i = 0; $i < count($newProduct); $i++) {
+                        echo '<div class="product-card">';
+                        echo '<section class="ribbon">';
+                        echo '<div class="store-nike">';
+                        echo '<a href="">';
+                        echo '<img src="https://i.imgur.com/ljKPWN6.jpg" alt="logo-nike" /></a>';
+                        echo '</div>';
+                        echo '</section>';
+                        echo '<img src="https://i.imgur.com/gBfzpkA.jpg" alt="product1" class="product-icon" />';
+                        echo '<div class="product-name">';
+                        echo $newProduct[$i][1];
+                        echo '</div>';
+                        echo '<a href="' . '../product/Product_homepage.php?id=' . $newProduct[$i][0] . '"';
+                        echo 'class="button">Buy now</a>';
+                        echo '</div>';
+                    }
                 }
                 ?>
             </div>
