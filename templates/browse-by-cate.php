@@ -1,22 +1,4 @@
-<?php require '../php/browse_store.php';
-if (empty(session_id())) session_start();
-error_reporting(E_ERROR | E_PARSE);
-if (fopen('../php/install.php', 'r') != null) {
-  exit("'install.php' still exists! Delete it to proceed!");
-}
-
-$chosen_index = array_search($_POST['categories'], $category_name) + 1;
-$count = 0;
-$browse_cate = [];
-foreach ($store_cate_id_array as $c) {
-  if ($c == $chosen_index) {
-    $browse_cate[] = array($store_name_array[$count]);
-  }
-  $count++;
-}
-
-
-?>
+<?php require '../php/browse_cate_require.php' ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -78,10 +60,10 @@ foreach ($store_cate_id_array as $c) {
   <div class="wrapper">
     <div class="drop-down-bar">
       <label id="browse">Browse by categories :</label>
-
-      <form method="post" action="" id="myForm">
+      <br><br>
+      <form method="post" action="browse-by-cate.php" id="myForm">
         <div class="select">
-          <select name="categories" onchange="onChange()" class="select-option">
+          <select name="categories" class="select-option">
             <option <?php if ($_POST['categories'] == 'Department stores') echo 'selected'; ?>>Department stores</option>
             <option <?php if ($_POST['categories'] == 'Grocery stores') echo 'selected'; ?>>Grocery stores</option>
             <option <?php if ($_POST['categories'] == 'Restaurants') echo 'selected'; ?>>Restaurants</option>
@@ -97,6 +79,7 @@ foreach ($store_cate_id_array as $c) {
             <option <?php if ($_POST['categories'] == 'Kiosks') echo 'selected'; ?>>Kiosks</option>
           </select>
         </div>
+        <input type="submit" name="hit-button" value="Submit" id="submit-browse-button">
       </form>
     </div>
   </div>
@@ -111,12 +94,12 @@ foreach ($store_cate_id_array as $c) {
         for ($i = 0; $i < count($browse_cate); $i++) {
           echo '<div class="store-card">';
           echo '<figure>';
-          echo '<a href="' . './store/Store_homepage.php?id=' . $browse_cate[$i][0][1] . '">';
+          echo '<a href="">';
           echo '<img src="https://i.imgur.com/SPU418r.jpg" alt="store1" class="store-icon" />';
           echo '</a>';
           echo '</figure>';
           echo '<div class="store-name">';
-          echo $browse_cate[$i][0];
+          echo $browse_cate[$i];
           echo '</div>';
           echo '</div>';
         }

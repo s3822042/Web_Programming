@@ -1,5 +1,6 @@
 <?php
-    session_start();
+    // check session status and start session 
+	if ( empty(session_id()) ) session_start();
 
     function encrypt_decrypt($string, $action = 'encrypt')
     {
