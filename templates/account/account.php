@@ -1,47 +1,4 @@
-<?php
-if ( empty(session_id()) ) session_start();
-error_reporting(E_ERROR | E_PARSE);
-if (fopen('../php/install.php', 'r') != null) {
-  exit("'install.php' still exists! Delete it to proceed!");
-}
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $_SESSION['postdata'] = $_POST;
-  unset($_POST);
-  header("Location: ".$_SERVER['REQUEST_URI']);
-  exit;
-}
-  
-if (@$_SESSION['postdata']){
-$_POST=$_SESSION['postdata'];
-unset($_SESSION['postdata']);
-}
-
-if(!isset($_SESSION['user'])) header('Location: ../sign-up-form.php');
-
-if (isset($_SESSION['visited-cart-page'])) 
-{
-  unset($_SESSION['visited-cart-page']);
-  header('Location: ../cart.php');
-}
-
-if(isset($_POST['hit-button']) && $_POST['hit-button'] == "Log Out") 
-{
-  unset($_SESSION['user']);
-  header('Location: ../login-form.php');
-}
-
-// echo '<h2>$_SESSION values</h2>';
-// echo '<pre>';
-// print_r($_SESSION);
-// echo '</pre>';
-// echo '<hr>';
-
-// echo '<h2>$_POST values</h2>';
-// echo '<pre>';
-// print_r($_POST);
-// echo '</pre>';
-// echo '<hr>';
-?>
+<?php require "../../php/account_require.php"?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -55,10 +12,9 @@ if(isset($_POST['hit-button']) && $_POST['hit-button'] == "Log Out")
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/account/account.module.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-  <script src="../../js/index.js"></script>
 </head>
 
-<body onload="displayUserInput();">
+<body>
   <!-- Navigation bar -->
   <header>
     <!-- Logo -->

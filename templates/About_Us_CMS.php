@@ -1,28 +1,19 @@
 <?php
- if ( empty(session_id()) ) session_start();
+    // check session status and start session 
+    if ( empty(session_id()) ) session_start();
+    
+    // detect install.php
     error_reporting(E_ERROR | E_PARSE);
-
     if (fopen('../php/install.php', 'r') != null) {
         exit("'install.php' still exists! Delete it to proceed!");
     }
 
+    // save changes
     if (isset($_POST['save-changes-photo'])) {
-        // echo '<h2>$_POST values</h2>';
-        // echo '<pre>';
-        // print_r($_POST);
-        // echo '</pre>';
-        // echo '<hr>';
 
         foreach($_POST as $field => $value) {
             $_SESSION[$field] = $value;
-            // unset($_SESSION[$field]);
         }
-
-        // echo '<h2>$_SESSION values</h2>';
-        // echo '<pre>';
-        // print_r($_SESSION);
-        // echo '</pre>';
-        // echo '<hr>';
         header('location: CMS.php');
     }
 ?>
