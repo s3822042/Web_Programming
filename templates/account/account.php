@@ -1,10 +1,46 @@
 <?php
 if ( empty(session_id()) ) session_start();
 error_reporting(E_ERROR | E_PARSE);
-
 if (fopen('../php/install.php', 'r') != null) {
   exit("'install.php' still exists! Delete it to proceed!");
 }
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $_SESSION['postdata'] = $_POST;
+  unset($_POST);
+  header("Location: ".$_SERVER['REQUEST_URI']);
+  exit;
+}
+  
+if (@$_SESSION['postdata']){
+$_POST=$_SESSION['postdata'];
+unset($_SESSION['postdata']);
+}
+
+if(!isset($_SESSION['user'])) header('Location: ../sign-up-form.php');
+
+if (isset($_SESSION['visited-cart-page'])) 
+{
+  unset($_SESSION['visited-cart-page']);
+  header('Location: ../cart.php');
+}
+
+if(isset($_POST['hit-button']) && $_POST['hit-button'] == "Log Out") 
+{
+  unset($_SESSION['user']);
+  header('Location: ../login-form.php');
+}
+
+// echo '<h2>$_SESSION values</h2>';
+// echo '<pre>';
+// print_r($_SESSION);
+// echo '</pre>';
+// echo '<hr>';
+
+// echo '<h2>$_POST values</h2>';
+// echo '<pre>';
+// print_r($_POST);
+// echo '</pre>';
+// echo '<hr>';
 ?>
 
 <!DOCTYPE html>
@@ -128,7 +164,7 @@ if (fopen('../php/install.php', 'r') != null) {
           <!--Password-->
           <p>Password</p>
           <div class="separator"></div>
-          <form>
+          <form method="post">
             <div class="personal_detail">
               <div></div>
               <div class="information_box">
@@ -136,7 +172,10 @@ if (fopen('../php/install.php', 'r') != null) {
                 <input class="information_text" type="password" name="password" id="password" />
               </div>
             </div>
-            <input type="submit" value="Save" class="submit_button" />
+            <div style="display: flex; justify-content: flex-start;">
+              <input type="submit" name="hit-button" value="Save" class="submit_button" />
+              <input type="submit" name="hit-button" value="Log Out" class="submit_button" />
+            </div>
           </form>
         </div>
       </div>

@@ -210,7 +210,7 @@ body, html {
 	height: 40px;
 	border-radius: 50%;
 }
-
+/* 
 .button > button {
 	font-weight: 900;
 	font-size: x-large;
@@ -226,7 +226,49 @@ body, html {
 	cursor: pointer;
 	background-color: var(--black);
 	color: var(--white);
+} */
+
+
+.button > form > #add-to-cart-button {
+	font-weight: 900;
+	font-size: x-large;
+	padding: 15px 60px;
+	border-radius: 30px;
+	border: 2px solid var(--black);
+	background-color: var(--white);
+	color: var(--black);
+	transition: .5s;
 }
+
+.button > form > #add-to-cart-button:hover {
+	cursor: pointer;
+	background-color: var(--black);
+	color: var(--white);
+}
+
+.button > form > #quantity-input-label {
+	font-weight: 900;
+	font-size: 14px;
+	color: var(--black);
+	transition: .5s;
+	border-radius: 30px;
+}
+
+.button > form > #quantity-input {
+	margin-bottom: 20px; 
+	margin-top: 10px;
+	margin-right: 2px;
+	font-weight: 900;
+	font-size: 14px;
+	padding-left: 10px;
+	border: 2px solid var(--black);
+	border-radius: 30px;
+	width: 60px;
+	color: var(--black);
+	transition: .5s;
+}
+
+
 
 .img-col {
 	border-bottom-left-radius: 100%;

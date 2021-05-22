@@ -19,6 +19,8 @@ $_POST=$_SESSION['postdata'];
 unset($_SESSION['postdata']);
 }
 
+if(isset($_SESSION['user'])) header('Location: account/account.php');
+
 function encrypt_decrypt($string, $action = 'encrypt')
 {
   $encrypt_method = "AES-256-CBC";

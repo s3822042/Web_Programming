@@ -1,22 +1,76 @@
 <?php
-if ( empty(session_id()) ) session_start();
+    if ( empty(session_id()) ) session_start();
 
-error_reporting(E_ERROR | E_PARSE);
-if (fopen('../../php/install.php', 'r') != null) {
-    exit("'install.php' still exists! Delete it to proceed!");
-}
+    // unset($_SESSION['cart']);
 
-$product_csv = "../../data/products.csv";
-$product_file = fopen($product_csv, 'r');
+    error_reporting(E_ERROR | E_PARSE);
+    if (fopen('../../php/install.php', 'r') != null) {
+        exit("'install.php' still exists! Delete it to proceed!");
+    }
 
-while (($product_row = fgetcsv($product_file)) !== FALSE) {
-    $bigArray[] = $product_row;
-}
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $_SESSION['postdata'] = $_POST;
+        unset($_POST);
+        header("Location: ".$_SERVER['REQUEST_URI']);
+        exit;
+    }
+        
+    if (@$_SESSION['postdata']){
+    $_POST=$_SESSION['postdata'];
+    unset($_SESSION['postdata']);
+    }
 
-$path = $_SERVER['REQUEST_URI'];
-$folders = parse_url($path, PHP_URL_QUERY);
-$your_id = explode("=", $folders); // get id
+    $product_csv = "../../data/products.csv";
+    $product_file = fopen($product_csv, 'r');
 
+    while (($product_row = fgetcsv($product_file)) !== FALSE) {
+        $bigArray[] = $product_row;
+    }
+
+    $path = $_SERVER['REQUEST_URI'];
+    $folders = parse_url($path, PHP_URL_QUERY);
+    $your_id = explode("=", $folders); // get id
+
+    function existInArrayById($targetId, $array) {
+        foreach ($array as $subarray) {
+            if ($targetId == $subarray[0]) return true;
+        }
+        return false;
+    }
+
+    if (isset($_POST['button']) && $_POST['button'] == "Add To Cart")
+    {
+        $temp = array($your_id[1], $bigArray[(int)$your_id[1]][1], $bigArray[(int)$your_id[1]][2], $_POST['quantity']);
+        if (isset($_SESSION['cart']))
+        {
+            if (existInArrayById($your_id[1], $_SESSION['cart']))
+            {
+                foreach ($_SESSION['cart'] as &$subCart) {
+                    if ($your_id[1] == $subCart[0]) {
+                        $oldQuantity = $subCart[3];
+                        $subCart[3] = ((int)$oldQuantity + (int)$_POST['quantity']);
+                        break;
+                    }
+                }
+            }
+            else {
+                $_SESSION['cart'][] = $temp;
+            }
+        } else {
+            $_SESSION['cart'][] = $temp;
+        }
+    }
+    // echo '<h2>$_SESSION values</h2>';
+    // echo '<pre>';
+    // print_r($_SESSION);
+    // echo '</pre>';
+    // echo '<hr>';
+
+    // echo '<h2>$_POST values</h2>';
+    // echo '<pre>';
+    // print_r($_POST);
+    // echo '</pre>';
+    // echo '<hr>';
 
 fclose($product_file);
 ?>
@@ -88,11 +142,13 @@ fclose($product_file);
                             </h2>
                         </div>
                         <div class="button left-to-right">
-                            <button>
-                                Add to cart
-                            </button>
+                            <form method="post" name="addProductForm" <?php echo 'action="Product_homepage.php'.'?id='.$your_id[1].'"'; ?>>
+                                <label id="quantity-input-label" for="quantity-input">Quantity:</label>
+                                <input type="number" name="quantity" id="quantity-input" min="0" value="0" onfocus="this.value=''"> <br>
+                                <input type="submit" id="add-to-cart-button" name="button" value="Add To Cart">
+                            </form>
                         </div>
-                    </div>
+                    </div> 
                 </div>
                 <!-- END PRODUCT INFO -->
             </div>
