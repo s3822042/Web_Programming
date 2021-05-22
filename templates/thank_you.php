@@ -1,11 +1,14 @@
 <?php
-if ( empty(session_id()) ) session_start();
+	// check session status and start session 
+	if ( empty(session_id()) ) session_start();
 
+	// detect install.php
 	error_reporting(E_ERROR | E_PARSE);
 	if (fopen('../php/install.php', 'r') != null) {
-		exit("'install.php' still exists! Delete it to proceed!");
-	} 
+	exit("'install.php' still exists! Delete it to proceed!");
+	}
 
+	// clear cart on check out
 	if(isset($_SESSION['cart'])) unset($_SESSION['cart']);
 ?>
 

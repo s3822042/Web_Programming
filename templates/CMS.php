@@ -1,22 +1,14 @@
 <?php
-if ( empty(session_id()) ) session_start();
+    // check session status and start session 
+    if (empty(session_id())) session_start();
+
+    // detect install.php
     error_reporting(E_ERROR | E_PARSE);
-
-    if (fopen('../php/install.php', 'r') != null) {
+    if (fopen('../../php/install.php', 'r') != null) {
         exit("'install.php' still exists! Delete it to proceed!");
-    } 
-    // echo '<h2>$_SESSION values</h2>';
-    // echo '<pre>';
-    // print_r($_SESSION);
-    // echo '</pre>';
-    // echo '<hr>';
+    }
 
-    // echo '<h2>$POST values</h2>';
-    // echo '<pre>';
-    // print_r($POST);
-    // echo '</pre>';
-    // echo '<hr>';
-    
+    // log out option
     if (isset($_POST['log-out'])) {
         unset($_SESSION['user']);
         unset($_SESSION['admin_username']);

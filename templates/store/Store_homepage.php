@@ -1,11 +1,4 @@
-<?php require '../../php/store_page.php';
-if (empty(session_id())) session_start();
-
-error_reporting(E_ERROR | E_PARSE);
-if (fopen('../../php/install.php', 'r') != null) {
-    exit("'install.php' still exists! Delete it to proceed!");
-}
-?>
+<?php require '../../php/store_home_require.php';?>
 
 <!DOCTYPE html>
 <html lang="en">
