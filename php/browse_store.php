@@ -1,14 +1,14 @@
 <?php
 
+// get the data file
 $store_csv = $_SERVER['DOCUMENT_ROOT'] . "../data/stores.csv";
 $category_csv = $_SERVER['DOCUMENT_ROOT'] . "../data/categories.csv";
 
+// open to read file
 $store_file = fopen($store_csv, "r");
 $category_file = fopen($category_csv, 'r');
 
-// Brose by letter
-
-
+// Browse by letter
 
 while (($row = fgetcsv($store_file)) !== FALSE) {
     // Read the data
@@ -21,7 +21,6 @@ $remove = array_pop($browse_letter);
 
 
 // Browse by category
-
 
 $row = 1;
 
@@ -49,9 +48,6 @@ while (($data = fgetcsv($category_file)) !== FALSE) {
     // Add data to array
     $category_name[] = trim($data[1]);
 }
-
-
-
 
 // close file
 fclose($store_file);
