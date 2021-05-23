@@ -84,7 +84,7 @@
           echo '<p class="price">$'.$product[2].'</p>';
           echo  '<form class="quantity" method="post" action="cart.php">
                     <input id="quantity-on-cart" type="number" name="quantity-'.$product[0].'" min="0" value="'.$product[3].'">
-                    <input type="submit" id="confirm-quantity" name="hit-button" value="&#10003;" onclick="window.location.reload();">
+                    <input type="submit" id="confirm-quantity" name="hit-button" value="&#10003;">
                 </form>';
           echo '<p class="total">$'.(float)$product[2] * (int)$product[3].'</p>';
           echo '</div>';
