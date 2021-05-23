@@ -25,15 +25,15 @@
       <ul>
         <a href="templates/about.php">
           <li>About us</li>
-        </a> <a href="templates/fees.html">
+        </a> <a href="templates/fees.php">
           <li>Fees</li>
         </a> <a href="templates/account/account.php">
           <li>Account</li>
-        </a> <a href="templates/browse-menu.html">
+        </a> <a href="templates/browse-menu.php">
           <li>Browse</li>
-        </a> <a href="templates/faq.html">
+        </a> <a href="templates/faq.php">
           <li>FAQs</li>
-        </a> <a href="templates/contact.html">
+        </a> <a href="templates/contact.php">
           <li>Contact</li>
         </a> <a href="templates/login-form.php">
           <li>Sign in</li>
