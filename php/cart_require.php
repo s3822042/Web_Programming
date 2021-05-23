@@ -37,4 +37,24 @@
 	if ($_POST['hit-button'] == 'Continue Shopping') {
 		header('location: ../index.php');
 	}
+
+	// hit clear cart
+	if ($_POST['hit-button'] == 'Clear Cart') {
+		unset($_SESSION['cart']);
+	}
+
+	// hit check
+	if ($_POST['hit-button'] == '✓') {
+		$keys = array_keys($_POST);
+		$getId = explode("-", $keys[0]);
+		$changeTo = $_POST[$keys[0]];
+		foreach($_SESSION['cart'] as &$subCart)
+		{
+		  if ($getId[1] == $subCart[0])
+		  {
+			$subCart[3] = $changeTo;
+			break;
+		  }
+		}
+	}
 ?>

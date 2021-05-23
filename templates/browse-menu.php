@@ -1,12 +1,17 @@
-<html>
+<?php 
+// check session status and start session 
+if ( empty(session_id()) ) session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Forgot Password</title>
+    <title>Browse</title>
     <!-- Link CSS -->
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/forgot-password.module.css" />
+    <link rel="stylesheet" href="../css/browse-menu.module.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -25,7 +30,8 @@
             src="https://i.imgur.com/mE6aWmB.png"
             alt="logo"
             class="logo-img"
-        /></a>
+          />
+        </a>
       </div>
       <!-- Right menu -->
       <nav class="menu">
@@ -34,52 +40,44 @@
           ><i class="fa fa-bars"></i
         ></label>
         <ul>
-          <a href="about.php">
-            <li>About us</li>
-          </a>
-          <a href="fees.html">
-            <li>Fees</li>
-          </a>
-          <a href="account/account.php">
-            <li>Account</li>
-          </a>
-          <a href="browse-menu.html">
-            <li>Browse</li>
-          </a>
-          <a href="faq.html">
-            <li>FAQs</li>
-          </a>
-          <a href="contact.html">
-            <li>Contact</li>
-          </a>
-          <a href="login-form.php">
-            <li>Sign in</li>
-          </a>
-          <a href="cart.php" id="cart"><li>Cart</li></a>
+            <a href="about.php"><li>About us</li></a>
+            <a href="fees.php"><li>Fees</li></a>
+            <a href="account/account.php"><li>Account</li></a>
+            <a href="browse-menu.php"><li>Browse</li></a>
+            <a href="faq.php"><li>FAQs</li></a>
+            <a href="contact.php"><li>Contact</li></a>
+            <a href="login-form.php"><li>Sign in</li></a>
+          <?php 
+              $cartNum = 0;
+              // if cart already exists
+              if (isset($_SESSION['cart']))
+              {
+                  foreach ($_SESSION['cart'] as &$subCart) {
+                      $cartNum += $subCart[3];
+                  }
+                  echo '<a href="cart.php" style="color:red;"><li>Cart: <span>'.$cartNum.'</span></li></a>';
+              // if the array is empty
+              } else {
+                  echo '<a href="cart.php" ><li>Cart</li></a>';
+              }
+          ?>
         </ul>
       </nav>
     </header>
 
-    <section id="wrapper">
-      <h1>Forgot password</h1>
-      <div class="field-wrap">
-        <p>
-          Enter your email address associated with your account and we will send
-          you a link to recover your password
-        </p>
+    <!-- End header -->
+
+    <div class="banner">
+      <div class="vertical-center-1">
+        <button class="button">
+          <a href="browse-by-letters.php">Browse store by letter</a>
+        </button>
+
+        <button class="button">
+          <a href="browse-by-cate.php">Browse store by categories</a>
+        </button>
       </div>
-      <div class="form">
-        <form action="" method="get">
-          <div class="field-wrap">
-            <div id="email-bar">
-              <label for="forgot-password"></label>
-              <input type="email" placeholder="Enter your email" />
-              <button type="submit">Continue</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer class="page-footer">
@@ -100,18 +98,18 @@
               <a href="about.php">About Us</a>
             </div>
             <div class="grid-item">
-              <a href="fees.html">Fees</a>
+              <a href="fees.php">Fees</a>
             </div>
-            <div class="grid-item"><a href="browse-menu.html">Browse</a></div>
+            <div class="grid-item"><a href="browse-menu.php">Browse</a></div>
             <div class="grid-item">
               <a href="term_of_services.php">Term of Service</a>
             </div>
             <div class="grid-item">
               <a href="account/account.php">Account</a>
             </div>
-            <div class="grid-item"><a href="faq.html">FAQs</a></div>
+            <div class="grid-item"><a href="faq.php">FAQs</a></div>
             <div class="grid-item">
-              <a href="contact.html">Contact</a>
+              <a href="contact.php">Contact</a>
             </div>
             <div class="grid-item">
               <a href="privacy_policies.php">Privacy Policy</a>
