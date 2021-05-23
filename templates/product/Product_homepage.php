@@ -25,21 +25,33 @@
             <ul>
                 <a href="../about.php">
                     <li>About us</li>
-                </a> <a href="../fees.html">
+                </a> <a href="../fees.php">
                     <li>Fees</li>
                 </a> <a href="../account/account.php">
                     <li>Account</li>
-                </a> <a href="../browse-menu.html">
+                </a> <a href="../browse-menu.php">
                     <li>Browse</li>
-                </a> <a href="../faq.html">
+                </a> <a href="../faq.php">
                     <li>FAQs</li>
-                </a> <a href="../contact.html">
+                </a> <a href="../contact.php">
                     <li>Contact</li>
                 </a> <a href="../login-form.php">
                     <li>Sign in</li>
-                </a> <a href="../cart.php" id="cart">
-                    <li>Cart</li>
-                </a>
+                </a> 
+                <?php 
+                    $cartNum = 0;
+                    // if cart already exists
+                    if (isset($_SESSION['cart']))
+                    {
+                        foreach ($_SESSION['cart'] as &$subCart) {
+                            $cartNum += $subCart[3];
+                        }
+                        echo '<a href="../cart.php" style="color:red;"><li>Cart: <span>'.$cartNum.'</span></li></a>';
+                    // if the array is empty
+                    } else {
+                        echo '<a href="../cart.php" ><li>Cart</li></a>';
+                    }
+                ?>
             </ul>
         </nav>
     </header>
@@ -148,12 +160,12 @@
                 <!-- Quick Link -->
                 <div class="grid-item inner-grid-container">
                     <div class="grid-item"> <a href="../about.php">About Us</a> </div>
-                    <div class="grid-item"> <a href="../fees.html">Fees</a> </div>
-                    <div class="grid-item"> <a href="../browse-menu.html">Browse</a> </div>
+                    <div class="grid-item"> <a href="../fees.php">Fees</a> </div>
+                    <div class="grid-item"> <a href="../browse-menu.php">Browse</a> </div>
                     <div class="grid-item"> <a href="../term_of_services.php">Term of Service</a> </div>
                     <div class="grid-item"> <a href="../account/account.php">Account</a> </div>
-                    <div class="grid-item"><a href="../faq.html">FAQs</a></div>
-                    <div class="grid-item"> <a href="../contact.html">Contact</a> </div>
+                    <div class="grid-item"><a href="../faq.php">FAQs</a></div>
+                    <div class="grid-item"> <a href="../contact.php">Contact</a> </div>
                     <div class="grid-item"> <a href="../privacy_policies.php">Privacy Policy</a> </div>
                 </div>
                 <!-- Social Link -->

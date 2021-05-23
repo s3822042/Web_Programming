@@ -37,9 +37,21 @@
           <li>Contact</li>
         </a> <a href="templates/login-form.php">
           <li>Sign in</li>
-        </a> <a href="templates/cart.php" id="cart">
-          <li>Cart</li>
-        </a>
+        </a> 
+        <?php 
+            $cartNum = 0;
+            // if cart already exists
+            if (isset($_SESSION['cart']))
+            {
+                foreach ($_SESSION['cart'] as &$subCart) {
+                    $cartNum += $subCart[3];
+                }
+                echo '<a href="cart.php" style="color:red;"><li>Cart: <span>'.$cartNum.'</span></li></a>';
+            // if the array is empty
+            } else {
+                echo '<a href="cart.php" ><li>Cart</li></a>';
+            }
+        ?>
       </ul>
     </nav>
   </header>
@@ -165,12 +177,12 @@
         <!-- Quick Link -->
         <div class="grid-item inner-grid-container">
           <div class="grid-item"> <a href="templates/about.php">About Us</a> </div>
-          <div class="grid-item"> <a href="templates/fees.html">Fees</a> </div>
-          <div class="grid-item"> <a href="templates/browse-menu.html">Browse</a> </div>
+          <div class="grid-item"> <a href="templates/fees.php">Fees</a> </div>
+          <div class="grid-item"> <a href="templates/browse-menu.php">Browse</a> </div>
           <div class="grid-item"> <a href="templates/term_of_services.php">Term of Service</a> </div>
           <div class="grid-item"> <a href="templates/account/account.php">Account</a> </div>
-          <div class="grid-item"><a href="templates/faq.html">FAQs</a></div>
-          <div class="grid-item"> <a href="templates/contact.html">Contact</a> </div>
+          <div class="grid-item"><a href="templates/faq.php">FAQs</a></div>
+          <div class="grid-item"> <a href="templates/contact.php">Contact</a> </div>
           <div class="grid-item"> <a href="templates/privacy_policies.php">Privacy Policy</a> </div>
         </div>
         <!-- Social Link -->

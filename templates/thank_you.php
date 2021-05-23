@@ -49,30 +49,27 @@
           ><i class="fa fa-bars"></i
         ></label>
         <ul>
-          <a href="about.php">
-            <li>About us</li>
-          </a>
-          <a href="fees.html">
-            <li>Fees</li>
-          </a>
-          <a href="account/account.php">
-            <li>Account</li>
-          </a>
-          <a href="browse-menu.html">
-            <li>Browse</li>
-          </a>
-          <a href="faq.html">
-            <li>FAQs</li>
-          </a>
-          <a href="contact.html">
-            <li>Contact</li>
-          </a>
-          <a href="login-form.php">
-            <li>Sign in</li>
-          </a>
-          <a href="cart.php" id="cart">
-            <li>Cart</li>
-          </a>
+          <a href="about.php"><li>About us</li></a>
+          <a href="fees.php"><li>Fees</li></a>
+          <a href="account/account.php"><li>Account</li></a>
+          <a href="browse-menu.php"><li>Browse</li></a>
+          <a href="faq.php"><li>FAQs</li></a>
+          <a href="contact.php"><li>Contact</li></a>
+          <a href="login-form.php"><li>Sign in</li></a>
+          <?php 
+              $cartNum = 0;
+              // if cart already exists
+              if (isset($_SESSION['cart']))
+              {
+                  foreach ($_SESSION['cart'] as &$subCart) {
+                      $cartNum += $subCart[3];
+                  }
+                  echo '<a href="cart.php" style="color:red;"><li>Cart: <span>'.$cartNum.'</span></li></a>';
+              // if the array is empty
+              } else {
+                  echo '<a href="cart.php" ><li>Cart</li></a>';
+              }
+          ?>
         </ul>
       </nav>
     </header>
