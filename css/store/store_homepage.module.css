@@ -324,3 +324,27 @@
     #products .container .product-wrap .product-content .product-price {
         color: #c45500;
     }
+
+#jump-to-browse-button-container {
+    text-align: center;
+}
+
+#jump-to-browse-button{
+    text-decoration: none;
+    padding: 10px 50px 10px 50px;
+    height: 50px;
+    font-size: 2rem;
+    border-radius: 10px;
+    background-color: #000;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+#jump-to-browse-button:hover{
+    background-color: rgb(247, 60, 60);
+
+}
+
+#products {
+    margin-bottom: 70px;
+}

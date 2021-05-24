@@ -1,48 +1,5 @@
-<?php
-if ( empty(session_id()) ) session_start();
+<?php require "../php/browse_time_require.php"; ?>
 
-error_reporting(E_ERROR | E_PARSE);
-if (fopen('../php/install.php', 'r') != null) {
-  exit("'install.php' still exists! Delete it to proceed!");
-}
-
-
-// STORE
-
-$path = $_SERVER['REQUEST_URI'];
-$folders = parse_url($path, PHP_URL_QUERY);
-$your_id = explode("=", $folders); // get id
-
-$products_csv = "../data/products.csv";
-$products_file = fopen($products_csv, "r");
-
-
-while (($products_row = fgetcsv($products_file)) !== FALSE) {
-  // Read the data  
-  if($products_row[4] == $your_id[1]){
-    $productsCreatedDate[] = array($products_row[0], $products_row[1], trim($products_row[3]));
-    //product id, product name, created time
-  }
-};
-
-function date_compare($a, $b)
-{
-  $time1 = strtotime($a[2]);
-  $time2 = strtotime($b[2]);
-  if ($time1 < $time2)
-    return 1;
-  else if ($time1 > $time2)
-    return -1;
-  else
-    return 0;
-};
-
-
-usort($productsCreatedDate, "date_compare");
-
-fclose($products_file);
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -101,41 +58,45 @@ fclose($products_file);
   <section id="products">
         <div class="container">
             <div class="products-header">
-                <h2>Browse product by created time</h2>
+                <h2>Browse products by created time <br><br> <?php echo $product_store_name[(int)$your_id[1]];?>
+				</h2>
             </div>
             <!-- Product card row 1 -->
             <div class = "browse-by-time-product-container">
                 <div class = "changepage">
                   <?php
                     if((int)$your_id[2] > 0){
-                    echo '<a href="#" class="previous button">&laquo; Previous</a>';
+                    echo '<a href="browse-by-created-time.php?id='.$your_id[1] . '='. ((int)$your_id[2]-1) .'"class="previous button">&laquo;</a>';
                     };
                   ?>
                 </div>
                 <div class="product-container" id="product-slider" style="margin-bottom: 20px">
                   <?php
-                  for ($i = 0; $i < 2; $i++) {
-                      echo '<div class="product-card">';
-                      echo '<section class="ribbon">';
-                      echo '<div class="store-nike">';
-                      echo '<a href="">';
-                      echo '<img src="https://i.imgur.com/ljKPWN6.jpg" alt="logo-nike" /></a>';
-                      echo '</div>';
-                      echo '</section>';
-                      echo '<img src="https://i.imgur.com/gBfzpkA.jpg" alt="product1" class="product-icon" />';
-                      echo '<div class="product-name">';
-                      echo $productsCreatedDate[2*(int)$your_id[2]+ $i][1];
-                      echo '</div>';
-                      echo '<a href="' . 'product/Product_homepage.php?id=' . $productsCreatedDate[2*(int)$your_id[2]+$i][0] . '"';
-                      echo 'class="button">Buy now</a>';
-                      echo '</div>';
-                  }
-                ?>
+                    for ($i = 0; $i < 2; $i++) {
+                      if (!empty($productsCreatedDate[(int)$your_id[2]*2 + $i])) 
+                      {
+                        echo '<div class="product-card">';
+                        echo '<section class="ribbon">';
+                        echo '<div class="store-nike">';
+                        echo '<a href="">';
+                        echo '<img src="https://i.imgur.com/ljKPWN6.jpg" alt="logo-nike" /></a>';
+                        echo '</div>';
+                        echo '</section>';
+                        echo '<img src="https://i.imgur.com/gBfzpkA.jpg" alt="product1" class="product-icon" />';
+                        echo '<div class="product-name">';
+                        echo $productsCreatedDate[(int)$your_id[2]*2 + $i][1];
+                        echo '</div>';
+                        echo '<a href="' . 'product/Product_homepage.php?id=' . $productsCreatedDate[(int)$your_id[2]*2 + $i][0] . '"';
+                        echo 'class="button">Buy now</a>';
+                        echo '</div>';
+                      }
+                    }
+                  ?>
                 </div>
                 <div class = "changepage">
                   <?php
                     if((int)$your_id[2] < (count($productsCreatedDate)/2)-1){
-                    echo '<a href="' . 'browse-by-created-time.php?id=' . $your_id[1] . '='. (int)$your_id[2]+1 .'" class="next button">Next &raquo;</a>';
+                    echo '<a href="'.'browse-by-created-time.php?id='. $your_id[1] . '='. ((int)$your_id[2]+1) .'" class="next button">&raquo;</a>';
                     };
                   ?>
                 </div>
@@ -143,11 +104,15 @@ fclose($products_file);
             <div class = "choose_page">
             <?php
               if(count($productsCreatedDate)>2){
-                echo '<div class= "page_number1"><a href="' . 'browse-by-created-time.php?id=' . $your_id[1] . '='. 0 .'" class="next button">first</a></div>';
+                // echo '<div class= "page_number1"><a href="' . 'browse-by-created-time.php?id=' . $your_id[1] . '='. 0 .'" class="next button">first</a></div>';
                 for ($m = 0; $m < count($productsCreatedDate)/2 ; $m++){
-                    echo '<div class= "page_number2"><a href="' . 'browse-by-created-time.php?id=' . $your_id[1] . '='. $m .'" class="next button">' . $m . '</a></div>';
+                    $msg = '';
+                              $msg .= '<div class= "page_number2"><a href="' . 'browse-by-created-time.php?id=' . $your_id[1] . '='. $m .'" class="next button"';
+                    if ($m == $your_id[2]) $msg .= ' style="background-color: #000;"';
+                    $msg .= '>' . $m . '</a></div>';
+                    echo $msg;
                   }
-                echo '<div class= "page_number3"><a href="' . 'browse-by-created-time.php?id=' . $your_id[1] . '='. $m-1 .'" class="next button">Last</a></div>';
+                // echo '<div class= "page_number3"><a href="' . 'browse-by-created-time.php?id=' . $your_id[1] . '='. ($m-1) .'" class="next button">Last</a></div>';
               } 
               ?>
             </div>

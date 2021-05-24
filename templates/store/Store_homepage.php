@@ -143,6 +143,21 @@
     </section>
     <!-- End new product -->
 
+    <!-- New product -->
+    <section id="products">
+        <div class="container">
+            <div class="products-header">
+                <h2>Browse Products</h2>
+            </div>
+        </div>
+        <div id="jump-to-browse-button-container">
+            <a id="jump-to-browse-button" 
+            <?php
+                echo ' href="../browse-by-created-time.php?id=' . $your_id[1] . '"';
+            ?>>Browse by Created Time</a>
+        </div>
+    </section>
+            
     <!-- Footer -->
     <footer class="page-footer">
         <div class="container">
