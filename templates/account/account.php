@@ -123,7 +123,13 @@
               <div></div>
               <div class="information_box">
                 <p>Email address:</p>
-                <input class="information_text" type="text" name="email" id="email" />
+                <input class="information_text" type="text" name="email" id="email" 
+                <?php 
+                  if (isset($_SESSION['user'])) 
+                  {
+                    echo 'value="'.$_SESSION['user'].'"';
+                  }
+                ?>/>
               </div>
             </div>
           </form>
