@@ -1,0 +1,153 @@
+#products .container {
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+    font-size: 16px;
+}
+
+.products-header {
+    text-align: center;
+}
+
+.product-card {
+    flex: 1 0 17%;
+    max-width: 750px;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 2px 0 #ccc;
+    transition: 0.3s;
+    align-items: center;
+    margin: 10px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.product-container {
+    font-family: "Amazon Ember", Arial, sans-serif;
+    align-items: center;
+    justify-content: center;
+    margin: 0 60px 35px 60px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.product-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px -5px #ccc;
+}
+
+.product-icon {
+    width: 50%;
+    object-fit: contain;
+}
+
+.product-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0 10px 0;
+    text-align: center;
+}
+
+.product-description {
+    font-size: 14px;
+    color: #777;
+}
+
+.ribbon {
+    display: inline-block;
+    height: 60px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    position: relative;
+    text-align: center;
+    width: 60%;
+}
+
+.ribbon .store-nike img,
+.ribbon .store-apple img,
+.ribbon .store-rolex img {
+    width: 80%;
+    height: 100px;
+}
+
+.ribbon:before,
+.ribbon:after {
+    background-color: inherit;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    filter: brightness(.5);
+    z-index: -1;
+}
+
+.ribbon:before {
+    left: 0;
+    transform: skewy(45deg);
+}
+
+.ribbon:after {
+    right: 0;
+    transform: skewy(-45deg);
+}
+
+.product-container .button {
+    padding: 05px 10px;
+    color: #999;
+    text-decoration: none;
+    border: 1px solid #999;
+    border-radius: 4px;
+}
+
+.product-container .button:hover {
+    color: #fff;
+    background: #748dff;
+    border: 1px solid #748dff;
+}
+
+.browse-by-time-product-container {
+    display: grid;
+    grid-template-columns: 05% 90% 05%;
+}
+
+.changepage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+.button:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.previous {
+    background-color: #ec0000;
+    color: white;
+}
+
+.next {
+    background-color: #04AA6D;
+    color: white;
+}
+
+.choose_page {
+    text-align: right;
+    margin-right: 100px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.page_number {
+    max-width: 200px;
+    padding: 5px 10px 5px 10px;
+    color: blue;
+    border: gray 1px solid;
+    display: inline-block;
+}
