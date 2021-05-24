@@ -6,6 +6,14 @@
 }
 
 .products-header {
+    padding: 2rem 1rem;
+    text-transform: uppercase;
+    font-family: "Amazon Ember", Arial, sans-serif;
+    color: #232F3E;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 8px;
+    line-height: 1;
     text-align: center;
 }
 
@@ -130,11 +138,17 @@
 .previous {
     background-color: #ec0000;
     color: white;
+    border-radius: 50%;
+    font-size: 3rem; 
+    padding: 5px 25px 10px 23px;   
 }
 
 .next {
     background-color: #04AA6D;
     color: white;
+    border-radius: 50%;
+    font-size: 3rem;   
+    padding: 5px 23px 10px 25px;   
 }
 
 .choose_page {
@@ -144,10 +158,18 @@
     justify-content: flex-end;
 }
 
-.page_number {
+.page_number2 > .next {
     max-width: 200px;
-    padding: 5px 10px 5px 10px;
-    color: blue;
-    border: gray 1px solid;
+    padding: 5px 20px 5px 20px;
+    border-radius: 0px;
+    background-color: #748dff;
+    display: inline-block;
+    font-size: 24px;   
+    margin: 1px;
+}
+
+.page_number2 > .next:hover {
+    background-color: #000;
+    color: #fff;
     display: inline-block;
 }

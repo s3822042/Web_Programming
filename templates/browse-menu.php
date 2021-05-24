@@ -72,7 +72,6 @@
     </header>
 
     <!-- End header -->
-
     <div class="banner">
       <div class="vertical-center-1">
         <button class="button">
