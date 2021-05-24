@@ -43,9 +43,9 @@
 	// check if unique email
 	function isUniqueEmail($email) {
 		clearstatcache();
-		if(filesize('../php/login_data.csv')) {
+		if(filesize('../../php/login_data.csv')) {
 			// file is not empty
-			$targetfile = fopen("../php/login_data.csv", 'r');
+			$targetfile = fopen("../../php/login_data.csv", 'r');
 			while (($datarow = fgetcsv($targetfile)) !== false) {
                 if ($email == $datarow[1]) return false;
             }
@@ -56,9 +56,9 @@
 	// check if unique phone
 	function isUniquePhone($phonenumber) {
 		clearstatcache();
-		if(filesize('../php/login_data.csv')) {
+		if(filesize('../../php/login_data.csv')) {
 			// file is not empty
-			$targetfile = fopen("../php/login_data.csv", 'r');
+			$targetfile = fopen("../../php/login_data.csv", 'r');
 			while (($datarow = fgetcsv($targetfile)) !== false) {
                 if ($phonenumber == $datarow[3]) return false;
             }
@@ -162,14 +162,14 @@
 		// count the number of line to append the id of succesfully signed up users
 		$linecount = 0;
 		clearstatcache();
-		if(filesize('../php/login_data.csv')) {
+		if(filesize('../../php/login_data.csv')) {
 			// file is not empty
-			$targetfile = file("../php/login_data.csv", FILE_SKIP_EMPTY_LINES);
+			$targetfile = file("../../php/login_data.csv", FILE_SKIP_EMPTY_LINES);
 			$linecount = count($targetfile);
 		}
 
 		//Start writing in data file + with id on each row
-		$fp = fopen('../php/login_data.csv', 'a');
+		$fp = fopen('../../php/login_data.csv', 'a');
 		fwrite($fp, $linecount);
 		fwrite($fp, ",");
 		fwrite($fp, $email);
