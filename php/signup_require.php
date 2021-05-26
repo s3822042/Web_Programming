@@ -45,9 +45,9 @@
 		clearstatcache();
 		if(filesize('../../login_data.csv')) {
 			// file is not empty
-			$targetfile = fopen("../../php/login_data.csv", 'r');
+			$targetfile = fopen("../../login_data.csv", 'r');
 			while (($datarow = fgetcsv($targetfile)) !== false) {
-                if ($email == $datarow[1]) return false;
+                if ($email == $datarow[3]) return false;
             }
 		}
 		return true;
@@ -60,7 +60,7 @@
 			// file is not empty
 			$targetfile = fopen("../../login_data.csv", 'r');
 			while (($datarow = fgetcsv($targetfile)) !== false) {
-                if ($phonenumber == $datarow[3]) return false;
+                if ($phonenumber == $datarow[5]) return false;
             }
 		}
 		return true;
@@ -154,10 +154,21 @@
 	if ((count($_POST) == 12 || count($_POST) == 13) && (!isset($_POST['error']))) {
 
 		// assign values into variables
+		$firstname = $_POST['first-name'];
+		$lastname = $_POST['last-name'];
 		$email = $_POST['sign-up-email'];
-		$pwd = $_POST['sign-up-password'];
-		$pwd = encrypt_decrypt($pwd, 'encrypt');
+		$pwd = encrypt_decrypt($_POST['sign-up-password'], 'encrypt');
 		$phonenum = $_POST['phone-number'];
+		$address = $_POST['sign-up-address'];
+		$city = $_POST['sign-up-city'];
+		$country = $_POST['sign-up-country'];
+		$zipcode = $_POST['sign-up-zip-code'];
+		$acctype = $_POST['account-type'];
+		if (isset($_POST['store-name-of-owner'])) 
+		{
+			$storename  = $_POST['store-name-of-owner'];
+		}
+
 
 		// count the number of line to append the id of succesfully signed up users
 		$linecount = 0;
@@ -172,11 +183,30 @@
 		$fp = fopen('../../login_data.csv', 'a');
 		fwrite($fp, $linecount);
 		fwrite($fp, ",");
+		fwrite($fp, $firstname);
+		fwrite($fp, ",");
+		fwrite($fp, $lastname);
+		fwrite($fp, ",");
 		fwrite($fp, $email);
 		fwrite($fp, ",");
 		fwrite($fp, $pwd);
 		fwrite($fp, ",");
 		fwrite($fp, $phonenum);
+		fwrite($fp, ",");
+		fwrite($fp, $address);
+		fwrite($fp, ",");
+		fwrite($fp, $city);
+		fwrite($fp, ",");
+		fwrite($fp, $country);
+		fwrite($fp, ",");
+		fwrite($fp, $zipcode);
+		fwrite($fp, ",");
+		fwrite($fp, $acctype);
+		if (isset($_POST['store-name-of-owner'])) 
+		{
+			fwrite($fp, ",");
+			fwrite($fp, $storename);
+		}
 		fwrite($fp, "\n");
     	fclose($fp);
 		unset($_SESSION['user']);
@@ -189,3 +219,4 @@
 	if ($_POST['account-type'] == "shopper") { 
 		unset($_POST['store-name-of-owner']);
 	}
+?>
