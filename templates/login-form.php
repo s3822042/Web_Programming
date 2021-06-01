@@ -63,19 +63,33 @@
 		  		<?php
 				  	if (isset($_POST['email']) && $_POST['pwd'])
 					  {
-						if ($_POST['email'] != $_SESSION['sign-up-email'] && $_POST['pwd'] != $_SESSION['sign-up-confirm-password']) {
-							echo ' value='.'"Unknown email AND password!"';
-							echo ' style="color: red;"';
-						}
-						else if ($_POST['email'] != $_SESSION['sign-up-email']) 
-						{
-							echo ' value='.'"Unknown email!"';
-							echo ' style="color: red;"';
-						}
-						else if ($_POST['pwd'] != $_SESSION['sign-up-confirm-password']) {
-							echo ' value='.'"Please check your password!"';
-							echo ' style="color: red;"';
-						}
+              $typedEmail = $_POST['email'];
+              $typedPass = $_POST['pwd'];
+              $log_file = fopen('../../login_data.csv', "r");
+
+              while (($data_row = fgetcsv($log_file)) !== FALSE) {
+                if ($typedEmail == $data_row[3] && $typedPass == encrypt_decrypt($data_row[4], 'decrypt'))
+                {
+                  $_SESSION['sign-up-email'] = $_POST['email'];
+                  $_SESSION['sign-up-confirm-password'] = $_POST['pwd'];
+                  break;
+                }
+              }
+
+              if (($_POST['email'] != $_SESSION['sign-up-email'] && $_POST['pwd'] != $_SESSION['sign-up-confirm-password']) || (!isset( $_SESSION['sign-up-email'])) || (!isset( $_SESSION['sign-up-confirm-password'])) ) {
+                echo ' value='.'"Unknown email AND password!"';
+                echo ' style="color: red;"';
+              }
+              else if ($_POST['email'] != $_SESSION['sign-up-email']) 
+              {
+                echo ' value='.'"Unknown email!"';
+                echo ' style="color: red;"';
+              }
+              else if ($_POST['pwd'] != $_SESSION['sign-up-confirm-password']) {
+                echo ' value='.'"Please check your password!"';
+                echo ' style="color: red;"';
+              }
+              fclose($log_file);
 					  }
 				?>
 		  required/>

@@ -52,8 +52,19 @@ if (isset($_POST['log-in-hit'])) {
 	if ($data_file) {
 		$adminUsername = trim(fgets($data_file));
 		$adminPass = trim(encrypt_decrypt(fgets($data_file), 'decrypt'));
-	} else {
-		exit("Cannot find data.txt!");
+	} 
+
+	$typedEmail = $_POST['email'];
+	$typedPass = $_POST['pwd'];
+	$log_file = fopen('../../login_data.csv', "r");
+
+	while (($data_row = fgetcsv($log_file)) !== FALSE) {
+		if ($typedEmail == $data_row[3] && $typedPass == encrypt_decrypt($data_row[4], 'decrypt'))
+		{
+			$_SESSION['sign-up-email'] = $_POST['email'];
+			$_SESSION['sign-up-confirm-password'] = $_POST['pwd'];
+			break;
+		}
 	}
 
 	// if admin
@@ -71,6 +82,11 @@ if (isset($_POST['log-in-hit'])) {
 		unset($_SESSION['sign-up-confirm-password']);
 		header('location: account/account.php');
 	}
+
 	fclose($data_file);
+
+	print_r($_SESSION);
+	print_r($_POST);
+
 }
 ?>

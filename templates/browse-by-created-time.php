@@ -114,16 +114,14 @@
             </div>
             <div class = "choose_page">
             <?php
-              if(count($productsCreatedDate)>2){
-                // echo '<div class= "page_number1"><a href="' . 'browse-by-created-time.php?id=' . $your_id[1] . '='. 0 .'" class="next button">first</a></div>';
+              if(count($productsCreatedDate)>2){        
                 for ($m = 0; $m < count($productsCreatedDate)/2 ; $m++){
                     $msg = '';
-                              $msg .= '<div class= "page_number2"><a href="' . 'browse-by-created-time.php?id=' . $your_id[1] . '='. $m .'" class="next button"';
+                              $msg .= '<div class= "page_number2"><a href="' . 'browse-by-created-time.php?id=' . $your_id[1]. '='. $m .'" class="next button"';
                     if ($m == $your_id[2]) $msg .= ' style="background-color: #000;"';
-                    $msg .= '>' . $m . '</a></div>';
+                    $msg .= '>' . ($m + 1) . '</a></div>';
                     echo $msg;
                   }
-                // echo '<div class= "page_number3"><a href="' . 'browse-by-created-time.php?id=' . $your_id[1] . '='. ($m-1) .'" class="next button">Last</a></div>';
               } 
               ?>
             </div>

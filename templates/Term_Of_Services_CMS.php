@@ -8,11 +8,24 @@
         exit("'install.php' still exists! Delete it to proceed!");
     }
 
+    // handle POST auto-refill when users hit return on browser + clear POST on refresh
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $_SESSION['postdata'] = $_POST;
+      unset($_POST);
+      header("Location: " . $_SERVER['REQUEST_URI']);
+      exit;
+    }
+    if (@$_SESSION['postdata']) {
+      $_POST = $_SESSION['postdata'];
+      unset($_SESSION['postdata']);
+    }
+
     // save changes
     if (isset($_POST['save-changes-ts'])) {
         foreach($_POST as $field => $value) {
             $_SESSION[$field] = $value;
         }
+        header('location: CMS.php');
     }
 ?>
 
